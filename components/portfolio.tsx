@@ -165,7 +165,7 @@ const PortfolioHero = () => {
             </h1>
             <div className='flex flex-wrap gap-2'>
               <span className='inline-flex items-center px-3 py-1 text-xs font-semibold text-white border rounded-full shadow-sm bg-gradient-to-r from-blue-500 to-purple-500 border-blue-600/30 dark:border-purple-400/30'>
-                Crypto & Blockchain Lover
+                Crypto & Blockchain Enthusiast
               </span>
               <span className='inline-flex items-center px-3 py-1 text-xs font-semibold text-white border rounded-full shadow-sm bg-gradient-to-r from-pink-500 to-yellow-500 border-pink-400/30 dark:border-yellow-400/30'>
                 Clean Code
