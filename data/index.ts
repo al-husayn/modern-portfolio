@@ -6,6 +6,29 @@ export const DATA = {
       subtitle:
         "I build fast, accessible and visually engaging web experiences.",
     },
+    coderProfile: {
+      name: "Al-Hussein Abubakar",
+      role: "Frontend Developer",
+      seniority: "Mid-Level",
+      location: "Ghana",
+      skills: [
+        "React",
+        "Next.js",
+        "JavaScript",
+        "TypeScript",
+        "TailwindCSS",
+        "CSS",
+        "Figma",
+        "GitHub",
+        "HTML",
+        "PostgreSQL",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Firebase",
+        "Git",
+      ],
+    },
     skills: {
       sectionTitle: "Skills & Expertise",
       sectionDescription:
