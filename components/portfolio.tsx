@@ -6,6 +6,7 @@ import { Button, Link } from '@heroui/react';
 import { Icon } from '@iconify/react';
 
 import { Hole } from '@/components/backgrounds/hole/hole';
+import { DATA } from '@/data';
 
 // Self-contained SVG icon
 const DotIcon = () => (
@@ -19,29 +20,7 @@ const DotIcon = () => (
   </svg>
 );
 
-const coderData = {
-  name: 'Al-Hussein Abubakar',
-  role: 'Frontend Developer',
-  seniority: 'Mid-Level',
-  location: 'Ghana',
-  skills: [
-    'React',
-    'Next.js',
-    'JavaScript',
-    'TypeScript',
-    'TailwindCSS',
-    'CSS',
-    'Figma',
-    'GitHub',
-    'HTML',
-    'PostgreSQL',
-    'Node.js',
-    'Express',
-    'MongoDB',
-    'Firebase',
-    'Git',
-  ],
-};
+const coderData = DATA.home.coderProfile;
 
 const CoderProfileCard = () => (
   <div className='w-full mx-auto bg-gradient-to-r from-zinc-100 to-zinc-200 dark:from-[#000000] dark:to-[#0a0d37] border-zinc-300 dark:border-[#1b2c68a0] relative rounded-lg border shadow-lg'>
@@ -177,21 +156,27 @@ const PortfolioHero = () => {
               Welcome to my universe
             </div>
             <h1 className='text-4xl font-bold leading-tight text-gray-900 sm:text-5xl lg:text-6xl dark:text-white'>
-              Hello
-              <br />
-              I&apos;m{' '}
-              <span className='text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text'>
-                Al-Hussein A.
-              </span>
-            </h1>
+    Hello
+    <br />
+    I&apos;m{' '}
+    <span className='text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text'>
+      Al-Hussein A.
+    </span>
+  </h1>
             <div className='flex flex-wrap gap-2'>
-              <span className='badge'>Learning Blockchain</span>
-              <span className='badge'>Clean Code</span>
-              <span className='badge'>Innovation</span>
+              <span className='inline-flex items-center px-3 py-1 text-xs font-semibold text-white border rounded-full shadow-sm bg-gradient-to-r from-blue-500 to-purple-500 border-blue-600/30 dark:border-purple-400/30'>
+                Learning Blockchain
+              </span>
+              <span className='inline-flex items-center px-3 py-1 text-xs font-semibold text-white border rounded-full shadow-sm bg-gradient-to-r from-pink-500 to-yellow-500 border-pink-400/30 dark:border-yellow-400/30'>
+                Clean Code
+              </span>
+              <span className='inline-flex items-center px-3 py-1 text-xs font-semibold text-white border rounded-full shadow-sm bg-gradient-to-r from-green-500 to-cyan-500 border-green-400/30 dark:border-cyan-400/30'>
+                Innovation
+              </span>
             </div>
             <p className='max-w-lg text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg lg:text-xl'>
-              JavaScript lover 🖋️ | Crypto & Blockchain Lover ⚡ | Crafting frameworks and
-              coding the future ✨
+              JavaScript lover 🖋️ | Blockchain ⚡ | Crafting
+              frameworks and coding the future ✨
             </p>
 
             {/* Replaced Buttons from HeroSection */}
