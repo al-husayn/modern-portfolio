@@ -32,16 +32,16 @@ export const HeroSection = ({
     <section className="min-h-[calc(100vh-64px)] flex items-center justify-center relative overflow-hidden bg-background">
       {showBackground && <Hole />}
       <div className="absolute inset-0 bg-gradient-to-b from-primary-500/10 to-transparent" />
-      <div className="container mx-auto px-4 z-10">
+      <div className="container z-10 px-4 mx-auto">
         <motion.div
           animate={{ opacity: 1, y: 0 }}
-          className="text-center max-w-4xl mx-auto"
+          className="max-w-4xl mx-auto text-center"
           initial={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.h1
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent"
+            className="mb-6 text-4xl font-bold text-transparent md:text-6xl bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text"
             initial={{ opacity: 0, y: 20 }}
             transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
@@ -51,7 +51,7 @@ export const HeroSection = ({
 
           <motion.p
             animate={{ opacity: 1, y: 0 }}
-            className="text-foreground-600 text-lg md:text-xl mb-8 leading-relaxed"
+            className="mb-8 text-lg leading-relaxed text-foreground-600 md:text-xl"
             initial={{ opacity: 0, y: 20 }}
             transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
@@ -60,7 +60,7 @@ export const HeroSection = ({
 
           <motion.div
             animate={{ opacity: 1, y: 0 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
+            className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
             initial={{ opacity: 0, y: 20 }}
             transition={{ delay: 0.6, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
@@ -95,6 +95,7 @@ export const HeroSection = ({
             </Button>
           </motion.div>
         </motion.div>
+        
       </div>
     </section>
   );
