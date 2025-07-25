@@ -12,21 +12,24 @@ export const DATA = {
       seniority: 'Mid-Level',
       location: 'Ghana',
       skills: [
+        // Frontend
         'React',
         'Next.js',
         'JavaScript',
         'TypeScript',
-        'Python',
         'TailwindCSS',
         'CSS',
-        'Figma',
-        'GitHub',
         'HTML',
-        'PostgreSQL',
+        // Backend
         'Node.js',
         'Express',
         'MongoDB',
         'Firebase',
+        'PostgreSQL',
+        'Python',
+        // Tools & Others
+        'Figma',
+        'GitHub',
         'Git',
         'Wordpress',
       ],

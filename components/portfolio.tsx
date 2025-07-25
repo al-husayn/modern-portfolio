@@ -175,8 +175,7 @@ const PortfolioHero = () => {
               </span>
             </div>
             <p className='max-w-lg text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg lg:text-xl'>
-              JavaScript lover 🖋️ | Crypto & Blockchain ⚡ | Crafting frameworks
-              and coding the future ✨
+              JavaScript lover 🖋️ | Blockchain ⚡ | Crafting frameworks and coding the future ✨
             </p>
 
             {/* Replaced Buttons from HeroSection */}
