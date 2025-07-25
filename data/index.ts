@@ -7,7 +7,7 @@ export const DATA = {
         'I build fast, accessible and visually engaging web experiences.',
     },
     coderProfile: {
-      name: 'Al-Hussein Abubakar',
+      name: 'Al-Hussein A.',
       role: 'Frontend Developer',
       seniority: 'Mid-Level',
       location: 'Ghana',
@@ -130,7 +130,7 @@ export const DATA = {
   },
   about: {
     profile: {
-      name: 'Al-Hussein Abubakar',
+      name: 'Al-Hussein A.',
       title: 'Software Developer',
       image:
         'https://al-drake.netlify.app/static/media/profile.211cb621e39afe112f2a.png',
