@@ -156,16 +156,16 @@ const PortfolioHero = () => {
               Welcome to my universe
             </div>
             <h1 className='text-4xl font-bold leading-tight text-gray-900 sm:text-5xl lg:text-6xl dark:text-white'>
-    Hello
-    <br />
-    I&apos;m{' '}
-    <span className='text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text'>
-      Al-Hussein A.
-    </span>
-  </h1>
+              Hello
+              <br />
+              I&apos;m{' '}
+              <span className='text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text'>
+                Al-Hussein A.
+              </span>
+            </h1>
             <div className='flex flex-wrap gap-2'>
               <span className='inline-flex items-center px-3 py-1 text-xs font-semibold text-white border rounded-full shadow-sm bg-gradient-to-r from-blue-500 to-purple-500 border-blue-600/30 dark:border-purple-400/30'>
-                Learning Blockchain
+                Crypto & Blockchain Enthusiast
               </span>
               <span className='inline-flex items-center px-3 py-1 text-xs font-semibold text-white border rounded-full shadow-sm bg-gradient-to-r from-pink-500 to-yellow-500 border-pink-400/30 dark:border-yellow-400/30'>
                 Clean Code
@@ -175,8 +175,7 @@ const PortfolioHero = () => {
               </span>
             </div>
             <p className='max-w-lg text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg lg:text-xl'>
-              JavaScript lover 🖋️ | Blockchain ⚡ | Crafting
-              frameworks and coding the future ✨
+              JavaScript lover 🖋️ | Blockchain ⚡ | Crafting frameworks and coding the future ✨
             </p>
 
             {/* Replaced Buttons from HeroSection */}
