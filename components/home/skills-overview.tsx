@@ -13,24 +13,24 @@ export const SkillsOverviewSection = () => {
 
   return (
     <section className="py-20 bg-content1">
-      <div className="container mx-auto px-4">
+      <div className="container px-4 mx-auto">
         <motion.div
-          className="text-center mb-16"
+          className="mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           whileInView={{ opacity: 1, y: 0 }}
         >
           <GradientText
-            className="text-3xl md:text-4xl font-bold mb-4 gradient"
+            className="mb-4 text-3xl font-bold md:text-4xl gradient"
             text={sectionTitle}
           />
-          <p className="text-foreground-600 text-lg max-w-2xl mx-auto">
+          <p className="max-w-2xl mx-auto text-lg text-foreground-600">
             {sectionDescription}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid max-w-4xl grid-cols-1 gap-8 mx-auto md:grid-cols-2">
           {overview.map((skill, index) => (
             <motion.div
               key={skill.name}

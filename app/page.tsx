@@ -1,4 +1,4 @@
-import Portfolio from "../components/portfolio";
+import Portfolio from "../components/home/portfolio";
 
 // import { HeroSection } from "@/components/home/hero";
 import { SkillsOverviewSection } from "@/components/home/skills-overview";
