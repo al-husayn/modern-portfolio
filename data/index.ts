@@ -242,7 +242,7 @@ export const DATA = {
   projects: {
     sectionTitle: 'Featured Projects',
     sectionDescription:
-      'A selection of my recent projects showcasing UI/UX design and development expertise',
+      'A selection of my recent projects showcasing software development expertise',
     work: [
       {
         id: 1,
@@ -503,7 +503,7 @@ export const DATA = {
     { name: 'Blog', href: '/blog', icon: 'lucide:book-open' },
   ],
   footer: {
-    name: 'Al-Hussein Abubakar',
+    name: 'Al-Hussein A.',
     description: 'Always interested in new projects and collaborations.',
     contact: {
       email: 'alhusayn532@gmail.com',
