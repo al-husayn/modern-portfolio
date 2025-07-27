@@ -29,8 +29,8 @@ This is a modern, animated, and fully responsive portfolio template built with *
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/Sofiane-Bahmed/portfolio-template.git
-   cd portfolio-template
+   git clone https://github.com/al-husayn/modern-portfolio.git
+   cd modern-portfolio
    ```
 
 2. **Install dependencies:**
