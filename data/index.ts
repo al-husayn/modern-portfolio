@@ -135,32 +135,32 @@ export const DATA = {
       image:
         'https://al-drake.netlify.app/static/media/profile.211cb621e39afe112f2a.png',
       description: [
-        "I'm a creative full-stack developer with a passion for UI/UX design and clean code. I focus on building beautiful, functional, and high-performance websites and web apps.",
+        "I'm a creative software developer with a passion for frontend and clean code. I focus on building beautiful, functional, and high-performance websites and web apps.",
         'My approach is both technical and aesthetic — I enjoy turning complex problems into elegant user experiences. I work primarily with modern frameworks like React, Vite, and TailwindCSS.',
-        'Outside of code, I enjoy motion design, product strategy, and always pushing the boundaries of front-end development.',
+        'Outside of code, I enjoy tech support, reading, football, product strategy, and always pushing the boundaries of front-end development.',
       ],
     },
     education: [
       {
-        title: 'High School of Art and Design',
-        date: '2003 - 2006',
+        title: 'Kumasi Academy',
+        date: '2008 - 2012',
         icon: 'mdi:palette',
         description:
           'Focused on foundational art and visual design principles, which sparked my early interest in creative problem solving. Explored traditional media, digital illustration, and visual storytelling.',
       },
       {
-        title: 'University of Technology and Design',
-        date: '2006 - 2010',
+        title: 'University of Cape Coast',
+        date: '2013 - 2017',
         icon: 'mdi:school',
         description:
-          "Earned a Bachelor's degree in Computer Science with a minor in Design. Gained strong skills in software development, user interface engineering, data structures, and human-computer interaction.",
+          "Earned a Bachelor's degree in Social Science with a combined major of both Geography and Sociology. Gained strong skills and foundation in research, critical thinking, and communication, alongside specialized knowledge in spatial analysis and social structures human interaction.",
       },
       {
-        title: 'Institute of Interactive Media',
-        date: '2011 - 2012',
+        title: 'AmaliTech Training Academy',
+        date: '2021 - 2021',
         icon: 'mdi:school-outline',
         description:
-          "Completed a Master's degree specializing in UX/UI Design and Front-End Development. Merged technical expertise with visual communication to design user-centered digital products and prototypes.",
+          "Completed an extensive graduate software engineering training specializing in Fullstack Development. Merged technical expertise with visual communication to design user-centered digital products and prototypes.",
       },
     ],
     experience: [
