@@ -146,7 +146,7 @@ export const DATA = {
         date: '2008 - 2012',
         icon: 'mdi:palette',
         description:
-          'Focused on foundational art and visual design principles, which sparked my early interest in creative problem solving. Explored traditional media, digital illustration, and visual storytelling.',
+          'Focused on general arts and visual design principles, which sparked my early interest in creative problem solving. Explored traditional media, digital illustration, and visual storytelling.',
       },
       {
         title: 'University of Cape Coast',
