@@ -27,12 +27,12 @@ export const Navigation = () => {
   return (
     <Navbar
       isBordered
-      className="bg-background/70 backdrop-blur-md border-b border-divider"
+      className="border-b bg-background/70 backdrop-blur-md border-divider"
       isMenuOpen={isMenuOpen}
       maxWidth="xl"
       onMenuOpenChange={setIsMenuOpen}
     >
-      <NavbarContent className="flex justify-between items-center w-full">
+      <NavbarContent className="flex items-center justify-between w-full">
         <NavbarBrand>
           <motion.div
             animate={{ opacity: 1, x: 0 }}
@@ -40,16 +40,16 @@ export const Navigation = () => {
             transition={{ duration: 0.5 }}
           >
             <Link
-              className="font-bold text-inherit text-xl bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent"
+              className="text-xl font-bold text-transparent text-inherit bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text"
               href="/"
               onClick={() => setIsMenuOpen(false)}
             >
-              Portfolio
+              Al-Hussein A.
             </Link>
           </motion.div>
         </NavbarBrand>
 
-        <NavbarContent className="hidden sm:flex justify-center gap-6 flex-grow">
+        <NavbarContent className="justify-center flex-grow hidden gap-6 sm:flex">
           {menuItems.map((item, index) => (
             <NavbarItem key={item.name}>
               <motion.div
@@ -84,8 +84,8 @@ export const Navigation = () => {
       </NavbarContent>
 
       {/* Mobile Menu */}
-      <NavbarMenu className="bg-background/80 backdrop-blur-lg pt-6 sm:hidden">
-        <div className="mx-auto max-w-lg space-y-4">
+      <NavbarMenu className="pt-6 bg-background/80 backdrop-blur-lg sm:hidden">
+        <div className="max-w-lg mx-auto space-y-4">
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={item.name}>
               <motion.div
@@ -94,7 +94,7 @@ export const Navigation = () => {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <Link
-                  className="w-full flex items-center gap-3 py-3 px-4 rounded-medium hover:bg-content1 transition-colors"
+                  className="flex items-center w-full gap-3 px-4 py-3 transition-colors rounded-medium hover:bg-content1"
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
                 >
