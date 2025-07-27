@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     default: DATA.home.hero.name,
     template: `%s | ${DATA.home.hero.name}`,
   },
+  
   description: DATA.home.hero.subtitle,
   openGraph: {
     title: {
@@ -51,6 +52,12 @@ export const metadata: Metadata = {
     },
     card: "summary_large_image",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      
+    ],
+  },
 };
 
 type RootLayoutProps = {
@@ -59,7 +66,7 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   const content = (
-    <main className="bg-background min-h-screen bg-gradient-to-b from-background to-content2">
+    <main className="min-h-screen bg-background bg-gradient-to-b from-background to-content2">
       <Navigation />
       <PageWrapper>{children}</PageWrapper>
       <Footer />
@@ -68,6 +75,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
   return (
     <html suppressHydrationWarning lang="en">
+        
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased",

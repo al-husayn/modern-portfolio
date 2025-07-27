@@ -36,13 +36,14 @@ const ContactPage: React.FC = () => {
         .map(([key]) => `NEXT_PUBLIC_EMAILJS_${key.toUpperCase().replace(/([A-Z])/g, "_$1")}`);
 
       if (missingVars.length > 0) {
-        console.error("Email configuration is incomplete:", missingVars);
+        // console.error("Email configuration is incomplete:", missingVars);
         addToast({
           title: "Failed to Send Message",
           description: "Email configuration is incomplete. Please check environment variables.",
           color: "danger",
         });
         setState((prev) => ({ ...prev, isSubmitting: false }));
+
         return;
       }
 
@@ -98,7 +99,7 @@ const ContactPage: React.FC = () => {
   return (
     <section className="py-20">
       <PageHeader texts={DATA.morphingTexts.contact} />
-      <div className="container mx-auto px-4">
+      <div className="container px-4 mx-auto">
         <ContactCard heading={DATA.contact.heading}>
           <ContactMap src={DATA.contact.location.mapSrc} />
           <ContactForm
@@ -110,8 +111,8 @@ const ContactPage: React.FC = () => {
         </ContactCard>
 
         {state.error && (
-          <div className="mt-6 p-4 bg-danger-50 border border-danger-200 rounded-lg">
-            <p className="text-danger-700 text-sm">{state.error}</p>
+          <div className="p-4 mt-6 border rounded-lg bg-danger-50 border-danger-200">
+            <p className="text-sm text-danger-700">{state.error}</p>
           </div>
         )}
       </div>

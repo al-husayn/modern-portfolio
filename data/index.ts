@@ -1,7 +1,7 @@
 export const DATA = {
   home: {
     hero: {
-      name: 'Al-Hussein',
+      name: 'Al-Hussein A.',
       title: 'Full stack developer, Social Scientist & Blockchain Enthusiast',
       subtitle:
         'I build fast, accessible and visually engaging web experiences.',
