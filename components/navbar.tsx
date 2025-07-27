@@ -40,7 +40,7 @@ export const Navigation = () => {
             transition={{ duration: 0.5 }}
           >
             <Link
-              className="text-xl font-bold text-transparent text-inherit bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text"
+              className="text-xl font-bold text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text"
               href="/"
               onClick={() => setIsMenuOpen(false)}
             >
