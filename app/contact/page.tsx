@@ -36,7 +36,7 @@ const ContactPage: React.FC = () => {
         .map(([key]) => `NEXT_PUBLIC_EMAILJS_${key.toUpperCase().replace(/([A-Z])/g, "_$1")}`);
 
       if (missingVars.length > 0) {
-        // console.error("Email configuration is incomplete:", missingVars);
+        console.error("Email configuration is incomplete:", missingVars);
         addToast({
           title: "Failed to Send Message",
           description: "Email configuration is incomplete. Please check environment variables.",
