@@ -142,12 +142,13 @@ export const DATA = {
     },
     education: [
       {
-        title: 'Kumasi Academy',
-        date: '2008 - 2012',
-        icon: 'mdi:palette',
+        title: 'AmaliTech Training Academy',
+        date: '2021 - 2021',
+        icon: 'mdi:school-outline',
         description:
-          'Focused on general arts and visual design principles, which sparked my early interest in creative problem solving. Explored traditional media, digital illustration, and visual storytelling.',
+          'Completed an extensive graduate software engineering training specializing in Fullstack Development. Merged technical expertise with visual communication to design user-centered digital products and prototypes.',
       },
+
       {
         title: 'University of Cape Coast',
         date: '2013 - 2017',
@@ -156,31 +157,31 @@ export const DATA = {
           "Earned a Bachelor's degree in Social Science with a combined major of both Geography and Sociology. Gained strong skills and foundation in research, critical thinking, and communication, alongside specialized knowledge in spatial analysis and social structures human interaction.",
       },
       {
-        title: 'AmaliTech Training Academy',
-        date: '2021 - 2021',
-        icon: 'mdi:school-outline',
+        title: 'Kumasi Academy',
+        date: '2008 - 2012',
+        icon: 'mdi:palette',
         description:
-          "Completed an extensive graduate software engineering training specializing in Fullstack Development. Merged technical expertise with visual communication to design user-centered digital products and prototypes.",
+          'Focused on general arts and visual design principles, which sparked my early interest in creative problem solving. Explored traditional media, digital illustration, and visual storytelling.',
       },
     ],
     experience: [
       {
         title: 'Creative Director',
-        date: '2018 - Present',
+        date: '2024 - Present',
         icon: 'mdi:briefcase',
         description:
           'Lead creative and development teams to build digital experiences that combine innovation with user empathy. Oversee branding, UI/UX strategy, and development pipelines for tech startups and clients.',
       },
       {
-        title: 'Senior UX Engineer',
-        date: '2015 - 2018',
+        title: 'Associate Software Engineer',
+        date: '2022 - 2024',
         icon: 'mdi:monitor-dashboard',
         description:
           'Designed and implemented high-fidelity web interfaces using React, Figma, and Tailwind. Collaborated cross-functionally with developers and designers to craft intuitive user flows and interactions.',
       },
       {
         title: 'Front-End Developer & Designer',
-        date: '2012 - 2015',
+        date: '2021 - 2022',
         icon: 'mdi:code-tags',
         description:
           'Developed responsive websites and applications with a focus on accessibility, visual aesthetics, and performance. Delivered pixel-perfect interfaces from wireframes to production code.',
@@ -204,9 +205,9 @@ export const DATA = {
           'I build fast APIs and scalable backends using Node.js, Bun, and Python.',
         tools: [
           { name: 'Node.js', icon: 'logos:nodejs-icon' },
-          { name: 'Bun', icon: 'logos:bun' },
+          { name: 'Prisma', icon: 'logos:prisma' },
           { name: 'Python', icon: 'logos:python' },
-          { name: 'MySQL', icon: 'logos:mysql-icon' },
+          { name: 'Sanity', icon: 'logos:sanity' },
           { name: 'PostgresSQL', icon: 'logos:postgresql' },
           { name: 'OpenAI', icon: 'simple-icons:openai' },
         ],
