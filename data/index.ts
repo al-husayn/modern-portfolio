@@ -531,4 +531,43 @@ export const DATA = {
     ],
     services: ['UI/UX Design', 'Web Development', 'Mobile Apps', 'Consulting'],
   },
+  blog: {
+    posts: [
+      {
+        title: "Why I Love React and Next.js",
+        slug: "why-i-love-react-nextjs",
+        summary: "A personal reflection on why React and Next.js are my go-to tools for modern web development.",
+        date: "2025-07-20",
+        category: "Tech",
+      },
+      {
+        title: "Building Accessible Web Apps",
+        slug: "building-accessible-web-apps",
+        summary: "Tips and strategies for making your web applications accessible to everyone.",
+        date: "2025-07-10",
+        category: "UI/UX",
+      },
+      {
+        title: "My Journey into Blockchain",
+        slug: "my-journey-into-blockchain",
+        summary: "How I started learning about blockchain and why it fascinates me.",
+        date: "2025-06-30",
+        category: "Blockchain",
+      },
+      {
+        title: "Design Systems for Developers",
+        slug: "design-systems-for-developers",
+        summary: "How design systems can speed up your workflow and improve consistency.",
+        date: "2025-06-15",
+        category: "Tech",
+      },
+       {
+        title: "Remote Work: Lessons Learned",
+        slug: "remote-work-lessons-learned",
+        summary: "What I've learned from working remotely as a developer.",
+        date: "2025-05-28",
+        category: "Career",
+      },
+    ]
+  },
 } as const;
