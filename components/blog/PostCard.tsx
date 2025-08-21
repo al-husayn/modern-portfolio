@@ -18,7 +18,7 @@ export default function PostCard({
   featureImage,
 }: PostCardProps) {
   return (
-    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+    <motion.div initial={{opacity: 0, y: 20}} animate={{opacity: 1, y: 0}} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
       <Card className='overflow-hidden shadow-md rounded-2xl'>
         <Image
           alt={title}
