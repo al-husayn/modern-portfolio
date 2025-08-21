@@ -1,17 +1,23 @@
-const AuthorCard = ({ name, avatar }: { name: string; avatar: string }) => {
-  return (
-    <div className="flex items-center mb-8 space-x-4">
-      <img
-        alt={name}
-        className="object-cover w-12 h-12 rounded-full"
-        src={avatar}
-        />
-        <div>
-            <h3 className="text-lg font-semibold">{name}</h3>
-            <p className="text-sm text-gray-500">Author</p>
-        </div>
-    </div>
-    );
-}
+import Image from 'next/image';
 
-export default AuthorCard;
+type AuthorCardProps = {
+  name: string;
+  avatar?: string;
+};
+
+export default function AuthorCard({ name, avatar }: AuthorCardProps) {
+  return (
+    <div className='flex items-center gap-3 my-6'>
+      {avatar && (
+        <Image
+          alt={name}
+          className='rounded-full'
+          height={40}
+          src={avatar}
+          width={40}
+        />
+      )}
+      <span className='text-gray-700 dark:text-gray-300'>{name}</span>
+    </div>
+  );
+}
