@@ -495,6 +495,7 @@ export const DATA = {
     about: ['Creative', 'Passionate', 'Developer'] as const,
     projects: ['My Work', 'Creations', 'Experiments', 'Innovations'] as const,
     contact: ["Let's", 'Build', 'Together'] as const,
+    blog: [' Recently Published','Articles', 'Tutorials', 'Insights', 'Stories'] as const,
   },
   navigation: [
     { name: 'Home', href: '/', icon: 'lucide:home' },
