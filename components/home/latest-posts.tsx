@@ -1,7 +1,8 @@
 import Link from "next/link";
 
-import { formatDate, getBlogPosts } from "@/app/blog/utils";
 import { PageHeader } from "../page-header";
+
+import { formatDate, getBlogPosts } from "@/app/blog/utils";
 import { DATA } from "@/data";
 
 
@@ -25,13 +26,15 @@ export default function LatestPosts() {
         .map((post) => (
           <article key={post.slug} className='max-w-md my-10 text-wrap'>
             <Link href={`/blog/${post.metadata.category}/${post.slug}`}>
-              <h3 className='py-2 font-bold leading-5 hover:text-blue-400'>
+              <h3 className='py-2 font-bold leading-5 text-foreground hover:text-primary-500'>
                 {post.metadata.title}
               </h3>
             </Link>
             <p className='my-5 leading-8'>{post.metadata.summary}</p>
             <p className='text-sm text-muted-foreground'>
               {formatDate(post.metadata.publishedAt)}
+              {" • "}
+              {post.readingTime}
             </p>
           </article>
         ))}

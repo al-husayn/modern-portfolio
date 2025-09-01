@@ -12,6 +12,15 @@ function readMDXFile(filePath: fs.PathOrFileDescriptor) {
 
   return matter(rawContent);
 }
+
+function calculateReadingTime(content: string) {
+  const wordsPerMinute = 200; // Average reading speed
+  const words = content.split(/\s+/).length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+
+  return `${minutes} min read`;
+}
+
 // present the mdx data and metadata
 function getMDXData(dir: string) {
   let mdxFiles = getMDXFiles(dir);
@@ -19,11 +28,13 @@ function getMDXData(dir: string) {
   return mdxFiles.map((file) => {
     let { data: metadata, content } = readMDXFile(path.join(dir, file));
     let slug = path.basename(file, path.extname(file));
+    let readingTime  = calculateReadingTime(content);
 
     return {
       metadata,
       slug,
       content,
+      readingTime,
     };
   });
 }
