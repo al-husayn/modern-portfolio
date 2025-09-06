@@ -501,7 +501,11 @@ export const DATA = {
     { name: 'About', href: '/about', icon: 'lucide:user' },
     { name: 'Projects', href: '/projects', icon: 'lucide:folder-code' },
     { name: 'Contact', href: '/contact', icon: 'lucide:send' },
-    { name: 'Blog', href: '/blog', icon: 'lucide:book-open' },
+    {
+      name: 'Blog',
+      href: 'https://blog.al-husayn.dev/',
+      icon: 'lucide:book-open',
+    },
   ],
   footer: {
     name: 'Al-Hussein A.',
