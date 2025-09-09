@@ -38,7 +38,7 @@ const PortfolioHero = () => {
               <br />
               I&apos;m{' '}
               <span className='text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text'>
-                Al-Hussein A.
+                Al-Hussein
               </span>
             </h1>
             <div className='flex flex-wrap gap-2'>

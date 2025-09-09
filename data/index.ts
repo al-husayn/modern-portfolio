@@ -40,15 +40,15 @@ export const DATA = {
         ' Specialized in creating modern digital experiences with cutting-edge technologies',
       overview: [
         {
-          name: 'Frontend Development',
+          name: 'Web Development',
           level: 95,
           icon: 'lucide:code',
           color: 'secondary',
         },
         {
-          name: 'Web Development',
+          name: 'Mobile Apps',
           level: 90,
-          icon: 'lucide:laptop',
+          icon: 'lucide:tablet-smartphone',
           color: 'success',
         },
         {
@@ -58,11 +58,17 @@ export const DATA = {
           color: 'warning',
         },
         {
-          name: 'Graphic Design',
+          name: 'UI/UX Design',
           level: 85,
           icon: 'lucide:layout-dashboard',
           color: 'primary',
         },
+        // {
+        //   name: 'Consulting',
+        //   level: 85,
+        //   icon: 'lucide:user-check',
+        //   color: 'primary',
+        // },
       ],
     },
     testimonials: {
@@ -504,7 +510,7 @@ export const DATA = {
     {
       name: 'Blog',
       href: 'https://blog.al-husayn.dev/',
-      icon: 'lucide:book-open',
+      icon: 'lucide:rss',
     },
   ],
   footer: {
@@ -529,10 +535,21 @@ export const DATA = {
       },
       {
         platform: 'Website',
-        url: 'https://al-drake.netlify.app/',
+        url: 'https://www.al-husayn.dev/',
         icon: 'mdi:web',
       },
+      {
+        platform: 'RSS',
+        url: 'https://blog.al-husayn.dev/',
+        icon: 'mdi:rss',
+      }
     ],
-    services: ['UI/UX Design', 'Web Development', 'Mobile Apps', 'Consulting'],
+    services: [
+      'UI/UX Design',
+      'Web Development',
+      'Mobile Apps',
+      'IT Support',
+      'Consulting',
+    ],
   },
 } as const;
