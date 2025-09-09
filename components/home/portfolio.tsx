@@ -5,132 +5,10 @@ import React from 'react';
 import { Button, Link } from '@heroui/react';
 import { Icon } from '@iconify/react';
 
+import DotIcon from './doticon';
+import CodeEditor from './codeEditor';
+
 import { Hole } from '@/components/backgrounds/hole/hole';
-import { DATA } from '@/data';
-
-// Self-contained SVG icon
-const DotIcon = () => (
-  <svg
-    fill='none'
-    height='8'
-    viewBox='0 0 8 8'
-    width='8'
-    xmlns='http://www.w3.org/2000/svg'>
-    <circle cx='4' cy='4' fill='currentColor' r='4' />
-  </svg>
-);
-
-const coderData = DATA.home.coderProfile;
-
-const CoderProfileCard = () => (
-  <div className='w-full mx-auto bg-gradient-to-r from-zinc-100 to-zinc-200 dark:from-[#000000] dark:to-[#0a0d37] border-zinc-300 dark:border-[#1b2c68a0] relative rounded-lg border shadow-lg'>
-    {/* header */}
-    <div className='flex flex-row'>
-      <div className='h-[2px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600' />
-      <div className='h-[2px] w-full bg-gradient-to-r from-violet-600 to-transparent' />
-    </div>
-    <div className='px-4 lg:px-8 py-5 flex justify-between items-center bg-zinc-200 dark:bg-[#000000]'>
-      <div className='flex flex-row space-x-2'>
-        <div className='w-3 h-3 bg-red-500 rounded-full' />
-        <div className='w-3 h-3 bg-orange-400 rounded-full' />
-        <div className='w-3 h-3 bg-green-400 rounded-full' />
-      </div>
-      <div className='font-mono text-xs text-zinc-600 dark:text-gray-400'>
-        coder.js
-      </div>
-    </div>
-
-    {/* code body */}
-    <div className='overflow-hidden border-t-[2px] border-zinc-300 dark:border-indigo-900 px-4 lg:px-8 py-4 lg:py-8 relative'>
-      <div className='absolute w-56 h-56 bg-blue-600 rounded-full -top-24 -left-24 opacity-10 filter blur-3xl' />
-      <div className='absolute w-56 h-56 bg-pink-600 rounded-full -bottom-24 -right-24 opacity-10 filter blur-3xl' />
-      <div className='relative flex'>
-        <div className='flex-col items-end hidden pr-4 font-mono text-xs md:flex text-zinc-600 dark:text-gray-500'>
-          {Array.from({ length: 12 }, (_, i) => (
-            <div key={i} className='leading-relaxed select-none opacity-70'>
-              {i + 1}
-            </div>
-          ))}
-        </div>
-        <code className='w-full font-mono text-xs md:text-sm lg:text-base'>
-          <div>
-            <span className='mr-2 text-pink-500 dark:text-pink-400'>const</span>
-            <span className='mr-2 text-violet-500 dark:text-violet-400'>
-              coder
-            </span>
-            <span className='mr-2 text-pink-500 dark:text-pink-400'>=</span>
-            <span className='text-zinc-600 dark:text-gray-400'>{'{'}</span>
-          </div>
-          <div className='pl-6'>
-            <span className='text-zinc-800 dark:text-white'>name:</span>
-            <span className='text-zinc-600 dark:text-gray-400'>&#39;</span>
-            <span className='text-green-600 dark:text-green-400'>
-              {coderData.name}
-            </span>
-            <span className='text-zinc-600 dark:text-gray-400'>&#39;,</span>
-          </div>
-          <div className='pl-6'>
-            <span className='text-zinc-800 dark:text-white'>role:</span>
-            <span className='text-zinc-600 dark:text-gray-400'>&#39;</span>
-            <span className='text-green-600 dark:text-green-400'>
-              {coderData.role}
-            </span>
-            <span className='text-zinc-600 dark:text-gray-400'>&#39;,</span>
-          </div>
-          <div className='pl-6'>
-            <span className='text-zinc-800 dark:text-white'>seniority:</span>
-            <span className='text-zinc-600 dark:text-gray-400'>&#39;</span>
-            <span className='text-green-600 dark:text-green-400'>
-              {coderData.seniority}
-            </span>
-            <span className='text-zinc-600 dark:text-gray-400'>&#39;,</span>
-          </div>
-          <div className='pl-6'>
-            <span className='text-zinc-800 dark:text-white'>location:</span>
-            <span className='text-zinc-600 dark:text-gray-400'>&#39;</span>
-            <span className='text-green-600 dark:text-green-400'>
-              {coderData.location}
-            </span>
-            <span className='text-zinc-600 dark:text-gray-400'>&#39;,</span>
-          </div>
-          <div className='pl-6'>
-            <span className='text-zinc-800 dark:text-white'>skills:</span>
-            <span className='text-zinc-600 dark:text-gray-400'>{'['}</span>
-            <div className='flex flex-wrap pl-6'>
-              {coderData.skills.map((skill, index) => (
-                <span key={skill} className='mr-1'>
-                  <span className='text-zinc-600 dark:text-gray-400'>
-                    &#39;
-                  </span>
-                  <span className='text-cyan-600 dark:text-cyan-400'>
-                    {skill}
-                  </span>
-                  <span className='text-zinc-600 dark:text-gray-400'>
-                    &#39;
-                  </span>
-                  {index < coderData.skills.length - 1 && (
-                    <span className='text-zinc-600 dark:text-gray-400'>, </span>
-                  )}
-                </span>
-              ))}
-            </div>
-            <span className='text-zinc-600 dark:text-gray-400'>{'],'}</span>
-          </div>
-          <div>
-            <span className='text-zinc-600 dark:text-gray-400'>{'};'}</span>
-          </div>
-        </code>
-      </div>
-    </div>
-
-    {/* footer */}
-    <div className='flex items-center justify-between px-4 pt-3 pb-4 mt-4 text-xs border-t lg:px-8 border-zinc-300 dark:border-gray-800 text-zinc-600 dark:text-gray-500'>
-      <span>UTF-8</span>
-      <span>JavaScript</span>
-      <span>Ln 12, Col 2</span>
-    </div>
-  </div>
-);
 
 const scrollToWork = () => {
   const workSection = document.getElementById('work-section');
@@ -175,7 +53,8 @@ const PortfolioHero = () => {
               </span>
             </div>
             <p className='max-w-lg text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg lg:text-xl'>
-              JavaScript lover 🖋️ | Blockchain ⚡ | Crafting frameworks and coding the future ✨
+              JavaScript lover 🖋️ | Blockchain ⚡ | Crafting frameworks and
+              coding the future ✨
             </p>
 
             {/* Replaced Buttons from HeroSection */}
@@ -211,7 +90,7 @@ const PortfolioHero = () => {
 
           {/* Right Side */}
           <div>
-            <CoderProfileCard />
+            <CodeEditor />
           </div>
         </motion.div>
       </div>
