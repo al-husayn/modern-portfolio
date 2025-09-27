@@ -46,14 +46,8 @@ export const DATA = {
           color: 'secondary',
         },
         {
-          name: 'Mobile Apps',
-          level: 90,
-          icon: 'lucide:tablet-smartphone',
-          color: 'success',
-        },
-        {
           name: 'IT Support',
-          level: 88,
+          level: 90,
           icon: 'lucide:settings',
           color: 'warning',
         },
@@ -63,6 +57,13 @@ export const DATA = {
           icon: 'lucide:layout-dashboard',
           color: 'primary',
         },
+        {
+          name: 'Blockchain & Web3',
+          level: 75,
+          icon: 'lucide:bitcoin',
+          color: 'success',
+        },
+
         // {
         //   name: 'Consulting',
         //   level: 85,
@@ -542,7 +543,7 @@ export const DATA = {
         platform: 'RSS',
         url: 'https://blog.al-husayn.dev/',
         icon: 'mdi:rss',
-      }
+      },
     ],
     services: [
       'UI/UX Design',
