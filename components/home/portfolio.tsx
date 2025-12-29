@@ -39,7 +39,7 @@ const PortfolioHero = () => {
               </span>
             </h1>
 
-            <p className="max-w-lg text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg lg:text-xl">
+            <div className="max-w-lg text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg lg:text-xl">
               <p className="text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text">
                 Frontend Developer based in Kumasi, Ghana.
               </p>{" "}
@@ -48,7 +48,7 @@ const PortfolioHero = () => {
               web applications using React, Next.js, TypeScript, and modern
               tools like Tailwind CSS and Shadcn. I specialize in creating
               clean, user-focused interfaces that load fast and scale well.
-            </p>
+            </div>
 
             {/* Replaced Buttons from HeroSection */}
             <div className="flex flex-col items-center justify-center gap-3 mt-4 sm:flex-row sm:gap-4">
