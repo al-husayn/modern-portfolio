@@ -46,7 +46,7 @@ export const DATA = {
           color: 'secondary',
         },
         {
-          name: 'IT Support',
+          name: 'IT Support & Consulting',
           level: 90,
           icon: 'lucide:settings',
           color: 'warning',
