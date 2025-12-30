@@ -39,15 +39,13 @@ const PortfolioHero = () => {
               </span>
             </h1>
 
-            <div className="max-w-lg text-base leading-relaxed text-gray-600 dark:text-gray-300 sm:text-lg lg:text-xl">
+            <div className="max-w-lg text-base leading-relaxed items-center text-gray-600 dark:text-gray-300 sm:text-lg lg:text-xl">
               <p className="text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text">
                 Frontend Developer based in Kumasi, Ghana.
               </p>{" "}
               <br />
-              With 3 years of experience building responsive, high-performance
-              web applications using React, Next.js, TypeScript, and modern
-              tools like Tailwind CSS and Shadcn. I specialize in creating
-              clean, user-focused interfaces that load fast and scale well.
+              With 3 years of experience building responsive, high-performance web applications using Javascript, React, Next.js, TypeScript, Tailwind CSS, and Shadcn.
+              I specialize in clean, fast, and user-focused interfaces that scale..
             </div>
 
             {/* Replaced Buttons from HeroSection */}
@@ -71,7 +69,7 @@ const PortfolioHero = () => {
               </Link>
               <Button
                 fullWidth
-                aria-label="View Work"
+                aria-label="View Projects"
                 className="w-full sm:w-auto"
                 color="primary"
                 endContent={<Icon icon="lucide:arrow-down" />}
@@ -79,7 +77,7 @@ const PortfolioHero = () => {
                 variant="bordered"
                 onPress={scrollToWork}
               >
-                View Work
+                View Projects
               </Button>
             </div>
           </div>

@@ -22,11 +22,7 @@ export const DATA = {
         'HTML',
         // Backend
         'Node.js',
-        'Express',
-        'MongoDB',
-        'Firebase',
-        'PostgreSQL',
-        'Python',
+        
         // Tools & Others
         'Figma',
         'GitHub',
