@@ -45,7 +45,8 @@ const PortfolioHero = () => {
               </p>{" "}
               <br />
               With 3 years of experience building responsive, high-performance web applications using Javascript, React, Next.js, TypeScript, Tailwind CSS, and Shadcn.
-              I specialize in clean, fast, and user-focused interfaces that scale..
+              I specialize in clean, fast, and user-focused interfaces that scale.
+              <p className="text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text">Currently open to new opportunities.</p>
             </div>
 
             {/* Replaced Buttons from HeroSection */}
