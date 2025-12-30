@@ -53,37 +53,36 @@ const PortfolioHero = () => {
             </div>
 
             {/* Replaced Buttons from HeroSection */}
-            <div className="flex flex-col items-center justify-center gap-3 mt-4 sm:flex-row sm:gap-4">
+            <div className="flex flex-col gap-4 w-full max-w-md mx-auto mt-8 md:flex-row md:w-auto md:max-w-none md:mx-0 md:mt-10 md:gap-6">
               <Link
                 download
                 aria-label="Download CV in PDF format"
-                className="w-full sm:w-auto"
+                className="w-full md:w-auto"
                 href="/resume.pdf"
               >
                 <Button
-                  fullWidth
-                  aria-label="Download CV"
+                  className="w-full md:w-auto justify-center min-h-14 px-8 text-base font-medium shadow-lg"
                   color="primary"
-                  endContent={<Icon icon="lucide:download" />}
+                  endContent={<Icon height={22} icon="lucide:download"  width={22}  />}
                   size="lg"
                   variant="shadow"
                 >
                   Download CV
                 </Button>
               </Link>
+            
               <Button
-                fullWidth
-                aria-label="View Projects"
-                className="w-full sm:w-auto"
+                className="w-full md:w-auto justify-center min-h-14 px-8 text-base font-medium border-2 hover:border-primary/80"
                 color="primary"
-                endContent={<Icon icon="lucide:arrow-down" />}
+                endContent={<Icon height={22} icon="lucide:arrow-down" width={22} />}
                 size="lg"
                 variant="bordered"
                 onPress={scrollToWork}
               >
                 View Projects
               </Button>
-            </div>
+            </div>cls
+            
           </div>
 
           {/* Right Side */}
