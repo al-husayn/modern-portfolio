@@ -44,7 +44,7 @@ const PortfolioHero = () => {
                 Frontend Developer based in Kumasi, Ghana.
               </p>{" "}
               <br />
-              With 3 years of experience building responsive, high-performance web applications using React, Next.js, TypeScript, Tailwind CSS, and Shadcn.
+              With 3 years of experience building responsive, high-performance web applications using Javascript, React, Next.js, TypeScript, Tailwind CSS, and Shadcn.
               I specialize in clean, fast, and user-focused interfaces that scale..
             </div>
 
