@@ -6,8 +6,11 @@ import { Card, CardBody } from "@heroui/react";
 import { GradientText } from "@/components/textAnimations/gradient-text";
 import { DATA } from "@/data";
 
-export const TechStackSection = () => {
-  const { sectionTitle, sectionDescription, technologies } = DATA.home.skills;
+export const ServicesSection = () => {
+  const { sectionTitle, sectionDescription, services } = DATA.home.skills;
+
+  // Limit to exactly 6 services
+  const displayedServices = services.slice(0, 6);
 
   return (
     <section className="py-20 bg-content1">
@@ -28,27 +31,35 @@ export const TechStackSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid max-w-5xl grid-cols-2 gap-8 mx-auto sm:grid-cols-3 md:grid-cols-4">
-          {technologies.map((tech, index) => (
+        {/* Grid: 2 cols mobile, 3 cols tablet+, centered */}
+        <div className="grid grid-cols-2 gap-8 max-w-6xl mx-auto md:grid-cols-3">
+          {displayedServices.map((service, index) => (
             <motion.div
-              key={tech.name}
-              className="flex flex-col items-center"
-              initial={{ opacity: 0, y: 20 }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
+              key={service.name}
+              className="flex justify-center"
+              initial={{ opacity: 0, y: 30 }}
+              transition={{ delay: index * 0.1, duration: 0.7 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.1 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05 }}
             >
-              <Card className="w-full transition-colors border max-w-40 bg-default-100/50 border-default-200 hover:border-primary">
-                <CardBody className="flex flex-col items-center gap-4 p-8">
+              <Card className="w-full max-w-sm transition-all border bg-default-100/60 border-default-200 hover:border-primary/50 hover:shadow-xl">
+                <CardBody className="flex flex-col items-center gap-6 p-10 text-center">
                   <img
-                    alt={`${tech.name} logo`}
-                    className="object-contain w-20 h-20"
-                    src={tech.logo}
+                    alt={`${service.name} icon`}
+                    className="w-28 h-28 object-contain drop-shadow-md"
+                    src={service.logo}
                   />
-                  <p className="font-medium text-center text-foreground">
-                    {tech.name}
-                  </p>
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground">
+                      {service.name}
+                    </h3>
+                    {service.description && (
+                      <p className="mt-4 text-base text-foreground-500 leading-relaxed">
+                        {service.description}
+                      </p>
+                    )}
+                  </div>
                 </CardBody>
               </Card>
             </motion.div>
