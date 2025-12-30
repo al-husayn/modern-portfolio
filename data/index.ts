@@ -18,8 +18,6 @@ export const DATA = {
         'JavaScript',
         'TypeScript',
         'TailwindCSS',
-        'CSS',
-        'HTML',
         // Backend
         'Node.js',
         // Tools & Others
