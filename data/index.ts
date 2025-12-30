@@ -22,11 +22,7 @@ export const DATA = {
         'HTML',
         // Backend
         'Node.js',
-        
         // Tools & Others
-        'Figma',
-        'GitHub',
-        'Git',
         'Wordpress',
       ],
     },

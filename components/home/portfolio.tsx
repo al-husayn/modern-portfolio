@@ -42,11 +42,14 @@ const PortfolioHero = () => {
             <div className="max-w-lg text-base leading-relaxed items-center text-gray-600 dark:text-gray-300 sm:text-lg lg:text-xl">
               <p className="text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text">
                 Frontend Developer based in Kumasi, Ghana.
+                <br/>
+                Currently open to new opportunities.
               </p>{" "}
               <br />
-              With 3 years of experience building responsive, high-performance web applications using Javascript, React, Next.js, TypeScript, Tailwind CSS, and Shadcn.
-              I specialize in clean, fast, and user-focused interfaces that scale.
-              <p className="text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text">Currently open to new opportunities.</p>
+              With 3 years of experience building responsive, high-performance web apps using React, Next.js, TypeScript, Tailwind CSS, and Shadcn.
+              
+              I specialize in clean, fast, user-focused interfaces that scale.
+             
             </div>
 
             {/* Replaced Buttons from HeroSection */}
