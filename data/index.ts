@@ -25,7 +25,7 @@ export const DATA = {
       ],
     },
     skills: {
-      sectionTitle: 'Tools & Technologies',
+      sectionTitle: 'Tech Stack',
       sectionDescription:
         ' I build modern web applications using these technologies and tools:',
         technologies: [

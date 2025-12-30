@@ -43,7 +43,7 @@ export const TechStackSection = () => {
                 <CardBody className="flex flex-col items-center gap-4 p-8">
                   <img
                     alt={`${tech.name} logo`}
-                    className="object-contain w-16 h-16"
+                    className="object-contain w-20 h-20"
                     src={tech.logo}
                   />
                   <p className="font-medium text-center text-foreground">
