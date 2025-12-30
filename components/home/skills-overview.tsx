@@ -1,15 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Card, CardBody, Progress } from "@heroui/react";
-import { Icon } from "@iconify/react";
+import { Card, CardBody } from "@heroui/react";
 
 import { GradientText } from "@/components/textAnimations/gradient-text";
 import { DATA } from "@/data";
 
-export const SkillsOverviewSection = () => {
-  const overview = DATA.home.skills.overview;
-  const { sectionTitle, sectionDescription } = DATA.home.skills;
+export const TechStackSection = () => {
+  const { sectionTitle, sectionDescription, technologies } = DATA.home.skills;
 
   return (
     <section className="py-20 bg-content1">
@@ -30,34 +28,27 @@ export const SkillsOverviewSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid max-w-4xl grid-cols-1 gap-8 mx-auto md:grid-cols-2">
-          {overview.map((skill, index) => (
+        <div className="grid max-w-5xl grid-cols-2 gap-8 mx-auto sm:grid-cols-3 md:grid-cols-4">
+          {technologies.map((tech, index) => (
             <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-              transition={{ delay: index * 0.1, duration: 0.8 }}
+              key={tech.name}
+              className="flex flex-col items-center"
+              initial={{ opacity: 0, y: 20 }}
+              transition={{ delay: index * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
-              whileInView={{ opacity: 1, x: 0 }}
+              whileHover={{ scale: 1.1 }}
+              whileInView={{ opacity: 1, y: 0 }}
             >
-              <Card className="border-none shadow-md ">
-                <CardBody className="p-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className={`p-3 rounded-full bg-${skill.color}-100`}>
-                      <Icon
-                        className={`w-6 h-6 text-${skill.color}-500`}
-                        icon={skill.icon}
-                      />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold">{skill.name}</h3>
-                      <p className="text-foreground-600">{skill.level}%</p>
-                    </div>
-                  </div>
-                  <Progress
-                    className="h-2"
-                    color={skill.color}
-                    value={skill.level}
+              <Card className="w-full transition-colors border max-w-40 bg-default-100/50 border-default-200 hover:border-primary">
+                <CardBody className="flex flex-col items-center gap-4 p-8">
+                  <img
+                    alt={`${tech.name} logo`}
+                    className="object-contain w-16 h-16"
+                    src={tech.logo}
                   />
+                  <p className="font-medium text-center text-foreground">
+                    {tech.name}
+                  </p>
                 </CardBody>
               </Card>
             </motion.div>
