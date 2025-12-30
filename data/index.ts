@@ -214,7 +214,7 @@ export const DATA = {
     },
   },
   projects: {
-    sectionTitle: 'Featured Projects',
+    sectionTitle: 'Recent Projects',
     sectionDescription:
       'A selection of my recent projects showcasing software development expertise',
     work: [
