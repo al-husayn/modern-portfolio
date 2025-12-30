@@ -25,42 +25,19 @@ export const DATA = {
       ],
     },
     skills: {
-      sectionTitle: 'Skills & Expertise',
+      sectionTitle: 'Tools & Technologies',
       sectionDescription:
-        ' Specialized in creating modern digital experiences with cutting-edge technologies',
-      overview: [
-        {
-          name: 'Web Development',
-          level: 95,
-          icon: 'lucide:code',
-          color: 'secondary',
-        },
-        {
-          name: 'IT Support & Consulting',
-          level: 90,
-          icon: 'lucide:settings',
-          color: 'warning',
-        },
-        {
-          name: 'UI/UX Design',
-          level: 85,
-          icon: 'lucide:layout-dashboard',
-          color: 'primary',
-        },
-        {
-          name: 'Blockchain & Web3',
-          level: 75,
-          icon: 'lucide:bitcoin',
-          color: 'success',
-        },
-
-        // {
-        //   name: 'Consulting',
-        //   level: 85,
-        //   icon: 'lucide:user-check',
-        //   color: 'primary',
-        // },
-      ],
+        ' I build modern web applications using these technologies and tools:',
+        technologies: [
+            { name: 'React', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/React_Logo_SVG.svg/960px-React_Logo_SVG.svg.png' },
+            { name: 'Next.js', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Next.js_wordmark.svg/2560px-Next.js_wordmark.svg.png' }, // Official small one, or use a better one below
+            { name: 'TypeScript', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/250px-Typescript.svg.png' },
+            { name: 'JavaScript', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png' },
+            { name: 'Tailwind CSS', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1024px-Tailwind_CSS_Logo.svg.png?20230715030042' },
+            { name: 'Shadcn UI', logo: 'https://ui.shadcn.com/apple-touch-icon.png' }, // Closest official
+            { name: 'Node.js', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/500px-Node.js_logo.svg.png' },
+            { name: 'WordPress', logo: 'https://s.w.org/style/images/about/WordPress-logotype-wmark.png' },
+          ],
     },
     testimonials: {
       sectionTitle: 'Client Testimonials',
