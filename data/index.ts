@@ -25,18 +25,17 @@ export const DATA = {
       ],
     },
     skills: {
-      sectionTitle: 'Tech Stack',
+      sectionTitle: 'Services',
       sectionDescription:
-        ' I build modern web applications using these technologies and tools:',
-        technologies: [
-            { name: 'React', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/React_Logo_SVG.svg/960px-React_Logo_SVG.svg.png' },
-            { name: 'Next.js', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Next.js_wordmark.svg/2560px-Next.js_wordmark.svg.png' }, // Official small one, or use a better one below
-            { name: 'TypeScript', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/250px-Typescript.svg.png' },
-            { name: 'JavaScript', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png' },
-            { name: 'Tailwind CSS', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1024px-Tailwind_CSS_Logo.svg.png?20230715030042' },
-            { name: 'Shadcn UI', logo: 'https://ui.shadcn.com/apple-touch-icon.png' }, // Closest official
-            { name: 'Node.js', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/500px-Node.js_logo.svg.png' },
-            { name: 'WordPress', logo: 'https://s.w.org/style/images/about/WordPress-logotype-wmark.png' },
+        ' I deliver modern, reliable web solutions tailored to your needs',
+        services: [
+            { name: 'Modern Web Applications', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/React_Logo_SVG.svg/960px-React_Logo_SVG.svg.png', description:"Fast, responsive apps built with React, Next.js, and Tailwind CSS."  },
+            { name: 'Full-Stack Development', logo: 'https://uxwing.com/wp-content/themes/uxwing/download/arts-graphic-shapes/full-stack-developer-icon.svg', description: 'End-to-end solutions with Node.js backend and modern frontend.' }, 
+            { name: 'Landing Pages & Marketing Sites', logo: 'https://static.vecteezy.com/system/resources/previews/031/011/848/non_2x/landing-page-icon-vector.jpg', description:"SEO-friendly landing pages and marketing sites with optimized performance."  },
+            { name: 'Performance & Maintenance', logo: 'https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/speed-icon.svg', description:"Speed audits, refactoring, and ongoing maintenance."  },
+            { name: 'Consulting & Code Reviews', logo: 'https://ui.shadcn.com/apple-touch-icon.png', description:"Expert guidance and code reviews to ensure your project's success."  }, // Closest official
+            // { name: 'Node.js', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/500px-Node.js_logo.svg.png' },
+            { name: 'WordPress Development', logo: 'https://s.w.org/style/images/about/WordPress-logotype-wmark.png', description:"Professional themes and plugins with performance and SEO focus."  },
           ],
     },
     testimonials: {
