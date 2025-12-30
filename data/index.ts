@@ -512,11 +512,11 @@ export const DATA = {
       },
     ],
     services: [
-      'UI/UX Design',
-      'Web Development',
-      'Mobile Apps',
-      'IT Support',
-      'Consulting',
+      'Modern Web Applications',
+      'Full-Stack Development',
+      'Performance & Maintenance',
+      'Consulting & Code Reviews',
+      'Landing Pages & Marketing Sites',
     ],
   },
 } as const;

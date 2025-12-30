@@ -32,7 +32,7 @@ export const ServicesSection = () => {
         </motion.div>
 
         {/* Grid: 2 cols mobile, 3 cols tablet+, centered */}
-        <div className="grid grid-cols-2 gap-8 max-w-6xl mx-auto md:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {displayedServices.map((service, index) => (
             <motion.div
               key={service.name}
