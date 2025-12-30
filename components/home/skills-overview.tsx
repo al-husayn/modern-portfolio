@@ -40,8 +40,8 @@ export const ServicesSection = () => {
               initial={{ opacity: 0, y: 30 }}
               transition={{ delay: index * 0.1, duration: 0.7 }}
               viewport={{ once: true }}
-              whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ scale: 1.05 }}
+              whileInView={{ opacity: 1, y: 0 }}
             >
               <Card className="w-full max-w-sm transition-all border bg-default-100/60 border-default-200 hover:border-primary/50 hover:shadow-xl">
                 <CardBody className="flex flex-col items-center gap-6 p-10 text-center">
