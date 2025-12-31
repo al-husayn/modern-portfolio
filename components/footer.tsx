@@ -20,7 +20,7 @@ export const Footer = () => {
       >
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4">Let&apos;s Connect</h3>
+            <h3 className="text-2xl font-bold mb-4">Get in Touch</h3>
             <p className="text-foreground-600 mb-4">{description}</p>
             <div className="flex gap-4">
               {socialLinks.map((social, index) => (
