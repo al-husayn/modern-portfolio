@@ -108,9 +108,9 @@ export const DATA = {
       image:
         'https://al-drake.netlify.app/static/media/profile.211cb621e39afe112f2a.png',
       description: [
-        "I'm a creative software developer with a passion for frontend and clean code. I focus on building beautiful, functional, and high-performance websites and web apps.",
-        'My approach is both technical and aesthetic — I enjoy turning complex problems into elegant user experiences. I work primarily with modern frameworks like React, Vite, and TailwindCSS.',
-        'Outside of code, I enjoy tech support, reading, football, product strategy, and always pushing the boundaries of front-end development.',
+        'Frontend Developer based in Kumasi, Ghana, with 3 years of hands-on experience building modern, performant web applications.',
+        ' I specialize in React, Next.js, and TypeScript, Tailwind CSS, and Shadcn UI - crafting clean, accessible, and scalable interfaces that solves real problems.',' From startups to client projects, I deliver pixel-perfect UIs with a focus on speed, user experience, and maintainable code.',
+        'Currently open to new opportunities.'
       ],
     },
     education: [
