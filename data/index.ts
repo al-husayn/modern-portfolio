@@ -116,6 +116,7 @@ export const DATA = {
     education: [
       {
         title: 'AmaliTech Training Academy',
+        programme: 'Software Engineering',
         date: '2021 - 2021',
         icon: 'mdi:school-outline',
         description:
@@ -124,6 +125,7 @@ export const DATA = {
 
       {
         title: 'University of Cape Coast',
+        programme: 'Bachelor of Science in Social Science',
         date: '2013 - 2017',
         icon: 'mdi:school',
         description:
@@ -131,6 +133,7 @@ export const DATA = {
       },
       {
         title: 'Kumasi Academy',
+        programme: 'General Arts and Visual Design',
         date: '2008 - 2012',
         icon: 'mdi:palette',
         description:
@@ -140,6 +143,7 @@ export const DATA = {
     experience: [
       {
         title: 'Creative Director',
+        company: 'Freelance',
         date: '2024 - Present',
         icon: 'mdi:briefcase',
         description:
@@ -147,6 +151,7 @@ export const DATA = {
       },
       {
         title: 'Associate Software Engineer',
+        company: 'AmaliTech Services',
         date: '2022 - 2024',
         icon: 'mdi:monitor-dashboard',
         description:
@@ -154,6 +159,7 @@ export const DATA = {
       },
       {
         title: 'Front-End Developer & Designer',
+        company: 'AmaliTech Services',
         date: '2021 - 2022',
         icon: 'mdi:code-tags',
         description:
