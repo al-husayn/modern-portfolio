@@ -30,6 +30,7 @@ export interface EducationItem {
 }
 
 export interface ExperienceItem extends EducationItem {
+  readonly company?: string;
   
 }
 
