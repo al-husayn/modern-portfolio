@@ -19,8 +19,8 @@ export default function AboutPage() {
         title={profile.title}
       />
 
-      <EducationTimeline education={education} />
       <ExperienceTimeline experience={experience} />
+      <EducationTimeline education={education} />
       <Skills tech={tech} />
     </section>
   );
