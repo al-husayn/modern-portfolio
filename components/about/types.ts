@@ -1,3 +1,10 @@
+
+export interface BaseTimelineItem {
+  readonly title: string;
+  readonly date: string;
+  readonly icon?: string;
+}
+
 export interface ProfileCardProps {
   image: string;
   name: string;
@@ -16,23 +23,21 @@ export interface TimelineItemProps {
   company?: string;
   programme?: string;
   date: string;
-  description: string;
+  description: string | readonly string[];
   variants?: any;
   delay?: number;
 }
 
-export interface EducationItem {
-  readonly title: string;
+export interface EducationItem extends BaseTimelineItem {
   readonly programme?: string;
-  readonly date: string;
   readonly description: string;
-  readonly icon?: string;
 }
 
-export interface ExperienceItem extends EducationItem {
+export interface ExperienceItem extends BaseTimelineItem {
   readonly company?: string;
-  
+  readonly description: readonly string[];
 }
+
 
 export interface TechItem {
   readonly name: string;

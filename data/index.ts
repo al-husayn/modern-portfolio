@@ -125,7 +125,7 @@ export const DATA = {
 
       {
         title: 'University of Cape Coast',
-        programme: 'Bachelor of Science in Social Science',
+        programme: 'Bachelor of Arts(Geography & Sociology)',
         date: '2013 - 2017',
         icon: 'mdi:school',
         description:
@@ -133,7 +133,7 @@ export const DATA = {
       },
       {
         title: 'Kumasi Academy',
-        programme: 'General Arts and Visual Design',
+        programme: 'General Arts',
         date: '2008 - 2012',
         icon: 'mdi:palette',
         description:
@@ -146,24 +146,37 @@ export const DATA = {
         company: 'Freelance',
         date: '2024 - Present',
         icon: 'mdi:briefcase',
-        description:
-          'Lead creative and development teams to build digital experiences that combine innovation with user empathy. Oversee branding, UI/UX strategy, and development pipelines for tech startups and clients.',
+        description:  [  
+        '● Led creative and development teams to build 2+ digital experiences for tech startups, combining innovation with user empathy and reducing project delivery time by 25% through efficient UI/UX strategies.',
+        '● Oversaw branding,Frontend Dev Twam,  UI/UX strategy, and development pipelines for clients, resulting in 2 completed projects with 100% client satisfaction and improved user engagement metrics by 30%.' 
+        ]
       },
       {
         title: 'Associate Software Engineer',
         company: 'AmaliTech Services',
         date: '2022 - 2024',
         icon: 'mdi:monitor-dashboard',
-        description:
-          'Designed and implemented high-fidelity web interfaces using React, Figma, and Tailwind. Collaborated cross-functionally with developers and designers to craft intuitive user flows and interactions.',
+        description:[
+          '● Designed and implemented 5+ high-fidelity web interfaces using React, Nextjs, Figma, and Tailwind CSS, reducing code smell by 35% and bugs by 80% through collaborative cross-functional reviews.',
+          '● Collaborated with developers and designers to craft intuitive user flows and interactions, delivering complex changes within deadlines for 4 different projects with zero major revisions.',
+          '● Led the development of 3+ responsive web applications using React, TypeScript, and Redux, resulting in a 20% increase in user engagement and a 30% reduction in development time.',
+          '● Mentored junior developers, providing constructive feedback and guidance, resulting in a 25% increase in team productivity and a 15% reduction in project delivery time.',
+          '● Acted as a coding ambassador for UCC coding club, mentoring and guiding students in coding projects.',
+          '● Led the development of 2+ internal projects using React, TypeScript, and Redux, resulting in saving the company $100,000.'
+          
+        ]
       },
       {
-        title: 'Front-End Developer & Designer',
+        title: 'Junior Associate Developer',
         company: 'AmaliTech Services',
         date: '2021 - 2022',
         icon: 'mdi:code-tags',
-        description:
-          'Developed responsive websites and applications with a focus on accessibility, visual aesthetics, and performance. Delivered pixel-perfect interfaces from wireframes to production code.',
+        description:[
+          '● Contributed to 3+ projects using React and JavaScript, implementing components and state management with Redux/React Query.',          
+          '● Reviewed requirements and tested features, collaborating to deliver changes within deadlines.',
+          '● Developed responsive websites and applications with a focus on accessibility, visual aesthetics, and performance, shipping 3+ pixel-perfect interfaces from wireframes to production code.',
+          '● Transformed app designs into frontend code using React, CSS, and JavaScript for  client projects, implementing features like delivery tracking and ensuring 100% adaptability across devices.',
+        ]
       },
     ],
     technologies: {
@@ -174,7 +187,9 @@ export const DATA = {
           { name: 'React', icon: 'logos:react' },
           { name: 'Next.js', icon: 'skill-icons:nextjs-dark' },
           { name: 'Tailwind', icon: 'logos:tailwindcss-icon' },
+          { name: 'Redux', icon: 'logos:redux' },
           { name: 'TypeScript', icon: 'logos:typescript-icon' },
+          { name: 'javascript', icon: 'logos:javascript' },
           { name: 'HTML5', icon: 'logos:html-5' },
           { name: 'CSS3', icon: 'logos:css-3' },
         ],
