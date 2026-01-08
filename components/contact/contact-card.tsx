@@ -3,7 +3,7 @@ import { Card, CardBody } from "@heroui/react";
 
 import { ContactCardProps } from "@/components/contact/types";
 
-export const ContactCard = ({ heading, children }: ContactCardProps) => (
+export const ContactCard = ({ heading, tagline, children }: ContactCardProps) => (
   <motion.div
     className="max-w-3xl mx-auto"
     initial={{ opacity: 0, y: 20 }}
@@ -14,7 +14,8 @@ export const ContactCard = ({ heading, children }: ContactCardProps) => (
     <Card className="border-none shadow-xl bg-white/90 dark:bg-black/60">
       <CardBody className="p-8">
         <div className="text-center mb-8">
-          <h1 className="text-foreground-600">{heading}</h1>
+          <h1 className="text-foreground-600 font-extrabold p-6 text-2xl">{heading}</h1>
+          <p className="text-foreground-400">{tagline}</p>
         </div>
         {children}
       </CardBody>

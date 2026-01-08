@@ -36,8 +36,7 @@ export const SuccessMessage: React.FC<{ onReset: () => void }> = ({
               Message Sent Successfully!
             </h3>
             <p className="text-default-600 mb-4">
-              Thank you for reaching out. I&apos;ll get back to you as soon as
-              possible.
+              Thank you for reaching out. I&apos;ll reply within 24 hours..
             </p>
             <motion.div
               animate={{ opacity: 1, y: 0 }}

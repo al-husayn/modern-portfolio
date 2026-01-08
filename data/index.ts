@@ -478,7 +478,8 @@ export const DATA = {
   },
   contact: {
     heading:
-      "Have a project in mind? Get in touch and let's create something amazing.",
+      "Let's Build Something Amazing",
+      tagline: "Have a project in mind? I'm currently open to new opportunities and excited to work on impactful web applications.",
     location: {
       mapSrc:
         'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126804.83195594409!2d-1.6985081585617445!3d6.690078643880363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb93e59a4e4c49%3A0x829c711d7b65e682!2sKumasi!5e0!3m2!1sen!2sgh!4v1753379131472!5m2!1sen!2sgh',

@@ -101,7 +101,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           isInvalid={!!errors.subject}
           label="Subject"
           name="subject"
-          placeholder="Project type or inquiry topic"
+          placeholder="Frontend Role, Web Project, Collaboration"
           startContent={<Icon icon="lucide:briefcase" />}
           value={formData.subject}
           variant="bordered"
@@ -117,7 +117,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           maxRows={8}
           minRows={4}
           name="message"
-          placeholder="Tell me about your project, timeline, and any specific requirements..."
+          placeholder="Tell me about your project, timeline, tech needs..."
           value={formData.message}
           variant="bordered"
           onBlur={() => handleInputBlur("message", formData.message)}
@@ -139,7 +139,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             }
             type="submit"
           >
-            {isSubmitting ? "Sending..." : "Send Message"}
+            {isSubmitting ? "Sending..." : "Let's Talk"}
           </Button>
 
           <Button

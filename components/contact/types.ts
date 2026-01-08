@@ -1,5 +1,6 @@
 export interface ContactCardProps {
   heading: string;
+  tagline: string;
   children: React.ReactNode;
 }
 

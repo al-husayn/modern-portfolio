@@ -11,7 +11,7 @@ import { ContactFormData, ContactPageState } from "@/components/contact/types";
 import { PageHeader } from "@/components/page-header";
 import { ContactCard } from "@/components/contact/contact-card";
 import { ContactForm } from "@/components/contact/contact-form";
-import { ContactMap } from "@/components/contact/contact-map";
+// import { ContactMap } from "@/components/contact/contact-map";
 import { DATA } from "@/data";
 
 const EMAIL_CONFIG = {
@@ -99,8 +99,8 @@ const ContactPage: React.FC = () => {
     <section className="py-20">
       <PageHeader texts={DATA.morphingTexts.contact} />
       <div className="container px-4 mx-auto">
-        <ContactCard heading={DATA.contact.heading}>
-          <ContactMap src={DATA.contact.location.mapSrc} />
+        <ContactCard heading={DATA.contact.heading} tagline={DATA.contact.tagline}>
+          {/*<ContactMap src={DATA.contact.location.mapSrc} />*/}
           <ContactForm
             isSubmitting={state.isSubmitting}
             isSuccess={state.isSuccess}
