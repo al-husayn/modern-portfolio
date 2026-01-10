@@ -46,7 +46,7 @@ const PortfolioHero = () => {
                 Currently open to new opportunities.
               </p>{" "}
               <br />
-              With 3 years of experience building responsive, high-performance web apps using React, Next.js, TypeScript, Tailwind CSS, and Shadcn.
+              With 3+ years of experience building responsive, high-performance web apps using React, Next.js, TypeScript, Tailwind CSS, and Shadcn.
               
               I specialize in clean, fast, user-focused interfaces that scale.
              
