@@ -1,13 +1,13 @@
 export const DATA = {
   home: {
     hero: {
-      name: 'Al-Hussein A.',
+      name: 'Al-Hussein',
       title: 'Full stack developer, Social Scientist & Blockchain Enthusiast',
       subtitle:
         'I build fast, accessible and visually engaging web experiences.',
     },
     coderProfile: {
-      name: 'Al-Hussein A.',
+      name: 'Al-Hussein',
       role: 'Frontend Developer',
       seniority: 'Mid-Level',
       location: 'Ghana',
@@ -103,7 +103,7 @@ export const DATA = {
   },
   about: {
     profile: {
-      name: 'Al-Hussein A.',
+      name: 'Al-Hussein',
       title: 'Software Developer',
       image:
         'https://al-drake.netlify.app/static/media/profile.211cb621e39afe112f2a.png',
@@ -503,7 +503,7 @@ export const DATA = {
     },
   ],
   footer: {
-    name: 'Al-Hussein A.',
+    name: 'Al-Hussein',
     description: 'Always interested in new projects and collaborations.',
     contact: {
       email: 'alhusayn532@gmail.com',
