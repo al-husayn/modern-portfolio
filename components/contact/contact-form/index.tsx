@@ -28,9 +28,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   const handleFormSubmit = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
-      onSubmit(formData); // Pass formData directly to the onSubmit prop
+      await handleSubmit(onSubmit);
     },
-    [formData, onSubmit],
+    [handleSubmit, onSubmit],
   );
 
   const handleReset = useCallback(() => {
@@ -155,7 +155,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               />
             }
             variant="bordered"
-            onPress={resetForm}
+            onPress={handleReset}
           >
             Reset Form
           </Button>

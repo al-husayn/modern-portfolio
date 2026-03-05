@@ -2,9 +2,10 @@ import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 import {
+  ContactFormField,
   ContactFormData,
   ContactFormErrors,
-} from "../components/contact/types";
+} from "@/components/contact/types";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -47,7 +48,7 @@ export const validateMinLength = (
 };
 
 export const validateField = (
-  field: keyof ContactFormData,
+  field: ContactFormField,
   value: string,
 ): string | undefined => {
   switch (field) {
@@ -85,7 +86,7 @@ export const validateField = (
 export const validateForm = (formData: ContactFormData): ContactFormErrors => {
   const errors: ContactFormErrors = {};
 
-  (Object.keys(formData) as Array<keyof ContactFormData>).forEach((field) => {
+  (Object.keys(formData) as ContactFormField[]).forEach((field) => {
     const error = validateField(field, formData[field]);
 
     if (error) {

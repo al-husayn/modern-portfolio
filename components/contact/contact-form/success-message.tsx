@@ -2,9 +2,13 @@ import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import { Button, Card, CardBody } from "@heroui/react";
 
-export const SuccessMessage: React.FC<{ onReset: () => void }> = ({
+type SuccessMessageProps = {
+  onReset: () => void;
+};
+
+export const SuccessMessage = ({
   onReset,
-}) => (
+}: SuccessMessageProps) => (
   <motion.div
     animate={{ opacity: 1, scale: 1, y: 0 }}
     exit={{ opacity: 0, scale: 0.9, y: -20 }}
@@ -36,7 +40,7 @@ export const SuccessMessage: React.FC<{ onReset: () => void }> = ({
               Message Sent Successfully!
             </h3>
             <p className="text-default-600 mb-4">
-              Thank you for reaching out. I&apos;ll reply within 24 hours..
+              Thank you for reaching out. I&apos;ll reply within 24 hours.
             </p>
             <motion.div
               animate={{ opacity: 1, y: 0 }}

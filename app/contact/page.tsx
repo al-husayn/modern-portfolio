@@ -1,67 +1,56 @@
 "use client";
 
-import React, {
-    useState,
-    useCallback,
-} from "react";
+import { useCallback, useState } from "react";
 import { addToast } from "@heroui/react";
-import emailjs from "@emailjs/browser";
 
-import { ContactFormData, ContactPageState } from "@/components/contact/types";
+import { ContactFormData } from "@/components/contact/types";
 import { PageHeader } from "@/components/page-header";
 import { ContactCard } from "@/components/contact/contact-card";
 import { ContactForm } from "@/components/contact/contact-form";
 // import { ContactMap } from "@/components/contact/contact-map";
 import { DATA } from "@/data";
+import { getMissingEmailConfigVars, sendContactEmail } from "@/lib/emailjs";
 
-const EMAIL_CONFIG = {
-  serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-  templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-  publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+const CONTACT_ERROR_MESSAGE =
+  "Failed to send message. Please try again later.";
+const EMAIL_CONFIG_MESSAGE =
+  "Email configuration is incomplete. Please check environment variables.";
+
+const getErrorMessage = (error: unknown): string => {
+  return error instanceof Error ? error.message : CONTACT_ERROR_MESSAGE;
 };
 
-const ContactPage: React.FC = () => {
-  const [state, setState] = useState<ContactPageState>({
-    isSubmitting: false,
-    isSuccess: false,
-    error: null,
-  });
+const ContactPage = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = useCallback(
     async (formData: ContactFormData): Promise<void> => {
-      setState((prev) => ({ ...prev, isSubmitting: true, error: null }));
+      setIsSubmitting(true);
+      setError(null);
 
-      const missingVars = Object.entries(EMAIL_CONFIG)
-        .filter(([_, value]) => !value)
-        .map(([key]) => `NEXT_PUBLIC_EMAILJS_${key.toUpperCase().replace(/([A-Z])/g, "_$1")}`);
+      const missingVars = getMissingEmailConfigVars();
 
       if (missingVars.length > 0) {
+        const missingVarsText = missingVars.join(", ");
+        const message = `${EMAIL_CONFIG_MESSAGE} Missing: ${missingVarsText}`;
+
+        setError(message);
         addToast({
           title: "Failed to Send Message",
-          description: "Email configuration is incomplete. Please check environment variables.",
+          description: message,
           color: "danger",
         });
-        setState((prev) => ({ ...prev, isSubmitting: false }));
+        setIsSubmitting(false);
 
         return;
       }
 
       try {
-        const templateParams = {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        };
+        await sendContactEmail(formData);
 
-        await emailjs.send(
-          EMAIL_CONFIG.serviceId!,
-          EMAIL_CONFIG.templateId!,
-          templateParams,
-          EMAIL_CONFIG.publicKey!,
-        );
-
-        setState((prev) => ({ ...prev, isSuccess: true }));
+        setIsSuccess(true);
         addToast({
           title: "Message Sent Successfully",
           description:
@@ -69,49 +58,47 @@ const ContactPage: React.FC = () => {
           color: "success",
         });
       } catch (error) {
-        const errorMessage =
-          error instanceof Error
-            ? error.message
-            : "Failed to send message. Please try again later.";
+        const errorMessage = getErrorMessage(error);
 
-        setState((prev) => ({ ...prev, error: errorMessage }));
+        setError(errorMessage);
         addToast({
           title: "Failed to Send Message",
           description: errorMessage,
           color: "danger",
         });
       } finally {
-        setState((prev) => ({ ...prev, isSubmitting: false }));
+        setIsSubmitting(false);
       }
     },
     [],
   );
 
   const handleReset = useCallback(() => {
-    setState({
-      isSubmitting: false,
-      isSuccess: false,
-      error: null,
-    });
+    setIsSubmitting(false);
+    setIsSuccess(false);
+    setError(null);
   }, []);
 
   return (
     <section className="py-20">
       <PageHeader texts={DATA.morphingTexts.contact} />
       <div className="container px-4 mx-auto">
-        <ContactCard heading={DATA.contact.heading} tagline={DATA.contact.tagline}>
+        <ContactCard
+          heading={DATA.contact.heading}
+          tagline={DATA.contact.tagline}
+        >
           {/*<ContactMap src={DATA.contact.location.mapSrc} />*/}
           <ContactForm
-            isSubmitting={state.isSubmitting}
-            isSuccess={state.isSuccess}
+            isSubmitting={isSubmitting}
+            isSuccess={isSuccess}
             onReset={handleReset}
             onSubmit={handleSubmit}
           />
         </ContactCard>
 
-        {state.error && (
+        {error && (
           <div className="p-4 mt-6 border rounded-lg bg-danger-50 border-danger-200">
-            <p className="text-sm text-danger-700">{state.error}</p>
+            <p className="text-sm text-danger-700">{error}</p>
           </div>
         )}
       </div>

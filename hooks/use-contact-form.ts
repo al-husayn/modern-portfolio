@@ -4,6 +4,7 @@ import { useState, useCallback, useMemo } from "react";
 
 import {
   ContactFormData,
+  ContactFormField,
   ContactFormErrors,
   UseContactFormReturn,
 } from "@/components/contact/types";
@@ -16,18 +17,24 @@ const initialFormData: ContactFormData = {
   message: "",
 };
 
+const contactFormFields: readonly ContactFormField[] = [
+  "name",
+  "email",
+  "subject",
+  "message",
+];
+
 export const useContactForm = (): UseContactFormReturn => {
   const [formData, setFormData] = useState<ContactFormData>(initialFormData);
   const [errors, setErrors] = useState<ContactFormErrors>({});
-  const [touchedFields, setTouchedFields] = useState<
-    Set<keyof ContactFormData>
-  >(new Set());
+  const [touchedFields, setTouchedFields] = useState<Set<ContactFormField>>(
+    new Set(),
+  );
 
   const handleInputChange = useCallback(
-    (field: keyof ContactFormData, value: string) => {
+    (field: ContactFormField, value: string) => {
       setFormData((prev) => ({ ...prev, [field]: value }));
 
-      // Real-time validation for touched fields
       if (touchedFields.has(field)) {
         const fieldError = validateField(field, value);
 
@@ -41,8 +48,9 @@ export const useContactForm = (): UseContactFormReturn => {
   );
 
   const validateFieldAndMarkTouched = useCallback(
-    (field: keyof ContactFormData, value: string) => {
+    (field: ContactFormField, value: string) => {
       setTouchedFields((prev) => new Set(prev).add(field));
+
       const fieldError = validateField(field, value);
 
       setErrors((prev) => ({
@@ -59,15 +67,10 @@ export const useContactForm = (): UseContactFormReturn => {
     async (
       onSubmit: (data: ContactFormData) => Promise<void>,
     ): Promise<void> => {
-      // Validate entire form
       const formErrors = validateForm(formData);
 
       setErrors(formErrors);
-
-      // Mark all fields as touched
-      setTouchedFields(
-        new Set(Object.keys(formData) as Array<keyof ContactFormData>),
-      );
+      setTouchedFields(new Set(contactFormFields));
 
       if (!hasErrors(formErrors)) {
         await onSubmit(formData);
