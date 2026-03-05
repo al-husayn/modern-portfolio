@@ -16,6 +16,8 @@ export interface ContactFormData {
   message: string;
 }
 
+export type ContactFormField = keyof ContactFormData;
+
 export interface ContactFormErrors {
   name?: string;
   email?: string;
@@ -34,19 +36,10 @@ export interface UseContactFormReturn {
   formData: ContactFormData;
   errors: ContactFormErrors;
   isValid: boolean;
-  handleInputChange: (field: keyof ContactFormData, value: string) => void;
+  handleInputChange: (field: ContactFormField, value: string) => void;
   handleSubmit: (
     onSubmit: (data: ContactFormData) => Promise<void>,
   ) => Promise<void>;
   resetForm: () => void;
-  validateField: (
-    field: keyof ContactFormData,
-    value: string,
-  ) => string | undefined;
-}
-
-export interface ContactPageState {
-  isSubmitting: boolean;
-  isSuccess: boolean;
-  error: string | null;
+  validateField: (field: ContactFormField, value: string) => string | undefined;
 }

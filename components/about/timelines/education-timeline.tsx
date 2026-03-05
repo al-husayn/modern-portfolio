@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import { SectionHeader } from "../section-header";
 import { TimelineItem } from "../timelines/timeline-item";
 import { containerVariants, itemVariants } from "../variants";
-import { EducationItems } from "../types";
+
+import { EducationItems } from "@/types/about";
 
 interface EducationTimelineProps {
   education: EducationItems;

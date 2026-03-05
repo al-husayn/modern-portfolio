@@ -7,7 +7,7 @@ import { Accordion, AccordionItem } from "@heroui/react";
 import { OrbitingCircles } from "@/components/orbiting-circles";
 import { SectionHeader } from "@/components/about/section-header";
 import { capitalize } from "@/lib/utils";
-import { TechCategories } from "@/components/about/types";
+import { TechCategories } from "@/types/about";
 
 interface SkillsProps {
   tech: TechCategories;
@@ -64,3 +64,4 @@ export const Skills = ({ tech }: SkillsProps) => {
     </motion.div>
   );
 };
+

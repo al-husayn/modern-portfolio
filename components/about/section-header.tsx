@@ -2,7 +2,7 @@
 
 import { Icon } from "@iconify/react";
 
-import { SectionHeaderProps } from "@/components/about/types";
+import { SectionHeaderProps } from "@/types/about";
 
 export const SectionHeader = ({
   icon,

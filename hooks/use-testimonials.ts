@@ -2,13 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 
-type Testimonial = {
-  id: number;
-  name: string;
-  role: string;
-  content: string;
-  avatar: string;
-};
+import { Testimonial } from "@/types/testimonials";
 
 export const useTestimonials = (items: readonly Testimonial[]) => {
   const [currentIndex, setCurrentIndex] = useState(0);

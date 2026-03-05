@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 
 import { SplittingText } from "@/components/textAnimations/splitting-text";
-import { TimelineItemProps } from "@/components/about/types";
+import { TimelineItemProps } from "@/types/about";
 
 export const TimelineItem = ({
   title,
@@ -44,3 +44,4 @@ export const TimelineItem = ({
     </motion.li>
   );
 };
+

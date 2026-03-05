@@ -1,4 +1,3 @@
-
 export interface BaseTimelineItem {
   readonly title: string;
   readonly date: string;
@@ -37,7 +36,6 @@ export interface ExperienceItem extends BaseTimelineItem {
   readonly company?: string;
   readonly description: readonly string[];
 }
-
 
 export interface TechItem {
   readonly name: string;

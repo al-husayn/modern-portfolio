@@ -125,8 +125,8 @@ This template uses [Email.js](https://www.emailjs.com/) for handling contact for
 ```jsx
 <div style="font-family: system-ui, sans-serif, Arial; font-size: 12px">
   <div>
-    A message by <strong>{{name}}</strong> ({{email}}) has been received with the subject
-    "<strong>{{subject}}</strong>". Kindly respond at your earliest convenience.
+    A message by <strong>{{sender_name}}</strong> ({{sender_email}}) has been received with the subject
+    "<strong>{{sender_subject}}</strong>". Kindly respond at your earliest convenience.
   </div>
 
   <div
@@ -156,10 +156,10 @@ This template uses [Email.js](https://www.emailjs.com/) for handling contact for
         </td>
         <td style="vertical-align: top">
           <div style="color: #2c3e50; font-size: 16px">
-            <strong>{{name}}</strong> — <a href="mailto:{{email}}" style="color: #3498db">{{email}}</a>
+            <strong>{{sender_name}}</strong> — <a href="mailto:{{sender_email}}" style="color: #3498db">{{sender_email}}</a>
           </div>
-          <div style="color: #999999; font-size: 13px"><em>Subject:</em> {{subject}}</div>
-          <p style="font-size: 16px; margin-top: 10px">{{message}}</p>
+          <div style="color: #999999; font-size: 13px"><em>Subject:</em> {{sender_subject}}</div>
+          <p style="font-size: 16px; margin-top: 10px">{{sender_message}}</p>
         </td>
       </tr>
     </table>
@@ -180,6 +180,12 @@ This template uses [Email.js](https://www.emailjs.com/) for handling contact for
     ```
 
     Replace `your_service_id`, `your_template_id`, and `your_public_key` with the values from your Email.js account.
+
+    In your EmailJS template settings:
+    - Set `From Name` to `{{sender_name}}`
+    - Set `Reply-To` to `{{sender_email}}`
+
+    Note: for Gmail/Outlook services, the actual `From` email address is usually your connected service account. `Reply-To` is what ensures replies go to the visitor's email.
 
 6.  **Restart your development server:** After adding the environment variables, restart your development server (`npm run dev` or `yarn dev`) for the changes to take effect.
 

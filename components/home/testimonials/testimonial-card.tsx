@@ -2,19 +2,14 @@ import { memo } from "react";
 import { Card, CardBody, Avatar } from "@heroui/react";
 import { Icon } from "@iconify/react";
 
-interface testimonialCardProps {
-  name: string;
-  role: string;
-  content: string;
-  avatar: string;
-}
+import { TestimonialCardProps } from "@/types/testimonials";
 
 export const TestimonialCard = memo(function TestimonialCard({
   name,
   role,
   content,
   avatar,
-}: testimonialCardProps) {
+}: TestimonialCardProps) {
   return (
     <Card className="border-none h-80 md:h-64 bg-white/90 dark:bg-black/40">
       <CardBody className="p-6 flex flex-col">

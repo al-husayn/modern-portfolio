@@ -13,7 +13,7 @@ import {
 import { Icon } from "@iconify/react";
 
 import ImageGallery from "@/components/image-gallery";
-import { ProjectModalProps } from "@/components/projects/types";
+import { ProjectModalProps } from "@/types/projects";
 
 export const ProjectModal = ({
   isOpen,
@@ -113,3 +113,4 @@ export const ProjectModal = ({
     </Modal>
   );
 };
+
