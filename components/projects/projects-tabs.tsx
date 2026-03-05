@@ -1,6 +1,6 @@
 import { Tabs, Tab } from "@heroui/react";
 
-import { ProjectsTabsProps } from "@/components/projects/types";
+import { ProjectsTabsProps } from "@/types/projects";
 
 export const ProjectsTabs = ({
   categories,
@@ -21,3 +21,4 @@ export const ProjectsTabs = ({
     </Tabs>
   </div>
 );
+

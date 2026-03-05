@@ -1,6 +1,6 @@
 import emailjs from "@emailjs/browser";
 
-import { ContactFormData } from "@/components/contact/types";
+import { ContactFormData } from "@/types/contact";
 
 type EmailConfigKey = "serviceId" | "templateId" | "publicKey";
 
@@ -84,3 +84,4 @@ export const sendContactEmail = async (
     EMAIL_CONFIG.publicKey!,
   );
 };
+

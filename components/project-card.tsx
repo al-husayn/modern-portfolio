@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Card, CardBody, CardFooter, Button, Image } from "@heroui/react";
 import { Icon } from "@iconify/react";
 
-import { ProjectCardProps } from "@/components/projects/types";
+import { ProjectCardProps } from "@/types/projects";
 
 export const ProjectCard = memo(function ProjectCard({
   project,
@@ -72,3 +72,4 @@ export const ProjectCard = memo(function ProjectCard({
     </Card>
   );
 });
+

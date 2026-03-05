@@ -5,7 +5,7 @@ import {
   ContactFormField,
   ContactFormData,
   ContactFormErrors,
-} from "@/components/contact/types";
+} from "@/types/contact";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -100,3 +100,4 @@ export const validateForm = (formData: ContactFormData): ContactFormErrors => {
 export const hasErrors = (errors: ContactFormErrors): boolean => {
   return Object.values(errors).some((error) => !!error);
 };
+

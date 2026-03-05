@@ -3,15 +3,13 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { ContactMapProps } from "../types";
-
+import { ContactMapProps } from "@/types/contact";
 import { MapSkeleton } from "@/components/contact/contact-map/map-skeleton";
 
 export const ContactMap: React.FC<ContactMapProps> = ({
   src,
   className = "",
 }) => {
-
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardBody } from "@heroui/react";
 
-import { ContactCardProps } from "@/components/contact/types";
+import { ContactCardProps } from "@/types/contact";
 
 export const ContactCard = ({ heading, tagline, children }: ContactCardProps) => (
   <motion.div
@@ -22,3 +22,4 @@ export const ContactCard = ({ heading, tagline, children }: ContactCardProps) =>
     </Card>
   </motion.div>
 );
+

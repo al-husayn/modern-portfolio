@@ -5,7 +5,7 @@ import { Card, CardFooter, Image } from "@heroui/react";
 
 import { HighlightText } from "@/components/textAnimations/highlight-text";
 import { SplittingText } from "@/components/textAnimations/splitting-text";
-import { ProfileCardProps } from "@/components/about/types";
+import { ProfileCardProps } from "@/types/about";
 
 export const ProfileCard = memo(function ProfileCard({
   image,

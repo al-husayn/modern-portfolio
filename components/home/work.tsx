@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { ProjectCard } from "@/components/project-card";
 import { ProjectModal } from "@/components/project-modal";
 import { GradientText } from "@/components/textAnimations/gradient-text";
-import { Project } from "@/components/projects/types";
+import { Project } from "@/types/projects";
 import { DATA } from "@/data";
 
 export const WorkSection = () => {
@@ -68,3 +68,4 @@ export const WorkSection = () => {
     </section>
   );
 };
+

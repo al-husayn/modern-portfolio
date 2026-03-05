@@ -3,7 +3,7 @@
 import { useCallback, useState } from "react";
 import { addToast } from "@heroui/react";
 
-import { ContactFormData } from "@/components/contact/types";
+import { ContactFormData } from "@/types/contact";
 import { PageHeader } from "@/components/page-header";
 import { ContactCard } from "@/components/contact/contact-card";
 import { ContactForm } from "@/components/contact/contact-form";
@@ -108,3 +108,4 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
+

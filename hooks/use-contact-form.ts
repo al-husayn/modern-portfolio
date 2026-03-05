@@ -7,7 +7,7 @@ import {
   ContactFormField,
   ContactFormErrors,
   UseContactFormReturn,
-} from "@/components/contact/types";
+} from "@/types/contact";
 import { validateField, validateForm, hasErrors } from "@/lib/utils";
 
 const initialFormData: ContactFormData = {
@@ -101,3 +101,4 @@ export const useContactForm = (): UseContactFormReturn => {
     validateField: validateFieldAndMarkTouched,
   };
 };
+

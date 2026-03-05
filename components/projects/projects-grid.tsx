@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import { ProjectCard } from "@/components/project-card";
 import { ProjectModal } from "@/components/project-modal";
 import { MotionEffect } from "@/components/motion-effect";
-import { ProjectsGridProps, Project } from "@/components/projects/types";
+import { ProjectsGridProps, Project } from "@/types/projects";
 
 export const ProjectsGrid = ({
   projects,
@@ -51,3 +51,4 @@ export const ProjectsGrid = ({
     </div>
   );
 };
+
