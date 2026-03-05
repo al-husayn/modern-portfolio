@@ -5,7 +5,7 @@ import { Input, Textarea, Button } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { ContactFormProps } from "@/components/contact/types";
+import { ContactFormField, ContactFormProps } from "@/components/contact/types";
 import { useContactForm } from "@/hooks/use-contact-form";
 import { SuccessMessage } from "@/components/contact/contact-form/success-message";
 
@@ -39,7 +39,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   }, [resetForm, onReset]);
 
   const handleInputBlur = useCallback(
-    (field: keyof typeof formData, value: string) => {
+    (field: ContactFormField, value: string) => {
       validateField(field, value);
     },
     [validateField],

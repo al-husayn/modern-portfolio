@@ -4,6 +4,13 @@ import { ContactFormData } from "@/components/contact/types";
 
 type EmailConfigKey = "serviceId" | "templateId" | "publicKey";
 
+type NormalizedContactFormData = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
+
 const EMAIL_CONFIG: Readonly<Record<EmailConfigKey, string | undefined>> = {
   serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
   templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
@@ -22,12 +29,50 @@ export const getMissingEmailConfigVars = (): string[] => {
     .map((key) => EMAIL_CONFIG_ENV_KEYS[key]);
 };
 
-const toTemplateParams = (formData: ContactFormData) => ({
-  from_name: formData.name,
-  from_email: formData.email,
-  subject: formData.subject,
-  message: formData.message,
+const normalizeFormData = (
+  formData: ContactFormData,
+): NormalizedContactFormData => ({
+  name: formData.name.trim(),
+  email: formData.email.trim(),
+  subject: formData.subject.trim(),
+  message: formData.message.trim(),
 });
+
+const buildComposedMessage = (formData: NormalizedContactFormData): string => {
+  return [
+    `Name: ${formData.name}`,
+    `Email: ${formData.email}`,
+    `Subject: ${formData.subject}`,
+    "",
+    formData.message,
+  ].join("\n");
+};
+
+const toTemplateParams = (formData: ContactFormData) => {
+  const normalizedData = normalizeFormData(formData);
+  const composedMessage = buildComposedMessage(normalizedData);
+
+  return {
+    sender_name: normalizedData.name,
+    sender_email: normalizedData.email,
+    sender_subject: normalizedData.subject,
+    sender_message: normalizedData.message,
+    name: normalizedData.name,
+    email: normalizedData.email,
+    visitor_name: normalizedData.name,
+    visitor_email: normalizedData.email,
+    user_name: normalizedData.name,
+    user_email: normalizedData.email,
+    from_name: normalizedData.name,
+    from_email: normalizedData.email,
+    reply_to: normalizedData.email,
+    reply_email: normalizedData.email,
+    subject: normalizedData.subject,
+    message: composedMessage,
+    text: composedMessage,
+    content: composedMessage,
+  };
+};
 
 export const sendContactEmail = async (
   formData: ContactFormData,

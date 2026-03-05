@@ -28,6 +28,7 @@ const ContactPage = () => {
   const handleSubmit = useCallback(
     async (formData: ContactFormData): Promise<void> => {
       setIsSubmitting(true);
+      setIsSuccess(false);
       setError(null);
 
       const missingVars = getMissingEmailConfigVars();
