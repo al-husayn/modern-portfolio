@@ -1,13 +1,20 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Button } from "@heroui/react";
 import { Icon } from "@iconify/react";
-import { useTheme } from "@heroui/use-theme";
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
 
 export const ThemeSwitcher = () => {
-  const { theme, setTheme } = useTheme();
-  const isDark = theme === "dark";
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = resolvedTheme === "dark";
 
   return (
     <motion.div
@@ -17,14 +24,16 @@ export const ThemeSwitcher = () => {
     >
       <Button
         isIconOnly
-        aria-label="Toggle theme"
-        className="text-foreground"
+        aria-label={
+          mounted && isDark ? "Switch to light theme" : "Switch to dark theme"
+        }
+        className="h-10 w-10 rounded-full border border-stone-300 bg-white text-zinc-700 transition-colors hover:bg-stone-100 dark:border-white/15 dark:bg-zinc-900 dark:text-stone-200 dark:hover:bg-zinc-800"
         variant="light"
         onPress={() => setTheme(isDark ? "light" : "dark")}
       >
         <Icon
-          className="w-5 h-5"
-          icon={isDark ? "lucide:sun" : "lucide:moon"}
+          className="h-5 w-5"
+          icon={mounted && isDark ? "lucide:sun" : "lucide:moon"}
         />
       </Button>
     </motion.div>

@@ -1,38 +1,37 @@
-import '@/app/globals.css';
+import "@/app/globals.css";
 
-import { clsx } from 'clsx';
-import { type Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { clsx } from "clsx";
+import { type Metadata } from "next";
+import { Manrope } from "next/font/google";
 
-import { DATA } from '@/data';
-import { Footer } from '@/components/footer';
-import { Navigation } from '@/components/navbar';
-import { PageWrapper } from '@/components/page-wrapper';
-import { Providers } from '@/app/providers';
-import { StarsBackground } from '@/components/backgrounds/stars';
+import { DATA } from "@/data";
+import { Footer } from "@/components/footer";
+import { Navigation } from "@/components/navbar";
+import { PageWrapper } from "@/components/page-wrapper";
+import { Providers } from "@/app/providers";
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans',
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://heroui.net'),
+  metadataBase: new URL("https://www.al-husayn.dev"),
   title: {
-    default: DATA.home.hero.name,
+    default: `${DATA.home.hero.name} | Frontend Engineer`,
     template: `%s | ${DATA.home.hero.name}`,
   },
 
-  description: DATA.home.hero.subtitle,
+  description: DATA.home.hero.summary,
   openGraph: {
     title: {
-      default: DATA.home.hero.name,
+      default: `${DATA.home.hero.name} | Frontend Engineer`,
       template: `%s | ${DATA.home.hero.name}`,
     },
-    description: DATA.home.hero.subtitle,
+    description: DATA.home.hero.summary,
     siteName: DATA.home.hero.name,
-    locale: 'en_US',
-    type: 'website',
+    locale: "en_US",
+    type: "website",
   },
   robots: {
     index: true,
@@ -40,9 +39,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   twitter: {
@@ -50,10 +49,10 @@ export const metadata: Metadata = {
       default: DATA.home.hero.name,
       template: `%s | ${DATA.home.hero.name}`,
     },
-    card: 'summary_large_image',
+    card: "summary_large_image",
   },
   icons: {
-    icon: [{ url: '/favicon.ico', sizes: 'any' }],
+    icon: [{ url: "/favicon.ico", sizes: "any" }],
   },
 };
 
@@ -63,7 +62,7 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   const content = (
-    <main className='min-h-screen bg-background bg-gradient-to-b from-background to-content2'>
+    <main className="relative min-h-screen overflow-x-clip">
       <Navigation />
       <PageWrapper>{children}</PageWrapper>
       <Footer />
@@ -71,18 +70,21 @@ export default function RootLayout({ children }: RootLayoutProps) {
   );
 
   return (
-    <html suppressHydrationWarning lang='en'>
+    <html suppressHydrationWarning lang="en">
       <body
         className={clsx(
-          'min-h-screen bg-background font-sans antialiased',
-          inter.variable
-        )}>
+          "min-h-screen bg-stone-50 font-sans text-zinc-950 antialiased dark:bg-zinc-950 dark:text-white",
+          manrope.variable,
+        )}
+      >
         <Providers
           themeProps={{
-            attribute: 'class',
-            defaultTheme: 'dark',
-          }}>
-          <StarsBackground>{content}</StarsBackground>
+            attribute: "class",
+            defaultTheme: "light",
+            disableTransitionOnChange: true,
+          }}
+        >
+          {content}
         </Providers>
       </body>
     </html>

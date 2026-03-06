@@ -28,17 +28,23 @@ const ProjectsPage = () => {
   );
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
-      <PageHeader texts={DATA.morphingTexts.projects} />
+    <section className="section-shell">
+      <div className="section-inner">
+        <PageHeader className="mb-6" texts={DATA.morphingTexts.projects} />
+        <p className="section-copy mb-10 max-w-3xl">
+          Real public work, open-source projects, and product-facing builds that
+          better reflect how I approach frontend delivery.
+        </p>
 
-      <ProjectsTabs
-        categories={categories}
-        selectedCategory={selectedCategory}
-        onSelectCategory={setSelectedCategory}
-      />
+        <ProjectsTabs
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onSelectCategory={setSelectedCategory}
+        />
 
-      <ProjectsGrid projects={filteredProjects} />
-    </div>
+        <ProjectsGrid projects={filteredProjects} />
+      </div>
+    </section>
   );
 };
 

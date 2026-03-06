@@ -9,10 +9,12 @@ export const SectionHeader = ({
   title,
   className = "",
 }: SectionHeaderProps) => (
-  <div className={`flex items-center gap-3 mb-6 ${className}`}>
-    <div className="bg-primary-100 text-primary-500 p-2 rounded-full">
+  <div className={`mb-6 flex items-center gap-3 ${className}`}>
+    <div className="rounded-full border border-stone-300 p-3 text-zinc-950 dark:border-white/15 dark:text-white">
       <Icon className="text-xl" icon={icon} />
     </div>
-    <h2 className="text-2xl font-bold text-primary-500">{title}</h2>
+    <h2 className="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-white">
+      {title}
+    </h2>
   </div>
 );

@@ -10,18 +10,20 @@ export default function AboutPage() {
   const tech = DATA.about.technologies;
 
   return (
-    <section className="py-20 px-6 md:px-12 max-w-5xl mx-auto text-foreground">
-      <PageHeader texts={DATA.morphingTexts.about} />
-      <ProfileCard
-        description={profile.description}
-        image={profile.image}
-        name={profile.name}
-        title={profile.title}
-      />
+    <section className="section-shell">
+      <div className="section-inner max-w-5xl text-foreground">
+        <PageHeader texts={DATA.morphingTexts.about} />
+        <ProfileCard
+          description={profile.description}
+          image={profile.image}
+          name={profile.name}
+          title={profile.title}
+        />
 
-      <ExperienceTimeline experience={experience} />
-      <EducationTimeline education={education} />
-      <Skills tech={tech} />
+        <ExperienceTimeline experience={experience} />
+        <EducationTimeline education={education} />
+        <Skills tech={tech} />
+      </div>
     </section>
   );
 }

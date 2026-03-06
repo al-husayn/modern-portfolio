@@ -101,3 +101,47 @@ export const hasErrors = (errors: ContactFormErrors): boolean => {
   return Object.values(errors).some((error) => !!error);
 };
 
+const PLACEHOLDER_LINK_HOSTS = new Set(["example.com", "www.example.com"]);
+const PLACEHOLDER_MEDIA_HOSTS = new Set(["img.heroui.chat"]);
+
+export const hasMeaningfulExternalLink = (url?: string): boolean => {
+  if (!url) {
+    return false;
+  }
+
+  try {
+    const parsedUrl = new URL(url);
+    const pathname = parsedUrl.pathname?.trim();
+
+    if (PLACEHOLDER_LINK_HOSTS.has(parsedUrl.hostname)) {
+      return false;
+    }
+
+    if (
+      parsedUrl.hostname === "github.com" &&
+      (!pathname || pathname === "/")
+    ) {
+      return false;
+    }
+
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+export const isPlaceholderMediaUrl = (url?: string): boolean => {
+  if (!url) {
+    return true;
+  }
+
+  try {
+    return PLACEHOLDER_MEDIA_HOSTS.has(new URL(url).hostname);
+  } catch {
+    return true;
+  }
+};
+
+export const hasRealProjectMedia = (media: readonly string[] = []): boolean => {
+  return media.some((url) => !isPlaceholderMediaUrl(url));
+};

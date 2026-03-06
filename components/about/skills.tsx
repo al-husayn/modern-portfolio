@@ -2,9 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
-import { Accordion, AccordionItem } from "@heroui/react";
 
-import { OrbitingCircles } from "@/components/orbiting-circles";
 import { SectionHeader } from "@/components/about/section-header";
 import { capitalize } from "@/lib/utils";
 import { TechCategories } from "@/types/about";
@@ -14,54 +12,39 @@ interface SkillsProps {
 }
 
 export const Skills = ({ tech }: SkillsProps) => {
-  const firstKey = Object.keys(tech)[0];
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.5 }}
       viewport={{ once: true }}
       whileInView={{ opacity: 1, y: 0 }}
     >
       <SectionHeader icon="mdi:tools" title="Skills" />
 
-      <Accordion
-        defaultSelectedKeys={[firstKey]}
-        selectionMode="multiple"
-        variant="bordered"
-      >
+      <div className="grid gap-4 md:grid-cols-2">
         {Object.entries(tech).map(([category, { description, tools }]) => (
-          <AccordionItem
-            key={category}
-            aria-label={category}
-            title={capitalize(category)}
-          >
-            <p className="mb-4 text-sm text-muted-foreground">
+          <div key={category} className="surface-card p-6">
+            <h3 className="text-xl font-semibold text-zinc-950 dark:text-white">
+              {capitalize(category)}
+            </h3>
+            <p className="mt-3 text-sm leading-7 text-stone-600 dark:text-stone-300">
               {description}
             </p>
 
-            <div className="relative h-[300px] w-full">
-              <OrbitingCircles
-                className="h-full w-full [&>div]:hover:scale-110 [&>div]:hover:text-primary-500"
-                duration={20}
-                radius={120}
-              >
-                {tools.map((tool) => (
-                  <div key={tool.name}>
-                    <Icon
-                      className="transition-all duration-300"
-                      height={24}
-                      icon={tool.icon}
-                      width={24}
-                    />
-                  </div>
-                ))}
-              </OrbitingCircles>
+            <div className="mt-5 flex flex-wrap gap-3">
+              {tools.map((tool) => (
+                <span
+                  key={tool.name}
+                  className="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm font-medium text-stone-700 dark:border-white/10 dark:text-stone-200"
+                >
+                  <Icon className="h-4 w-4" icon={tool.icon} />
+                  {tool.name}
+                </span>
+              ))}
             </div>
-          </AccordionItem>
+          </div>
         ))}
-      </Accordion>
+      </div>
     </motion.div>
   );
 };
-

@@ -11,8 +11,7 @@ import { ContactForm } from "@/components/contact/contact-form";
 import { DATA } from "@/data";
 import { getMissingEmailConfigVars, sendContactEmail } from "@/lib/emailjs";
 
-const CONTACT_ERROR_MESSAGE =
-  "Failed to send message. Please try again later.";
+const CONTACT_ERROR_MESSAGE = "Failed to send message. Please try again later.";
 const EMAIL_CONFIG_MESSAGE =
   "Email configuration is incomplete. Please check environment variables.";
 
@@ -54,8 +53,7 @@ const ContactPage = () => {
         setIsSuccess(true);
         addToast({
           title: "Message Sent Successfully",
-          description:
-            "Thank you for your message! I'll get back to you soon.",
+          description: "Thank you for your message! I'll get back to you soon.",
           color: "success",
         });
       } catch (error) {
@@ -81,9 +79,9 @@ const ContactPage = () => {
   }, []);
 
   return (
-    <section className="py-20">
-      <PageHeader texts={DATA.morphingTexts.contact} />
-      <div className="container px-4 mx-auto">
+    <section className="section-shell">
+      <div className="section-inner">
+        <PageHeader texts={DATA.morphingTexts.contact} />
         <ContactCard
           heading={DATA.contact.heading}
           tagline={DATA.contact.tagline}
@@ -98,8 +96,10 @@ const ContactPage = () => {
         </ContactCard>
 
         {error && (
-          <div className="p-4 mt-6 border rounded-lg bg-danger-50 border-danger-200">
-            <p className="text-sm text-danger-700">{error}</p>
+          <div className="mt-6 rounded-[20px] border border-danger-200 bg-danger-50 p-4 dark:border-danger-500/30 dark:bg-danger-500/10">
+            <p className="text-sm text-danger-700 dark:text-danger-200">
+              {error}
+            </p>
           </div>
         )}
       </div>
@@ -108,4 +108,3 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
-
