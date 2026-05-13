@@ -9,6 +9,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-geist-sans)"],
+        mono: ["var(--font-geist-mono)"],
+      },
       animation: {
         orbit: "orbit calc(var(--duration)*1s) linear infinite",
         gradient: "gradient 8s linear infinite",

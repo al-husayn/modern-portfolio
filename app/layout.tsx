@@ -2,7 +2,7 @@ import "@/app/globals.css";
 
 import { clsx } from "clsx";
 import { type Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 
 import { DATA } from "@/data";
 import { Footer } from "@/components/footer";
@@ -11,9 +11,14 @@ import { PageWrapper } from "@/components/page-wrapper";
 import { Providers } from "@/app/providers";
 import { StarsBackground } from "@/components/backgrounds/stars";
 
-const inter = Inter({
+const geistSans = Geist({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-geist-sans",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
 });
 
 export const metadata: Metadata = {
@@ -71,13 +76,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
   );
 
   return (
-    <html suppressHydrationWarning lang="en">
-      <body
-        className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
-          inter.variable,
-        )}
-      >
+    <html
+      suppressHydrationWarning
+      className={clsx(geistSans.variable, geistMono.variable, "antialiased")}
+      lang="en"
+    >
+      <body className="min-h-screen bg-background font-sans antialiased">
         <Providers
           themeProps={{
             attribute: "class",
