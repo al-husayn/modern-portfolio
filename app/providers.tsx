@@ -9,8 +9,7 @@ import dynamic from "next/dynamic";
 import { ToastProvider } from "@heroui/react";
 
 const NextThemesProvider = dynamic(
-  () =>
-    import("next-themes").then(({ ThemeProvider }) => ThemeProvider),
+  () => import("next-themes").then(({ ThemeProvider }) => ThemeProvider),
   { ssr: false },
 );
 

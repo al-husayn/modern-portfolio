@@ -91,9 +91,7 @@ const CodeEditor = () => {
           <div className="h-[2px] w-full bg-gradient-to-r from-secondary-500 to-transparent" />
         </div>
 
-        <div
-          className="flex items-center justify-between bg-content2/80 px-4 py-5 lg:px-8"
-        >
+        <div className="flex items-center justify-between bg-content2/80 px-4 py-5 lg:px-8">
           <div className="flex flex-row space-x-2">
             <div className="w-3 h-3 transition-transform bg-red-500 rounded-full cursor-pointer hover:scale-110" />
             <div className="w-3 h-3 transition-transform bg-yellow-500 rounded-full cursor-pointer hover:scale-110" />
@@ -120,8 +118,8 @@ const CodeEditor = () => {
                   animate={{ opacity: index <= currentLine ? 1 : 0.3 }}
                   className={`leading-relaxed select-none transition-all duration-300 ${
                     index <= currentLine
-                      ? 'opacity-100 text-blue-500'
-                      : 'opacity-30'
+                      ? "opacity-100 text-blue-500"
+                      : "opacity-30"
                   }`}
                   initial={{ opacity: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -152,9 +150,7 @@ const CodeEditor = () => {
               >
                 <span className="text-foreground">name:</span>
                 <span className="text-foreground-500">&#39;</span>
-                <span className="text-success-500">
-                  {coderData.name}
-                </span>
+                <span className="text-success-500">{coderData.name}</span>
                 <span className="text-foreground-500">&#39;,</span>
               </AnimatedLine>
 
@@ -165,9 +161,7 @@ const CodeEditor = () => {
               >
                 <span className="text-foreground">role:</span>
                 <span className="text-foreground-500">&#39;</span>
-                <span className="text-success-500">
-                  {coderData.role}
-                </span>
+                <span className="text-success-500">{coderData.role}</span>
                 <span className="text-foreground-500">&#39;,</span>
               </AnimatedLine>
 
@@ -176,13 +170,9 @@ const CodeEditor = () => {
                 className="pl-6"
                 showCursor={isTyping && currentLine === 3}
               >
-                <span className="text-foreground">
-                  seniority:
-                </span>
+                <span className="text-foreground">seniority:</span>
                 <span className="text-foreground-500">&#39;</span>
-                <span className="text-success-500">
-                  {coderData.seniority}
-                </span>
+                <span className="text-success-500">{coderData.seniority}</span>
                 <span className="text-foreground-500">&#39;,</span>
               </AnimatedLine>
 
@@ -193,9 +183,7 @@ const CodeEditor = () => {
               >
                 <span className="text-foreground">location:</span>
                 <span className="text-foreground-500">&#39;</span>
-                <span className="text-success-500">
-                  {coderData.location}
-                </span>
+                <span className="text-success-500">{coderData.location}</span>
                 <span className="text-foreground-500">&#39;,</span>
               </AnimatedLine>
 
@@ -208,7 +196,10 @@ const CodeEditor = () => {
                 <span className="text-foreground-500">[</span>
               </AnimatedLine>
 
-              <AnimatedLine active={currentLine >= 6} className="flex flex-wrap pl-6">
+              <AnimatedLine
+                active={currentLine >= 6}
+                className="flex flex-wrap pl-6"
+              >
                 {coderData.skills.map((skill, index) => (
                   <motion.span
                     key={skill}
@@ -217,19 +208,11 @@ const CodeEditor = () => {
                     initial={{ opacity: 0, scale: 0.8 }}
                     transition={{ delay: index * 0.05 }}
                   >
-                    <span className="text-foreground-500">
-                      &#39;
-                    </span>
-                    <span className="text-primary-500">
-                      {skill}
-                    </span>
-                    <span className="text-foreground-500">
-                      &#39;
-                    </span>
+                    <span className="text-foreground-500">&#39;</span>
+                    <span className="text-primary-500">{skill}</span>
+                    <span className="text-foreground-500">&#39;</span>
                     {index < coderData.skills.length - 1 && (
-                      <span className="text-foreground-500">
-                        ,{' '}
-                      </span>
+                      <span className="text-foreground-500">, </span>
                     )}
                   </motion.span>
                 ))}
@@ -243,7 +226,10 @@ const CodeEditor = () => {
                 <span className="text-foreground-500">],</span>
               </AnimatedLine>
 
-              <AnimatedLine active={currentLine >= 8} showCursor={isTyping && currentLine === 8}>
+              <AnimatedLine
+                active={currentLine >= 8}
+                showCursor={isTyping && currentLine === 8}
+              >
                 <span className="text-foreground-500">{"};"}</span>
               </AnimatedLine>
             </code>

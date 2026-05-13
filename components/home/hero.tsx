@@ -95,7 +95,6 @@ export const HeroSection = ({
             </Button>
           </motion.div>
         </motion.div>
-        
       </div>
     </section>
   );

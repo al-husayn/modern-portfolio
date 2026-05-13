@@ -121,12 +121,13 @@ This template uses [Email.js](https://www.emailjs.com/) for handling contact for
 3.  **Create a new Email Template:** Go to Email Templates and create a new template. You can use the default template or customize it. Make note of your **Template ID**.
 
     Here's an example template you can use:
-    
+
 ```jsx
 <div style="font-family: system-ui, sans-serif, Arial; font-size: 12px">
   <div>
-    A message by <strong>{{sender_name}}</strong> ({{sender_email}}) has been received with the subject
-    "<strong>{{sender_subject}}</strong>". Kindly respond at your earliest convenience.
+    A message by <strong>{{ sender_name }}</strong> ({{ sender_email }}) has
+    been received with the subject "<strong>{{ sender_subject }}</strong>".
+    Kindly respond at your earliest convenience.
   </div>
 
   <div
@@ -156,17 +157,20 @@ This template uses [Email.js](https://www.emailjs.com/) for handling contact for
         </td>
         <td style="vertical-align: top">
           <div style="color: #2c3e50; font-size: 16px">
-            <strong>{{sender_name}}</strong> — <a href="mailto:{{sender_email}}" style="color: #3498db">{{sender_email}}</a>
+            <strong>{{ sender_name }}</strong> —{" "}
+            <a href="mailto:{{sender_email}}" style="color: #3498db">
+              {{ sender_email }}
+            </a>
           </div>
-          <div style="color: #999999; font-size: 13px"><em>Subject:</em> {{sender_subject}}</div>
-          <p style="font-size: 16px; margin-top: 10px">{{sender_message}}</p>
+          <div style="color: #999999; font-size: 13px">
+            <em>Subject:</em> {{ sender_subject }}
+          </div>
+          <p style="font-size: 16px; margin-top: 10px">{{ sender_message }}</p>
         </td>
       </tr>
     </table>
   </div>
 </div>
-
-
 ```
 
 4.  **Get your Public Key:** You can find your Public Key under **Account** -> **API Keys**.
@@ -182,6 +186,7 @@ This template uses [Email.js](https://www.emailjs.com/) for handling contact for
     Replace `your_service_id`, `your_template_id`, and `your_public_key` with the values from your Email.js account.
 
     In your EmailJS template settings:
+
     - Set `From Name` to `{{sender_name}}`
     - Set `Reply-To` to `{{sender_email}}`
 
@@ -198,7 +203,6 @@ This template uses [Email.js](https://www.emailjs.com/) for handling contact for
 - **[HeroUI](https://www.heroui.com/):** A React UI library for beautiful and accessible components.
 - **[Iconify](https://iconify.design/):** A library for using icons from various icon sets.
 - **[TypeScript](https://www.typescriptlang.org/):** A typed superset of JavaScript.
-
 
 ## License
 

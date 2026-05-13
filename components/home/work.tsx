@@ -68,4 +68,3 @@ export const WorkSection = () => {
     </section>
   );
 };
-

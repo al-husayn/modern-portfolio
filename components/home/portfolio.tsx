@@ -33,8 +33,7 @@ const PortfolioHero = () => {
             <h1 className="text-4xl font-bold leading-tight text-foreground sm:text-5xl lg:text-6xl">
               Hello
               <br />
-              I&apos;m{" "}
-              <GradientText text="Al-Hussein" />
+              I&apos;m <GradientText text="Al-Hussein" />
             </h1>
 
             <div className="max-w-lg text-base leading-relaxed text-foreground-600 sm:text-lg lg:text-xl">
@@ -46,8 +45,8 @@ const PortfolioHero = () => {
               <br />
               With 3+ years of experience building responsive, high-performance
               web apps using React, Next.js, TypeScript, Tailwind CSS, and
-              Shadcn.
-              I specialize in clean, fast, user-focused interfaces that scale.
+              Shadcn. I specialize in clean, fast, user-focused interfaces that
+              scale.
             </div>
 
             <div className="flex flex-col w-full max-w-md gap-4 mx-auto mt-8 md:flex-row md:w-auto md:max-w-none md:mx-0 md:mt-10 md:gap-6">

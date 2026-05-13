@@ -11,8 +11,7 @@ import { ContactForm } from "@/components/contact/contact-form";
 import { DATA } from "@/data";
 import { getMissingEmailConfigVars, sendContactEmail } from "@/lib/emailjs";
 
-const CONTACT_ERROR_MESSAGE =
-  "Failed to send message. Please try again later.";
+const CONTACT_ERROR_MESSAGE = "Failed to send message. Please try again later.";
 const EMAIL_CONFIG_MESSAGE =
   "Email configuration is incomplete. Please check environment variables.";
 
@@ -54,8 +53,7 @@ const ContactPage = () => {
         setIsSuccess(true);
         addToast({
           title: "Message Sent Successfully",
-          description:
-            "Thank you for your message! I'll get back to you soon.",
+          description: "Thank you for your message! I'll get back to you soon.",
           color: "success",
         });
       } catch (error) {
@@ -108,4 +106,3 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
-

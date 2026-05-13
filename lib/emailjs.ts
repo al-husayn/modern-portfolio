@@ -84,4 +84,3 @@ export const sendContactEmail = async (
     EMAIL_CONFIG.publicKey!,
   );
 };
-
