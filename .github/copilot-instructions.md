@@ -29,7 +29,8 @@ This is a **Next.js 15 + TypeScript + TailwindCSS + Framer Motion** animated por
 ```typescript
 // Always import data this way
 import { DATA } from "@/data";
-const projects = DATA.projects.work;
+const { projects } = DATA;
+const workProjects = projects.work;
 ```
 
 ### 2. Server vs Client Components (Next.js 15 App Router)
