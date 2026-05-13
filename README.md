@@ -90,24 +90,23 @@ Simply update the values in this file to personalize your portfolio.
 Here's an example
 
 ```tsx
-            <Link
-              download
-              aria-label="Download CV in PDF format"
-              className="w-full sm:w-auto"
-              href="/your-cv-filename.pdf"
-            >
-              <Button
-                fullWidth
-                aria-label="Downoald CV"
-                color="primary"
-                endContent={<Icon icon="lucide:download" />}
-                size="lg"
-                variant="shadow"
-              >
-                Download CV
-              </Button>
-            </Link>
-
+<Link
+  download
+  aria-label="Download CV in PDF format"
+  className="w-full sm:w-auto"
+  href="/your-cv-filename.pdf"
+>
+  <Button
+    fullWidth
+    aria-label="Downoald CV"
+    color="primary"
+    endContent={<Icon icon="lucide:download" />}
+    size="lg"
+    variant="shadow"
+  >
+    Download CV
+  </Button>
+</Link>
 ```
 
 ## Contact Form Setup (Email.js)
