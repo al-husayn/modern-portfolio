@@ -157,7 +157,7 @@ This template uses [Email.js](https://www.emailjs.com/) for handling contact for
         </td>
         <td style="vertical-align: top">
           <div style="color: #2c3e50; font-size: 16px">
-            <strong>{{ sender_name }}</strong> —{" "}
+            <strong>{{ sender_name }}</strong> —
             <a href="mailto:{{sender_email}}" style="color: #3498db">
               {{ sender_email }}
             </a>

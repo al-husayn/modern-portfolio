@@ -1,4 +1,15 @@
 export const DATA = {
+  hero: {
+    name: "Al-Hussein",
+    role: "Frontend Developer",
+    location: "Kumasi, Ghana",
+    status: "Currently open to new opportunities.",
+    experience: "3+ years",
+    description: "building responsive, high-performance web apps",
+    techStack: "React, Next.js, TypeScript, Tailwind CSS, and Shadcn",
+    focus: "I specialize in clean, fast, user-focused interfaces that scale.",
+  },
+  resumePath: "/resume.pdf",
   home: {
     hero: {
       name: "Al-Hussein",
@@ -27,7 +38,7 @@ export const DATA = {
     skills: {
       sectionTitle: "Services",
       sectionDescription:
-        " I deliver modern, reliable web solutions tailored to your needs",
+        "I deliver modern, reliable web solutions tailored to your needs",
       services: [
         {
           name: "Modern Web Applications",
@@ -138,8 +149,8 @@ export const DATA = {
         "https://al-drake.netlify.app/static/media/profile.211cb621e39afe112f2a.png",
       description: [
         "Frontend Developer based in Kumasi, Ghana, with 3 years of hands-on experience building modern, performant web applications.",
-        " I specialize in React, Next.js, and TypeScript, Tailwind CSS, and Shadcn UI - crafting clean, accessible, and scalable interfaces that solves real problems.",
-        " From startups to client projects, I deliver pixel-perfect UIs with a focus on speed, user experience, and maintainable code.",
+        "I specialize in React, Next.js, and TypeScript, Tailwind CSS, and Shadcn UI - crafting clean, accessible, and scalable interfaces that solve real problems.",
+        "From startups to client projects, I deliver pixel-perfect UIs with a focus on speed, user experience, and maintainable code.",
         "Currently open to new opportunities.",
       ],
     },
@@ -178,7 +189,7 @@ export const DATA = {
         icon: "mdi:briefcase",
         description: [
           "Led creative and development teams to build 2+ digital experiences for tech startups, combining innovation with user empathy and reducing project delivery time by 25% through efficient UI/UX strategies.",
-          "Oversaw branding,Frontend Dev Twam,  UI/UX strategy, and development pipelines for clients, resulting in 2 completed projects with 100% client satisfaction and improved user engagement metrics by 30%.",
+          "Oversaw branding, Frontend Dev Team, UI/UX strategy, and development pipelines for clients, resulting in 2 completed projects with 100% client satisfaction and improved user engagement metrics by 30%.",
         ],
       },
       {

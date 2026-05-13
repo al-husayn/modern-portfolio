@@ -9,6 +9,7 @@ import CodeEditor from "./codeEditor";
 
 import { Shape } from "@/components/backgrounds/shape-background";
 import { GradientText } from "@/components/textAnimations/gradient-text";
+import { DATA } from "@/data";
 
 const scrollToWork = () => {
   const workSection = document.getElementById("work-section");
@@ -17,6 +18,8 @@ const scrollToWork = () => {
 };
 
 const PortfolioHero = () => {
+  const { hero, resumePath } = DATA;
+
   return (
     <section className="relative isolate flex min-h-[calc(100vh-64px)] items-center justify-center overflow-hidden bg-background">
       <Shape />
@@ -33,20 +36,18 @@ const PortfolioHero = () => {
             <h1 className="text-4xl font-bold leading-tight text-foreground sm:text-5xl lg:text-6xl">
               Hello
               <br />
-              I&apos;m <GradientText text="Al-Hussein" />
+              I&apos;m <GradientText text={hero.name} />
             </h1>
 
             <div className="max-w-lg text-base leading-relaxed text-foreground-600 sm:text-lg lg:text-xl">
               <p className="font-medium text-primary-500">
-                Frontend Developer based in Kumasi, Ghana.
+                {hero.role} based in {hero.location}.
                 <br />
-                Currently open to new opportunities.
-              </p>{" "}
+                {hero.status}
+              </p>
               <br />
-              With 3+ years of experience building responsive, high-performance
-              web apps using React, Next.js, TypeScript, Tailwind CSS, and
-              Shadcn. I specialize in clean, fast, user-focused interfaces that
-              scale.
+              With {hero.experience} of experience {hero.description} using{" "}
+              {hero.techStack}. {hero.focus}
             </div>
 
             <div className="flex flex-col w-full max-w-md gap-4 mx-auto mt-8 md:flex-row md:w-auto md:max-w-none md:mx-0 md:mt-10 md:gap-6">
@@ -54,7 +55,7 @@ const PortfolioHero = () => {
                 download
                 aria-label="Download CV in PDF format"
                 className="w-full md:w-auto"
-                href="/resume.pdf"
+                href={resumePath}
               >
                 <Button
                   className="justify-center w-full px-8 text-base font-medium shadow-lg md:w-auto min-h-14"
