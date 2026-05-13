@@ -1,7 +1,10 @@
 import * as React from "react";
-import { motion, type Transition } from "framer-motion";
+import { motion, useReducedMotion, type Transition } from "framer-motion";
 
 import { cn } from "../../lib/utils";
+
+const BRAND_GRADIENT =
+  "linear-gradient(90deg, #006FEE 0%, #17C964 35%, #9353D3 70%, #006FEE 100%)";
 
 type GradientTextProps = React.ComponentProps<"span"> & {
   text: string;
@@ -13,14 +16,18 @@ type GradientTextProps = React.ComponentProps<"span"> & {
 function GradientText({
   text,
   className,
-  gradient = "linear-gradient(90deg, #3b82f6 0%, #a855f7 20%, #ec4899 50%, #a855f7 80%, #3b82f6 100%)",
+  gradient = BRAND_GRADIENT,
   neon = false,
   transition = { duration: 50, repeat: Infinity, ease: "linear" },
   ...props
 }: GradientTextProps) {
+  const reduceMotion = useReducedMotion();
   const baseStyle: React.CSSProperties = {
     backgroundImage: gradient,
   };
+  const animation = reduceMotion
+    ? { backgroundPosition: "0% 0%" }
+    : { backgroundPosition: "500% 100%" };
 
   return (
     <span
@@ -29,22 +36,22 @@ function GradientText({
       {...props}
     >
       <motion.span
-        animate={{ backgroundPosition: "500% 100%" }}
+        animate={animation}
         className="m-0 text-transparent bg-clip-text bg-[length:700%_100%] bg-[position:0%_0%]"
         initial={{ backgroundPosition: "0% 0%" }}
         style={baseStyle}
-        transition={transition}
+        transition={reduceMotion ? undefined : transition}
       >
         {text}
       </motion.span>
 
       {neon && (
         <motion.span
-          animate={{ backgroundPosition: "500% 100%" }}
+          animate={animation}
           className="m-0 absolute top-0 left-0 text-transparent bg-clip-text blur-[8px] mix-blend-plus-lighter bg-[length:700%_100%] bg-[position:0%_0%]"
           initial={{ backgroundPosition: "0% 0%" }}
           style={baseStyle}
-          transition={transition}
+          transition={reduceMotion ? undefined : transition}
         >
           {text}
         </motion.span>

@@ -13,53 +13,50 @@ export const ProjectCard = memo(function ProjectCard({
       isFooterBlurred
       isHoverable
       className="
-        border-none bg-white/90 dark:bg-black/70
-        shadow-md dark:shadow-cyan-900/40
-        rounded-xl overflow-hidden h-full w-full
-        transition-colors
+        h-full w-full overflow-hidden border border-default-200
+        bg-content1/85 shadow-sm backdrop-blur
+        transition-colors hover:border-primary-400/60 hover:shadow-lg
       "
-      radius="lg"
+      radius="md"
     >
-      <CardBody className="p-0 flex flex-col h-full">
+      <CardBody className="flex h-full flex-col p-0">
         <div className="relative w-full aspect-[16/10] overflow-hidden">
           <Image
             isZoomed
             removeWrapper
             alt={project.title}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
             classNames={{
-              img: "w-full h-full object-cover",
-              zoomedWrapper: "w-full h-full",
+              img: "h-full w-full object-cover",
+              zoomedWrapper: "h-full w-full",
             }}
             loading="lazy"
             src={project.image}
           />
           <CardFooter
             className="
-    justify-center
-    bg-black/40 
-    border-white/20 border-1
-    overflow-hidden py-2.5 absolute before:rounded-xl rounded-large
-    bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10
-    backdrop-blur-sm
-  "
+              absolute bottom-1 z-10 ml-1 w-[calc(100%_-_8px)]
+              justify-center overflow-hidden rounded-md border-1
+              border-white/20 bg-black/40 py-2.5 shadow-small
+              backdrop-blur-sm before:rounded-md
+            "
           >
-            <p className="text-xs font-medium text-white tracking-wider uppercase z-10">
+            <p className="z-10 text-xs font-medium uppercase tracking-wider text-white">
               {project.category}
             </p>
           </CardFooter>
         </div>
 
-        <div className="p-6 flex flex-col flex-grow">
-          <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+        <div className="flex flex-grow flex-col p-6">
+          <h3 className="mb-2 text-xl font-semibold text-foreground">
             {project.title}
           </h3>
-          <p className="text-gray-700 dark:text-gray-300 mb-4 flex-grow text-sm leading-relaxed">
+          <p className="mb-4 flex-grow text-sm leading-relaxed text-foreground-600">
             {project.description}
           </p>
           <Button
             aria-label="View Details"
-            className="w-full md:w-auto border-cyan-400 text-cyan-300 hover:bg-cyan-400/10 transition-colors"
+            className="w-full transition-colors md:w-auto"
             color="primary"
             endContent={<Icon icon="lucide:arrow-right" />}
             variant="bordered"

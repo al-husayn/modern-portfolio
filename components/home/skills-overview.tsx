@@ -13,17 +13,17 @@ export const ServicesSection = () => {
   const displayedServices = services.slice(0, 6);
 
   return (
-    <section className="py-20 bg-content1">
-      <div className="container px-4 mx-auto">
+    <section className="bg-content1 py-20">
+      <div className="container mx-auto px-4">
         <motion.div
-          className="mb-16 text-center"
+          className="mx-auto mb-16 max-w-3xl text-center"
           initial={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           whileInView={{ opacity: 1, y: 0 }}
         >
           <GradientText
-            className="mb-4 text-3xl font-bold md:text-4xl gradient"
+            className="mb-4 text-3xl font-bold md:text-4xl"
             text={sectionTitle}
           />
           <p className="max-w-2xl mx-auto text-lg text-foreground-600">
@@ -31,8 +31,7 @@ export const ServicesSection = () => {
           </p>
         </motion.div>
 
-        {/* Grid: 2 cols mobile, 3 cols tablet+, centered */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {displayedServices.map((service, index) => (
             <motion.div
               key={service.name}
@@ -43,11 +42,14 @@ export const ServicesSection = () => {
               whileHover={{ scale: 1.05 }}
               whileInView={{ opacity: 1, y: 0 }}
             >
-              <Card className="w-full max-w-sm transition-all border bg-default-100/60 border-default-200 hover:border-primary/50 hover:shadow-xl">
+              <Card
+                className="w-full max-w-sm border border-default-200 bg-content2/70 shadow-sm transition-all hover:border-primary-400/60 hover:shadow-lg"
+                radius="md"
+              >
                 <CardBody className="flex flex-col items-center gap-6 p-10 text-center">
                   <img
                     alt={`${service.name} icon`}
-                    className="w-28 h-28 object-contain drop-shadow-md"
+                    className="h-28 w-28 object-contain drop-shadow-md"
                     src={service.logo}
                   />
                   <div>
@@ -55,7 +57,7 @@ export const ServicesSection = () => {
                       {service.name}
                     </h3>
                     {service.description && (
-                      <p className="mt-4 text-base text-foreground-500 leading-relaxed">
+                      <p className="mt-4 text-base leading-relaxed text-foreground-500">
                         {service.description}
                       </p>
                     )}

@@ -19,25 +19,25 @@ export const WorkSection = () => {
   const handleCloseModal = () => setSelectedProject(null);
 
   return (
-    <section className="py-20 bg-background" id="work-section">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="bg-background py-20" id="work-section">
+      <div className="mx-auto max-w-7xl px-4">
         <motion.div
-          className="text-center mb-16"
+          className="mx-auto mb-16 max-w-3xl text-center"
           initial={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
           whileInView={{ opacity: 1, y: 0 }}
         >
           <GradientText
-            className="text-3xl md:text-4xl font-bold mb-4"
+            className="mb-4 text-3xl font-bold md:text-4xl"
             text={sectionTitle}
           />
-          <p className="text-foreground-600 text-lg max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-lg text-foreground-600">
             {sectionDescription}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {work.slice(0, 3).map((project, index) => (
             <motion.div
               key={project.id}
