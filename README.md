@@ -89,7 +89,7 @@ Simply update the values in this file to personalize your portfolio.
 
 Here's an example
 
-```hero.tsx
+```tsx
             <Link
               download
               aria-label="Download CV in PDF format"
