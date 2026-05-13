@@ -1,23 +1,28 @@
-import '@/app/globals.css';
+import "@/app/globals.css";
 
-import { clsx } from 'clsx';
-import { type Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { clsx } from "clsx";
+import { type Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 
-import { DATA } from '@/data';
-import { Footer } from '@/components/footer';
-import { Navigation } from '@/components/navbar';
-import { PageWrapper } from '@/components/page-wrapper';
-import { Providers } from '@/app/providers';
-import { StarsBackground } from '@/components/backgrounds/stars';
+import { DATA } from "@/data";
+import { Footer } from "@/components/footer";
+import { Navigation } from "@/components/navbar";
+import { PageWrapper } from "@/components/page-wrapper";
+import { Providers } from "@/app/providers";
+import { StarsBackground } from "@/components/backgrounds/stars";
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans',
+const geistSans = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://heroui.net'),
+  metadataBase: new URL("https://heroui.net"),
   title: {
     default: DATA.home.hero.name,
     template: `%s | ${DATA.home.hero.name}`,
@@ -31,8 +36,8 @@ export const metadata: Metadata = {
     },
     description: DATA.home.hero.subtitle,
     siteName: DATA.home.hero.name,
-    locale: 'en_US',
-    type: 'website',
+    locale: "en_US",
+    type: "website",
   },
   robots: {
     index: true,
@@ -40,9 +45,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   twitter: {
@@ -50,10 +55,10 @@ export const metadata: Metadata = {
       default: DATA.home.hero.name,
       template: `%s | ${DATA.home.hero.name}`,
     },
-    card: 'summary_large_image',
+    card: "summary_large_image",
   },
   icons: {
-    icon: [{ url: '/favicon.ico', sizes: 'any' }],
+    icon: [{ url: "/favicon.ico", sizes: "any" }],
   },
 };
 
@@ -63,7 +68,7 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   const content = (
-    <main className='min-h-screen bg-background bg-gradient-to-b from-background to-content2'>
+    <main className="min-h-screen bg-background bg-gradient-to-b from-background to-content2">
       <Navigation />
       <PageWrapper>{children}</PageWrapper>
       <Footer />
@@ -71,17 +76,18 @@ export default function RootLayout({ children }: RootLayoutProps) {
   );
 
   return (
-    <html suppressHydrationWarning lang='en'>
-      <body
-        className={clsx(
-          'min-h-screen bg-background font-sans antialiased',
-          inter.variable
-        )}>
+    <html
+      suppressHydrationWarning
+      className={clsx(geistSans.variable, geistMono.variable, "antialiased")}
+      lang="en"
+    >
+      <body className="min-h-screen bg-background font-sans antialiased">
         <Providers
           themeProps={{
-            attribute: 'class',
-            defaultTheme: 'dark',
-          }}>
+            attribute: "class",
+            defaultTheme: "dark",
+          }}
+        >
           <StarsBackground>{content}</StarsBackground>
         </Providers>
       </body>

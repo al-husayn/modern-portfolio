@@ -36,9 +36,7 @@ export const Skills = ({ tech }: SkillsProps) => {
             aria-label={category}
             title={capitalize(category)}
           >
-            <p className="mb-4 text-sm text-muted-foreground">
-              {description}
-            </p>
+            <p className="mb-4 text-sm text-muted-foreground">{description}</p>
 
             <div className="relative h-[300px] w-full">
               <OrbitingCircles
@@ -64,4 +62,3 @@ export const Skills = ({ tech }: SkillsProps) => {
     </motion.div>
   );
 };
-

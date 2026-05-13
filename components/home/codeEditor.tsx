@@ -5,7 +5,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { DATA } from "@/data";
 
 const coderData = DATA.home.coderProfile;
-const TOTAL_LINE_COUNT = 12;
+const TOTAL_LINE_COUNT = 9;
 const TYPING_INTERVAL_MS = 800;
 const TYPING_CURSOR_DURATION_MS = 500;
 
@@ -83,48 +83,43 @@ const CodeEditor = () => {
     >
       <Card
         className="overflow-hidden transition-all duration-500 
-        bg-gradient-to-r from-zinc-100 to-zinc-200 
-        dark:from-[#000000] dark:to-[#0a0d37] 
-        border-zinc-300 dark:border-[#1b2c68a0] 
-        relative rounded-lg border shadow-lg"
+        relative rounded-lg border border-default-200
+        bg-content1/90 shadow-lg backdrop-blur"
       >
         <div className="flex flex-row">
-          <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500 to-purple-500" />
-          <div className="h-[2px] w-full bg-gradient-to-r from-purple-500 to-transparent" />
+          <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-primary-500 to-secondary-500" />
+          <div className="h-[2px] w-full bg-gradient-to-r from-secondary-500 to-transparent" />
         </div>
 
-        <div
-          className="flex items-center justify-between px-4 py-5 lg:px-8 
-          bg-zinc-200 dark:bg-[#000000]"
-        >
+        <div className="flex items-center justify-between bg-content2/80 px-4 py-5 lg:px-8">
           <div className="flex flex-row space-x-2">
             <div className="w-3 h-3 transition-transform bg-red-500 rounded-full cursor-pointer hover:scale-110" />
             <div className="w-3 h-3 transition-transform bg-yellow-500 rounded-full cursor-pointer hover:scale-110" />
             <div className="w-3 h-3 transition-transform bg-green-500 rounded-full cursor-pointer hover:scale-110" />
           </div>
-          <div className="flex items-center gap-2 font-mono text-xs text-zinc-600 dark:text-gray-400">
-            <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
+          <div className="flex items-center gap-2 font-mono text-xs text-foreground-500">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-primary-500" />
             coder.js
           </div>
         </div>
 
-        <div className="overflow-hidden border-t-[2px] border-zinc-300 dark:border-indigo-900 px-4 lg:px-8 py-4 lg:py-8 relative">
-          <div className="absolute w-32 h-32 rounded-full bg-blue-500/10 -top-16 -left-16 animate-pulse" />
+        <div className="relative overflow-hidden border-t border-default-200 px-4 py-4 lg:px-8 lg:py-8">
+          <div className="absolute -left-16 -top-16 h-32 w-32 animate-pulse rounded-full bg-primary-500/10" />
           <div
-            className="absolute w-24 h-24 rounded-full bg-purple-500/10 -bottom-12 -right-12 animate-pulse"
+            className="absolute -bottom-12 -right-12 h-24 w-24 animate-pulse rounded-full bg-secondary-500/10"
             style={{ animationDelay: "1s" }}
           />
 
           <div className="relative flex">
-            <div className="flex-col items-end hidden pr-4 font-mono text-xs text-zinc-600 dark:text-gray-500 md:flex">
+            <div className="hidden flex-col items-end pr-4 font-mono text-xs text-foreground-400 md:flex">
               {Array.from({ length: TOTAL_LINE_COUNT }, (_, index) => (
                 <motion.div
                   key={index}
                   animate={{ opacity: index <= currentLine ? 1 : 0.3 }}
                   className={`leading-relaxed select-none transition-all duration-300 ${
                     index <= currentLine
-                      ? 'opacity-100 text-blue-500'
-                      : 'opacity-30'
+                      ? "opacity-100 text-blue-500"
+                      : "opacity-30"
                   }`}
                   initial={{ opacity: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -141,11 +136,11 @@ const CodeEditor = () => {
                 showCursor={isTyping && currentLine === 0}
               >
                 <span className="mr-2 text-pink-500">const</span>
-                <span className="mr-2 font-semibold text-violet-500 dark:text-violet-400">
+                <span className="mr-2 font-semibold text-secondary-500">
                   coder
                 </span>
                 <span className="mr-2 text-pink-500">=</span>
-                <span className="text-zinc-600 dark:text-gray-400">{"{"}</span>
+                <span className="text-foreground-500">{"{"}</span>
               </AnimatedLine>
 
               <AnimatedLine
@@ -153,12 +148,10 @@ const CodeEditor = () => {
                 className="pl-6"
                 showCursor={isTyping && currentLine === 1}
               >
-                <span className="text-zinc-800 dark:text-white">name:</span>
-                <span className="text-zinc-600 dark:text-gray-400">&#39;</span>
-                <span className="text-green-600 dark:text-green-400">
-                  {coderData.name}
-                </span>
-                <span className="text-zinc-600 dark:text-gray-400">&#39;,</span>
+                <span className="text-foreground">name:</span>
+                <span className="text-foreground-500">&#39;</span>
+                <span className="text-success-500">{coderData.name}</span>
+                <span className="text-foreground-500">&#39;,</span>
               </AnimatedLine>
 
               <AnimatedLine
@@ -166,12 +159,10 @@ const CodeEditor = () => {
                 className="pl-6"
                 showCursor={isTyping && currentLine === 2}
               >
-                <span className="text-zinc-800 dark:text-white">role:</span>
-                <span className="text-zinc-600 dark:text-gray-400">&#39;</span>
-                <span className="text-green-600 dark:text-green-400">
-                  {coderData.role}
-                </span>
-                <span className="text-zinc-600 dark:text-gray-400">&#39;,</span>
+                <span className="text-foreground">role:</span>
+                <span className="text-foreground-500">&#39;</span>
+                <span className="text-success-500">{coderData.role}</span>
+                <span className="text-foreground-500">&#39;,</span>
               </AnimatedLine>
 
               <AnimatedLine
@@ -179,14 +170,10 @@ const CodeEditor = () => {
                 className="pl-6"
                 showCursor={isTyping && currentLine === 3}
               >
-                <span className="text-zinc-800 dark:text-white">
-                  seniority:
-                </span>
-                <span className="text-zinc-600 dark:text-gray-400">&#39;</span>
-                <span className="text-green-600 dark:text-green-400">
-                  {coderData.seniority}
-                </span>
-                <span className="text-zinc-600 dark:text-gray-400">&#39;,</span>
+                <span className="text-foreground">seniority:</span>
+                <span className="text-foreground-500">&#39;</span>
+                <span className="text-success-500">{coderData.seniority}</span>
+                <span className="text-foreground-500">&#39;,</span>
               </AnimatedLine>
 
               <AnimatedLine
@@ -194,12 +181,10 @@ const CodeEditor = () => {
                 className="pl-6"
                 showCursor={isTyping && currentLine === 4}
               >
-                <span className="text-zinc-800 dark:text-white">location:</span>
-                <span className="text-zinc-600 dark:text-gray-400">&#39;</span>
-                <span className="text-green-600 dark:text-green-400">
-                  {coderData.location}
-                </span>
-                <span className="text-zinc-600 dark:text-gray-400">&#39;,</span>
+                <span className="text-foreground">location:</span>
+                <span className="text-foreground-500">&#39;</span>
+                <span className="text-success-500">{coderData.location}</span>
+                <span className="text-foreground-500">&#39;,</span>
               </AnimatedLine>
 
               <AnimatedLine
@@ -207,11 +192,14 @@ const CodeEditor = () => {
                 className="pl-6"
                 showCursor={isTyping && currentLine === 5}
               >
-                <span className="text-zinc-800 dark:text-white">skills:</span>
-                <span className="text-zinc-600 dark:text-gray-400">[</span>
+                <span className="text-foreground">skills:</span>
+                <span className="text-foreground-500">[</span>
               </AnimatedLine>
 
-              <AnimatedLine active={currentLine >= 6} className="flex flex-wrap pl-6">
+              <AnimatedLine
+                active={currentLine >= 6}
+                className="flex flex-wrap pl-6"
+              >
                 {coderData.skills.map((skill, index) => (
                   <motion.span
                     key={skill}
@@ -220,19 +208,11 @@ const CodeEditor = () => {
                     initial={{ opacity: 0, scale: 0.8 }}
                     transition={{ delay: index * 0.05 }}
                   >
-                    <span className="text-zinc-600 dark:text-gray-400">
-                      &#39;
-                    </span>
-                    <span className="text-cyan-600 dark:text-cyan-400">
-                      {skill}
-                    </span>
-                    <span className="text-zinc-600 dark:text-gray-400">
-                      &#39;
-                    </span>
+                    <span className="text-foreground-500">&#39;</span>
+                    <span className="text-primary-500">{skill}</span>
+                    <span className="text-foreground-500">&#39;</span>
                     {index < coderData.skills.length - 1 && (
-                      <span className="text-zinc-600 dark:text-gray-400">
-                        ,{' '}
-                      </span>
+                      <span className="text-foreground-500">, </span>
                     )}
                   </motion.span>
                 ))}
@@ -243,23 +223,26 @@ const CodeEditor = () => {
                 className="pl-6"
                 showCursor={isTyping && currentLine === 7}
               >
-                <span className="text-zinc-600 dark:text-gray-400">],</span>
+                <span className="text-foreground-500">],</span>
               </AnimatedLine>
 
-              <AnimatedLine active={currentLine >= 8} showCursor={isTyping && currentLine === 8}>
-                <span className="text-zinc-600 dark:text-gray-400">{"};"}</span>
+              <AnimatedLine
+                active={currentLine >= 8}
+                showCursor={isTyping && currentLine === 8}
+              >
+                <span className="text-foreground-500">{"};"}</span>
               </AnimatedLine>
             </code>
           </div>
         </div>
 
-        <div className="flex items-center justify-between px-4 pt-3 pb-4 mt-4 text-xs border-t lg:px-8 border-zinc-300 dark:border-gray-800 text-zinc-600 dark:text-gray-500">
+        <div className="mt-4 flex items-center justify-between border-t border-default-200 px-4 pb-4 pt-3 text-xs text-foreground-500 lg:px-8">
           <span className="flex items-center gap-1">
-            <span className="inline-block w-2 h-2 bg-green-500 rounded-full" />
+            <span className="inline-block h-2 w-2 rounded-full bg-success-500" />
             UTF-8
           </span>
           <span className="flex items-center gap-1">
-            <span className="inline-block w-2 h-2 bg-blue-500 rounded-full" />
+            <span className="inline-block h-2 w-2 rounded-full bg-primary-500" />
             JavaScript
           </span>
           <span>Ln {currentLine + 1}, Col 2</span>

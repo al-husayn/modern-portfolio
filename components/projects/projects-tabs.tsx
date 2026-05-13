@@ -21,4 +21,3 @@ export const ProjectsTabs = ({
     </Tabs>
   </div>
 );
-

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { motion } from "framer-motion";
 
 import { SplittingText } from "@/components/textAnimations/splitting-text";
@@ -44,4 +44,3 @@ export const TimelineItem = ({
     </motion.li>
   );
 };
-

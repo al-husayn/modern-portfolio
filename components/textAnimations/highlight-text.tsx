@@ -45,7 +45,7 @@ const HighlightText = React.forwardRef<HTMLSpanElement, HighlightTextProps>(
         ref={localRef}
         animate={isInView ? { backgroundSize: "100% 100%" } : undefined}
         className={cn(
-          `relative inline-block px-2 py-1 rounded-lg bg-gradient-to-r from-blue-400 to-purple-400`,
+          "relative inline-block rounded-md bg-gradient-to-r from-primary-400 to-secondary-400 px-2 py-1",
           className,
         )}
         data-slot="highlight-text"

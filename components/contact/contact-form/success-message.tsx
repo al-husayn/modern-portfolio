@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import { Button, Card, CardBody } from "@heroui/react";
@@ -6,9 +8,7 @@ type SuccessMessageProps = {
   onReset: () => void;
 };
 
-export const SuccessMessage = ({
-  onReset,
-}: SuccessMessageProps) => (
+export const SuccessMessage = ({ onReset }: SuccessMessageProps) => (
   <motion.div
     animate={{ opacity: 1, scale: 1, y: 0 }}
     exit={{ opacity: 0, scale: 0.9, y: -20 }}
