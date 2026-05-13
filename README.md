@@ -75,7 +75,7 @@ This file exports a `DATA` object that contains all the information for your por
 - `about`: Information for the about page, including your profile, education, experience, and technologies.
 - `projects`: A list of your featured projects, including details, images, and links.
 - `contact`: Contact information and the Google Maps source for the contact page.
-- `morphingTexts`: The texts used in the morphing text animations on each page.
+- `pageHeaders`: Professional heading content for the inner pages.
 - `navigation`: The links for the main navigation menu.
 - `footer`: Content for the footer, including social links and services.
 

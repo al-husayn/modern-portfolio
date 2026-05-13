@@ -29,7 +29,7 @@ const ProjectsPage = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
-      <PageHeader texts={DATA.morphingTexts.projects} />
+      <PageHeader {...DATA.pageHeaders.projects} />
 
       <ProjectsTabs
         categories={categories}

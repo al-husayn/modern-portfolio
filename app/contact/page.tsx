@@ -82,7 +82,7 @@ const ContactPage = () => {
 
   return (
     <section className="py-20">
-      <PageHeader texts={DATA.morphingTexts.contact} />
+      <PageHeader {...DATA.pageHeaders.contact} />
       <div className="container px-4 mx-auto">
         <ContactCard
           heading={DATA.contact.heading}

@@ -28,15 +28,44 @@ export const DATA = {
       sectionTitle: 'Services',
       sectionDescription:
         ' I deliver modern, reliable web solutions tailored to your needs',
-        services: [
-            { name: 'Modern Web Applications', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/React_Logo_SVG.svg/960px-React_Logo_SVG.svg.png', description:"Fast, responsive apps built with React, Next.js, and Tailwind CSS."  },
-            { name: 'Full-Stack Development', logo: 'https://uxwing.com/wp-content/themes/uxwing/download/arts-graphic-shapes/full-stack-developer-icon.svg', description: 'End-to-end solutions with Node.js backend and modern frontend.' }, 
-            { name: 'Landing Pages & Marketing Sites', logo: 'https://static.vecteezy.com/system/resources/previews/031/011/848/non_2x/landing-page-icon-vector.jpg', description:"SEO-friendly landing pages and marketing sites with optimized performance."  },
-            { name: 'Performance & Maintenance', logo: 'https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/speed-icon.svg', description:"Speed audits, refactoring, and ongoing maintenance."  },
-            { name: 'Consulting & Code Reviews', logo: 'https://ui.shadcn.com/apple-touch-icon.png', description:"Expert guidance and code reviews to ensure your project's success."  }, // Closest official
-            // { name: 'Node.js', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/500px-Node.js_logo.svg.png' },
-            { name: 'WordPress Development', logo: 'https://s.w.org/style/images/about/WordPress-logotype-wmark.png', description:"Professional themes and plugins with performance and SEO focus."  },
-          ],
+      services: [
+        {
+          name: 'Modern Web Applications',
+          logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/React_Logo_SVG.svg/960px-React_Logo_SVG.svg.png',
+          description:
+            'Fast, responsive apps built with React, Next.js, and Tailwind CSS.',
+        },
+        {
+          name: 'Full-Stack Development',
+          logo: 'https://uxwing.com/wp-content/themes/uxwing/download/arts-graphic-shapes/full-stack-developer-icon.svg',
+          description:
+            'End-to-end solutions with Node.js backend and modern frontend.',
+        },
+        {
+          name: 'Landing Pages & Marketing Sites',
+          logo: 'https://static.vecteezy.com/system/resources/previews/031/011/848/non_2x/landing-page-icon-vector.jpg',
+          description:
+            'SEO-friendly landing pages and marketing sites with optimized performance.',
+        },
+        {
+          name: 'Performance & Maintenance',
+          logo: 'https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/speed-icon.svg',
+          description: 'Speed audits, refactoring, and ongoing maintenance.',
+        },
+        {
+          name: 'Consulting & Code Reviews',
+          logo: 'https://ui.shadcn.com/apple-touch-icon.png',
+          description:
+            "Expert guidance and code reviews to ensure your project's success.",
+        }, // Closest official
+        // { name: 'Node.js', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/500px-Node.js_logo.svg.png' },
+        {
+          name: 'WordPress Development',
+          logo: 'https://s.w.org/style/images/about/WordPress-logotype-wmark.png',
+          description:
+            'Professional themes and plugins with performance and SEO focus.',
+        },
+      ],
     },
     testimonials: {
       sectionTitle: 'Client Testimonials',
@@ -109,8 +138,9 @@ export const DATA = {
         'https://al-drake.netlify.app/static/media/profile.211cb621e39afe112f2a.png',
       description: [
         'Frontend Developer based in Kumasi, Ghana, with 3 years of hands-on experience building modern, performant web applications.',
-        ' I specialize in React, Next.js, and TypeScript, Tailwind CSS, and Shadcn UI - crafting clean, accessible, and scalable interfaces that solves real problems.',' From startups to client projects, I deliver pixel-perfect UIs with a focus on speed, user experience, and maintainable code.',
-        'Currently open to new opportunities.'
+        ' I specialize in React, Next.js, and TypeScript, Tailwind CSS, and Shadcn UI - crafting clean, accessible, and scalable interfaces that solves real problems.',
+        ' From startups to client projects, I deliver pixel-perfect UIs with a focus on speed, user experience, and maintainable code.',
+        'Currently open to new opportunities.',
       ],
     },
     education: [
@@ -146,37 +176,36 @@ export const DATA = {
         company: 'Freelance',
         date: '2024 - Present',
         icon: 'mdi:briefcase',
-        description:  [  
-        'Led creative and development teams to build 2+ digital experiences for tech startups, combining innovation with user empathy and reducing project delivery time by 25% through efficient UI/UX strategies.',
-        'Oversaw branding,Frontend Dev Twam,  UI/UX strategy, and development pipelines for clients, resulting in 2 completed projects with 100% client satisfaction and improved user engagement metrics by 30%.' 
-        ]
+        description: [
+          'Led creative and development teams to build 2+ digital experiences for tech startups, combining innovation with user empathy and reducing project delivery time by 25% through efficient UI/UX strategies.',
+          'Oversaw branding,Frontend Dev Twam,  UI/UX strategy, and development pipelines for clients, resulting in 2 completed projects with 100% client satisfaction and improved user engagement metrics by 30%.',
+        ],
       },
       {
         title: 'Associate Software Engineer',
         company: 'AmaliTech Services',
         date: '2022 - 2024',
         icon: 'mdi:monitor-dashboard',
-        description:[
+        description: [
           'Designed and implemented 5+ high-fidelity web interfaces using React, Nextjs, Figma, and Tailwind CSS, reducing code smell by 35% and bugs by 80% through collaborative cross-functional reviews.',
           'Collaborated with developers and designers to craft intuitive user flows and interactions, delivering complex changes within deadlines for 4 different projects with zero major revisions.',
           'Led the development of 3+ responsive web applications using React, TypeScript, and Redux, resulting in a 20% increase in user engagement and a 30% reduction in development time.',
           'Mentored junior developers, providing constructive feedback and guidance, resulting in a 25% increase in team productivity and a 15% reduction in project delivery time.',
           'Acted as a coding ambassador for UCC coding club, mentoring and guiding students in coding projects.',
-          'Led the development of 2+ internal projects using React, TypeScript, and Redux, resulting in saving the company $100,000.'
-          
-        ]
+          'Led the development of 2+ internal projects using React, TypeScript, and Redux, resulting in saving the company $100,000.',
+        ],
       },
       {
         title: 'Junior Associate Developer',
         company: 'AmaliTech Services',
         date: '2021 - 2022',
         icon: 'mdi:code-tags',
-        description:[
-          'Contributed to 3+ projects using React and JavaScript, implementing components and state management with Redux/React Query.',          
+        description: [
+          'Contributed to 3+ projects using React and JavaScript, implementing components and state management with Redux/React Query.',
           'Reviewed requirements and tested features, collaborating to deliver changes within deadlines.',
           'Developed responsive websites and applications with a focus on accessibility, visual aesthetics, and performance, shipping 3+ pixel-perfect interfaces from wireframes to production code.',
           'Transformed app designs into frontend code using React, CSS, and JavaScript for  client projects, implementing features like delivery tracking and ensuring 100% adaptability across devices.',
-        ]
+        ],
       },
     ],
     technologies: {
@@ -477,19 +506,25 @@ export const DATA = {
     ],
   },
   contact: {
-    heading:
-      "Let's Build Something Amazing",
-      tagline: "Have a project in mind? I'm currently open to new opportunities and excited to work on impactful web applications.",
+    heading: "Let's Build Something Amazing",
+    tagline:
+      "Have a project in mind? I'm currently open to new opportunities and excited to work on impactful web applications.",
     location: {
       mapSrc:
         'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126804.83195594409!2d-1.6985081585617445!3d6.690078643880363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb93e59a4e4c49%3A0x829c711d7b65e682!2sKumasi!5e0!3m2!1sen!2sgh!4v1753379131472!5m2!1sen!2sgh',
       address: 'Kumasi, Ghana',
     },
   },
-  morphingTexts: {
-    about: ['Creative', 'Passionate', 'Developer'] as const,
-    projects: ['My Work', 'Creations', 'Experiments', 'Innovations'] as const,
-    contact: ["Let's", 'Build', 'Together'] as const,
+  pageHeaders: {
+    about: {
+      title: 'Software developer',
+    },
+    projects: {
+      title: 'Selected Projects.',
+    },
+    contact: {
+      title: "Let's Build Together",
+    },
   },
   navigation: [
     { name: 'Home', href: '/', icon: 'lucide:home' },

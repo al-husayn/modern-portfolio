@@ -11,7 +11,7 @@ export default function AboutPage() {
 
   return (
     <section className="py-20 px-6 md:px-12 max-w-5xl mx-auto text-foreground">
-      <PageHeader texts={DATA.morphingTexts.about} />
+      <PageHeader {...DATA.pageHeaders.about} />
       <ProfileCard
         description={profile.description}
         image={profile.image}
