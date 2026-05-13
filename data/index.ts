@@ -517,13 +517,13 @@ export const DATA = {
   },
   pageHeaders: {
     about: {
-      title: "Software developer",
+      title: "Software Developer 👨‍💻",
     },
     projects: {
-      title: "Selected Projects.",
+      title: "Selected Projects 📂",
     },
     contact: {
-      title: "Let's Build Together",
+      title: "Let's Build Together 🚀",
     },
   },
   navigation: [
