@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://heroui.net"),
+  metadataBase: new URL("https://www.al-husayn.dev/"),
   title: {
     default: DATA.home.hero.name,
     template: `%s | ${DATA.home.hero.name}`,
@@ -81,7 +81,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       className={clsx(geistSans.variable, geistMono.variable, "antialiased")}
       lang="en"
     >
-      <body className="min-h-screen bg-background font-sans antialiased">
+      <body className="min-h-screen font-sans antialiased bg-background">
         <Providers
           themeProps={{
             attribute: "class",

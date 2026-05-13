@@ -98,7 +98,7 @@ Here's an example
 >
   <Button
     fullWidth
-    aria-label="Downoald CV"
+    aria-label="Download CV"
     color="primary"
     endContent={<Icon icon="lucide:download" />}
     size="lg"

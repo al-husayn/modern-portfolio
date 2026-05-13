@@ -28,15 +28,15 @@ This is a **Next.js 15 + TypeScript + TailwindCSS + Framer Motion** animated por
 
 ```typescript
 // Always import data this way
-import { DATA } from "@/data";
-const { projects } = DATA.projects.work;
+import { DATA } from '@/data';
+const projects  = DATA.projects.work;
 ```
 
 ### 2. Server vs Client Components (Next.js 15 App Router)
 
 - **Server Components** (default): Use for data fetching, accessing `process.env`, file system operations
 - **Client Components** (`"use client"`): Use for interactivity, hooks (useState, useEffect), event handlers
-- **Critical Rule**: Never import `fs` or `path` modules in client-side code or files imported by client components
+- **Critical Rule**: Never import `fs` or `path` modules in client-side code or in any file that is directly or indirectly imported by client components
   - File operations must happen in `lib/` utilities that are only called from server components
   - Blog utilities using `fs.readdirSync()` must be in server-side code only
 
@@ -44,20 +44,20 @@ const { projects } = DATA.projects.work;
 
 ```typescript
 // ✅ Server utility (lib/blog-utils.ts)
-import fs from "fs";
+import fs from 'fs';
 export function getBlogPosts() {
   /* file operations */
 }
 
 // ✅ Server component (app/blog/page.tsx)
-import { getBlogPosts } from "@/lib/blog-utils";
+import { getBlogPosts } from '@/lib/blog-utils';
 export default function BlogPage() {
   const posts = getBlogPosts();
 }
 
 // ❌ Never use fs in client components
-("use client");
-import fs from "fs"; // ERROR!
+('use client');
+import fs from 'fs'; // ERROR!
 ```
 
 ### 3. Component Organization
@@ -84,9 +84,9 @@ import fs from "fs"; // ERROR!
 
 ### Animation Patterns (Framer Motion)
 
-- **Scroll Animations**: Use `motion.div` with `whileInView` and `viewport={{ once: true }}`
-- **Staggered Children**: Leverage `variants` + `transition={{ staggerChildren: 0.1 }}`
-- **Ref-based InView**: Use `useInView()` hook for scroll-triggered animations
+1. Use `motion.div` with `whileInView` and `viewport={{ once: true }}` for scroll entry animations.
+2. Use `variants` with `transition={{ staggerChildren: 0.1 }}` for staggered child animation flows.
+3. Use `useInView()` when you need a ref-based trigger for scroll animations.
 
 ```typescript
 // Standard scroll animation pattern
@@ -100,9 +100,9 @@ import fs from "fs"; // ERROR!
 
 ### Filtering Pattern (Projects & Blog)
 
-- Use `useMemo()` for both category extraction and filtered list
-- Maintain `selectedCategory` in component state
-- Never mutate original data arrays
+1. Derive category lists using `useMemo()`.
+2. Keep `selectedCategory` in component state.
+3. Never mutate the original data arrays.
 
 ```typescript
 const categories = useMemo(
@@ -117,9 +117,9 @@ const filtered = useMemo(
 
 ### Link & Navigation Pattern
 
-- **Always wrap text/inline content in `<Link>`**, not block elements
-- Use `Link` from `next/link` for internal navigation
-- Add `cursor-pointer` and hover classes to `<Link>` elements for visual feedback
+1. Use `Link` from `next/link` for internal navigation.
+2. Wrap inline text in `<Link>`, not block-level elements.
+3. Add `cursor-pointer` and hover classes for better feedback.
 
 ```typescript
 // ✅ Correct: Link wraps text
@@ -131,22 +131,21 @@ const filtered = useMemo(
 
 ### Theme Support (Dark Mode)
 
-- Site uses **dark mode by default** via `next-themes`
-- Apply dark variants: `bg-background dark:from-[#000000] dark:to-[#0a0d37]`
-- Color scheme follows: Light (grays/whites), Dark (deep blues/blacks)
-- Use semantic color tokens from HeroUI: `bg-content1`, `bg-content2`, `text-foreground`
+1. Default to dark mode using `next-themes`.
+2. Apply dark variants like `bg-background dark:from-[#000000] dark:to-[#0a0d37]`.
+3. Use semantic HeroUI tokens such as `bg-content1`, `bg-content2`, and `text-foreground`.
 
 ### Icon Usage (Iconify)
 
-- Import `Icon` from `@iconify/react`
-- All Iconify icon families available: `lucide:`, `logos:`, `skill-icons:`, `mdi:`, `simple-icons:`
-- Render: `<Icon icon="family:icon-name" />`
+1. Import `Icon` from `@iconify/react`.
+2. Use icon families like `lucide:`, `logos:`, `skill-icons:`, `mdi:`, and `simple-icons:`.
+3. Render icons with `<Icon icon="family:icon-name" />`.
 
 ### Contact Form Integration
 
-- Uses **EmailJS** for submissions (no backend required)
-- Requires env vars: `NEXT_PUBLIC_EMAILJS_SERVICE_ID`, `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`, `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`
-- Form includes error handling, loading states, and toast notifications
+1. Use EmailJS for contact submissions without a backend.
+2. Provide `NEXT_PUBLIC_EMAILJS_SERVICE_ID`, `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`, and `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`.
+3. Include loading states, error handling, and toast notifications.
 
 ## Development Workflows
 
@@ -172,10 +171,10 @@ npm run lint         # Run ESLint with --fix
 
    ```mdx
    ---
-   title: "Post Title"
-   publishedAt: "2025-01-01"
-   summary: "Brief summary"
-   category: "Tech"
+   title: 'Post Title'
+   publishedAt: '2025-01-01'
+   summary: 'Brief summary'
+   category: 'Tech'
    ---
 
    Post content here...
