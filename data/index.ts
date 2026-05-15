@@ -18,7 +18,7 @@ export const DATA = {
         "I build fast, accessible and visually engaging web experiences.",
     },
     coderProfile: {
-      name: "Al-Hussein",
+      name: "Al-Hussein Abubakar",
       role: "Frontend Developer",
       seniority: "Mid-Level",
       location: "Ghana",

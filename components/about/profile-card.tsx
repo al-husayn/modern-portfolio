@@ -19,9 +19,10 @@ export const ProfileCard = memo(function ProfileCard({
         <div className="relative h-[300px] w-full md:w-[300px]">
           <div className="relative w-full h-full overflow-hidden">
             <Image
+            isZoomed
               removeWrapper
               alt="Profile background"
-              className="object-cover object-top w-full h-full ob"
+              className="block object-cover object-top w-full h-full"
               src={image}
             />
             <div className="absolute inset-x-0 bottom-0 z-10 p-4 border-t border-white/20 bg-black/50 backdrop-blur">
