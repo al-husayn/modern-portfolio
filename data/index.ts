@@ -12,7 +12,7 @@ export const DATA = {
   resumePath: "/resume.pdf",
   home: {
     hero: {
-      name: "Al-Hussein",
+      name: "Al-Hussein Abubakar",
       title: "Full stack developer, Social Scientist & Blockchain Enthusiast",
       subtitle:
         "I build fast, accessible and visually engaging web experiences.",
@@ -143,7 +143,7 @@ export const DATA = {
   },
   about: {
     profile: {
-      name: "Al-Hussein",
+      name: "Al-Hussein Abubakar",
       title: "Software Developer",
       image:
         "https://al-drake.netlify.app/static/media/profile.211cb621e39afe112f2a.png",

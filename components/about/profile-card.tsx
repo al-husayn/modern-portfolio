@@ -14,17 +14,17 @@ export const ProfileCard = memo(function ProfileCard({
   description,
 }: ProfileCardProps) {
   return (
-    <Card className="app-card mb-12 w-full max-w-6xl overflow-hidden rounded-lg p-0 md:p-0">
+    <Card className="w-full max-w-6xl p-0 mb-12 overflow-hidden rounded-lg app-card md:p-0">
       <div className="flex flex-col items-center gap-8 md:items-start mdplus:flex-row">
         <div className="relative h-[300px] w-full md:w-[300px]">
-          <div className="relative h-full w-full overflow-hidden">
+          <div className="relative w-full h-full overflow-hidden">
             <Image
               removeWrapper
               alt="Profile background"
-              className="h-full w-full object-cover"
+              className="object-cover w-full h-full"
               src={image}
             />
-            <div className="absolute inset-x-0 bottom-0 z-10 border-t border-white/20 bg-black/50 p-4 backdrop-blur">
+            <div className="absolute inset-x-0 bottom-0 z-10 p-4 border-t border-white/20 bg-black/50 backdrop-blur">
               <div className="flex flex-col text-white">
                 <HighlightText className="text-lg font-semibold " text={name} />
                 <p className="text-sm text-white/80">{title}</p>
