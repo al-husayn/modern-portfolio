@@ -21,7 +21,7 @@ export const ProfileCard = memo(function ProfileCard({
             <Image
               removeWrapper
               alt="Profile background"
-              className="object-cover w-full h-full"
+              className="object-cover object-top w-full h-full ob"
               src={image}
             />
             <div className="absolute inset-x-0 bottom-0 z-10 p-4 border-t border-white/20 bg-black/50 backdrop-blur">
