@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    text-rendering: optimizeLegibility;
+  }
+
+  *:focus-visible {
+    outline: 2px solid hsl(var(--heroui-primary));
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .site-section {
+    @apply px-4 py-16 sm:px-6 sm:py-20 lg:px-8;
+  }
+
+  .site-container {
+    @apply mx-auto w-full max-w-7xl;
+  }
+
+  .section-heading {
+    @apply text-3xl font-bold leading-tight text-foreground sm:text-4xl;
+  }
+
+  .section-copy {
+    @apply mx-auto max-w-2xl text-base leading-relaxed text-foreground-600 sm:text-lg;
+  }
+
+  .app-card {
+    @apply border border-default-200 bg-content1/85 shadow-sm backdrop-blur transition-colors;
+  }
+
+  .app-card-hover {
+    @apply hover:border-primary-400/60 hover:shadow-lg;
+  }
+}

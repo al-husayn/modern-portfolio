@@ -12,11 +12,7 @@ export const ProjectCard = memo(function ProjectCard({
     <Card
       isFooterBlurred
       isHoverable
-      className="
-        h-full w-full overflow-hidden border border-default-200
-        bg-content1/85 shadow-sm backdrop-blur
-        transition-colors hover:border-primary-400/60 hover:shadow-lg
-      "
+      className="app-card app-card-hover h-full w-full overflow-hidden"
       radius="md"
     >
       <CardBody className="flex h-full flex-col p-0">
@@ -33,14 +29,7 @@ export const ProjectCard = memo(function ProjectCard({
             loading="lazy"
             src={project.image}
           />
-          <CardFooter
-            className="
-              absolute bottom-1 z-10 ml-1 w-[calc(100%_-_8px)]
-              justify-center overflow-hidden rounded-md border-1
-              border-white/20 bg-black/40 py-2.5 shadow-small
-              backdrop-blur-sm before:rounded-md
-            "
-          >
+          <CardFooter className="absolute bottom-1 z-10 ml-1 w-[calc(100%_-_8px)] justify-center overflow-hidden rounded-md border-1 border-white/20 bg-black/50 py-2.5 shadow-small backdrop-blur-sm before:rounded-md">
             <p className="z-10 text-xs font-medium uppercase tracking-wider text-white">
               {project.category}
             </p>
@@ -55,7 +44,7 @@ export const ProjectCard = memo(function ProjectCard({
             {project.description}
           </p>
           <Button
-            aria-label="View Details"
+            aria-label={`View details for ${project.title}`}
             className="w-full transition-colors md:w-auto"
             color="primary"
             endContent={<Icon icon="lucide:arrow-right" />}

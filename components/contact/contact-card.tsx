@@ -9,19 +9,17 @@ export const ContactCard = ({
   children,
 }: ContactCardProps) => (
   <motion.div
-    className="max-w-3xl mx-auto"
+    className="mx-auto max-w-3xl"
     initial={{ opacity: 0, y: 20 }}
     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     viewport={{ once: true }}
     whileInView={{ opacity: 1, y: 0 }}
   >
-    <Card className="border-none shadow-xl bg-white/90 dark:bg-black/60">
-      <CardBody className="p-8">
-        <div className="text-center mb-8">
-          <h1 className="text-foreground-600 font-extrabold p-6 text-2xl">
-            {heading}
-          </h1>
-          <p className="text-foreground-400">{tagline}</p>
+    <Card className="app-card">
+      <CardBody className="p-6 sm:p-8">
+        <div className="mb-8 text-center">
+          <h2 className="text-2xl font-bold text-foreground">{heading}</h2>
+          <p className="mx-auto mt-3 max-w-xl text-foreground-600">{tagline}</p>
         </div>
         {children}
       </CardBody>

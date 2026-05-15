@@ -68,7 +68,7 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   const content = (
-    <main className="min-h-screen bg-background bg-gradient-to-b from-background to-content2">
+    <main className="min-h-screen bg-background text-foreground">
       <Navigation />
       <PageWrapper>{children}</PageWrapper>
       <Footer />

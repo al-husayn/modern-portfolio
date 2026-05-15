@@ -7,12 +7,13 @@ export const ProjectsTabs = ({
   selectedCategory,
   onSelectCategory,
 }: ProjectsTabsProps) => (
-  <div className="overflow-x-auto w-full mb-8">
+  <div className="mb-8 w-full overflow-x-auto">
     <Tabs
       aria-label="Project Categories"
-      className="flex w-max min-w-full justify-start md:justify-center mb-4 "
+      className="mb-4 flex w-max min-w-full justify-start md:justify-center"
+      radius="md"
       selectedKey={selectedCategory}
-      variant="underlined"
+      variant="bordered"
       onSelectionChange={(key) => onSelectCategory(String(key))}
     >
       {categories.map((category) => (
