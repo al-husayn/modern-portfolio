@@ -11,10 +11,7 @@ export const TestimonialCard = memo(function TestimonialCard({
   avatar,
 }: TestimonialCardProps) {
   return (
-    <Card
-      className="h-80 border border-default-200 bg-content1/85 shadow-sm backdrop-blur md:h-64"
-      radius="md"
-    >
+    <Card className="app-card h-80 md:h-64" radius="md">
       <CardBody className="flex flex-col p-6">
         <div>
           <Icon className="mb-4 h-8 w-8 text-primary-500" icon="lucide:quote" />

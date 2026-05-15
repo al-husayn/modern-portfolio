@@ -26,8 +26,8 @@ export const TestimonialsSection = () => {
   const currentTestimonial = items[currentIndex] || items[0];
 
   return (
-    <section className="bg-background bg-gradient-to-b from-background to-content2 py-20">
-      <div className="container mx-auto px-4">
+    <section className="site-section bg-content2/40">
+      <div className="site-container">
         <motion.div
           className="mx-auto mb-16 max-w-3xl text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -35,16 +35,11 @@ export const TestimonialsSection = () => {
           viewport={{ once: true }}
           whileInView={{ opacity: 1, y: 0 }}
         >
-          <GradientText
-            className="mb-4 text-3xl font-bold md:text-4xl"
-            text={sectionTitle}
-          />
-          <p className="mx-auto max-w-2xl text-lg text-foreground-600">
-            {sectionDescription}
-          </p>
+          <GradientText className="section-heading mb-4" text={sectionTitle} />
+          <p className="section-copy">{sectionDescription}</p>
         </motion.div>
 
-        <div className="relative w-full max-w-2xl mx-auto">
+        <div className="relative mx-auto w-full max-w-2xl">
           {!isMobile && (
             <>
               <Button

@@ -79,9 +79,9 @@ const ContactPage = () => {
   }, []);
 
   return (
-    <section className="py-20">
+    <section className="site-section">
       <PageHeader {...DATA.pageHeaders.contact} />
-      <div className="container px-4 mx-auto">
+      <div className="mx-auto max-w-3xl">
         <ContactCard
           heading={DATA.contact.heading}
           tagline={DATA.contact.tagline}
@@ -96,7 +96,7 @@ const ContactPage = () => {
         </ContactCard>
 
         {error && (
-          <div className="p-4 mt-6 border rounded-lg bg-danger-50 border-danger-200">
+          <div className="mt-6 rounded-lg border border-danger-200 bg-danger-50 p-4">
             <p className="text-sm text-danger-700">{error}</p>
           </div>
         )}

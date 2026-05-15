@@ -26,9 +26,10 @@ export const Skills = ({ tech }: SkillsProps) => {
       <SectionHeader icon="mdi:tools" title="Skills" />
 
       <Accordion
+        className="app-card rounded-lg p-2"
         defaultSelectedKeys={[firstKey]}
         selectionMode="multiple"
-        variant="bordered"
+        variant="light"
       >
         {Object.entries(tech).map(([category, { description, tools }]) => (
           <AccordionItem
@@ -36,7 +37,9 @@ export const Skills = ({ tech }: SkillsProps) => {
             aria-label={category}
             title={capitalize(category)}
           >
-            <p className="mb-4 text-sm text-muted-foreground">{description}</p>
+            <p className="mb-4 text-sm leading-relaxed text-foreground-600">
+              {description}
+            </p>
 
             <div className="relative h-[300px] w-full">
               <OrbitingCircles

@@ -28,17 +28,19 @@ const ProjectsPage = () => {
   );
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
-      <PageHeader {...DATA.pageHeaders.projects} />
+    <section className="site-section">
+      <div className="site-container">
+        <PageHeader {...DATA.pageHeaders.projects} />
 
-      <ProjectsTabs
-        categories={categories}
-        selectedCategory={selectedCategory}
-        onSelectCategory={setSelectedCategory}
-      />
+        <ProjectsTabs
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onSelectCategory={setSelectedCategory}
+        />
 
-      <ProjectsGrid projects={filteredProjects} />
-    </div>
+        <ProjectsGrid projects={filteredProjects} />
+      </div>
+    </section>
   );
 };
 

@@ -27,7 +27,8 @@ export const Navigation = () => {
   return (
     <Navbar
       isBordered
-      className="border-b bg-background/70 backdrop-blur-md border-divider"
+      className="border-b border-divider bg-background/80 backdrop-blur-md"
+      height="64px"
       isMenuOpen={isMenuOpen}
       maxWidth="xl"
       onMenuOpenChange={setIsMenuOpen}
@@ -40,16 +41,16 @@ export const Navigation = () => {
             transition={{ duration: 0.5 }}
           >
             <Link
-              className="text-xl font-bold text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text"
+              aria-label="Go to homepage"
+              className="inline-flex items-center"
               href="/"
               onClick={() => setIsMenuOpen(false)}
             >
               <img
                 alt="Logo"
-                className="object-cover w-20 h-20"
+                className="h-11 w-11 rounded-md object-contain"
                 src="/logo.png"
               />
-              {/* Al-Hussein A. */}
             </Link>
           </motion.div>
         </NavbarBrand>
@@ -63,14 +64,15 @@ export const Navigation = () => {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <Link
-                  className={`flex items-center gap-2 transition-colors ${
+                  aria-current={pathname === item.href ? "page" : undefined}
+                  className={`flex items-center gap-2 rounded-md px-2 py-1.5 text-sm font-medium transition-colors ${
                     pathname === item.href
-                      ? "text-primary-500 font-semibold"
-                      : "text-foreground hover:text-primary-500"
+                      ? "bg-primary-500/10 text-primary-500"
+                      : "text-foreground-600 hover:bg-content2 hover:text-foreground"
                   }`}
                   href={item.href}
                 >
-                  <Icon className="w-5 h-5 text-primary-500" icon={item.icon} />
+                  <Icon className="h-4 w-4" icon={item.icon} />
                   {item.name}
                 </Link>
               </motion.div>
@@ -89,7 +91,7 @@ export const Navigation = () => {
       </NavbarContent>
 
       {/* Mobile Menu */}
-      <NavbarMenu className="pt-6 bg-background/80 backdrop-blur-lg sm:hidden">
+      <NavbarMenu className="bg-background/95 pt-6 backdrop-blur-lg sm:hidden">
         <div className="max-w-lg mx-auto space-y-4">
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={item.name}>
@@ -99,11 +101,16 @@ export const Navigation = () => {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <Link
-                  className="flex items-center w-full gap-3 px-4 py-3 transition-colors rounded-medium hover:bg-content1"
+                  aria-current={pathname === item.href ? "page" : undefined}
+                  className={`flex w-full items-center gap-3 rounded-md px-4 py-3 text-sm font-medium transition-colors ${
+                    pathname === item.href
+                      ? "bg-primary-500/10 text-primary-500"
+                      : "text-foreground-600 hover:bg-content2 hover:text-foreground"
+                  }`}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <Icon className="w-5 h-5 text-primary-500" icon={item.icon} />
+                  <Icon className="h-5 w-5" icon={item.icon} />
                   {item.name}
                 </Link>
               </motion.div>

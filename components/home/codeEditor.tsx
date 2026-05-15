@@ -81,11 +81,7 @@ const CodeEditor = () => {
       initial={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
-      <Card
-        className="overflow-hidden transition-all duration-500 
-        relative rounded-lg border border-default-200
-        bg-content1/90 shadow-lg backdrop-blur"
-      >
+      <Card className="app-card relative overflow-hidden rounded-lg">
         <div className="flex flex-row">
           <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-primary-500 to-secondary-500" />
           <div className="h-[2px] w-full bg-gradient-to-r from-secondary-500 to-transparent" />
@@ -104,12 +100,6 @@ const CodeEditor = () => {
         </div>
 
         <div className="relative overflow-hidden border-t border-default-200 px-4 py-4 lg:px-8 lg:py-8">
-          <div className="absolute -left-16 -top-16 h-32 w-32 animate-pulse rounded-full bg-primary-500/10" />
-          <div
-            className="absolute -bottom-12 -right-12 h-24 w-24 animate-pulse rounded-full bg-secondary-500/10"
-            style={{ animationDelay: "1s" }}
-          />
-
           <div className="relative flex">
             <div className="hidden flex-col items-end pr-4 font-mono text-xs text-foreground-400 md:flex">
               {Array.from({ length: TOTAL_LINE_COUNT }, (_, index) => (

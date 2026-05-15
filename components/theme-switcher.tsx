@@ -18,8 +18,9 @@ export const ThemeSwitcher = () => {
       <Button
         isIconOnly
         aria-label="Toggle theme"
-        className="text-foreground"
-        variant="light"
+        className="text-foreground-600"
+        radius="md"
+        variant="flat"
         onPress={() => setTheme(isDark ? "light" : "dark")}
       >
         <Icon
