@@ -48,7 +48,7 @@ export const TestimonialsSection = () => {
                 className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10"
                 radius="full"
                 variant="flat"
-                onClick={() => handleNavigation(prevTestimonial)}
+                onPress={() => handleNavigation(prevTestimonial)}
               >
                 <Icon
                   className="w-5 h-5"
@@ -61,7 +61,7 @@ export const TestimonialsSection = () => {
                 className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10"
                 radius="full"
                 variant="flat"
-                onClick={() => handleNavigation(nextTestimonial)}
+                onPress={() => handleNavigation(nextTestimonial)}
               >
                 <Icon
                   className="w-5 h-5"
@@ -99,7 +99,7 @@ export const TestimonialsSection = () => {
                 radius="full"
                 size="sm"
                 variant="flat"
-                onClick={() => handleNavigation(prevTestimonial)}
+                onPress={() => handleNavigation(prevTestimonial)}
               >
                 <Icon
                   className="w-4 h-4"
@@ -131,7 +131,7 @@ export const TestimonialsSection = () => {
                 radius="full"
                 size="sm"
                 variant="flat"
-                onClick={() => handleNavigation(nextTestimonial)}
+                onPress={() => handleNavigation(nextTestimonial)}
               >
                 <Icon
                   className="w-4 h-4"

@@ -45,7 +45,7 @@ export const ProjectCard = memo(function ProjectCard({
             color="primary"
             endContent={<Icon icon="lucide:arrow-right" />}
             variant="bordered"
-            onClick={onViewDetails}
+            onPress={onViewDetails}
           >
             View Project
           </Button>
