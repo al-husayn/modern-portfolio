@@ -283,7 +283,7 @@ export const DATA = {
         id: 1,
         title: "Dev Technical Blog",
         description:
-          "A developer blog for sharing technical insights and tutorials such JavaScript,TypeScript, React, Nextjs, and more.",
+          "A developer blog for sharing technical insights and tutorials such as JavaScript, TypeScript, React, Nextjs, and more.",
         image: "/projects/blog.png",
         gallery: [
           "/projects/blog.png",
@@ -302,7 +302,7 @@ export const DATA = {
           { name: "TypeScript", icon: "logos:typescript-icon" },
           { name: "Nextjs", icon: "skill-icons:nextjs-dark" },
           { name: "Markdown", icon: "logos:mdx" },
-          { name: "OpenRouter ", icon: "simple-icons:openrouter" },
+          { name: "OpenRouter", icon: "simple-icons:openrouter" },
           { name: "Neon Postgres", icon: "logos:neon-icon" },
           { name: "Drizzle ORM", icon: "simple-icons:drizzle" },
           { name: "Clerk", icon: "simple-icons:clerk" },
