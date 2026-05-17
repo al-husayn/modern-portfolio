@@ -110,7 +110,7 @@ export const ProjectModal = ({
             className="text-foreground-500"
             color="danger"
             variant="light"
-            onClick={onClose}
+            onPress={onClose}
           >
             Close
           </Button>

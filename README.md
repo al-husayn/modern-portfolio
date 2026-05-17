@@ -1,6 +1,6 @@
 # Modern & Animated Portfolio Template
 
-This is a modern, animated, and fully responsive portfolio template built with **nextjs**, **typescript**, **Tailwind CSS**, and **Framer Motion**. It's designed to be easily customizable and provides a great starting point for developers who want to create a stunning personal portfolio.
+This is a modern, animated, and fully responsive portfolio built with **Next.js**, **TypeScript**, **Tailwind CSS**, **Framer Motion** and **EmailJS**. It's designed to be easily customizable and provides a great starting point for developers who want to create a stunning personal portfolio.
 
 <br/>
 <p align="center">

@@ -10,9 +10,9 @@ export const Footer = () => {
   const { name, description, contact, socialLinks, services } = DATA.footer;
 
   return (
-    <footer className="border-t border-divider bg-content1/70 py-12">
+    <footer className="site-section border-t border-divider bg-background/80 backdrop-blur-md">
       <motion.div
-        className="site-container px-4 sm:px-6 lg:px-8"
+        className="site-container"
         initial={{ opacity: 0, y: 40 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
@@ -20,7 +20,9 @@ export const Footer = () => {
       >
         <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="col-span-1 md:col-span-2">
-            <h3 className="mb-4 text-2xl font-bold">Get in Touch</h3>
+            <h3 className="mb-4 text-2xl font-bold text-foreground">
+              Get in Touch
+            </h3>
             <p className="mb-4 text-foreground-600">{description}</p>
             <div className="flex gap-4">
               {socialLinks.map((social, index) => (
@@ -41,7 +43,7 @@ export const Footer = () => {
             </div>
           </div>
           <div>
-            <h4 className="mb-4 font-semibold">Services</h4>
+            <h4 className="mb-4 font-semibold text-foreground">Services</h4>
             <ul className="space-y-2 text-foreground-600">
               {services.map((service, index) => (
                 <li key={index}>{service}</li>
@@ -49,7 +51,7 @@ export const Footer = () => {
             </ul>
           </div>
           <div>
-            <h4 className="mb-4 font-semibold">Contact</h4>
+            <h4 className="mb-4 font-semibold text-foreground">Contact</h4>
             <ul className="space-y-2 text-foreground-600">
               <li className="flex items-center gap-2">
                 <Icon icon="lucide:mail" />
