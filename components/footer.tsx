@@ -29,7 +29,7 @@ export const Footer = () => {
             >
               <img
                 alt=""
-                className="object-contain border rounded-md h-11 w-11 border-default-200 bg-content2"
+                className="object-contain h-11 w-11 border-default-200"
                 src="/logo.png"
               />
               <span className="text-lg font-semibold text-foreground">
