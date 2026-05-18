@@ -340,9 +340,7 @@ export const DATA = {
           { name: "Vercel", icon: "simple-icons:vercel" },
         ],
       },
-      
-      
-      
+
       {
         id: 3,
         title: "Fitness Tracker App",
@@ -389,7 +387,7 @@ export const DATA = {
           { name: "TailwindCSS", icon: "logos:tailwindcss-icon" },
         ],
       },
-      
+
       {
         id: 5,
         title: "Crypto Wallet API",
@@ -414,7 +412,6 @@ export const DATA = {
           { name: "JWT", icon: "simple-icons:jsonwebtokens" },
         ],
       },
-      
     ],
   },
   contact: {
