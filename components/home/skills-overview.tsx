@@ -7,6 +7,27 @@ import { Icon } from "@iconify/react";
 import { GradientText } from "@/components/textAnimations/gradient-text";
 import { DATA } from "@/data";
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.65,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
 export const ServicesSection = () => {
   const { sectionTitle, sectionDescription, services } = DATA.home.skills;
 
@@ -27,19 +48,18 @@ export const ServicesSection = () => {
           <p className="section-copy">{sectionDescription}</p>
         </motion.div>
 
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+          initial="hidden"
+          variants={containerVariants}
+          viewport={{ once: true }}
+          whileInView="visible"
+        >
           {displayedServices.map((service, index) => (
             <motion.div
               key={service.name}
               className="flex"
-              initial={{ opacity: 0, y: 30 }}
-              transition={{
-                delay: index * 0.08,
-                duration: 0.65,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              viewport={{ once: true }}
-              whileInView={{ opacity: 1, y: 0 }}
+              variants={cardVariant}
             >
               <Card
                 isHoverable
@@ -74,7 +94,7 @@ export const ServicesSection = () => {
               </Card>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
