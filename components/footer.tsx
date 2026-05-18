@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Button } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
@@ -8,9 +9,10 @@ import { DATA } from "@/data";
 
 export const Footer = () => {
   const { name, description, contact, socialLinks, services } = DATA.footer;
+  const navigation = DATA.navigation;
 
   return (
-    <footer className="site-section border-t border-divider bg-background/80 backdrop-blur-md">
+    <footer className="border-t site-section border-divider bg-background/90 ">
       <motion.div
         className="site-container"
         initial={{ opacity: 0, y: 40 }}
@@ -18,59 +20,144 @@ export const Footer = () => {
         viewport={{ once: true }}
         whileInView={{ opacity: 1, y: 0 }}
       >
-        <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-4">
-          <div className="col-span-1 md:col-span-2">
-            <h3 className="mb-4 text-2xl font-bold text-foreground">
-              Get in Touch
-            </h3>
-            <p className="mb-4 text-foreground-600">{description}</p>
-            <div className="flex gap-4">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.15fr_1.85fr]">
+          <div className="p-6 rounded-md sm:p-8">
+            <Link
+              aria-label="Go to homepage"
+              className="inline-flex items-center gap-3 mb-6"
+              href="/"
+            >
+              <img
+                alt=""
+                className="object-contain border rounded-md h-11 w-11 border-default-200 bg-content2"
+                src="/logo.png"
+              />
+              <span className="text-lg font-semibold text-foreground">
+                {name}
+              </span>
+            </Link>
+
+            <h2 className="max-w-sm text-2xl font-semibold leading-tight text-foreground sm:text-3xl">
+              Let&apos;s build something useful and polished.
+            </h2>
+            <p className="max-w-md mt-4 text-sm leading-relaxed text-foreground-600">
+              {description}
+            </p>
+
+            <div className="flex flex-wrap gap-3 mt-6">
               {socialLinks.map((social, index) => (
                 <Button
                   key={index}
                   isIconOnly
                   aria-label={social.platform}
                   as="a"
+                  className="border-default-200 bg-content2 text-foreground-600 hover:border-primary-400/50 hover:text-primary-500"
                   href={social.url}
                   radius="md"
                   rel="noopener noreferrer"
                   target="_blank"
-                  variant="flat"
+                  variant="bordered"
                 >
-                  <Icon className="h-5 w-5" icon={social.icon} />
+                  <Icon className="w-5 h-5" icon={social.icon} />
                 </Button>
               ))}
             </div>
           </div>
-          <div>
-            <h4 className="mb-4 font-semibold text-foreground">Services</h4>
-            <ul className="space-y-2 text-foreground-600">
-              {services.map((service, index) => (
-                <li key={index}>{service}</li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 className="mb-4 font-semibold text-foreground">Contact</h4>
-            <ul className="space-y-2 text-foreground-600">
-              <li className="flex items-center gap-2">
-                <Icon icon="lucide:mail" />
-                <a href={`mailto:${contact.email}`}>{contact.email}</a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Icon icon="lucide:phone" />
-                <a href={`tel:${contact.phone}`}>{contact.phone}</a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Icon icon="lucide:map-pin" />
-                {contact.location}
-              </li>
-            </ul>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <div className="p-6 rounded-md">
+              <h3 className="mb-5 text-sm font-semibold tracking-wider uppercase text-foreground">
+                Services
+              </h3>
+              <ul className="space-y-3">
+                {services.map((service, index) => (
+                  <li key={index}>
+                    <span className="flex items-start gap-3 text-sm leading-relaxed text-foreground-600">
+                      <Icon
+                        aria-hidden="true"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-primary-500"
+                        icon="lucide:check"
+                      />
+                      {service}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-md">
+              <h3 className="mb-5 text-sm font-semibold tracking-wider uppercase text-foreground">
+                Navigation
+              </h3>
+              <ul className="space-y-2">
+                {navigation.map((item) => {
+                  const isExternal = item.href.startsWith("http");
+
+                  return (
+                    <li key={item.name}>
+                      <Link
+                        className="flex items-center gap-3 px-2 py-2 text-sm font-medium transition-colors rounded-md text-foreground-600 hover:bg-content2 hover:text-primary-500"
+                        href={item.href}
+                        rel={isExternal ? "noopener noreferrer" : undefined}
+                        target={isExternal ? "_blank" : undefined}
+                      >
+                        <Icon className="w-4 h-4" icon={item.icon} />
+                        {item.name}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-md">
+              <h3 className="mb-5 text-sm font-semibold tracking-wider uppercase text-foreground">
+                Contact
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <a
+                    className="flex items-start gap-3 text-sm leading-relaxed transition-colors text-foreground-600 hover:text-primary-500"
+                    href={`mailto:${contact.email}`}
+                  >
+                    <Icon
+                      className="mt-0.5 h-4 w-4 shrink-0 text-primary-500"
+                      icon="lucide:mail"
+                    />
+                    <span className="break-all">{contact.email}</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="flex items-start gap-3 text-sm leading-relaxed transition-colors text-foreground-600 hover:text-primary-500"
+                    href={`tel:${contact.phone}`}
+                  >
+                    <Icon
+                      className="mt-0.5 h-4 w-4 shrink-0 text-primary-500"
+                      icon="lucide:phone"
+                    />
+                    {contact.phone}
+                  </a>
+                </li>
+                <li className="flex items-start gap-3 text-sm leading-relaxed text-foreground-600">
+                  <Icon
+                    className="mt-0.5 h-4 w-4 shrink-0 text-primary-500"
+                    icon="lucide:map-pin"
+                  />
+                  {contact.location}
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div className="border-t border-divider pt-8 text-center text-foreground-500">
+
+        <div className="flex flex-col gap-3 pt-6 mt-6 text-sm border-t border-divider text-foreground-500 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {name}. made with &hearts;.
+            © {new Date().getFullYear()} {name}. All rights reserved.
+          </p>
+          <p className="flex items-center gap-2">
+            
+            Built with Next.js and HeroUI.
           </p>
         </div>
       </motion.div>
