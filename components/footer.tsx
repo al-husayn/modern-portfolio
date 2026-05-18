@@ -37,7 +37,8 @@ export const Footer = () => {
               </span>
             </Link>
 
-            <h2 className="max-w-sm text-2xl font-semibold leading-tight text-foreground sm:text-3xl"> Get in Touch
+            <h2 className="max-w-sm text-2xl font-semibold leading-tight text-foreground sm:text-3xl">
+              Get in Touch
             </h2>
             <p className="max-w-md mt-4 text-sm leading-relaxed text-foreground-600">
               {description}
