@@ -12,7 +12,7 @@ export const Footer = () => {
   const navigation = DATA.navigation;
 
   return (
-    <footer className="border-t site-section border-divider bg-background/90 ">
+    <footer className="site-section border-t border-divider bg-background/90 backdrop-blur-md">
       <motion.div
         className="site-container"
         initial={{ opacity: 0, y: 40 }}
@@ -20,16 +20,16 @@ export const Footer = () => {
         viewport={{ once: true }}
         whileInView={{ opacity: 1, y: 0 }}
       >
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.15fr_1.85fr]">
-          <div className="p-6 rounded-md sm:p-8">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.15fr_1.85fr]">
+          <div>
             <Link
               aria-label="Go to homepage"
-              className="inline-flex items-center gap-3 mb-6"
+              className="mb-6 inline-flex items-center gap-3"
               href="/"
             >
               <img
                 alt=""
-                className="object-contain h-11 w-11 border-default-200"
+                className="h-11 w-11 rounded-md object-contain"
                 src="/logo.png"
               />
               <span className="text-lg font-semibold text-foreground">
@@ -40,18 +40,18 @@ export const Footer = () => {
             <h2 className="max-w-sm text-2xl font-semibold leading-tight text-foreground sm:text-3xl">
               Get in Touch
             </h2>
-            <p className="max-w-md mt-4 text-sm leading-relaxed text-foreground-600">
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-foreground-600">
               {description}
             </p>
 
-            <div className="flex flex-wrap gap-3 mt-6">
+            <div className="mt-6 flex flex-wrap gap-3">
               {socialLinks.map((social, index) => (
                 <Button
                   key={index}
                   isIconOnly
                   aria-label={social.platform}
                   as="a"
-                  className="border-default-200 bg-content2 text-foreground-600 hover:border-primary-400/50 hover:text-primary-500"
+                  className="border-default-200 bg-transparent text-foreground-600 hover:border-primary-400/50 hover:bg-primary-500/10 hover:text-primary-500"
                   href={social.url}
                   radius="md"
                   rel="noopener noreferrer"
@@ -64,9 +64,9 @@ export const Footer = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <div className="p-6 rounded-md">
-              <h3 className="mb-5 text-sm font-semibold tracking-wider uppercase text-foreground">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div>
+              <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-foreground">
                 Services
               </h3>
               <ul className="space-y-3">
@@ -85,8 +85,8 @@ export const Footer = () => {
               </ul>
             </div>
 
-            <div className="p-6 rounded-md">
-              <h3 className="mb-5 text-sm font-semibold tracking-wider uppercase text-foreground">
+            <div>
+              <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-foreground">
                 Navigation
               </h3>
               <ul className="space-y-2">
@@ -96,7 +96,7 @@ export const Footer = () => {
                   return (
                     <li key={item.name}>
                       <Link
-                        className="flex items-center gap-3 px-2 py-2 text-sm font-medium transition-colors rounded-md text-foreground-600 hover:bg-content2 hover:text-primary-500"
+                        className="-ml-2 flex items-center gap-3 rounded-md px-2 py-2 text-sm font-medium text-foreground-600 transition-colors hover:bg-primary-500/10 hover:text-primary-500"
                         href={item.href}
                         rel={isExternal ? "noopener noreferrer" : undefined}
                         target={isExternal ? "_blank" : undefined}
@@ -110,8 +110,8 @@ export const Footer = () => {
               </ul>
             </div>
 
-            <div className="p-6 rounded-md">
-              <h3 className="mb-5 text-sm font-semibold tracking-wider uppercase text-foreground">
+            <div>
+              <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-foreground">
                 Contact
               </h3>
               <ul className="space-y-3">
@@ -152,11 +152,11 @@ export const Footer = () => {
         </div>
 
         <div className="pt-6 mt-6 text-sm text-center border-t border-divider text-foreground-500">
-          <p>
-            © {new Date().getFullYear()} {name}. made with{" "}
+          <p className="flex items-center justify-center gap-1.5">
+            © {new Date().getFullYear()} {name}. made with
             <Icon
-              aria-label="love"
-              className="inline w-4 h-4 text-primary-500"
+              aria-hidden="true"
+              className="h-4 w-4 fill-primary-500 text-primary-500"
               icon="lucide:heart"
             />
             .
