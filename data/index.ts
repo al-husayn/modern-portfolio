@@ -42,29 +42,34 @@ export const DATA = {
       services: [
         {
           name: "Modern Web Applications",
+          icon: "logos:react",
           logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/React_Logo_SVG.svg/960px-React_Logo_SVG.svg.png",
           description:
             "Fast, responsive apps built with React, Next.js, and Tailwind CSS.",
         },
         {
           name: "Full-Stack Development",
+          icon: "lucide:layers-3",
           logo: "https://uxwing.com/wp-content/themes/uxwing/download/arts-graphic-shapes/full-stack-developer-icon.svg",
           description:
             "End-to-end solutions with Node.js backend and modern frontend.",
         },
         {
           name: "Landing Pages & Marketing Sites",
+          icon: "lucide:rocket",
           logo: "https://static.vecteezy.com/system/resources/previews/031/011/848/non_2x/landing-page-icon-vector.jpg",
           description:
             "SEO-friendly landing pages and marketing sites with optimized performance.",
         },
         {
           name: "Performance & Maintenance",
+          icon: "lucide:gauge",
           logo: "https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/speed-icon.svg",
           description: "Speed audits, refactoring, and ongoing maintenance.",
         },
         {
           name: "Consulting & Code Reviews",
+          icon: "lucide:messages-square",
           logo: "https://ui.shadcn.com/apple-touch-icon.png",
           description:
             "Expert guidance and code reviews to ensure your project's success.",
@@ -72,6 +77,7 @@ export const DATA = {
         // { name: 'Node.js', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/500px-Node.js_logo.svg.png' },
         {
           name: "WordPress Development",
+          icon: "simple-icons:wordpress",
           logo: "https://s.w.org/style/images/about/WordPress-logotype-wmark.png",
           description:
             "Professional themes and plugins with performance and SEO focus.",
