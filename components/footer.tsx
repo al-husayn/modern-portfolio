@@ -37,8 +37,7 @@ export const Footer = () => {
               </span>
             </Link>
 
-            <h2 className="max-w-sm text-2xl font-semibold leading-tight text-foreground sm:text-3xl">
-              Let&apos;s build something useful and polished.
+            <h2 className="max-w-sm text-2xl font-semibold leading-tight text-foreground sm:text-3xl"> Get in Touch
             </h2>
             <p className="max-w-md mt-4 text-sm leading-relaxed text-foreground-600">
               {description}
@@ -151,13 +150,15 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 pt-6 mt-6 text-sm border-t border-divider text-foreground-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="pt-6 mt-6 text-sm text-center border-t border-divider text-foreground-500">
           <p>
-            © {new Date().getFullYear()} {name}. All rights reserved.
-          </p>
-          <p className="flex items-center gap-2">
-            
-            Built with Next.js and HeroUI.
+            © {new Date().getFullYear()} {name}. made with{" "}
+            <Icon
+              aria-label="love"
+              className="inline w-4 h-4 text-primary-500"
+              icon="lucide:heart"
+            />
+            .
           </p>
         </div>
       </motion.div>
