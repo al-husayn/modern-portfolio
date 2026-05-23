@@ -41,4 +41,36 @@
   .app-card-hover {
     @apply hover:border-primary-400/60 hover:shadow-lg;
   }
+
+  .blog-prose {
+    @apply text-base leading-8 text-foreground-700;
+  }
+
+  .blog-prose > * + * {
+    @apply mt-6;
+  }
+
+  .blog-prose h2 {
+    @apply mt-12 text-2xl font-semibold leading-tight text-foreground;
+  }
+
+  .blog-prose h3 {
+    @apply mt-10 text-xl font-semibold leading-tight text-foreground;
+  }
+
+  .blog-prose p {
+    @apply text-foreground-600;
+  }
+
+  .blog-prose ul {
+    @apply list-disc space-y-2 pl-6 text-foreground-600;
+  }
+
+  .blog-prose li::marker {
+    @apply text-primary-500;
+  }
+
+  .blog-prose pre code {
+    @apply border-0 bg-transparent p-0 text-sm;
+  }
 }
