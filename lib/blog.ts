@@ -22,7 +22,10 @@ export const blog = loader({
   source: createMDXSource(docs, meta),
 });
 
-export type BlogPost = Omit<ReturnType<typeof blog.getPages>[number], "data"> & {
+export type BlogPost = Omit<
+  ReturnType<typeof blog.getPages>[number],
+  "data"
+> & {
   data: ReturnType<typeof blog.getPages>[number]["data"] & BlogData;
 };
 
@@ -31,11 +34,9 @@ export function getBlogPost(slug: string[]) {
 }
 
 export function getBlogPosts() {
-  return (blog.getPages() as BlogPost[])
-    .sort(
-      (a, b) =>
-        new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
-    );
+  return (blog.getPages() as BlogPost[]).sort(
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+  );
 }
 
 export function getReadingTime(post: BlogPost) {

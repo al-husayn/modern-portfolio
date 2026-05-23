@@ -7,7 +7,11 @@ import Link from "next/link";
 import React from "react";
 import { Icon } from "@iconify/react";
 
-import { ImageViewer, MediaViewer, VideoViewer } from "@/components/media-viewer";
+import {
+  ImageViewer,
+  MediaViewer,
+  VideoViewer,
+} from "@/components/media-viewer";
 import { cn } from "@/lib/utils";
 
 const BLOG_ROUTE_PREFIX = "/blog";
@@ -192,7 +196,10 @@ const resolveCardHref = (
   const normalizedPathname = toNormalizedPathname(candidatePathname);
 
   if (INTERNAL_CARD_ALLOWLIST.has(normalizedPathname)) {
-    return { resolvedHref: `${normalizedPathname}${suffix}`, unavailable: false };
+    return {
+      resolvedHref: `${normalizedPathname}${suffix}`,
+      unavailable: false,
+    };
   }
 
   if (normalizedPathname.startsWith(`${BLOG_ROUTE_PREFIX}/`)) {
@@ -210,7 +217,9 @@ const resolveCardHref = (
   const isAvailable = BLOG_CARD_TARGETS.has(normalizedBlogPathname);
 
   return {
-    resolvedHref: isAvailable ? `${normalizedBlogPathname}${suffix}` : undefined,
+    resolvedHref: isAvailable
+      ? `${normalizedBlogPathname}${suffix}`
+      : undefined,
     unavailable: !isAvailable,
   };
 };
@@ -222,7 +231,11 @@ const renderIcon = (icon: React.ReactNode) => {
 
   const renderedIcon =
     typeof icon === "string" ? (
-      <Icon aria-hidden="true" className="h-4 w-4" icon={CARD_ICON_MAP[icon] ?? icon} />
+      <Icon
+        aria-hidden="true"
+        className="h-4 w-4"
+        icon={CARD_ICON_MAP[icon] ?? icon}
+      />
     ) : (
       icon
     );
@@ -278,14 +291,23 @@ function AccordionGroup({ children }: React.PropsWithChildren) {
   return <div className="space-y-3">{children}</div>;
 }
 
-function Card({ children, className, description, href, icon, title }: CardProps) {
+function Card({
+  children,
+  className,
+  description,
+  href,
+  icon,
+  title,
+}: CardProps) {
   const { resolvedHref, unavailable } = resolveCardHref(href);
   const content = (
     <div
       aria-disabled={unavailable || undefined}
       className={cn(
         "flex h-full gap-4 rounded-lg border border-default-200 bg-content1/85 p-4 shadow-sm transition",
-        resolvedHref ? "hover:border-primary-400/60 hover:shadow-lg" : undefined,
+        resolvedHref
+          ? "hover:border-primary-400/60 hover:shadow-lg"
+          : undefined,
         unavailable ? "opacity-70" : undefined,
         className,
       )}
@@ -427,7 +449,7 @@ function Tabs({ children, items }: TabsProps) {
 function Tab({ children, title, value }: TabProps) {
   return (
     <section>
-      {title ?? value ? (
+      {(title ?? value) ? (
         <h3 className="mt-0 text-base font-semibold text-foreground">
           {title ?? value}
         </h3>

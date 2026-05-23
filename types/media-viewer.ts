@@ -1,4 +1,4 @@
-export type MediaViewerType = 'image' | 'video';
+export type MediaViewerType = "image" | "video";
 
 export interface MediaViewerProps {
   src: string;

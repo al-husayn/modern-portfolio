@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { cn } from '@/lib/utils';
-import { MediaViewerProps } from '@/types/media-viewer';
+import { cn } from "@/lib/utils";
+import { MediaViewerProps } from "@/types/media-viewer";
 
 export function MediaViewer({
   src,
-  alt = '',
-  type = 'image',
+  alt = "",
+  type = "image",
   className,
   width,
   height,
@@ -15,17 +15,17 @@ export function MediaViewer({
     src,
     alt,
     className: cn(
-      'w-full h-full object-cover rounded-lg border overflow-hidden aspect-video',
+      "w-full h-full object-cover rounded-lg border overflow-hidden aspect-video",
       className,
     ),
     ...(width && height ? { width, height } : {}),
   };
 
   const renderMedia = () => {
-    if (type === 'video') {
+    if (type === "video") {
       return (
         <video {...mediaProps} controls loop>
-          <track kind='captions' />
+          <track kind="captions" />
           Your browser does not support the video tag.
         </video>
       );
@@ -36,17 +36,17 @@ export function MediaViewer({
   };
 
   return (
-    <div className='w-full my-6'>
-      <div className='relative w-full aspect-video'>{renderMedia()}</div>
+    <div className="w-full my-6">
+      <div className="relative w-full aspect-video">{renderMedia()}</div>
     </div>
   );
 }
 
 // Helper components for easier MDX usage
-export function ImageViewer(props: Omit<MediaViewerProps, 'type'>) {
-  return <MediaViewer {...props} type='image' />;
+export function ImageViewer(props: Omit<MediaViewerProps, "type">) {
+  return <MediaViewer {...props} type="image" />;
 }
 
-export function VideoViewer(props: Omit<MediaViewerProps, 'type'>) {
-  return <MediaViewer {...props} type='video' />;
+export function VideoViewer(props: Omit<MediaViewerProps, "type">) {
+  return <MediaViewer {...props} type="video" />;
 }
