@@ -25,12 +25,13 @@ export function MediaViewer({
     if (type === 'video') {
       return (
         <video {...mediaProps} controls loop>
+          <track kind='captions' />
           Your browser does not support the video tag.
         </video>
       );
     }
 
-    // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
+    // eslint-disable-next-line jsx-a11y/alt-text
     return <img {...mediaProps} />;
   };
 
