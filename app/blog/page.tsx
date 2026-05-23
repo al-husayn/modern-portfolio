@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 
 import { DATA } from "@/data";
-import { getBlogPosts } from "@/lib/blog";
+import { getBlogPosts, getReadingTime } from "@/lib/blog";
 import { PageHeader } from "@/components/page-header";
 
 export const metadata: Metadata = {
@@ -50,7 +50,7 @@ export default function BlogPage() {
                     {dateFormatter.format(new Date(featuredPost.data.date))}
                   </time>
                   <span className="h-1 w-1 rounded-full bg-default-400" />
-                  <span>{featuredPost.data.readingTime}</span>
+                  <span>{getReadingTime(featuredPost)}</span>
                 </div>
                 <h2 className="max-w-2xl text-3xl font-bold leading-tight text-foreground sm:text-4xl">
                   {featuredPost.data.title}
@@ -97,7 +97,7 @@ export default function BlogPage() {
                   {dateFormatter.format(new Date(post.data.date))}
                 </time>
                 <span className="h-1 w-1 rounded-full bg-default-400" />
-                <span>{post.data.readingTime}</span>
+                <span>{getReadingTime(post)}</span>
               </div>
               <h2 className="text-2xl font-semibold leading-snug text-foreground">
                 {post.data.title}
@@ -106,7 +106,7 @@ export default function BlogPage() {
                 {post.data.description}
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
-                {post.data.tags.map((tag) => (
+                {(post.data.tags ?? []).map((tag) => (
                   <span
                     key={tag}
                     className="rounded-md border border-default-200 bg-content2 px-2.5 py-1 text-xs text-foreground-600"

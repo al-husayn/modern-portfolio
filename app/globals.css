@@ -70,7 +70,27 @@
     @apply text-primary-500;
   }
 
+  .blog-prose pre {
+    @apply overflow-x-auto rounded-lg border border-default-200 p-4 text-sm shadow-sm;
+  }
+
+  .blog-prose pre.shiki {
+    color: var(--shiki-light) !important;
+    background-color: var(--shiki-light-bg) !important;
+  }
+
+  .blog-prose pre.shiki span {
+    color: var(--shiki-light) !important;
+  }
+
+  .dark .blog-prose pre.shiki,
+  .dark .blog-prose pre.shiki span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
+
   .blog-prose pre code {
-    @apply border-0 bg-transparent p-0 text-sm;
+    @apply !border-0 !bg-transparent !p-0 !text-sm;
+    color: inherit !important;
   }
 }

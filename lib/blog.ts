@@ -1,19 +1,44 @@
-import { loader } from "fumadocs-core/source";
+import type { ComponentType } from "react";
+import type { MDXComponents } from "mdx/types";
 
-import { docs } from "@/.source";
+import { loader } from "fumadocs-core/source";
+import { createMDXSource } from "fumadocs-mdx";
+
+import { docs, meta } from "@/.source";
+
+type BlogData = {
+  author?: string;
+  date: string;
+  description?: string;
+  featured?: boolean;
+  readingTime?: string;
+  readTime?: string;
+  tags?: string[];
+  title?: string;
+  body: ComponentType<{ components?: MDXComponents }>;
+};
 
 export const blog = loader({
   baseUrl: "/blog",
-  source: docs.toFumadocsSource(),
+  source: createMDXSource(docs, meta),
 });
 
-export type BlogPost = ReturnType<typeof blog.getPages>[number];
+export type BlogPost = Omit<ReturnType<typeof blog.getPages>[number], "data"> & {
+  data: ReturnType<typeof blog.getPages>[number]["data"] & BlogData;
+};
+
+export function getBlogPost(slug: string[]) {
+  return blog.getPage(slug) as BlogPost | undefined;
+}
 
 export function getBlogPosts() {
-  return blog
-    .getPages()
+  return (blog.getPages() as BlogPost[])
     .sort(
       (a, b) =>
         new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
     );
+}
+
+export function getReadingTime(post: BlogPost) {
+  return post.data.readingTime ?? post.data.readTime ?? "3 min read";
 }
