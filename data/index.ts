@@ -449,7 +449,7 @@ export const DATA = {
     { name: "About", href: "/about", icon: "lucide:user" },
     { name: "Projects", href: "/projects", icon: "lucide:folder-code" },
     { name: "Contact", href: "/contact", icon: "lucide:send" },
-    { name: "Blog", href: "/blog", icon: "lucide:rss" },
+    { name: "Blog", href: "/blog", icon: "lucide:newspaper" },
   ],
   footer: {
     name: "Al-Hussein",

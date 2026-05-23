@@ -5,6 +5,7 @@ import path from "node:path";
 
 import Link from "next/link";
 import React from "react";
+import { Icon } from "@iconify/react";
 
 import { ImageViewer, MediaViewer, VideoViewer } from "@/components/media-viewer";
 import { cn } from "@/lib/utils";
@@ -14,6 +15,25 @@ const BLOG_CONTENT_DIRECTORY = path.join(process.cwd(), "content", "blog");
 const BLOG_FILE_EXTENSIONS = new Set([".mdx", ".md"]);
 const INTERNAL_CARD_ALLOWLIST = new Set(["/", "/about", "/rss.xml"]);
 const SAFE_EXTERNAL_SCHEMES = new Set(["http", "https", "mailto", "tel"]);
+const CARD_ICON_MAP: Record<string, string> = {
+  atom: "lucide:atom",
+  book: "lucide:book-open",
+  clock: "lucide:clock-3",
+  clone: "lucide:copy",
+  cube: "lucide:box",
+  equals: "lucide:equal",
+  gear: "lucide:cog",
+  "graduation-cap": "lucide:graduation-cap",
+  "layer-group": "lucide:layers",
+  lock: "lucide:lock",
+  microchip: "lucide:cpu",
+  newspaper: "lucide:newspaper",
+  repeat: "lucide:repeat",
+  rotate: "lucide:rotate-ccw",
+  shuffle: "lucide:shuffle",
+  table: "lucide:table-2",
+  video: "lucide:clapperboard",
+};
 
 type CardProps = React.PropsWithChildren<{
   className?: string;
@@ -200,9 +220,16 @@ const renderIcon = (icon: React.ReactNode) => {
     return null;
   }
 
+  const renderedIcon =
+    typeof icon === "string" ? (
+      <Icon aria-hidden="true" className="h-4 w-4" icon={CARD_ICON_MAP[icon] ?? icon} />
+    ) : (
+      icon
+    );
+
   return (
     <span className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-default-200 bg-content2 text-sm font-semibold text-primary-500">
-      {typeof icon === "string" ? icon.slice(0, 2).toUpperCase() : icon}
+      {renderedIcon}
     </span>
   );
 };

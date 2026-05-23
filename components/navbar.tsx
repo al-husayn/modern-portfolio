@@ -23,6 +23,8 @@ export const Navigation = () => {
   const pathname = usePathname();
 
   const menuItems = DATA.navigation;
+  const isActiveItem = (href: string) =>
+    href === "/" ? pathname === href : pathname.startsWith(href);
 
   return (
     <Navbar
@@ -64,9 +66,9 @@ export const Navigation = () => {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <Link
-                  aria-current={pathname === item.href ? "page" : undefined}
+                  aria-current={isActiveItem(item.href) ? "page" : undefined}
                   className={`flex items-center gap-2 rounded-md px-2 py-1.5 text-sm font-medium transition-colors ${
-                    pathname === item.href
+                    isActiveItem(item.href)
                       ? "bg-primary-500/10 text-primary-500"
                       : "text-foreground-600 hover:bg-content2 hover:text-foreground"
                   }`}
@@ -101,9 +103,9 @@ export const Navigation = () => {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <Link
-                  aria-current={pathname === item.href ? "page" : undefined}
+                  aria-current={isActiveItem(item.href) ? "page" : undefined}
                   className={`flex w-full items-center gap-3 rounded-md px-4 py-3 text-sm font-medium transition-colors ${
-                    pathname === item.href
+                    isActiveItem(item.href)
                       ? "bg-primary-500/10 text-primary-500"
                       : "text-foreground-600 hover:bg-content2 hover:text-foreground"
                   }`}
