@@ -10,7 +10,6 @@ type BlogData = {
   author?: string;
   date: string;
   description?: string;
-  featured?: boolean;
   readingTime?: string;
   readTime?: string;
   tags?: string[];

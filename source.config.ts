@@ -18,7 +18,6 @@ export const { docs, meta } = defineDocs({
     schema: frontmatterSchema.extend({
       date: z.string(),
       tags: z.array(z.string()).optional(),
-      featured: z.boolean().optional().default(false),
       readingTime: z.string().optional().default('3 min read'),
       author: z.string().optional(),
       thumbnail: z.string().optional(),
