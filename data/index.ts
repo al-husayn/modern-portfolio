@@ -441,7 +441,7 @@ export const DATA = {
       title: "Let's Build Together 🚀",
     },
     blog: {
-      title: "Dev Notes",
+      title: "Blog",
     },
   },
   navigation: [
