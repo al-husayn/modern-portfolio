@@ -52,19 +52,3 @@ Write the note.
 ```
 
 That is the kind of system I like: quiet, predictable, and ready when there is something worth writing down.
-
-```js
-function palindrome(str: string) {
-  if (typeof str !== 'string') {
-    return 'Not a string';
-  }
-  if (str.length === 0) {
-    return 'Empty string';
-  }
-  const reverse = [...str].reverse().join('');
-  return str === reverse ? 'Palindrome' : 'Not a palindrome';
-  // console.log(reverse);
-}
-
-palindrome('racecar');
-```
