@@ -101,7 +101,6 @@ export const hasErrors = (errors: ContactFormErrors): boolean => {
   return Object.values(errors).some((error) => !!error);
 };
 
-
 export const dateFormatter = new Intl.DateTimeFormat("en", {
   day: "numeric",
   month: "short",
