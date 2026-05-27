@@ -13,6 +13,8 @@ type BlogPostPageProps = {
   }>;
 };
 
+const DEFAULT_AUTHOR = "Al-Hussein Abubakar";
+
 const dateFormatter = new Intl.DateTimeFormat("en", {
   day: "numeric",
   month: "long",
@@ -33,7 +35,7 @@ export async function generateMetadata({
     return {};
   }
 
-  const author = post.data.author ?? "Al-Hussein Abubakar";
+  const author = post.data.author ?? DEFAULT_AUTHOR;
 
   return {
     title: post.data.title,
@@ -77,7 +79,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <span className="h-1 w-1 rounded-full bg-default-400" />
             <span>{getReadingTime(post)}</span>
             <span className="h-1 w-1 rounded-full bg-default-400" />
-            <span>{post.data.author}</span>
+            <span>{author}</span>
           </div>
 
           <h1 className="text-4xl font-bold leading-tight text-foreground sm:text-5xl">
