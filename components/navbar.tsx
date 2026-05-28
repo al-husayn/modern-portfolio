@@ -24,7 +24,7 @@ export const Navigation = () => {
 
   const menuItems = DATA.navigation;
   const isActiveItem = (href: string) =>
-    href === "/" ? pathname === href : pathname.startsWith(href);
+    href === "/" ? pathname === href : pathname === href || pathname.startsWith(`${href}/`);
 
   return (
     <Navbar
@@ -50,7 +50,7 @@ export const Navigation = () => {
             >
               <img
                 alt="Logo"
-                className="h-11 w-11 rounded-md object-contain"
+                className="object-contain rounded-md h-11 w-11"
                 src="/logo.png"
               />
             </Link>
@@ -74,7 +74,7 @@ export const Navigation = () => {
                   }`}
                   href={item.href}
                 >
-                  <Icon className="h-4 w-4" icon={item.icon} />
+                  <Icon className="w-4 h-4" icon={item.icon} />
                   {item.name}
                 </Link>
               </motion.div>
@@ -93,7 +93,7 @@ export const Navigation = () => {
       </NavbarContent>
 
       {/* Mobile Menu */}
-      <NavbarMenu className="bg-background/95 pt-6 backdrop-blur-lg sm:hidden">
+      <NavbarMenu className="pt-6 bg-background/95 backdrop-blur-lg sm:hidden">
         <div className="max-w-lg mx-auto space-y-4">
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={item.name}>
@@ -112,7 +112,7 @@ export const Navigation = () => {
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <Icon className="h-5 w-5" icon={item.icon} />
+                  <Icon className="w-5 h-5" icon={item.icon} />
                   {item.name}
                 </Link>
               </motion.div>
