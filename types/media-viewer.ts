@@ -8,6 +8,6 @@ export interface MediaViewerProps {
   width?: number;
   height?: number;
   captionsSrc?: string;
-  captionsLanguage?: string;
+  captionsLang?: string;
   captionsLabel?: string;
 }
