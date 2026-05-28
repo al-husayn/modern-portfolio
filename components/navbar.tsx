@@ -24,7 +24,9 @@ export const Navigation = () => {
 
   const menuItems = DATA.navigation;
   const isActiveItem = (href: string) =>
-    href === "/" ? pathname === href : pathname === href || pathname.startsWith(`${href}/`);
+    href === "/"
+      ? pathname === href
+      : pathname === href || pathname.startsWith(`${href}/`);
 
   return (
     <Navbar
