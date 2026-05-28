@@ -7,4 +7,7 @@ export interface MediaViewerProps {
   className?: string;
   width?: number;
   height?: number;
+  captionsSrc?: string;
+  captionsLanguage?: string;
+  captionsLabel?: string;
 }
