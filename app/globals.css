@@ -90,7 +90,10 @@
   }
 
   .blog-prose pre code {
-    @apply !border-0 !bg-transparent !p-0 !text-sm;
+    border: 0 !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+    font-size: 0.875rem !important;
     color: inherit !important;
   }
 }

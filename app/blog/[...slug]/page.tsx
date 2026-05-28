@@ -58,6 +58,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const author = post.data.author ?? DEFAULT_AUTHOR;
   const MDX = post.data.body;
 
   return (
