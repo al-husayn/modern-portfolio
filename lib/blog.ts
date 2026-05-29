@@ -17,9 +17,19 @@ type BlogData = {
   body: ComponentType<{ components?: MDXComponents }>;
 };
 
+const mdxSource = createMDXSource(docs, meta);
+const mdxSourceFiles = (
+  mdxSource as {
+    files: typeof mdxSource.files | (() => typeof mdxSource.files);
+  }
+).files;
+
 export const blog = loader({
   baseUrl: "/blog",
-  source: createMDXSource(docs, meta),
+  source: {
+    files:
+      typeof mdxSourceFiles === "function" ? mdxSourceFiles() : mdxSourceFiles,
+  },
 });
 
 export type BlogPost = Omit<
