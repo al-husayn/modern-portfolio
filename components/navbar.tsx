@@ -23,6 +23,10 @@ export const Navigation = () => {
   const pathname = usePathname();
 
   const menuItems = DATA.navigation;
+  const isActiveItem = (href: string) =>
+    href === "/"
+      ? pathname === href
+      : pathname === href || pathname.startsWith(`${href}/`);
 
   return (
     <Navbar
@@ -48,7 +52,7 @@ export const Navigation = () => {
             >
               <img
                 alt="Logo"
-                className="h-11 w-11 rounded-md object-contain"
+                className="object-contain rounded-md h-11 w-11"
                 src="/logo.png"
               />
             </Link>
@@ -64,15 +68,15 @@ export const Navigation = () => {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <Link
-                  aria-current={pathname === item.href ? "page" : undefined}
+                  aria-current={isActiveItem(item.href) ? "page" : undefined}
                   className={`flex items-center gap-2 rounded-md px-2 py-1.5 text-sm font-medium transition-colors ${
-                    pathname === item.href
+                    isActiveItem(item.href)
                       ? "bg-primary-500/10 text-primary-500"
                       : "text-foreground-600 hover:bg-content2 hover:text-foreground"
                   }`}
                   href={item.href}
                 >
-                  <Icon className="h-4 w-4" icon={item.icon} />
+                  <Icon className="w-4 h-4" icon={item.icon} />
                   {item.name}
                 </Link>
               </motion.div>
@@ -91,7 +95,7 @@ export const Navigation = () => {
       </NavbarContent>
 
       {/* Mobile Menu */}
-      <NavbarMenu className="bg-background/95 pt-6 backdrop-blur-lg sm:hidden">
+      <NavbarMenu className="pt-6 bg-background/95 backdrop-blur-lg sm:hidden">
         <div className="max-w-lg mx-auto space-y-4">
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={item.name}>
@@ -101,16 +105,16 @@ export const Navigation = () => {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <Link
-                  aria-current={pathname === item.href ? "page" : undefined}
+                  aria-current={isActiveItem(item.href) ? "page" : undefined}
                   className={`flex w-full items-center gap-3 rounded-md px-4 py-3 text-sm font-medium transition-colors ${
-                    pathname === item.href
+                    isActiveItem(item.href)
                       ? "bg-primary-500/10 text-primary-500"
                       : "text-foreground-600 hover:bg-content2 hover:text-foreground"
                   }`}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <Icon className="h-5 w-5" icon={item.icon} />
+                  <Icon className="w-5 h-5" icon={item.icon} />
                   {item.name}
                 </Link>
               </motion.div>

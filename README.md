@@ -1,6 +1,6 @@
 # Modern & Animated Portfolio Template
 
-This is a modern, animated, and fully responsive portfolio built with **Next.js**, **TypeScript**, **Tailwind CSS**, **Framer Motion** and **EmailJS**. It's designed to be easily customizable and provides a great starting point for developers who want to create a stunning personal portfolio.
+This is a modern, animated, and fully responsive portfolio built with **Next.js**, **TypeScript**, **Tailwind CSS**, **Framer Motion**, **Fumadocs MDX**, and **EmailJS**. It includes a content-driven blog, project showcase, contact form, and centralized data structure for easy customization.
 
 <br/>
 <p align="center">
@@ -15,6 +15,8 @@ This is a modern, animated, and fully responsive portfolio built with **Next.js*
 - **Smooth Animations:** Engaging animations powered by Framer Motion.
 - **Responsive Design:** Looks great on all devices, from mobile to desktop.
 - **Easy to Customize:** All portfolio data is centralized in a single file for easy updates.
+- **MDX Blog:** Publish technical articles with frontmatter metadata, tags, reading time, and generated blog routes.
+- **SEO Metadata:** Blog posts generate article metadata from their MDX content.
 - **Component-Based:** Built with reusable React components.
 
 ## Getting Started
@@ -22,7 +24,7 @@ This is a modern, animated, and fully responsive portfolio built with **Next.js*
 ### Prerequisites
 
 - Node.js (v18 or higher)
-- npm or yarn
+- pnpm
 
 ### Installation
 
@@ -36,17 +38,13 @@ This is a modern, animated, and fully responsive portfolio built with **Next.js*
 2. **Install dependencies:**
 
    ```bash
-   npm install
-   # or
-   yarn install
+   pnpm install
    ```
 
 3. **Run the development server:**
 
    ```bash
-   npm run dev
-   # or
-   yarn dev
+   pnpm dev
    ```
 
    The application will be available at `http://localhost:3000`.
@@ -56,12 +54,10 @@ This is a modern, animated, and fully responsive portfolio built with **Next.js*
 To create a production build, run:
 
 ```bash
-npm run build
-# or
-yarn build
+pnpm build
 ```
 
-This will generate a `dist` directory with the optimized and minified files for deployment.
+This will create an optimized Next.js production build.
 
 ## Customization
 
@@ -76,10 +72,34 @@ This file exports a `DATA` object that contains all the information for your por
 - `projects`: A list of your featured projects, including details, images, and links.
 - `contact`: Contact information and the Google Maps source for the contact page.
 - `pageHeaders`: Professional heading content for the inner pages.
+- `blog`: Shared blog page copy used by the blog metadata and intro section.
 - `navigation`: The links for the main navigation menu.
 - `footer`: Content for the footer, including social links and services.
 
 Simply update the values in this file to personalize your portfolio.
+
+## Blog
+
+Blog posts are written in MDX and live in `content/blog`. Each post uses frontmatter for metadata such as `title`, `description`, `date`, `author`, `readingTime`, and `tags`.
+
+Example:
+
+```mdx
+---
+title: "Primitive Types"
+description: "Learn JavaScript's 7 primitive types."
+date: "2026-05-22"
+author: Al-Hussein Abubakar
+readingTime: 23 min read
+tags:
+  - JavaScript
+  - Fundamentals
+---
+
+Write your article content here.
+```
+
+The blog index is available at `/blog`, and each post is generated from its filename, such as `/blog/primitive-types`.
 
 **How to Add Your CV**
 
@@ -191,7 +211,7 @@ This template uses [Email.js](https://www.emailjs.com/) for handling contact for
 
     Note: for Gmail/Outlook services, the actual `From` email address is usually your connected service account. `Reply-To` is what ensures replies go to the visitor's email.
 
-6.  **Restart your development server:** After adding the environment variables, restart your development server (`npm run dev` or `yarn dev`) for the changes to take effect.
+6.  **Restart your development server:** After adding the environment variables, restart your development server (`pnpm dev`) for the changes to take effect.
 
 ## Technologies Used
 
@@ -199,6 +219,7 @@ This template uses [Email.js](https://www.emailjs.com/) for handling contact for
 - **[React](https://react.dev/):** A JavaScript library for building user interfaces.
 - **[Tailwind CSS](https://tailwindcss.com/):** A utility-first CSS framework.
 - **[Framer Motion](https://www.framer.com/motion/):** A library for creating animations in React.
+- **[Fumadocs MDX](https://fumadocs.dev/):** MDX content tooling for the blog.
 - **[HeroUI](https://www.heroui.com/):** A React UI library for beautiful and accessible components.
 - **[Iconify](https://iconify.design/):** A library for using icons from various icon sets.
 - **[TypeScript](https://www.typescriptlang.org/):** A typed superset of JavaScript.

@@ -440,17 +440,22 @@ export const DATA = {
     contact: {
       title: "Let's Build Together 🚀",
     },
+    blog: {
+      title: "Blog",
+    },
+  },
+  blog: {
+    description:
+      "Guides, references, and tutorials on programming, web development, and design.",
+    intro:
+      "Guides, references, and tutorials on programming, web development, and design.",
   },
   navigation: [
     { name: "Home", href: "/", icon: "lucide:home" },
     { name: "About", href: "/about", icon: "lucide:user" },
     { name: "Projects", href: "/projects", icon: "lucide:folder-code" },
     { name: "Contact", href: "/contact", icon: "lucide:send" },
-    {
-      name: "Blog",
-      href: "https://blog.al-husayn.dev/",
-      icon: "lucide:rss",
-    },
+    { name: "Blog", href: "/blog", icon: "lucide:newspaper" },
   ],
   footer: {
     name: "Al-Hussein",

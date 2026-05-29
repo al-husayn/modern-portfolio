@@ -88,7 +88,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             defaultTheme: "dark",
           }}
         >
-          <StarsBackground>{content}</StarsBackground>
+          <StarsBackground pointerEvents={false}>{content}</StarsBackground>
         </Providers>
       </body>
     </html>

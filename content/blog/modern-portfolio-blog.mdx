@@ -1,0 +1,54 @@
+---
+title: Building a Blog Into a Portfolio Without Making It Heavy
+description: A small implementation note on adding MDX-driven writing to a personal site while keeping the experience fast, tidy, and easy to maintain.
+date: "2026-05-22"
+author: Al-Hussein Abubakar
+readingTime: 4 min read
+tags:
+  - Next.js
+  - MDX
+  - Fumadocs
+---
+
+The goal for this blog is simple: make writing feel like part of the portfolio, not a separate product bolted onto the side.
+
+Fumadocs MDX is a good fit here because it gives the site a typed content layer while keeping posts as plain files. That means articles can live close to the code, use frontmatter for metadata, and render as React Server Components.
+
+## The shape
+
+The content lives in `content/blog`, and each post gets a route from its file name.
+
+```txt
+content/
+  blog/
+    modern-portfolio-blog.mdx
+```
+
+The blog index reads from the generated collection and sorts posts by date. The detail page renders the compiled MDX body with local components, so links, code, and blocks match the portfolio's visual language.
+
+## Why this stays maintainable
+
+The blog is intentionally small:
+
+- Frontmatter handles title, description, date, tags, and reading time.
+- The route system uses the App Router instead of custom file-system code.
+- Styling stays in the portfolio's existing Tailwind and HeroUI token setup.
+- The content source can grow later without changing the page structure.
+
+## A tiny authoring loop
+
+Adding a post is just adding another `.mdx` file:
+
+```mdx
+---
+title: Your New Post
+description: A compact summary for cards and SEO.
+date: "2026-05-22"
+tags:
+  - React
+---
+
+Write the note.
+```
+
+That is the kind of system I like: quiet, predictable, and ready when there is something worth writing down.

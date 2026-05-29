@@ -41,4 +41,60 @@
   .app-card-hover {
     @apply hover:border-primary-400/60 hover:shadow-lg;
   }
+
+  .blog-prose {
+    @apply text-base leading-8 text-foreground-700;
+  }
+
+  .blog-prose > * + * {
+    @apply mt-6;
+  }
+
+  .blog-prose h2 {
+    @apply mt-12 text-2xl font-semibold leading-tight text-foreground;
+  }
+
+  .blog-prose h3 {
+    @apply mt-10 text-xl font-semibold leading-tight text-foreground;
+  }
+
+  .blog-prose p {
+    @apply text-foreground-600;
+  }
+
+  .blog-prose ul {
+    @apply list-disc space-y-2 pl-6 text-foreground-600;
+  }
+
+  .blog-prose li::marker {
+    @apply text-primary-500;
+  }
+
+  .blog-prose pre {
+    @apply overflow-x-auto rounded-lg border border-default-200 p-4 text-sm shadow-sm;
+  }
+
+  .blog-prose pre.shiki {
+    color: var(--shiki-light) !important;
+    background-color: var(--shiki-light-bg) !important;
+  }
+
+  .blog-prose pre.shiki span {
+    color: var(--shiki-light) !important;
+  }
+
+  .dark .blog-prose pre.shiki,
+  .dark .blog-prose pre.shiki span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
+
+  .blog-prose pre code {
+    border: 0 !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+    font-size: 0.875rem !important;
+
+    color: inherit !important;
+  }
 }

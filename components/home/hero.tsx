@@ -1,6 +1,6 @@
 "use client";
 
-import type { PressEvent } from "@react-aria/interactions";
+import type { PressEvent } from "@react-types/shared";
 
 import { motion } from "framer-motion";
 import { Button, Link } from "@heroui/react";

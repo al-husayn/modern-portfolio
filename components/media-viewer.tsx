@@ -1,0 +1,64 @@
+"use client";
+
+import { cn } from "@/lib/utils";
+import { MediaViewerProps } from "@/types/media-viewer";
+
+export function MediaViewer({
+  src,
+  alt = "",
+  type = "image",
+  className,
+  width,
+  height,
+  captionsSrc,
+  captionsLang = "en",
+  captionsLabel = "English",
+}: MediaViewerProps) {
+  const mediaProps = {
+    src,
+    alt,
+    className: cn(
+      "w-full h-full object-cover rounded-lg border overflow-hidden aspect-video",
+      className,
+    ),
+    ...(width && height ? { width, height } : {}),
+  };
+
+  const renderMedia = () => {
+    if (type === "video") {
+      return (
+        // eslint-disable-next-line jsx-a11y/media-has-caption
+        <video {...mediaProps} controls loop>
+          {captionsSrc ? (
+            <track
+              default
+              kind="captions"
+              label={captionsLabel}
+              src={captionsSrc}
+              srcLang={captionsLang}
+            />
+          ) : null}
+          Your browser does not support the video tag.
+        </video>
+      );
+    }
+
+    // eslint-disable-next-line jsx-a11y/alt-text
+    return <img {...mediaProps} />;
+  };
+
+  return (
+    <div className="w-full my-6">
+      <div className="relative w-full aspect-video">{renderMedia()}</div>
+    </div>
+  );
+}
+
+// Helper components for easier MDX usage
+export function ImageViewer(props: Omit<MediaViewerProps, "type">) {
+  return <MediaViewer {...props} type="image" />;
+}
+
+export function VideoViewer(props: Omit<MediaViewerProps, "type">) {
+  return <MediaViewer {...props} type="video" />;
+}
