@@ -33,22 +33,26 @@ export function getBlogPost(slug: string[]) {
   return blog.getPage(slug) as BlogPost | undefined;
 }
 
+function getSortableDateTimestamp(date: string) {
+  const timestamp = Date.parse(date);
+
+  return Number.isNaN(timestamp) ? 0 : timestamp;
+}
+
+function compareBlogPostsByDateDesc(currentPost: BlogPost, nextPost: BlogPost) {
+  const currentPostTimestamp = getSortableDateTimestamp(currentPost.data.date);
+  const nextPostTimestamp = getSortableDateTimestamp(nextPost.data.date);
+  const dateOrder = nextPostTimestamp - currentPostTimestamp;
+
+  if (dateOrder !== 0) {
+    return dateOrder;
+  }
+
+  return currentPost.url.localeCompare(nextPost.url);
+}
+
 export function getBlogPosts() {
-  const toTimestamp = (value: string) => {
-    const timestamp = Date.parse(value);
-
-    return Number.isNaN(timestamp) ? 0 : timestamp;
-  };
-
-  return (blog.getPages() as BlogPost[]).sort((a, b) => {
-    const dateOrder = toTimestamp(b.data.date) - toTimestamp(a.data.date);
-
-    if (dateOrder !== 0) {
-      return dateOrder;
-    }
-
-    return a.url.localeCompare(b.url);
-  });
+  return (blog.getPages() as BlogPost[]).sort(compareBlogPostsByDateDesc);
 }
 
 export function getReadingTime(post: BlogPost) {
