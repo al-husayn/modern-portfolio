@@ -2,7 +2,7 @@ import type { ComponentType } from "react";
 import type { MDXComponents } from "mdx/types";
 
 import { loader } from "fumadocs-core/source";
-import { createMDXSource } from "fumadocs-mdx";
+import { resolveFiles } from "fumadocs-mdx";
 
 import { docs, meta } from "@/.source";
 
@@ -17,18 +17,10 @@ type BlogData = {
   body: ComponentType<{ components?: MDXComponents }>;
 };
 
-const mdxSource = createMDXSource(docs, meta);
-const mdxSourceFiles = (
-  mdxSource as {
-    files: typeof mdxSource.files | (() => typeof mdxSource.files);
-  }
-).files;
-
 export const blog = loader({
   baseUrl: "/blog",
   source: {
-    files:
-      typeof mdxSourceFiles === "function" ? mdxSourceFiles() : mdxSourceFiles,
+    files: resolveFiles({ docs, meta }),
   },
 });
 
