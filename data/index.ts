@@ -444,6 +444,12 @@ export const DATA = {
       title: "Blog",
     },
   },
+  blog: {
+    description:
+      "Guides, references, and tutorials on programming, web development, and design.",
+    intro:
+      "Guides, references, and tutorials on programming, web development, and design.",
+  },
   navigation: [
     { name: "Home", href: "/", icon: "lucide:home" },
     { name: "About", href: "/about", icon: "lucide:user" },

@@ -6,10 +6,11 @@ import { DATA } from "@/data";
 import { getBlogPosts, getReadingTime } from "@/lib/blog";
 import { PageHeader } from "@/components/page-header";
 
+const { description: blogDescription, intro: blogIntro } = DATA.blog;
+
 export const metadata: Metadata = {
   title: "Blog",
-  description:
-    "Guides, references, and tutorials on programming, web development, and design. ",
+  description: blogDescription,
 };
 
 const archiveDateFormatter = new Intl.DateTimeFormat("en-US", {
@@ -40,10 +41,7 @@ export default function BlogPage() {
         <PageHeader {...DATA.pageHeaders.blog} />
 
         <div className="max-w-3xl mx-auto mb-12 text-center">
-          <p className="section-copy ">
-            Guides, references, and tutorials on programming, web development,
-            and design.
-          </p>
+          <p className="section-copy ">{blogIntro}</p>
         </div>
 
         <div className="mx-auto max-w-3xl space-y-12">
@@ -64,23 +62,29 @@ export default function BlogPage() {
 
               <ul className="divide-y divide-default-200">
                 {postsByYear[year].map((post) => (
-                  <li key={post.url}>
+                  <li
+                    key={post.url}
+                    className="group grid w-full gap-2 rounded-md py-4 transition hover:bg-content2/50 sm:grid-cols-[7.5rem_1fr_auto] sm:items-baseline"
+                  >
                     <Link
-                      className="group grid w-full cursor-pointer gap-2 rounded-md py-4 outline-none transition hover:bg-content2/50 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:grid-cols-[7.5rem_1fr_auto] sm:items-baseline"
+                      className="cursor-pointer rounded-sm px-2 text-sm font-medium text-foreground-500 outline-none transition hover:text-primary hover:underline focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                       href={post.url}
                     >
-                      <time
-                        className="px-2 text-sm font-medium text-foreground-500"
-                        dateTime={post.data.date}
-                      >
+                      <time dateTime={post.data.date}>
                         {archiveDateFormatter.format(new Date(post.data.date))}
                       </time>
-                      <span className="px-2 text-lg font-medium leading-snug text-foreground transition group-hover:text-primary group-hover:underline">
-                        {post.data.title}
-                      </span>
-                      <span className="px-2 text-sm text-foreground-500">
-                        {getReadingTime(post)}
-                      </span>
+                    </Link>
+                    <Link
+                      className="cursor-pointer rounded-sm px-2 text-lg font-medium leading-snug text-foreground outline-none transition hover:text-primary hover:underline focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background group-hover:text-primary group-hover:underline"
+                      href={post.url}
+                    >
+                      <span>{post.data.title}</span>
+                    </Link>
+                    <Link
+                      className="cursor-pointer rounded-sm px-2 text-sm text-foreground-500 outline-none transition hover:text-primary hover:underline focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                      href={post.url}
+                    >
+                      {getReadingTime(post)}
                     </Link>
                   </li>
                 ))}

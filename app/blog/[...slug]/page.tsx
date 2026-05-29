@@ -6,6 +6,7 @@ import { Icon } from "@iconify/react";
 
 import { getMDXComponents } from "@/components/mdx-components";
 import { blog, getBlogPost, getReadingTime } from "@/lib/blog";
+import { dateFormatter } from "@/lib/utils";
 
 type BlogPostPageProps = {
   params: Promise<{
@@ -14,12 +15,6 @@ type BlogPostPageProps = {
 };
 
 const DEFAULT_AUTHOR = "Al-Hussein Abubakar";
-
-const dateFormatter = new Intl.DateTimeFormat("en", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-});
 
 export function generateStaticParams() {
   return blog.generateParams("slug");

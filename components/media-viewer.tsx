@@ -27,14 +27,17 @@ export function MediaViewer({
   const renderMedia = () => {
     if (type === "video") {
       return (
+        // eslint-disable-next-line jsx-a11y/media-has-caption
         <video {...mediaProps} controls loop>
-          <track
-            default
-            kind="captions"
-            label={captionsLabel}
-            src={captionsSrc}
-            srcLang={captionsLang}
-          />
+          {captionsSrc ? (
+            <track
+              default
+              kind="captions"
+              label={captionsLabel}
+              src={captionsSrc}
+              srcLang={captionsLang}
+            />
+          ) : null}
           Your browser does not support the video tag.
         </video>
       );

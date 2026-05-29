@@ -40,9 +40,15 @@ export function getBlogPosts() {
     return Number.isNaN(timestamp) ? 0 : timestamp;
   };
 
-  return (blog.getPages() as BlogPost[]).sort(
-    (a, b) => toTimestamp(b.data.date) - toTimestamp(a.data.date),
-  );
+  return (blog.getPages() as BlogPost[]).sort((a, b) => {
+    const dateOrder = toTimestamp(b.data.date) - toTimestamp(a.data.date);
+
+    if (dateOrder !== 0) {
+      return dateOrder;
+    }
+
+    return a.url.localeCompare(b.url);
+  });
 }
 
 export function getReadingTime(post: BlogPost) {
