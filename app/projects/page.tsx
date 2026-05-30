@@ -1,47 +1,16 @@
-"use client";
+import type { Metadata } from "next";
 
-import { useState, useMemo } from "react";
-
-import { PageHeader } from "@/components/page-header";
-import { ProjectsTabs } from "@/components/projects/projects-tabs";
-import { ProjectsGrid } from "@/components/projects/projects-grid";
+import { ProjectsPageClient } from "@/components/projects/projects-page-client";
 import { DATA } from "@/data";
+import { createSeoMetadata } from "@/lib/seo";
 
-const ProjectsPage = () => {
-  const allProjects = DATA.projects.work;
+export const metadata: Metadata = createSeoMetadata({
+  title: "Projects",
+  description: DATA.projects.sectionDescription,
+  path: "/projects",
+  keywords: DATA.projects.work.map((project) => project.title),
+});
 
-  const categories = useMemo(
-    () => ["All", ...new Set(allProjects.map((project) => project.category))],
-    [allProjects],
-  );
-
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
-  const filteredProjects = useMemo(
-    () =>
-      selectedCategory === "All"
-        ? allProjects
-        : allProjects.filter(
-            (project) => project.category === selectedCategory,
-          ),
-    [selectedCategory, allProjects],
-  );
-
-  return (
-    <section className="site-section">
-      <div className="site-container">
-        <PageHeader {...DATA.pageHeaders.projects} />
-
-        <ProjectsTabs
-          categories={categories}
-          selectedCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
-        />
-
-        <ProjectsGrid projects={filteredProjects} />
-      </div>
-    </section>
-  );
-};
-
-export default ProjectsPage;
+export default function ProjectsPage() {
+  return <ProjectsPageClient />;
+}

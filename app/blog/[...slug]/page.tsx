@@ -6,6 +6,7 @@ import { Icon } from "@iconify/react";
 
 import { getMDXComponents } from "@/components/mdx-components";
 import { blog, getBlogPost, getReadingTime } from "@/lib/blog";
+import { createSeoMetadata } from "@/lib/seo";
 import { dateFormatter } from "@/lib/utils";
 
 type BlogPostPageProps = {
@@ -31,18 +32,20 @@ export async function generateMetadata({
   }
 
   const author = post.data.author ?? DEFAULT_AUTHOR;
+  const title = post.data.title ?? "Blog Post";
+  const description =
+    post.data.description ??
+    "A technical article by Al-Hussein Abubakar on programming and web development.";
 
-  return {
-    title: post.data.title,
-    description: post.data.description,
-    openGraph: {
-      title: post.data.title,
-      description: post.data.description,
-      type: "article",
-      publishedTime: post.data.date,
-      authors: [author],
-    },
-  };
+  return createSeoMetadata({
+    title,
+    description,
+    path: post.url,
+    type: "article",
+    publishedTime: post.data.date,
+    authors: [author],
+    keywords: post.data.tags,
+  });
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {

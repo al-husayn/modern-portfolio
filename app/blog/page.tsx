@@ -5,12 +5,17 @@ import Link from "next/link";
 import { DATA } from "@/data";
 import { getBlogPosts, getReadingTime } from "@/lib/blog";
 import { PageHeader } from "@/components/page-header";
+import { createSeoMetadata } from "@/lib/seo";
 
 const { description: blogDescription, intro: blogIntro } = DATA.blog;
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: blogDescription,
+  ...createSeoMetadata({
+    title: "Blog",
+    description: blogDescription,
+    path: "/blog",
+    keywords: ["Web development blog", "Programming tutorials", "JavaScript"],
+  }),
 };
 
 const archiveDateFormatter = new Intl.DateTimeFormat("en-US", {

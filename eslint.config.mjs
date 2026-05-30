@@ -1,6 +1,7 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import { fixupConfigRules, fixupPluginRules } from "@eslint/compat";
 import react from "eslint-plugin-react";
+import nextPlugin from "@next/eslint-plugin-next";
 import unusedImports from "eslint-plugin-unused-imports";
 import _import from "eslint-plugin-import";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
@@ -44,6 +45,7 @@ export default defineConfig([
     "!**/react-shim.js",
     "!**/tsup.config.ts",
   ]),
+  nextPlugin.flatConfig.coreWebVitals,
   {
     extends: fixupConfigRules(
       compat.extends(
@@ -51,7 +53,6 @@ export default defineConfig([
         "plugin:prettier/recommended",
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/recommended",
-        "plugin:@next/next/recommended",
       ),
     ),
 
