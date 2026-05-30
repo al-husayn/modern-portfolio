@@ -10,6 +10,12 @@ import { Navigation } from "@/components/navbar";
 import { PageWrapper } from "@/components/page-wrapper";
 import { Providers } from "@/app/providers";
 import { StarsBackground } from "@/components/backgrounds/stars";
+import {
+  DEFAULT_OG_IMAGE,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/seo";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -22,22 +28,49 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.al-husayn.dev/"),
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "technology",
   title: {
-    default: DATA.home.hero.name,
-    template: `%s | ${DATA.home.hero.name}`,
+    default: `${SITE_NAME} | ${DATA.home.hero.title}`,
+    template: `%s | ${SITE_NAME}`,
   },
-
-  description: DATA.home.hero.subtitle,
+  description: SITE_DESCRIPTION,
+  keywords: [
+    "Al-Hussein Abubakar",
+    "Full Stack Developer",
+    "Frontend Developer",
+    "React Developer",
+    "Next.js Developer",
+    "TypeScript Developer",
+    "Tailwind CSS",
+    "Web Developer Ghana",
+    "Portfolio",
+  ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: {
-      default: DATA.home.hero.name,
-      template: `%s | ${DATA.home.hero.name}`,
+      default: `${SITE_NAME} | ${DATA.home.hero.title}`,
+      template: `%s | ${SITE_NAME}`,
     },
-    description: DATA.home.hero.subtitle,
-    siteName: DATA.home.hero.name,
+    description: SITE_DESCRIPTION,
+    url: "/",
+    siteName: SITE_NAME,
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: DEFAULT_OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_NAME} portfolio preview`,
+      },
+    ],
   },
   robots: {
     index: true,
@@ -52,13 +85,20 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: {
-      default: DATA.home.hero.name,
-      template: `%s | ${DATA.home.hero.name}`,
+      default: `${SITE_NAME} | ${DATA.home.hero.title}`,
+      template: `%s | ${SITE_NAME}`,
     },
+    description: SITE_DESCRIPTION,
     card: "summary_large_image",
+    creator: "@al_drake3",
+    images: [DEFAULT_OG_IMAGE],
   },
   icons: {
-    icon: [{ url: "/favicon.ico", sizes: "any" }],
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    apple: [{ url: "/logo.png" }],
   },
 };
 
