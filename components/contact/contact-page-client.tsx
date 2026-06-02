@@ -9,7 +9,7 @@ import { ContactCard } from "@/components/contact/contact-card";
 import { ContactForm } from "@/components/contact/contact-form";
 import { PageHeader } from "@/components/page-header";
 import { DATA } from "@/data";
-import { getMissingEmailConfigVars, sendContactEmail } from "@/lib/emailjs";
+import { getMissingEmailVars, sendContactEmail } from "@/lib/emailjs";
 
 const CONTACT_ERROR_MESSAGE = "Failed to send message. Please try again later.";
 const EMAIL_CONFIG_MESSAGE =
@@ -30,7 +30,7 @@ export function ContactPageClient() {
       setIsSuccess(false);
       setError(null);
 
-      const missingVars = getMissingEmailConfigVars();
+      const missingVars = getMissingEmailVars();
 
       if (missingVars.length > 0) {
         const missingVarsText = missingVars.join(", ");

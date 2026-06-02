@@ -94,7 +94,6 @@ export const Navigation = () => {
         />
       </NavbarContent>
 
-      {/* Mobile Menu */}
       <NavbarMenu className="pt-6 bg-background/95 backdrop-blur-lg sm:hidden">
         <div className="max-w-lg mx-auto space-y-4">
           {menuItems.map((item, index) => (

@@ -4,7 +4,7 @@ import { ContactFormData } from "@/types/contact";
 
 type EmailConfigKey = "serviceId" | "templateId" | "publicKey";
 
-type NormalizedContactFormData = {
+type EmailFormData = {
   name: string;
   email: string;
   subject: string;
@@ -23,22 +23,20 @@ const EMAIL_CONFIG_ENV_KEYS: Readonly<Record<EmailConfigKey, string>> = {
   publicKey: "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY",
 };
 
-export const getMissingEmailConfigVars = (): string[] => {
+export const getMissingEmailVars = (): string[] => {
   return (Object.keys(EMAIL_CONFIG) as EmailConfigKey[])
     .filter((key) => !EMAIL_CONFIG[key])
     .map((key) => EMAIL_CONFIG_ENV_KEYS[key]);
 };
 
-const normalizeFormData = (
-  formData: ContactFormData,
-): NormalizedContactFormData => ({
+const normalizeForm = (formData: ContactFormData): EmailFormData => ({
   name: formData.name.trim(),
   email: formData.email.trim(),
   subject: formData.subject.trim(),
   message: formData.message.trim(),
 });
 
-const buildComposedMessage = (formData: NormalizedContactFormData): string => {
+const buildMessage = (formData: EmailFormData): string => {
   return [
     `Name: ${formData.name}`,
     `Email: ${formData.email}`,
@@ -49,8 +47,8 @@ const buildComposedMessage = (formData: NormalizedContactFormData): string => {
 };
 
 const toTemplateParams = (formData: ContactFormData) => {
-  const normalizedData = normalizeFormData(formData);
-  const composedMessage = buildComposedMessage(normalizedData);
+  const normalizedData = normalizeForm(formData);
+  const composedMessage = buildMessage(normalizedData);
 
   return {
     sender_name: normalizedData.name,

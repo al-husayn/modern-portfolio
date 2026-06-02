@@ -31,7 +31,6 @@ const PortfolioHero = () => {
           initial={{ opacity: 0, y: 30 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* Left Side */}
           <div className="flex flex-col items-start gap-5 text-left sm:gap-6">
             <p className="rounded-full border border-primary-500/20 bg-primary-500/10 px-3 py-1 text-sm font-medium text-primary-500">
               {hero.role} in {hero.location}

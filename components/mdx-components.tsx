@@ -93,11 +93,11 @@ const splitHref = (href: string): { pathname: string; suffix: string } => {
 };
 
 const resolveRelativePathname = (pathname: string): string => {
-  try {
-    return new URL(pathname, `https://internal${BLOG_ROUTE_PREFIX}/`).pathname;
-  } catch {
+  if (!URL.canParse(pathname, `https://internal${BLOG_ROUTE_PREFIX}/`)) {
     return "";
   }
+
+  return new URL(pathname, `https://internal${BLOG_ROUTE_PREFIX}/`).pathname;
 };
 
 const getHrefScheme = (href: string): string | null => {

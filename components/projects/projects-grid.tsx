@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect, useCallback } from "react";
 
 import { ProjectCard } from "@/components/project-card";
@@ -12,11 +14,11 @@ export const ProjectsGrid = ({
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [animationKey, setAnimationKey] = useState(0);
 
-  const handleOpenModal = useCallback(
+  const openModal = useCallback(
     (project: Project) => setSelectedProject(project),
     [],
   );
-  const handleCloseModal = useCallback(() => setSelectedProject(null), []);
+  const closeModal = useCallback(() => setSelectedProject(null), []);
 
   useEffect(() => {
     setAnimationKey((prevKey) => prevKey + 1);
@@ -39,14 +41,14 @@ export const ProjectsGrid = ({
         >
           <ProjectCard
             project={project}
-            onViewDetails={() => handleOpenModal(project)}
+            onViewDetails={() => openModal(project)}
           />
         </MotionEffect>
       ))}
       <ProjectModal
         isOpen={!!selectedProject}
         project={selectedProject}
-        onClose={handleCloseModal}
+        onClose={closeModal}
       />
     </div>
   );

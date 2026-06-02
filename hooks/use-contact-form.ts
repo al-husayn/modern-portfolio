@@ -47,7 +47,7 @@ export const useContactForm = (): UseContactFormReturn => {
     [touchedFields],
   );
 
-  const validateFieldAndMarkTouched = useCallback(
+  const validateTouched = useCallback(
     (field: ContactFormField, value: string) => {
       setTouchedFields((prev) => new Set(prev).add(field));
 
@@ -98,6 +98,6 @@ export const useContactForm = (): UseContactFormReturn => {
     handleInputChange,
     handleSubmit,
     resetForm,
-    validateField: validateFieldAndMarkTouched,
+    validateField: validateTouched,
   };
 };

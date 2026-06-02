@@ -54,7 +54,6 @@ export function MediaViewer({
   );
 }
 
-// Helper components for easier MDX usage
 export function ImageViewer(props: Omit<MediaViewerProps, "type">) {
   return <MediaViewer {...props} type="image" />;
 }

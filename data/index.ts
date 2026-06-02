@@ -23,15 +23,12 @@ export const DATA = {
       seniority: "Mid-Level",
       location: "Ghana",
       skills: [
-        // Frontend
         "React",
         "Next.js",
         "JavaScript",
         "TypeScript",
         "TailwindCSS",
-        // Backend
         "Node.js",
-        // Tools & Others
         "Wordpress",
       ],
     },
@@ -73,8 +70,7 @@ export const DATA = {
           logo: "https://ui.shadcn.com/apple-touch-icon.png",
           description:
             "Expert guidance and code reviews to ensure your project's success.",
-        }, // Closest official
-        // { name: 'Node.js', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/500px-Node.js_logo.svg.png' },
+        },
         {
           name: "WordPress Development",
           icon: "simple-icons:wordpress",
