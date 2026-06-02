@@ -31,7 +31,6 @@ const cardVariant = {
 export const ServicesSection = () => {
   const { sectionTitle, sectionDescription, services } = DATA.home.skills;
 
-  // Limit to exactly 6 services
   const displayedServices = services.slice(0, 6);
 
   return (

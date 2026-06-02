@@ -1,4 +1,3 @@
-// Self-contained SVG icon
 const DotIcon = () => (
   <svg
     fill="none"

@@ -48,7 +48,6 @@ export const MapSkeleton: React.FC = () => (
       </div>
     </div>
 
-    {/* Bottom controls simulation */}
     <div className="flex justify-between items-center">
       <div className="flex space-x-2">
         <Skeleton className="rounded-lg">

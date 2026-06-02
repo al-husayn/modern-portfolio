@@ -35,16 +35,16 @@ export function getBlogPost(slug: string[]) {
   return blog.getPage(slug) as BlogPost | undefined;
 }
 
-function getSortableDateTimestamp(date: string) {
+function toTimestamp(date: string) {
   const timestamp = Date.parse(date);
 
   return Number.isNaN(timestamp) ? 0 : timestamp;
 }
 
-function compareBlogPostsByDateDesc(currentPost: BlogPost, nextPost: BlogPost) {
-  const currentPostTimestamp = getSortableDateTimestamp(currentPost.data.date);
-  const nextPostTimestamp = getSortableDateTimestamp(nextPost.data.date);
-  const dateOrder = nextPostTimestamp - currentPostTimestamp;
+function byDateDesc(currentPost: BlogPost, nextPost: BlogPost) {
+  const currentTimestamp = toTimestamp(currentPost.data.date);
+  const nextTimestamp = toTimestamp(nextPost.data.date);
+  const dateOrder = nextTimestamp - currentTimestamp;
 
   if (dateOrder !== 0) {
     return dateOrder;
@@ -54,7 +54,7 @@ function compareBlogPostsByDateDesc(currentPost: BlogPost, nextPost: BlogPost) {
 }
 
 export function getBlogPosts() {
-  return (blog.getPages() as BlogPost[]).sort(compareBlogPostsByDateDesc);
+  return (blog.getPages() as BlogPost[]).sort(byDateDesc);
 }
 
 export function getReadingTime(post: BlogPost) {
