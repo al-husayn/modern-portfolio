@@ -120,7 +120,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       suppressHydrationWarning
       className={clsx(geistSans.variable, geistMono.variable, "antialiased")}
       lang="en"
-      data-scroll-behavior ="smooth"
+      data-scroll-behavior="smooth"
     >
       <body
         suppressHydrationWarning
