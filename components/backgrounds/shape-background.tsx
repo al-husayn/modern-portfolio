@@ -97,7 +97,7 @@ function FloatingShape({
     <motion.div
       animate={{ opacity: 1, rotate, y: 0 }}
       className={cn("absolute", className)}
-      initial={{ opacity: 0, rotate: rotate - 15, y: reduceMotion ? 0 : -120 }}
+      initial={{ opacity: 0, rotate: rotate - 15, y: 0 }}
       transition={{ ...ENTRANCE_TRANSITION, delay }}
     >
       <motion.div

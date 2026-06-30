@@ -1,13 +1,19 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Button } from "@heroui/react";
 import { Icon } from "@iconify/react";
-import { useTheme } from "@heroui/use-theme";
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
 
 export const ThemeSwitcher = () => {
-  const { theme, setTheme } = useTheme();
-  const isDark = theme === "dark";
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+  const isDark = mounted && resolvedTheme === "dark";
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <motion.div

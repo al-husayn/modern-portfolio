@@ -122,7 +122,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
       lang="en"
       data-scroll-behavior ="smooth"
     >
-      <body className="min-h-screen font-sans antialiased bg-background">
+      <body
+        suppressHydrationWarning
+        className="min-h-screen font-sans antialiased bg-background"
+      >
         <Providers
           themeProps={{
             attribute: "class",
