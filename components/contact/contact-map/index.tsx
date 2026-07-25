@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "@/lib/motion";
 
 import { ContactMapProps } from "@/types/contact";
 import { MapSkeleton } from "@/components/contact/contact-map/map-skeleton";

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { MediaViewerProps } from "@/types/media-viewer";
 
@@ -14,21 +15,21 @@ export function MediaViewer({
   captionsLang = "en",
   captionsLabel = "English",
 }: MediaViewerProps) {
-  const mediaProps = {
-    src,
-    alt,
-    className: cn(
-      "w-full h-full object-cover rounded-lg border overflow-hidden aspect-video",
-      className,
-    ),
-    ...(width && height ? { width, height } : {}),
-  };
+  const commonClasses = cn(
+    "w-full h-full object-cover rounded-lg border overflow-hidden aspect-video",
+    className,
+  );
 
   const renderMedia = () => {
     if (type === "video") {
       return (
-        // eslint-disable-next-line jsx-a11y/media-has-caption
-        <video {...mediaProps} controls loop>
+        <video
+          src={src}
+          className={commonClasses}
+          controls
+          loop
+          {...(width && height ? { width, height } : {})}
+        >
           {captionsSrc ? (
             <track
               default
@@ -43,8 +44,21 @@ export function MediaViewer({
       );
     }
 
-    // eslint-disable-next-line jsx-a11y/alt-text
-    return <img {...mediaProps} />;
+    const imageProps = {
+      src,
+      alt,
+      className: commonClasses,
+      sizes: "100vw",
+    };
+
+    return width &&
+      height &&
+      typeof width === "number" &&
+      typeof height === "number" ? (
+      <Image {...imageProps} width={width} height={height} />
+    ) : (
+      <Image {...imageProps} fill />
+    );
   };
 
   return (

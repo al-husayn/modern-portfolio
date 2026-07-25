@@ -8,7 +8,7 @@ export const useTestimonials = (items: readonly Testimonial[]) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const intervalRef = useRef<ReturnType<typeof setInterval>>();
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const resetAutoPlay = () => {
     setIsAutoPlaying(true);

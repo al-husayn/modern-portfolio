@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@heroui/react";
 import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 
 import { DATA } from "@/data";
 
@@ -12,7 +13,8 @@ export const Footer = () => {
   const navigation = DATA.navigation;
 
   return (
-    <footer className="site-section border-t border-divider bg-background/90 backdrop-blur-md">
+    <footer className="border-t site-section border-divider bg-background/90 backdrop-blur-md">
+      {/* Fixed: Standardized Framer Motion container configuration */}
       <motion.div
         className="site-container"
         initial={{ opacity: 0, y: 40 }}
@@ -24,13 +26,15 @@ export const Footer = () => {
           <div>
             <Link
               aria-label="Go to homepage"
-              className="mb-6 inline-flex items-center gap-3"
+              className="inline-flex items-center gap-3 mb-6"
               href="/"
             >
-              <img
+              <Image
                 alt=""
-                className="h-11 w-11 rounded-md object-contain"
+                className="object-contain rounded-md h-11 w-11"
                 src="/logo.png"
+                width={44}
+                height={44}
               />
               <span className="text-lg font-semibold text-foreground">
                 {name}
@@ -40,18 +44,18 @@ export const Footer = () => {
             <h2 className="max-w-sm text-2xl font-semibold leading-tight text-foreground sm:text-3xl">
               Get in Touch
             </h2>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-foreground-600">
+            <p className="max-w-md mt-4 text-sm leading-relaxed text-foreground-600">
               {description}
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 mt-6">
               {socialLinks.map((social, index) => (
                 <Button
                   key={index}
                   isIconOnly
                   aria-label={social.platform}
                   as="a"
-                  className="border-default-200 bg-transparent text-foreground-600 hover:border-primary-400/50 hover:bg-primary-500/10 hover:text-primary-500"
+                  className="bg-transparent border-default-200 text-foreground-600 hover:border-primary-400/50 hover:bg-primary-500/10 hover:text-primary-500"
                   href={social.url}
                   radius="md"
                   rel="noopener noreferrer"
@@ -66,7 +70,7 @@ export const Footer = () => {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div>
-              <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-foreground">
+              <h3 className="mb-5 text-sm font-semibold tracking-wider uppercase text-foreground">
                 Services
               </h3>
               <ul className="space-y-3">
@@ -86,7 +90,7 @@ export const Footer = () => {
             </div>
 
             <div>
-              <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-foreground">
+              <h3 className="mb-5 text-sm font-semibold tracking-wider uppercase text-foreground">
                 Navigation
               </h3>
               <ul className="space-y-2">
@@ -96,7 +100,7 @@ export const Footer = () => {
                   return (
                     <li key={item.name}>
                       <Link
-                        className="-ml-2 flex items-center gap-3 rounded-md px-2 py-2 text-sm font-medium text-foreground-600 transition-colors hover:bg-primary-500/10 hover:text-primary-500"
+                        className="flex items-center gap-3 px-2 py-2 -ml-2 text-sm font-medium transition-colors rounded-md text-foreground-600 hover:bg-primary-500/10 hover:text-primary-500"
                         href={item.href}
                         rel={isExternal ? "noopener noreferrer" : undefined}
                         target={isExternal ? "_blank" : undefined}
@@ -111,7 +115,7 @@ export const Footer = () => {
             </div>
 
             <div>
-              <h3 className="mb-5 text-sm font-semibold uppercase tracking-wider text-foreground">
+              <h3 className="mb-5 text-sm font-semibold tracking-wider uppercase text-foreground">
                 Contact
               </h3>
               <ul className="space-y-3">
@@ -156,7 +160,7 @@ export const Footer = () => {
             © {new Date().getFullYear()} {name}. made with
             <Icon
               aria-hidden="true"
-              className="h-4 w-4 fill-primary-500 text-primary-500"
+              className="w-4 h-4 fill-primary-500 text-primary-500"
               icon="lucide:heart"
             />
             .

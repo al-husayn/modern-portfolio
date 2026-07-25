@@ -1,8 +1,8 @@
 "use client";
 
-import type { CSSProperties, ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef, CSSProperties } from "react";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, type Transition, useReducedMotion } from "@/lib/motion";
 
 import { cn } from "@/lib/utils";
 
@@ -74,13 +74,13 @@ const ENTRANCE_TRANSITION = {
   duration: 2.4,
   ease: [0.23, 0.86, 0.39, 0.96],
   opacity: { duration: 1.2 },
-};
+} satisfies Transition;
 
 const FLOAT_TRANSITION = {
   duration: 12,
   ease: "easeInOut",
   repeat: Number.POSITIVE_INFINITY,
-};
+} satisfies Transition;
 
 function FloatingShape({
   className,

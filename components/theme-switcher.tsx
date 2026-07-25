@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@heroui/react";
 import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import { useTheme } from "next-themes";
 
 export const ThemeSwitcher = () => {

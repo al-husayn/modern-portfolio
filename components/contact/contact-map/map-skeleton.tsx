@@ -1,3 +1,4 @@
+import React from "react";
 import { Skeleton } from "@heroui/react";
 
 export const MapSkeleton: React.FC = () => (

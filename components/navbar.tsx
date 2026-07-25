@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -13,7 +14,7 @@ import {
   NavbarMenuItem,
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { DATA } from "@/data";
@@ -50,10 +51,12 @@ export const Navigation = () => {
               href="/"
               onClick={() => setIsMenuOpen(false)}
             >
-              <img
+              <Image
                 alt="Logo"
                 className="object-contain rounded-md h-11 w-11"
                 src="/logo.png"
+                width={44}
+                height={44}
               />
             </Link>
           </motion.div>

@@ -5,7 +5,7 @@ import {
   type HTMLMotionProps,
   type Transition,
   type UseInViewOptions,
-} from "framer-motion";
+} from "@/lib/motion";
 
 import { cn } from "@/lib/utils";
 

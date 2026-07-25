@@ -27,7 +27,9 @@ export const ProfileCard = memo(function ProfileCard({
             />
             <div className="absolute inset-x-0 bottom-0 z-10 p-4 border-t border-white/20 bg-black/50 backdrop-blur">
               <div className="flex flex-col text-white">
-                <HighlightText className="text-lg font-semibold " text={name} />
+                <div className="text-lg font-semibold">
+                  <HighlightText text={name} />
+                </div>
                 <p className="text-sm text-white/80">{title}</p>
               </div>
             </div>

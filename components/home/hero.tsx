@@ -2,7 +2,7 @@
 
 import type { PressEvent } from "@react-types/shared";
 
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import { Button, Link } from "@heroui/react";
 import { Icon } from "@iconify/react";
 

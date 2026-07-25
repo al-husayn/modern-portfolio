@@ -3,6 +3,7 @@ import "@/app/globals.css";
 import { clsx } from "clsx";
 import { type Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { type ReactNode } from "react";
 
 import { DATA } from "@/data";
 import { Footer } from "@/components/footer";
@@ -103,7 +104,7 @@ export const metadata: Metadata = {
 };
 
 type RootLayoutProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {

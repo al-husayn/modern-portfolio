@@ -1,7 +1,9 @@
+import { type ReactNode } from "react";
+
 export interface ContactCardProps {
   heading: string;
   tagline: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export interface ContactMapProps {

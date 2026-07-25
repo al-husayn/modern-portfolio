@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 
 import { cn } from "@/lib/utils";
 
@@ -346,6 +346,8 @@ function HoleBackground({
     };
   }, [init, tick, setSize, setDiscs, setLines, setParticles]);
 
+  const MotionDiv = motion.div as unknown as any;
+
   return (
     <div
       className={cn(
@@ -362,7 +364,7 @@ function HoleBackground({
         ref={canvasRef}
         className="absolute inset-0 block size-full dark:opacity-20 opacity-10"
       />
-      <motion.div
+      <MotionDiv
         animate={{ backgroundPosition: "0% 300%" }}
         className={cn(
           "absolute top-[-71.5%] left-1/2 z-[3] w-[30%] h-[140%] rounded-b-full blur-3xl opacity-75 dark:mix-blend-plus-lighter mix-blend-plus-darker [transform:translate3d(-50%,0,0)] [background-position:0%_100%] [background-size:100%_200%]",
