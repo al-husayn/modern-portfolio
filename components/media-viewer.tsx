@@ -30,15 +30,13 @@ export function MediaViewer({
           loop
           {...(width && height ? { width, height } : {})}
         >
-          {captionsSrc ? (
-            <track
-              default
-              kind="captions"
-              label={captionsLabel}
-              src={captionsSrc}
-              srcLang={captionsLang}
-            />
-          ) : null}
+          <track
+            default
+            kind="captions"
+            label={captionsLabel}
+            src={captionsSrc ?? ""}
+            srcLang={captionsLang}
+          />
           Your browser does not support the video tag.
         </video>
       );

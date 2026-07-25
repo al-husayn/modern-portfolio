@@ -9,7 +9,8 @@ import { useTheme } from "next-themes";
 export const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
-  const isDark = mounted && resolvedTheme === "dark";
+  const isThemeReady = mounted && resolvedTheme !== undefined;
+  const isDark = isThemeReady && resolvedTheme === "dark";
 
   useEffect(() => {
     setMounted(true);
@@ -22,16 +23,22 @@ export const ThemeSwitcher = () => {
       transition={{ duration: 0.3 }}
     >
       <Button
+        isDisabled={!isThemeReady}
         isIconOnly
         aria-label="Toggle theme"
         className="text-foreground-600"
         radius="md"
         variant="flat"
-        onPress={() => setTheme(isDark ? "light" : "dark")}
+        onPress={() => {
+          if (!isThemeReady) return;
+          setTheme(isDark ? "light" : "dark");
+        }}
       >
         <Icon
           className="w-5 h-5"
-          icon={isDark ? "lucide:sun" : "lucide:moon"}
+          icon={
+            mounted ? (isDark ? "lucide:sun" : "lucide:moon") : "lucide:moon"
+          }
         />
       </Button>
     </motion.div>

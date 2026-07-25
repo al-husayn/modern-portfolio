@@ -1,7 +1,7 @@
+import type * as React from "react";
 import type {
   ComponentPropsWithoutRef,
   ComponentType,
-  JSX,
   RefAttributes,
   RefObject,
 } from "react";
@@ -12,14 +12,11 @@ import {
   type UseInViewOptions,
 } from "framer-motion";
 
-export type HTMLMotionProps<TagName extends keyof JSX.IntrinsicElements> = Omit<
-  ComponentPropsWithoutRef<TagName>,
-  keyof MotionProps
-> &
-  MotionProps;
+export type HTMLMotionProps<TagName extends keyof React.JSX.IntrinsicElements> =
+  Omit<ComponentPropsWithoutRef<TagName>, keyof MotionProps> & MotionProps;
 
 type MotionComponent<
-  TagName extends keyof JSX.IntrinsicElements,
+  TagName extends keyof React.JSX.IntrinsicElements,
   Element extends HTMLElement,
 > = ComponentType<HTMLMotionProps<TagName> & RefAttributes<Element>>;
 

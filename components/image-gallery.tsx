@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { memo, useState } from "react";
 import { Skeleton } from "@heroui/react";
@@ -34,7 +36,7 @@ const ImageGallery = memo(function ImageGallery({ images }: ImageGalleryProps) {
               className="w-full h-full object-cover"
               fill
               src={activeImage}
-              onLoadingComplete={() => setImageLoaded(true)}
+              onLoad={() => setImageLoaded(true)}
             />
           </Skeleton>
         </motion.div>

@@ -3,7 +3,9 @@ import tsPlugin from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import nextPlugin from "@next/eslint-plugin-next";
 import prettierConfig from "eslint-config-prettier";
+import jsxA11y from "eslint-plugin-jsx-a11y";
 import prettierPlugin from "eslint-plugin-prettier";
+import reactHooks from "eslint-plugin-react-hooks";
 import unusedImports from "eslint-plugin-unused-imports";
 import globals from "globals";
 
@@ -51,12 +53,16 @@ export default [
     },
     plugins: {
       "@typescript-eslint": tsPlugin,
+      "jsx-a11y": jsxA11y,
+      "react-hooks": reactHooks,
       "unused-imports": unusedImports,
       prettier: prettierPlugin,
     },
     rules: {
       // Inherit prettier settings natively
       ...prettierConfig.rules,
+      ...reactHooks.configs.recommended.rules,
+      ...jsxA11y.configs.recommended.rules,
       "prettier/prettier": "error",
 
       // Clean setup for unused imports setup
