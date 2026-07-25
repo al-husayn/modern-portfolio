@@ -1,18 +1,18 @@
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 import {
   ContactFormField,
   ContactFormData,
   ContactFormErrors,
-} from '@/types/contact';
+} from "@/types/contact";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
 export const capitalize = (str: string) =>
-  str.charAt(0).toUpperCase() + str.slice(1).replace(/([A-Z])/g, ' $1');
+  str.charAt(0).toUpperCase() + str.slice(1).replace(/([A-Z])/g, " $1");
 
 export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -52,31 +52,31 @@ export const validateField = (
   value: string,
 ): string | undefined => {
   switch (field) {
-    case 'name':
+    case "name":
       return (
-        validateRequired(value, 'Name') || validateMinLength(value, 2, 'Name')
+        validateRequired(value, "Name") || validateMinLength(value, 2, "Name")
       );
 
-    case 'email': {
-      const requiredError = validateRequired(value, 'Email');
+    case "email": {
+      const requiredError = validateRequired(value, "Email");
 
       if (requiredError) return requiredError;
 
       return validateEmail(value)
         ? undefined
-        : 'Please enter a valid email address';
+        : "Please enter a valid email address";
     }
 
-    case 'subject':
+    case "subject":
       return (
-        validateRequired(value, 'Subject') ||
-        validateMinLength(value, 3, 'Subject')
+        validateRequired(value, "Subject") ||
+        validateMinLength(value, 3, "Subject")
       );
 
-    case 'message':
+    case "message":
       return (
-        validateRequired(value, 'Message') ||
-        validateMinLength(value, 10, 'Message')
+        validateRequired(value, "Message") ||
+        validateMinLength(value, 10, "Message")
       );
 
     default:
@@ -102,8 +102,8 @@ export const hasErrors = (errors: ContactFormErrors): boolean => {
   return Object.values(errors).some((error) => !!error);
 };
 
-export const dateFormatter = new Intl.DateTimeFormat('en', {
-  day: 'numeric',
-  month: 'short',
-  year: 'numeric',
+export const dateFormatter = new Intl.DateTimeFormat("en", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
 });
