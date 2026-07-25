@@ -1,5 +1,5 @@
 import { Card } from "@heroui/react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView } from "@/lib/motion";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 import { DATA } from "@/data";
@@ -35,7 +35,7 @@ const AnimatedLine = ({
 const CodeEditor = () => {
   const [currentLine, setCurrentLine] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
 
   useEffect(() => {

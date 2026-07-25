@@ -1,5 +1,5 @@
 import * as React from "react";
-import { motion, useReducedMotion, type Transition } from "framer-motion";
+import { motion, useReducedMotion, type Transition } from "@/lib/motion";
 
 import { cn } from "../../lib/utils";
 

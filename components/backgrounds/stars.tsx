@@ -8,7 +8,7 @@ import {
   type Transition,
   useMotionValue,
   useSpring,
-} from "framer-motion";
+} from "@/lib/motion";
 
 import { cn } from "@/lib/utils";
 

@@ -9,7 +9,7 @@ import {
   type UseInViewOptions,
   type Transition,
   type Variant,
-} from "framer-motion";
+} from "@/lib/motion";
 
 interface MotionEffectProps extends HTMLMotionProps<"div"> {
   children: React.ReactNode;

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import { Card, CardBody } from "@heroui/react";
 
 import { ContactCardProps } from "@/types/contact";

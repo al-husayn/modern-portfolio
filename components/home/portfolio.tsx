@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import React from "react";
 import { Button, Link } from "@heroui/react";
 import { Icon } from "@iconify/react";

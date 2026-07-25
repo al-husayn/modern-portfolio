@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, type FC } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -98,7 +98,7 @@ interface MorphingTextProps {
   texts: readonly string[];
 }
 
-const Texts: React.FC<Pick<MorphingTextProps, "texts">> = ({ texts }) => {
+const Texts: FC<Pick<MorphingTextProps, "texts">> = ({ texts }) => {
   const { text1Ref, text2Ref } = useMorphingText(texts);
 
   return (
@@ -115,7 +115,7 @@ const Texts: React.FC<Pick<MorphingTextProps, "texts">> = ({ texts }) => {
   );
 };
 
-const SvgFilters: React.FC = () => (
+const SvgFilters: FC = () => (
   <svg className="hidden" id="filters" preserveAspectRatio="xMidYMid slice">
     <defs>
       <filter id="threshold">
@@ -132,10 +132,7 @@ const SvgFilters: React.FC = () => (
   </svg>
 );
 
-export const MorphingText: React.FC<MorphingTextProps> = ({
-  texts,
-  className,
-}) => (
+export const MorphingText: FC<MorphingTextProps> = ({ texts, className }) => (
   <div
     className={cn(
       "relative mx-auto h-16 w-full max-w-screen-md text-center font-sans text-[40pt] font-bold leading-none [filter:url(#threshold)_blur(0.6px)] md:h-24 lg:text-[6rem]",

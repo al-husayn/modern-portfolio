@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 
 import { SectionHeader } from "@/components/about/section-header";
 import { TimelineItem } from "@/components/about/timelines/timeline-item";

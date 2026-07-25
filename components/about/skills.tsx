@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import { Icon } from "@iconify/react";
 import { Accordion, AccordionItem } from "@heroui/react";
 

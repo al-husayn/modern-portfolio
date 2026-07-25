@@ -1,13 +1,20 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Button } from "@heroui/react";
 import { Icon } from "@iconify/react";
-import { useTheme } from "@heroui/use-theme";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
+import { useTheme } from "next-themes";
 
 export const ThemeSwitcher = () => {
-  const { theme, setTheme } = useTheme();
-  const isDark = theme === "dark";
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+  const isThemeReady = mounted && resolvedTheme !== undefined;
+  const isDark = isThemeReady && resolvedTheme === "dark";
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <motion.div
@@ -16,16 +23,22 @@ export const ThemeSwitcher = () => {
       transition={{ duration: 0.3 }}
     >
       <Button
+        isDisabled={!isThemeReady}
         isIconOnly
         aria-label="Toggle theme"
         className="text-foreground-600"
         radius="md"
         variant="flat"
-        onPress={() => setTheme(isDark ? "light" : "dark")}
+        onPress={() => {
+          if (!isThemeReady) return;
+          setTheme(isDark ? "light" : "dark");
+        }}
       >
         <Icon
           className="w-5 h-5"
-          icon={isDark ? "lucide:sun" : "lucide:moon"}
+          icon={
+            mounted ? (isDark ? "lucide:sun" : "lucide:moon") : "lucide:moon"
+          }
         />
       </Button>
     </motion.div>

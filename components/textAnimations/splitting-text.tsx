@@ -8,7 +8,7 @@ import {
   type HTMLMotionProps,
   useInView,
   type UseInViewOptions,
-} from "framer-motion";
+} from "@/lib/motion";
 
 type DefaultSplittingTextProps = {
   motionVariants?: {
