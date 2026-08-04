@@ -5,6 +5,7 @@ date: "2026-07-31"
 tags: ["JavaScript", "React", "Frontend"]
 featured: true
 author: "al"
+slug: "react-custom-hooks"
 thumbnail: "/thumbnails/react-custom-hooks.png"
 ---
 
@@ -169,11 +170,15 @@ These are all excellent candidates for reusable hooks.
 ### `useWindowSize`
 ```tsx
 function useWindowSize() {
-  const [size, setSize] = useState([innerWidth, innerHeight]);
+  // server-safe defaults
+  const [size, setSize] = useState([0, 0]);
   useEffect(() => {
-    const onResize = () => setSize([innerWidth, innerHeight]);
-    addEventListener("resize", onResize);
-    return () => removeEventListener("resize", onResize);
+    if (typeof window === "undefined") return;
+    const getSize = () => [window.innerWidth, window.innerHeight];
+    setSize(getSize());
+    const onResize = () => setSize(getSize());
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, []);
   return size;
 }
@@ -190,13 +195,16 @@ Useful for responsive layouts and dashboards.
 function useMediaQuery(q) {
   const mqRef = useRef();
   const [matches, setMatches] = useState(() => {
-    mqRef.current = matchMedia(q);
+    // default to false on the server
+    if (typeof window === "undefined") return false;
+    mqRef.current = window.matchMedia(q);
     return mqRef.current.matches;
   });
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     // create and keep a single MediaQueryList for this effect execution
-    mqRef.current = matchMedia(q);
+    mqRef.current = window.matchMedia(q);
     const onChange = (e) => setMatches(e.matches);
     mqRef.current.addEventListener("change", onChange);
     return () => mqRef.current.removeEventListener("change", onChange);
