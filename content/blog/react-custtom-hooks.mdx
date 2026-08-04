@@ -36,17 +36,24 @@ Instead of repeating this logic in every component, wrap it inside a reusable ho
 ### `useFetch`
 
 ```tsx
-// useFetch - GET/POST + loading/error state
-function useFetch(url) {
+// useFetch - request with loading/error state
+function useFetch(url, options) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
+    setLoading(true);
+    setError(null);
+    fetch(url, options)
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
       .then(setData)
+      .catch((err) => setError(err))
       .finally(() => setLoading(false));
-  }, [url]);
-  return { data, loading };
+  }, [url, options]);
+  return { data, loading, error };
 }
 ```
 
@@ -181,12 +188,20 @@ Useful for responsive layouts and dashboards.
 ```tsx
 //  useMediaQuery - check css breakpoint
 function useMediaQuery(q) {
-  const [matches, setMatches] = useState(() => matchMedia(q).matches);
+  const mqRef = useRef();
+  const [matches, setMatches] = useState(() => {
+    mqRef.current = matchMedia(q);
+    return mqRef.current.matches;
+  });
+
   useEffect(() => {
+    // create and keep a single MediaQueryList for this effect execution
+    mqRef.current = matchMedia(q);
     const onChange = (e) => setMatches(e.matches);
-    matchMedia(q).addEventListener("change", onChange);
-    return () => matchMedia(q).removeEventListener("change", onChange);
+    mqRef.current.addEventListener("change", onChange);
+    return () => mqRef.current.removeEventListener("change", onChange);
   }, [q]);
+
   return matches;
 }
 ```
@@ -232,11 +247,9 @@ Dark mode.
 
 Language settings.
 
-Authentication tokens.
-
 Draft forms.
 
-All of these typically live in browser storage.
+These hooks are suitable for non-sensitive preferences that improve UX. Do not store authentication credentials or tokens in Web Storage; instead keep those in server-managed HttpOnly, Secure, SameSite cookies or behind a Backend-For-Frontend (BFF) layer.
 
 ### `useLocalStorage`
 
@@ -244,6 +257,7 @@ Persists data across browser sessions.
 
 ```tsx
 // useLocalStorage - persists across sessions
+// Note: only store non-sensitive preferences (not auth tokens or credentials)
 function useLocalStorage(key, initial) {
   const [value, setValue] = useState(() => {
     if(typeof window === "undefined") return initial;
@@ -262,6 +276,7 @@ function useLocalStorage(key, initial) {
 
 ```tsx
 //  useSessionStorage - cleared when tabs closes
+// Note: only store non-sensitive preferences (not auth tokens or credentials)
 function useSessionStorage(key, initial) {
   const [value, setValue] = useState(() => {
     const saved = sessionStorage.getItem(key);
@@ -568,12 +583,29 @@ Copy text to the clipboard while exposing useful UI state.
 // useClipboard - copy text, show confirmation
 function useClipboard() {
   const [copied, setCopied] = useState(false);
+  const [error, setError] = useState(null);
+  
   const copy = async (text) => {
-    await navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
+    // Check if Clipboard API is available
+    if (!window.isSecureContext || !navigator.clipboard) {
+      const err = 'Clipboard API unavailable (not secure context)';
+      setError(err);
+      return false;
+    }
+    
+    try {
+      await navigator.clipboard.writeText(text);
+      setError(null);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+      return true;
+    } catch (err) {
+      setError(err.message);
+      return false;
+    }
   };
-  return { copied, copy };
+  
+  return { copied, copy, error };
 }
 
 ```
