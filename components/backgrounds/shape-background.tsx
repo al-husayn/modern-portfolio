@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import type { ComponentPropsWithoutRef, CSSProperties } from 'react';
+import type { ComponentPropsWithoutRef, CSSProperties } from "react";
 
-import { motion, type Transition, useReducedMotion } from '@/lib/motion';
+import { motion, type Transition, useReducedMotion } from "@/lib/motion";
 
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
-type ShapeBackgroundProps = Omit<ComponentPropsWithoutRef<'div'>, 'children'>;
+type ShapeBackgroundProps = Omit<ComponentPropsWithoutRef<"div">, "children">;
 
 type ShapeConfig = {
   id: string;
@@ -18,52 +18,52 @@ type ShapeConfig = {
   width: number;
 };
 
-type FloatingShapeProps = Omit<ShapeConfig, 'id'> & {
+type FloatingShapeProps = Omit<ShapeConfig, "id"> & {
   reduceMotion: boolean;
 };
 
 const SHAPES: ShapeConfig[] = [
   {
-    id: 'primary-ribbon',
-    className: 'left-[-32%] top-[12%] md:left-[-12%] md:top-[18%]',
+    id: "primary-ribbon",
+    className: "left-[-32%] top-[12%] md:left-[-12%] md:top-[18%]",
     delay: 0.2,
-    gradient: 'from-primary-500/[0.18]',
+    gradient: "from-primary-500/[0.18]",
     height: 140,
     rotate: 12,
     width: 620,
   },
   {
-    id: 'secondary-ribbon',
-    className: 'right-[-38%] top-[62%] md:right-[-10%] md:top-[66%]',
+    id: "secondary-ribbon",
+    className: "right-[-38%] top-[62%] md:right-[-10%] md:top-[66%]",
     delay: 0.4,
-    gradient: 'from-secondary-500/[0.18]',
+    gradient: "from-secondary-500/[0.18]",
     height: 120,
     rotate: -15,
     width: 520,
   },
   {
-    id: 'violet-accent',
-    className: 'bottom-[8%] left-[4%] md:left-[12%]',
+    id: "violet-accent",
+    className: "bottom-[8%] left-[4%] md:left-[12%]",
     delay: 0.3,
-    gradient: 'from-violet-500/[0.14]',
+    gradient: "from-violet-500/[0.14]",
     height: 82,
     rotate: -8,
     width: 320,
   },
   {
-    id: 'amber-accent',
-    className: 'right-[8%] top-[12%] md:right-[18%]',
+    id: "amber-accent",
+    className: "right-[8%] top-[12%] md:right-[18%]",
     delay: 0.5,
-    gradient: 'from-amber-500/[0.14]',
+    gradient: "from-amber-500/[0.14]",
     height: 64,
     rotate: 20,
     width: 220,
   },
   {
-    id: 'cyan-accent',
-    className: 'left-[18%] top-[4%] md:left-[28%]',
+    id: "cyan-accent",
+    className: "left-[18%] top-[4%] md:left-[28%]",
     delay: 0.6,
-    gradient: 'from-cyan-500/[0.14]',
+    gradient: "from-cyan-500/[0.14]",
     height: 44,
     rotate: -24,
     width: 160,
@@ -78,7 +78,7 @@ const ENTRANCE_TRANSITION = {
 
 const FLOAT_TRANSITION = {
   duration: 12,
-  ease: 'easeInOut',
+  ease: "easeInOut",
   repeat: Number.POSITIVE_INFINITY,
 } satisfies Transition;
 
@@ -105,22 +105,24 @@ function FloatingShape({
   return (
     <motion.div
       animate={{ opacity: 1, rotate, y: 0 }}
-      className={cn('absolute', className)}
+      className={cn("absolute", className)}
       initial={false}
       style={initialStyle}
-      transition={entranceTransition}>
+      transition={entranceTransition}
+    >
       <motion.div
         animate={reduceMotion ? undefined : { y: [0, 15, 0] }}
-        className='relative'
+        className="relative"
         style={size}
-        transition={FLOAT_TRANSITION}>
+        transition={FLOAT_TRANSITION}
+      >
         <div
           className={cn(
-            'absolute inset-0 rounded-full border-2 border-white/[0.14]',
-            'bg-gradient-to-r to-transparent backdrop-blur-[2px]',
-            'shadow-[0_8px_32px_rgba(255,255,255,0.1)]',
-            'after:absolute after:inset-0 after:rounded-full',
-            'after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.18),transparent_70%)]',
+            "absolute inset-0 rounded-full border-2 border-white/[0.14]",
+            "bg-gradient-to-r to-transparent backdrop-blur-[2px]",
+            "shadow-[0_8px_32px_rgba(255,255,255,0.1)]",
+            "after:absolute after:inset-0 after:rounded-full",
+            "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.18),transparent_70%)]",
             gradient,
           )}
         />
@@ -134,26 +136,27 @@ function ShapeBackground({ className, ...props }: ShapeBackgroundProps) {
 
   return (
     <div
-      aria-hidden='true'
+      aria-hidden="true"
       className={cn(
-        'pointer-events-none relative size-full overflow-hidden bg-background',
+        "pointer-events-none relative size-full overflow-hidden bg-background",
         className,
       )}
-      data-slot='shape-background'
-      {...props}>
-      <div className='absolute inset-0 bg-gradient-to-br from-primary-500/[0.08] via-transparent to-secondary-500/[0.08] blur-3xl' />
+      data-slot="shape-background"
+      {...props}
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-500/[0.08] via-transparent to-secondary-500/[0.08] blur-3xl" />
 
       {SHAPES.map((shape) => (
         <FloatingShape key={shape.id} reduceMotion={reduceMotion} {...shape} />
       ))}
 
-      <div className='absolute inset-0 bg-gradient-to-t from-background via-background/35 to-background/80' />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/35 to-background/80" />
     </div>
   );
 }
 
 const Shape = () => {
-  return <ShapeBackground className='absolute inset-0' />;
+  return <ShapeBackground className="absolute inset-0" />;
 };
 
 export { Shape, ShapeBackground, type ShapeBackgroundProps };
