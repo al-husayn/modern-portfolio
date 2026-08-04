@@ -93,12 +93,22 @@ function FloatingShape({
 }: FloatingShapeProps) {
   const size = { height, width } satisfies CSSProperties;
 
+  const entranceTransition = reduceMotion
+    ? { duration: 0, delay }
+    : { ...ENTRANCE_TRANSITION, delay };
+
+  const initialStyle = {
+    opacity: 0,
+    transform: `translateY(-24px) rotate(${rotate - 15}deg)`,
+  } satisfies CSSProperties;
+
   return (
     <motion.div
       animate={{ opacity: 1, rotate, y: 0 }}
       className={cn("absolute", className)}
-      initial={{ opacity: 0, rotate: rotate - 15, y: reduceMotion ? 0 : -24 }}
-      transition={{ ...ENTRANCE_TRANSITION, delay }}
+      initial={false}
+      style={initialStyle}
+      transition={entranceTransition}
     >
       <motion.div
         animate={reduceMotion ? undefined : { y: [0, 15, 0] }}
