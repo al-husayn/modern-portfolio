@@ -283,6 +283,33 @@ export const DATA = {
     work: [
       {
         id: 1,
+        title: "Afro UI ",
+        description:
+          "A free, open-source custom UI library for African web designers and developers. Copy, paste, and customize beautifully animated components for your react, nextjs and Tailwind project.",
+        image: "/projects/afro-ui.png",
+        gallery: [
+          "/projects/afro-ui.png",
+          "/projects/afro-ui.png",
+          "/projects/afro-ui.png",
+          "/projects/afro-ui.png",
+        ],
+        category: "Web Development",
+        details:
+          "A free, open-source custom UI library for African web designers and developers. Copy, paste, and customize beautifully animated components for your react, nextjs and Tailwind project.",
+        github: "https://github.com/al-husayn/afro-ui",
+        live: "https://afro-ui.vercel.app/",
+        tech: [
+          { name: "Shadcn", icon: "simple-icons:shadcnui" },
+          { name: "React", icon: "logos:react" },
+          { name: "TailwindCSS", icon: "logos:tailwindcss-icon" },
+          { name: "TypeScript", icon: "logos:typescript-icon" },
+          { name: "Nextjs", icon: "skill-icons:nextjs-dark" },
+          { name: "OpenRouter", icon: "simple-icons:openrouter" },
+          { name: "Vercel", icon: "simple-icons:vercel" },
+        ],
+      },
+      {
+        id: 2,
         title: "Dev Technical Blog",
         description:
           "A developer blog for sharing technical insights and tutorials such as JavaScript, TypeScript, React, Nextjs, and more.",
@@ -313,7 +340,7 @@ export const DATA = {
         ],
       },
       {
-        id: 2,
+        id: 3,
         title: "Modern Portfolio",
         description:
           "A modern, animated portfolio website showcasing my work, skills, services, and contact information.",
@@ -344,7 +371,7 @@ export const DATA = {
       },
 
       {
-        id: 3,
+        id: 4,
         title: "Fitness Tracker App",
         description:
           "Monitor workouts, calorie intake, and goals in one place.",
@@ -367,7 +394,7 @@ export const DATA = {
         ],
       },
       {
-        id: 4,
+        id: 5,
         title: "Content Scheduler",
         description:
           "Plan, schedule, and automate your social media posts effortlessly.",
@@ -391,7 +418,7 @@ export const DATA = {
       },
 
       {
-        id: 5,
+        id: 6,
         title: "Crypto Wallet API",
         description:
           "Robust backend API for secure cryptocurrency operations and blockchain interactions.",
