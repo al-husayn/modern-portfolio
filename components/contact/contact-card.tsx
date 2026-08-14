@@ -1,13 +1,9 @@
-import { motion } from "@/lib/motion";
-import { Card, CardBody } from "@heroui/react";
+import { motion } from '@/lib/motion';
+import { Card, CardBody } from '@heroui/react';
 
-import { ContactCardProps } from "@/types/contact";
+import { ContactCardProps } from '@/types/contact';
 
-export const ContactCard = ({
-  heading,
-  tagline,
-  children,
-}: ContactCardProps) => (
+export const ContactCard = ({ heading, tagline, children }: ContactCardProps) => (
   <motion.div
     className="mx-auto max-w-3xl"
     initial={{ opacity: 0, y: 20 }}

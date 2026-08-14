@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { motion } from "@/lib/motion";
-import { Card, CardBody } from "@heroui/react";
-import { Icon } from "@iconify/react";
+import { motion } from '@/lib/motion';
+import { Card, CardBody } from '@heroui/react';
+import { Icon } from '@iconify/react';
 
-import { GradientText } from "@/components/textAnimations/gradient-text";
-import { DATA } from "@/data";
+import { GradientText } from '@/components/textAnimations/gradient-text';
+import { DATA } from '@/data';
 
 const containerVariants = {
   hidden: {},
@@ -55,24 +55,12 @@ export const ServicesSection = () => {
           whileInView="visible"
         >
           {displayedServices.map((service, index) => (
-            <motion.div
-              key={service.name}
-              className="flex"
-              variants={cardVariant}
-            >
-              <Card
-                isHoverable
-                className="app-card app-card-hover group h-full w-full"
-                radius="md"
-              >
+            <motion.div key={service.name} className="flex" variants={cardVariant}>
+              <Card isHoverable className="app-card app-card-hover group h-full w-full" radius="md">
                 <CardBody className="flex h-full flex-col gap-6 p-6 sm:p-7">
                   <div className="flex items-start justify-between gap-4">
                     <div className="grid h-12 w-12 shrink-0 place-items-center rounded-md border border-primary-500/20 bg-primary-500/10 text-primary-500 transition-colors group-hover:border-primary-400/40 group-hover:bg-primary-500/15">
-                      <Icon
-                        aria-hidden="true"
-                        className="h-6 w-6"
-                        icon={service.icon}
-                      />
+                      <Icon aria-hidden="true" className="h-6 w-6" icon={service.icon} />
                     </div>
                     <span className="rounded-md border border-default-200 bg-content2 px-2.5 py-1 text-xs font-medium text-foreground-500">
                       0{index + 1}

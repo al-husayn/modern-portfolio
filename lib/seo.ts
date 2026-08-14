@@ -1,25 +1,25 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import { DATA } from "@/data";
+import { DATA } from '@/data';
 
-export const SITE_URL = "https://www.al-husayn.dev";
+export const SITE_URL = 'https://www.al-husayn.dev';
 export const SITE_NAME = DATA.home.hero.name;
 export const SITE_DESCRIPTION =
-  "Al-Hussein Abubakar is a full stack developer in Ghana building fast, accessible, and visually engaging web experiences with React, Next.js, TypeScript, and Tailwind CSS.";
-export const DEFAULT_OG_IMAGE = "/github-cover.png";
+  'Al-Hussein Abubakar is a full stack developer in Ghana building fast, accessible, and visually engaging web experiences with React, Next.js, TypeScript, and Tailwind CSS.';
+export const DEFAULT_OG_IMAGE = '/github-cover.png';
 
 const defaultKeywords = [
-  "Al-Hussein Abubakar",
-  "Al-Hussein",
-  "Full Stack Developer",
-  "Frontend Developer",
-  "React Developer",
-  "Next.js Developer",
-  "TypeScript Developer",
-  "Tailwind CSS",
-  "Web Developer Ghana",
-  "Kumasi Ghana Developer",
-  "Portfolio",
+  'Al-Hussein Abubakar',
+  'Al-Hussein',
+  'Full Stack Developer',
+  'Frontend Developer',
+  'React Developer',
+  'Next.js Developer',
+  'TypeScript Developer',
+  'Tailwind CSS',
+  'Web Developer Ghana',
+  'Kumasi Ghana Developer',
+  'Portfolio',
 ];
 
 type SeoMetadataOptions = {
@@ -27,22 +27,22 @@ type SeoMetadataOptions = {
   description?: string;
   path?: string;
   image?: string;
-  type?: "website" | "article";
+  type?: 'website' | 'article';
   publishedTime?: string;
   authors?: string[];
   keywords?: readonly string[];
 };
 
-export function absoluteUrl(path = "/") {
+export function absoluteUrl(path = '/') {
   return new URL(path, SITE_URL).toString();
 }
 
 export function createSeoMetadata({
   title,
   description = SITE_DESCRIPTION,
-  path = "/",
+  path = '/',
   image = DEFAULT_OG_IMAGE,
-  type = "website",
+  type = 'website',
   publishedTime,
   authors,
   keywords = [],
@@ -62,7 +62,7 @@ export function createSeoMetadata({
       description,
       url,
       siteName: SITE_NAME,
-      locale: "en_US",
+      locale: 'en_US',
       type,
       images: [
         {
@@ -72,17 +72,17 @@ export function createSeoMetadata({
           alt: `${SITE_NAME} portfolio preview`,
         },
       ],
-      ...(type === "article" && {
+      ...(type === 'article' && {
         publishedTime,
         authors,
       }),
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title: title ?? SITE_NAME,
       description,
       images: [imageUrl],
-      creator: "@al_drake3",
+      creator: '@al_drake3',
     },
   };
 }

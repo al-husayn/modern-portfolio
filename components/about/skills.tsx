@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { motion } from "@/lib/motion";
-import { Icon } from "@iconify/react";
-import { Accordion, AccordionItem } from "@heroui/react";
+import { motion } from '@/lib/motion';
+import { Icon } from '@iconify/react';
+import { Accordion, AccordionItem } from '@heroui/react';
 
-import { OrbitingCircles } from "@/components/orbiting-circles";
-import { SectionHeader } from "@/components/about/section-header";
-import { capitalize } from "@/lib/utils";
-import { TechCategories } from "@/types/about";
+import { OrbitingCircles } from '@/components/orbiting-circles';
+import { SectionHeader } from '@/components/about/section-header';
+import { capitalize } from '@/lib/utils';
+import { TechCategories } from '@/types/about';
 
 interface SkillsProps {
   tech: TechCategories;
@@ -32,14 +32,8 @@ export const Skills = ({ tech }: SkillsProps) => {
         variant="light"
       >
         {Object.entries(tech).map(([category, { description, tools }]) => (
-          <AccordionItem
-            key={category}
-            aria-label={category}
-            title={capitalize(category)}
-          >
-            <p className="mb-4 text-sm leading-relaxed text-foreground-600">
-              {description}
-            </p>
+          <AccordionItem key={category} aria-label={category} title={capitalize(category)}>
+            <p className="mb-4 text-sm leading-relaxed text-foreground-600">{description}</p>
 
             <div className="relative h-[300px] w-full">
               <OrbitingCircles

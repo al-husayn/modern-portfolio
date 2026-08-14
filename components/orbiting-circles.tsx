@@ -1,9 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
-export interface OrbitingCirclesProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface OrbitingCirclesProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   children?: React.ReactNode;
   reverse?: boolean;
@@ -52,15 +51,15 @@ export function OrbitingCircles({
           <div
             className={cn(
               `absolute flex size-[var(--icon-size)] transform-gpu animate-orbit items-center justify-center rounded-full`,
-              { "[animation-direction:reverse]": reverse },
+              { '[animation-direction:reverse]': reverse },
               className,
             )}
             style={
               {
-                "--duration": calculatedDuration,
-                "--radius": radius,
-                "--angle": angle,
-                "--icon-size": `${iconSize}px`,
+                '--duration': calculatedDuration,
+                '--radius': radius,
+                '--angle': angle,
+                '--icon-size': `${iconSize}px`,
               } as React.CSSProperties
             }
             {...props}

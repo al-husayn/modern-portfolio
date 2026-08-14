@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { motion } from "@/lib/motion";
-import { Icon } from "@iconify/react";
-import { Button, Card, CardBody } from "@heroui/react";
+import { motion } from '@/lib/motion';
+import { Icon } from '@iconify/react';
+import { Button, Card, CardBody } from '@heroui/react';
 
 type SuccessMessageProps = {
   onReset: () => void;
@@ -25,7 +25,7 @@ export const SuccessMessage = ({ onReset }: SuccessMessageProps) => (
             transition={{
               delay: 0.2,
               duration: 0.4,
-              type: "spring",
+              type: 'spring',
               stiffness: 200,
             }}
           >
@@ -36,9 +36,7 @@ export const SuccessMessage = ({ onReset }: SuccessMessageProps) => (
             initial={{ opacity: 0, y: 10 }}
             transition={{ delay: 0.3, duration: 0.4 }}
           >
-            <h3 className="text-xl font-semibold text-success mb-2">
-              Message Sent Successfully!
-            </h3>
+            <h3 className="text-xl font-semibold text-success mb-2">Message Sent Successfully!</h3>
             <p className="text-default-600 mb-4">
               Thank you for reaching out. I&apos;ll reply within 24 hours.
             </p>

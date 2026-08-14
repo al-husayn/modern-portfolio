@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import React, { useCallback } from "react";
-import { Input, Textarea, Button } from "@heroui/react";
-import { Icon } from "@iconify/react";
-import { motion, AnimatePresence } from "@/lib/motion";
+import React, { useCallback } from 'react';
+import { Input, Textarea, Button } from '@heroui/react';
+import { Icon } from '@iconify/react';
+import { motion, AnimatePresence } from '@/lib/motion';
 
-import { ContactFormField, ContactFormProps } from "@/types/contact";
-import { useContactForm } from "@/hooks/use-contact-form";
-import { SuccessMessage } from "@/components/contact/contact-form/success-message";
+import { ContactFormField, ContactFormProps } from '@/types/contact';
+import { useContactForm } from '@/hooks/use-contact-form';
+import { SuccessMessage } from '@/components/contact/contact-form/success-message';
 
 export const ContactForm: React.FC<ContactFormProps> = ({
   onSubmit,
@@ -15,15 +15,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   isSuccess,
   onReset,
 }) => {
-  const {
-    formData,
-    errors,
-    isValid,
-    handleInputChange,
-    handleSubmit,
-    resetForm,
-    validateField,
-  } = useContactForm();
+  const { formData, errors, isValid, handleInputChange, handleSubmit, resetForm, validateField } =
+    useContactForm();
 
   const handleFormSubmit = useCallback(
     async (e: React.FormEvent) => {
@@ -75,8 +68,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             startContent={<Icon icon="lucide:user" />}
             value={formData.name}
             variant="bordered"
-            onBlur={() => handleInputBlur("name", formData.name)}
-            onValueChange={(value) => handleInputChange("name", value)}
+            onBlur={() => handleInputBlur('name', formData.name)}
+            onValueChange={(value) => handleInputChange('name', value)}
           />
 
           <Input
@@ -90,8 +83,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             type="email"
             value={formData.email}
             variant="bordered"
-            onBlur={() => handleInputBlur("email", formData.email)}
-            onValueChange={(value) => handleInputChange("email", value)}
+            onBlur={() => handleInputBlur('email', formData.email)}
+            onValueChange={(value) => handleInputChange('email', value)}
           />
         </div>
 
@@ -105,8 +98,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           startContent={<Icon icon="lucide:briefcase" />}
           value={formData.subject}
           variant="bordered"
-          onBlur={() => handleInputBlur("subject", formData.subject)}
-          onValueChange={(value) => handleInputChange("subject", value)}
+          onBlur={() => handleInputBlur('subject', formData.subject)}
+          onValueChange={(value) => handleInputChange('subject', value)}
         />
 
         <Textarea
@@ -120,8 +113,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           placeholder="Tell me about your project, timeline, tech needs..."
           value={formData.message}
           variant="bordered"
-          onBlur={() => handleInputBlur("message", formData.message)}
-          onValueChange={(value) => handleInputChange("message", value)}
+          onBlur={() => handleInputBlur('message', formData.message)}
+          onValueChange={(value) => handleInputChange('message', value)}
         />
 
         <div className="flex flex-col gap-4">
@@ -133,13 +126,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             isLoading={isSubmitting}
             size="lg"
             startContent={
-              !isSubmitting && (
-                <Icon className="flex-shrink-0 text-lg" icon="lucide:send" />
-              )
+              !isSubmitting && <Icon className="flex-shrink-0 text-lg" icon="lucide:send" />
             }
             type="submit"
           >
-            {isSubmitting ? "Sending..." : "Let's Talk"}
+            {isSubmitting ? 'Sending...' : "Let's Talk"}
           </Button>
 
           <Button
@@ -148,12 +139,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             color="default"
             isDisabled={isSubmitting}
             size="lg"
-            startContent={
-              <Icon
-                className="flex-shrink-0 text-lg"
-                icon="lucide:refresh-cw"
-              />
-            }
+            startContent={<Icon className="flex-shrink-0 text-lg" icon="lucide:refresh-cw" />}
             variant="bordered"
             onPress={handleReset}
           >

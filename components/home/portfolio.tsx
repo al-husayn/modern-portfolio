@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import { motion } from "@/lib/motion";
-import React from "react";
-import { Button, Link } from "@heroui/react";
-import { Icon } from "@iconify/react";
+import { motion } from '@/lib/motion';
+import React from 'react';
+import { Button, Link } from '@heroui/react';
+import { Icon } from '@iconify/react';
 
-import CodeEditor from "./codeEditor";
+import CodeEditor from './codeEditor';
 
-import { Shape } from "@/components/backgrounds/shape-background";
-import { GradientText } from "@/components/textAnimations/gradient-text";
-import { DATA } from "@/data";
+import { Shape } from '@/components/backgrounds/shape-background';
+import { GradientText } from '@/components/textAnimations/gradient-text';
+import { DATA } from '@/data';
 
 const scrollToWork = () => {
-  const workSection = document.getElementById("work-section");
+  const workSection = document.getElementById('work-section');
 
-  if (workSection) workSection.scrollIntoView({ behavior: "smooth" });
+  if (workSection) workSection.scrollIntoView({ behavior: 'smooth' });
 };
 
 const PortfolioHero = () => {
@@ -44,8 +44,8 @@ const PortfolioHero = () => {
             <div className="max-w-xl text-base leading-relaxed text-foreground-600 sm:text-lg">
               <p className="font-medium text-foreground">{hero.status}</p>
               <p className="mt-4">
-                With {hero.experience} of experience {hero.description} using{" "}
-                {hero.techStack}. {hero.focus}
+                With {hero.experience} of experience {hero.description} using {hero.techStack}.{' '}
+                {hero.focus}
               </p>
             </div>
 
@@ -59,9 +59,7 @@ const PortfolioHero = () => {
                 <Button
                   className="justify-center w-full px-8 text-base font-medium shadow-lg md:w-auto min-h-14"
                   color="primary"
-                  endContent={
-                    <Icon height={22} icon="lucide:download" width={22} />
-                  }
+                  endContent={<Icon height={22} icon="lucide:download" width={22} />}
                   size="lg"
                   variant="shadow"
                 >
@@ -72,9 +70,7 @@ const PortfolioHero = () => {
               <Button
                 className="min-h-14 w-full justify-center px-8 text-base font-medium md:w-auto"
                 color="primary"
-                endContent={
-                  <Icon height={22} icon="lucide:arrow-down" width={22} />
-                }
+                endContent={<Icon height={22} icon="lucide:arrow-down" width={22} />}
                 size="lg"
                 variant="bordered"
                 onPress={scrollToWork}

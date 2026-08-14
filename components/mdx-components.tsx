@@ -1,42 +1,38 @@
-import type { MDXComponents } from "mdx/types";
+import type { MDXComponents } from 'mdx/types';
 
-import { readdirSync } from "node:fs";
-import path from "node:path";
+import { readdirSync } from 'node:fs';
+import path from 'node:path';
 
-import Link from "next/link";
-import React from "react";
-import { Icon } from "@iconify/react";
+import Link from 'next/link';
+import React from 'react';
+import { Icon } from '@iconify/react';
 
-import {
-  ImageViewer,
-  MediaViewer,
-  VideoViewer,
-} from "@/components/media-viewer";
-import { cn } from "@/lib/utils";
+import { ImageViewer, MediaViewer, VideoViewer } from '@/components/media-viewer';
+import { cn } from '@/lib/utils';
 
-const BLOG_ROUTE_PREFIX = "/blog";
-const BLOG_CONTENT_DIRECTORY = path.join(process.cwd(), "content", "blog");
-const BLOG_FILE_EXTENSIONS = new Set([".mdx", ".md"]);
-const INTERNAL_CARD_ALLOWLIST = new Set(["/", "/about", "/rss.xml"]);
-const SAFE_EXTERNAL_SCHEMES = new Set(["http", "https", "mailto", "tel"]);
+const BLOG_ROUTE_PREFIX = '/blog';
+const BLOG_CONTENT_DIRECTORY = path.join(process.cwd(), 'content', 'blog');
+const BLOG_FILE_EXTENSIONS = new Set(['.mdx', '.md']);
+const INTERNAL_CARD_ALLOWLIST = new Set(['/', '/about', '/rss.xml']);
+const SAFE_EXTERNAL_SCHEMES = new Set(['http', 'https', 'mailto', 'tel']);
 const CARD_ICON_MAP: Record<string, string> = {
-  atom: "lucide:atom",
-  book: "lucide:book-open",
-  clock: "lucide:clock-3",
-  clone: "lucide:copy",
-  cube: "lucide:box",
-  equals: "lucide:equal",
-  gear: "lucide:cog",
-  "graduation-cap": "lucide:graduation-cap",
-  "layer-group": "lucide:layers",
-  lock: "lucide:lock",
-  microchip: "lucide:cpu",
-  newspaper: "lucide:newspaper",
-  repeat: "lucide:repeat",
-  rotate: "lucide:rotate-ccw",
-  shuffle: "lucide:shuffle",
-  table: "lucide:table-2",
-  video: "lucide:clapperboard",
+  atom: 'lucide:atom',
+  book: 'lucide:book-open',
+  clock: 'lucide:clock-3',
+  clone: 'lucide:copy',
+  cube: 'lucide:box',
+  equals: 'lucide:equal',
+  gear: 'lucide:cog',
+  'graduation-cap': 'lucide:graduation-cap',
+  'layer-group': 'lucide:layers',
+  lock: 'lucide:lock',
+  microchip: 'lucide:cpu',
+  newspaper: 'lucide:newspaper',
+  repeat: 'lucide:repeat',
+  rotate: 'lucide:rotate-ccw',
+  shuffle: 'lucide:shuffle',
+  table: 'lucide:table-2',
+  video: 'lucide:clapperboard',
 };
 
 type CardProps = React.PropsWithChildren<{
@@ -74,13 +70,13 @@ type TabsProps = React.PropsWithChildren<{
 }>;
 
 const toNormalizedPathname = (pathname: string): string => {
-  const withLeadingSlash = pathname.startsWith("/") ? pathname : `/${pathname}`;
+  const withLeadingSlash = pathname.startsWith('/') ? pathname : `/${pathname}`;
 
-  if (withLeadingSlash === "/") {
+  if (withLeadingSlash === '/') {
     return withLeadingSlash;
   }
 
-  return withLeadingSlash.replace(/\/+$/, "");
+  return withLeadingSlash.replace(/\/+$/, '');
 };
 
 const splitHref = (href: string): { pathname: string; suffix: string } => {
@@ -88,13 +84,13 @@ const splitHref = (href: string): { pathname: string; suffix: string } => {
 
   return {
     pathname,
-    suffix: suffixParts.join(""),
+    suffix: suffixParts.join(''),
   };
 };
 
 const resolveRelativePathname = (pathname: string): string => {
   if (!URL.canParse(pathname, `https://internal${BLOG_ROUTE_PREFIX}/`)) {
-    return "";
+    return '';
   }
 
   return new URL(pathname, `https://internal${BLOG_ROUTE_PREFIX}/`).pathname;
@@ -107,7 +103,7 @@ const getHrefScheme = (href: string): string | null => {
 };
 
 const isSafeExternalHref = (href: string): boolean => {
-  if (href.startsWith("//")) {
+  if (href.startsWith('//')) {
     return true;
   }
 
@@ -116,13 +112,10 @@ const isSafeExternalHref = (href: string): boolean => {
   return scheme ? SAFE_EXTERNAL_SCHEMES.has(scheme) : false;
 };
 
-const collectBlogCardTargets = (
-  directory: string,
-  parentSegments: string[] = [],
-): string[] => {
+const collectBlogCardTargets = (directory: string, parentSegments: string[] = []): string[] => {
   try {
     return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
-      if (entry.name.startsWith(".")) {
+      if (entry.name.startsWith('.')) {
         return [];
       }
 
@@ -142,15 +135,13 @@ const collectBlogCardTargets = (
       const fileName = entry.name.slice(0, -extension.length);
       const rawSegments = [...parentSegments, fileName];
       const normalizedSegments =
-        rawSegments[rawSegments.length - 1] === "index"
-          ? rawSegments.slice(0, -1)
-          : rawSegments;
+        rawSegments[rawSegments.length - 1] === 'index' ? rawSegments.slice(0, -1) : rawSegments;
 
       if (normalizedSegments.length === 0) {
         return [];
       }
 
-      return [`${BLOG_ROUTE_PREFIX}/${normalizedSegments.join("/")}`];
+      return [`${BLOG_ROUTE_PREFIX}/${normalizedSegments.join('/')}`];
     });
   } catch {
     return [];
@@ -158,9 +149,7 @@ const collectBlogCardTargets = (
 };
 
 const BLOG_CARD_TARGETS = new Set(
-  collectBlogCardTargets(BLOG_CONTENT_DIRECTORY).map((href) =>
-    toNormalizedPathname(href),
-  ),
+  collectBlogCardTargets(BLOG_CONTENT_DIRECTORY).map((href) => toNormalizedPathname(href)),
 );
 
 const resolveCardHref = (
@@ -172,7 +161,7 @@ const resolveCardHref = (
 
   const normalizedHref = href.trim();
 
-  if (!normalizedHref || normalizedHref.startsWith("#")) {
+  if (!normalizedHref || normalizedHref.startsWith('#')) {
     return { resolvedHref: normalizedHref || undefined, unavailable: false };
   }
 
@@ -185,9 +174,7 @@ const resolveCardHref = (
   }
 
   const { pathname, suffix } = splitHref(normalizedHref);
-  const candidatePathname = pathname.startsWith("/")
-    ? pathname
-    : resolveRelativePathname(pathname);
+  const candidatePathname = pathname.startsWith('/') ? pathname : resolveRelativePathname(pathname);
 
   if (!candidatePathname) {
     return { resolvedHref: undefined, unavailable: true };
@@ -211,15 +198,11 @@ const resolveCardHref = (
     };
   }
 
-  const normalizedBlogPathname = toNormalizedPathname(
-    `${BLOG_ROUTE_PREFIX}${normalizedPathname}`,
-  );
+  const normalizedBlogPathname = toNormalizedPathname(`${BLOG_ROUTE_PREFIX}${normalizedPathname}`);
   const isAvailable = BLOG_CARD_TARGETS.has(normalizedBlogPathname);
 
   return {
-    resolvedHref: isAvailable
-      ? `${normalizedBlogPathname}${suffix}`
-      : undefined,
+    resolvedHref: isAvailable ? `${normalizedBlogPathname}${suffix}` : undefined,
     unavailable: !isAvailable,
   };
 };
@@ -230,12 +213,8 @@ const renderIcon = (icon: React.ReactNode) => {
   }
 
   const renderedIcon =
-    typeof icon === "string" ? (
-      <Icon
-        aria-hidden="true"
-        className="h-4 w-4"
-        icon={CARD_ICON_MAP[icon] ?? icon}
-      />
+    typeof icon === 'string' ? (
+      <Icon aria-hidden="true" className="h-4 w-4" icon={CARD_ICON_MAP[icon] ?? icon} />
     ) : (
       icon
     );
@@ -248,17 +227,11 @@ const renderIcon = (icon: React.ReactNode) => {
 };
 
 const createHeading = (level: 1 | 2 | 3 | 4 | 5 | 6) => {
-  const Heading = ({
-    children,
-    className,
-    ...props
-  }: React.HTMLAttributes<HTMLHeadingElement>) => {
-    const Tag = `h${level}` as React.ElementType<
-      React.HTMLAttributes<HTMLHeadingElement>
-    >;
+  const Heading = ({ children, className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => {
+    const Tag = `h${level}` as React.ElementType<React.HTMLAttributes<HTMLHeadingElement>>;
 
     return (
-      <Tag className={cn("scroll-mt-24", className)} {...props}>
+      <Tag className={cn('scroll-mt-24', className)} {...props}>
         {children}
       </Tag>
     );
@@ -275,14 +248,10 @@ function Accordion({ title, children }: AccordionProps) {
       <summary className="cursor-pointer list-none font-semibold text-foreground marker:hidden">
         <span className="inline-flex w-full items-center justify-between gap-4">
           {title}
-          <span className="text-primary-500 transition-transform group-open:rotate-45">
-            +
-          </span>
+          <span className="text-primary-500 transition-transform group-open:rotate-45">+</span>
         </span>
       </summary>
-      <div className="mt-4 border-t border-default-200 pt-4 text-foreground-600">
-        {children}
-      </div>
+      <div className="mt-4 border-t border-default-200 pt-4 text-foreground-600">{children}</div>
     </details>
   );
 }
@@ -291,48 +260,31 @@ function AccordionGroup({ children }: React.PropsWithChildren) {
   return <div className="space-y-3">{children}</div>;
 }
 
-function Card({
-  children,
-  className,
-  description,
-  href,
-  icon,
-  title,
-}: CardProps) {
+function Card({ children, className, description, href, icon, title }: CardProps) {
   const { resolvedHref, unavailable } = resolveCardHref(href);
   const content = (
     <div
       aria-disabled={unavailable || undefined}
       className={cn(
-        "flex h-full gap-4 rounded-lg border border-default-200 bg-content1/85 p-4 shadow-sm transition",
-        resolvedHref
-          ? "hover:border-primary-400/60 hover:shadow-lg"
-          : undefined,
-        unavailable ? "opacity-70" : undefined,
+        'flex h-full gap-4 rounded-lg border border-default-200 bg-content1/85 p-4 shadow-sm transition',
+        resolvedHref ? 'hover:border-primary-400/60 hover:shadow-lg' : undefined,
+        unavailable ? 'opacity-70' : undefined,
         className,
       )}
     >
       {renderIcon(icon)}
       <div className="min-w-0">
         {title ? (
-          <h3 className="mt-0 text-base font-semibold leading-snug text-foreground">
-            {title}
-          </h3>
+          <h3 className="mt-0 text-base font-semibold leading-snug text-foreground">{title}</h3>
         ) : null}
         {description ? (
-          <p className="mt-2 text-sm leading-relaxed text-foreground-600">
-            {description}
-          </p>
+          <p className="mt-2 text-sm leading-relaxed text-foreground-600">{description}</p>
         ) : null}
         {children ? (
-          <div className="mt-2 text-sm leading-relaxed text-foreground-600">
-            {children}
-          </div>
+          <div className="mt-2 text-sm leading-relaxed text-foreground-600">{children}</div>
         ) : null}
         {unavailable ? (
-          <span className="mt-2 block text-xs text-foreground-500">
-            Content coming soon.
-          </span>
+          <span className="mt-2 block text-xs text-foreground-500">Content coming soon.</span>
         ) : null}
       </div>
     </div>
@@ -357,10 +309,10 @@ function CardGroup({ children, className, cols = 2 }: CardGroupProps) {
   return (
     <div
       className={cn(
-        "grid gap-4",
-        cols <= 1 ? "md:grid-cols-1" : undefined,
-        cols === 2 ? "md:grid-cols-2" : undefined,
-        cols >= 3 ? "md:grid-cols-3" : undefined,
+        'grid gap-4',
+        cols <= 1 ? 'md:grid-cols-1' : undefined,
+        cols === 2 ? 'md:grid-cols-2' : undefined,
+        cols >= 3 ? 'md:grid-cols-3' : undefined,
         className,
       )}
     >
@@ -373,20 +325,20 @@ function Callout({
   children,
   className,
   title,
-  tone = "info",
-}: CalloutProps & { className?: string; tone?: "info" | "warning" }) {
+  tone = 'info',
+}: CalloutProps & { className?: string; tone?: 'info' | 'warning' }) {
   return (
     <div
       className={cn(
-        "rounded-lg border p-4",
-        tone === "warning"
-          ? "border-warning-300 bg-warning-50 text-warning-900 dark:bg-warning-500/10 dark:text-warning-100"
-          : "border-primary-200 bg-primary-50 text-primary-900 dark:bg-primary-500/10 dark:text-primary-100",
+        'rounded-lg border p-4',
+        tone === 'warning'
+          ? 'border-warning-300 bg-warning-50 text-warning-900 dark:bg-warning-500/10 dark:text-warning-100'
+          : 'border-primary-200 bg-primary-50 text-primary-900 dark:bg-primary-500/10 dark:text-primary-100',
         className,
       )}
     >
       {title ? <p className="font-semibold">{title}</p> : null}
-      <div className={cn(title ? "mt-2" : undefined)}>{children}</div>
+      <div className={cn(title ? 'mt-2' : undefined)}>{children}</div>
     </div>
   );
 }
@@ -409,9 +361,7 @@ function Tip(props: CalloutProps) {
 
 function Steps({ children }: React.PropsWithChildren) {
   return (
-    <ol className="space-y-5 border-l border-default-200 pl-6 [counter-reset:step]">
-      {children}
-    </ol>
+    <ol className="space-y-5 border-l border-default-200 pl-6 [counter-reset:step]">{children}</ol>
   );
 }
 
@@ -419,7 +369,7 @@ function Step({ children, title }: StepProps) {
   return (
     <li className="relative list-none [counter-increment:step] before:absolute before:-left-10 before:flex before:h-7 before:w-7 before:items-center before:justify-center before:rounded-full before:border before:border-primary-300 before:bg-content1 before:text-xs before:font-semibold before:text-primary-500 before:content-[counter(step)]">
       {title ? <p className="font-semibold text-foreground">{title}</p> : null}
-      <div className={cn(title ? "mt-2" : undefined)}>{children}</div>
+      <div className={cn(title ? 'mt-2' : undefined)}>{children}</div>
     </li>
   );
 }
@@ -450,22 +400,16 @@ function Tab({ children, title, value }: TabProps) {
   return (
     <section>
       {(title ?? value) ? (
-        <h3 className="mt-0 text-base font-semibold text-foreground">
-          {title ?? value}
-        </h3>
+        <h3 className="mt-0 text-base font-semibold text-foreground">{title ?? value}</h3>
       ) : null}
       <div className="mt-2">{children}</div>
     </section>
   );
 }
 
-function MdxPre({
-  children,
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLPreElement>) {
+function MdxPre({ children, className, ...props }: React.HTMLAttributes<HTMLPreElement>) {
   return (
-    <pre className={cn("bg-content2 text-foreground", className)} {...props}>
+    <pre className={cn('bg-content2 text-foreground', className)} {...props}>
       {children}
     </pre>
   );

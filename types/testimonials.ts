@@ -6,4 +6,4 @@ export interface Testimonial {
   readonly avatar: string;
 }
 
-export type TestimonialCardProps = Omit<Testimonial, "id">;
+export type TestimonialCardProps = Omit<Testimonial, 'id'>;

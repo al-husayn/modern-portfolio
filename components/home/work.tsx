@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { motion } from "@/lib/motion";
+import { useState } from 'react';
+import { motion } from '@/lib/motion';
 
-import { ProjectCard } from "@/components/project-card";
-import { ProjectModal } from "@/components/project-modal";
-import { GradientText } from "@/components/textAnimations/gradient-text";
-import { Project } from "@/types/projects";
-import { DATA } from "@/data";
+import { ProjectCard } from '@/components/project-card';
+import { ProjectModal } from '@/components/project-modal';
+import { GradientText } from '@/components/textAnimations/gradient-text';
+import { Project } from '@/types/projects';
+import { DATA } from '@/data';
 
 export const WorkSection = () => {
   const { work } = DATA.projects;
@@ -46,10 +46,7 @@ export const WorkSection = () => {
               viewport={{ once: true }}
               whileInView={{ opacity: 1, y: 0 }}
             >
-              <ProjectCard
-                project={project}
-                onViewDetails={() => handleOpenModal(project)}
-              />
+              <ProjectCard project={project} onViewDetails={() => handleOpenModal(project)} />
             </motion.div>
           ))}
         </div>

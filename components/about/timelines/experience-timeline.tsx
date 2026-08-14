@@ -1,10 +1,10 @@
-"use client";
-import { motion } from "@/lib/motion";
+'use client';
+import { motion } from '@/lib/motion';
 
-import { SectionHeader } from "@/components/about/section-header";
-import { TimelineItem } from "@/components/about/timelines/timeline-item";
-import { containerVariants, itemVariants } from "@/components/about/variants";
-import { ExperienceItems } from "@/types/about";
+import { SectionHeader } from '@/components/about/section-header';
+import { TimelineItem } from '@/components/about/timelines/timeline-item';
+import { containerVariants, itemVariants } from '@/components/about/variants';
+import { ExperienceItems } from '@/types/about';
 
 interface ExperienceTimelineProps {
   experience: ExperienceItems;

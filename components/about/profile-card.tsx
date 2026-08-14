@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { memo } from "react";
-import { Card, Image } from "@heroui/react";
+import { memo } from 'react';
+import { Card, Image } from '@heroui/react';
 
-import { HighlightText } from "@/components/textAnimations/highlight-text";
-import { SplittingText } from "@/components/textAnimations/splitting-text";
-import { ProfileCardProps } from "@/types/about";
+import { HighlightText } from '@/components/textAnimations/highlight-text';
+import { SplittingText } from '@/components/textAnimations/splitting-text';
+import { ProfileCardProps } from '@/types/about';
 
 export const ProfileCard = memo(function ProfileCard({
   image,

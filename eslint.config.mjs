@@ -72,8 +72,7 @@ export default [
           printWidth: 100,
           tabWidth: 2,
           trailingComma: "all",
-        }
-
+        },
       ],
 
       // Clean setup for unused imports setup

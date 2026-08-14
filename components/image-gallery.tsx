@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { memo, useState } from "react";
-import { Skeleton } from "@heroui/react";
-import { AnimatePresence, motion } from "@/lib/motion";
+import Image from 'next/image';
+import { memo, useState } from 'react';
+import { Skeleton } from '@heroui/react';
+import { AnimatePresence, motion } from '@/lib/motion';
 
 type ImageGalleryProps = {
   images: readonly string[];
@@ -49,7 +49,7 @@ const ImageGallery = memo(function ImageGallery({ images }: ImageGalleryProps) {
             animate={{ scale: 1 }}
             aria-label={`View image ${index + 1}`}
             className={`w-15 h-19 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 relative focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 ${
-              index === activeIndex ? "border-blue-500" : "border-transparent"
+              index === activeIndex ? 'border-blue-500' : 'border-transparent'
             }`}
             transition={{ duration: 0.3 }}
             type="button"

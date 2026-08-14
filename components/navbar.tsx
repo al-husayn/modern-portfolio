@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   Navbar,
   NavbarBrand,
@@ -12,12 +12,12 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-} from "@heroui/react";
-import { Icon } from "@iconify/react";
-import { motion } from "@/lib/motion";
+} from '@heroui/react';
+import { Icon } from '@iconify/react';
+import { motion } from '@/lib/motion';
 
-import { ThemeSwitcher } from "@/components/theme-switcher";
-import { DATA } from "@/data";
+import { ThemeSwitcher } from '@/components/theme-switcher';
+import { DATA } from '@/data';
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,9 +25,7 @@ export const Navigation = () => {
 
   const menuItems = DATA.navigation;
   const isActiveItem = (href: string) =>
-    href === "/"
-      ? pathname === href
-      : pathname === href || pathname.startsWith(`${href}/`);
+    href === '/' ? pathname === href : pathname === href || pathname.startsWith(`${href}/`);
 
   return (
     <Navbar
@@ -71,11 +69,11 @@ export const Navigation = () => {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <Link
-                  aria-current={isActiveItem(item.href) ? "page" : undefined}
+                  aria-current={isActiveItem(item.href) ? 'page' : undefined}
                   className={`flex items-center gap-2 rounded-md px-2 py-1.5 text-sm font-medium transition-colors ${
                     isActiveItem(item.href)
-                      ? "bg-primary-500/10 text-primary-500"
-                      : "text-foreground-600 hover:bg-content2 hover:text-foreground"
+                      ? 'bg-primary-500/10 text-primary-500'
+                      : 'text-foreground-600 hover:bg-content2 hover:text-foreground'
                   }`}
                   href={item.href}
                 >
@@ -92,7 +90,7 @@ export const Navigation = () => {
         </NavbarItem>
 
         <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           className="sm:hidden"
         />
       </NavbarContent>
@@ -107,11 +105,11 @@ export const Navigation = () => {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <Link
-                  aria-current={isActiveItem(item.href) ? "page" : undefined}
+                  aria-current={isActiveItem(item.href) ? 'page' : undefined}
                   className={`flex w-full items-center gap-3 rounded-md px-4 py-3 text-sm font-medium transition-colors ${
                     isActiveItem(item.href)
-                      ? "bg-primary-500/10 text-primary-500"
-                      : "text-foreground-600 hover:bg-content2 hover:text-foreground"
+                      ? 'bg-primary-500/10 text-primary-500'
+                      : 'text-foreground-600 hover:bg-content2 hover:text-foreground'
                   }`}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}

@@ -1,10 +1,10 @@
-import type { ComponentType } from "react";
-import type { MDXComponents } from "mdx/types";
+import type { ComponentType } from 'react';
+import type { MDXComponents } from 'mdx/types';
 
-import { loader } from "fumadocs-core/source";
-import { resolveFiles } from "fumadocs-mdx";
+import { loader } from 'fumadocs-core/source';
+import { resolveFiles } from 'fumadocs-mdx';
 
-import { docs, meta } from "@/.source";
+import { docs, meta } from '@/.source';
 
 type BlogData = {
   author?: string;
@@ -18,17 +18,14 @@ type BlogData = {
 };
 
 export const blog = loader({
-  baseUrl: "/blog",
+  baseUrl: '/blog',
   source: {
     files: resolveFiles({ docs, meta }),
   },
 });
 
-export type BlogPost = Omit<
-  ReturnType<typeof blog.getPages>[number],
-  "data"
-> & {
-  data: ReturnType<typeof blog.getPages>[number]["data"] & BlogData;
+export type BlogPost = Omit<ReturnType<typeof blog.getPages>[number], 'data'> & {
+  data: ReturnType<typeof blog.getPages>[number]['data'] & BlogData;
 };
 
 export function getBlogPost(slug: string[]) {
@@ -58,5 +55,5 @@ export function getBlogPosts() {
 }
 
 export function getReadingTime(post: BlogPost) {
-  return post.data.readingTime ?? post.data.readTime ?? "3 min read";
+  return post.data.readingTime ?? post.data.readTime ?? '3 min read';
 }

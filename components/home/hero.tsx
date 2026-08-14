@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import type { PressEvent } from "@react-types/shared";
+import type { PressEvent } from '@react-types/shared';
 
-import { motion } from "@/lib/motion";
-import { Button, Link } from "@heroui/react";
-import { Icon } from "@iconify/react";
+import { motion } from '@/lib/motion';
+import { Button, Link } from '@heroui/react';
+import { Icon } from '@iconify/react';
 
-import { Hole } from "@/components/backgrounds/hole/hole";
-import { DATA } from "@/data";
+import { Hole } from '@/components/backgrounds/hole/hole';
+import { DATA } from '@/data';
 
 export const HeroSection = ({
   showBackground = true,
@@ -21,10 +21,10 @@ export const HeroSection = ({
   subtitle?: string;
 }) => {
   const scrollToWork = (_e: PressEvent) => {
-    const workSection = document.getElementById("work-section");
+    const workSection = document.getElementById('work-section');
 
     if (workSection) {
-      workSection.scrollIntoView({ behavior: "smooth" });
+      workSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -45,8 +45,7 @@ export const HeroSection = ({
             initial={{ opacity: 0, y: 20 }}
             transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            Hi, I&apos;m {name} &mdash; I design &amp; code modern web
-            experiences.
+            Hi, I&apos;m {name} &mdash; I design &amp; code modern web experiences.
           </motion.h1>
 
           <motion.p

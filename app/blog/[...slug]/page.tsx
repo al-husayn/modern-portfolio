@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import { Icon } from "@iconify/react";
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { Icon } from '@iconify/react';
 
-import { getMDXComponents } from "@/components/mdx-components";
-import { blog, getBlogPost, getReadingTime } from "@/lib/blog";
-import { createSeoMetadata } from "@/lib/seo";
-import { dateFormatter } from "@/lib/utils";
+import { getMDXComponents } from '@/components/mdx-components';
+import { blog, getBlogPost, getReadingTime } from '@/lib/blog';
+import { createSeoMetadata } from '@/lib/seo';
+import { dateFormatter } from '@/lib/utils';
 
 type BlogPostPageProps = {
   params: Promise<{
@@ -15,15 +15,13 @@ type BlogPostPageProps = {
   }>;
 };
 
-const DEFAULT_AUTHOR = "Al-Hussein Abubakar";
+const DEFAULT_AUTHOR = 'Al-Hussein Abubakar';
 
 export function generateStaticParams() {
-  return blog.generateParams("slug");
+  return blog.generateParams('slug');
 }
 
-export async function generateMetadata({
-  params,
-}: BlogPostPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogPost(slug);
 
@@ -32,16 +30,16 @@ export async function generateMetadata({
   }
 
   const author = post.data.author ?? DEFAULT_AUTHOR;
-  const title = post.data.title ?? "Blog Post";
+  const title = post.data.title ?? 'Blog Post';
   const description =
     post.data.description ??
-    "A technical article by Al-Hussein Abubakar on programming and web development.";
+    'A technical article by Al-Hussein Abubakar on programming and web development.';
 
   return createSeoMetadata({
     title,
     description,
     path: post.url,
-    type: "article",
+    type: 'article',
     publishedTime: post.data.date,
     authors: [author],
     keywords: post.data.tags,
@@ -72,9 +70,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         <header className="mb-10 border-b border-default-200 pb-8">
           <div className="mb-5 flex flex-wrap items-center gap-3 text-xs font-medium uppercase text-foreground-500">
-            <time dateTime={post.data.date}>
-              {dateFormatter.format(new Date(post.data.date))}
-            </time>
+            <time dateTime={post.data.date}>{dateFormatter.format(new Date(post.data.date))}</time>
             <span className="h-1 w-1 rounded-full bg-default-400" />
             <span>{getReadingTime(post)}</span>
             <span className="h-1 w-1 rounded-full bg-default-400" />

@@ -1,41 +1,38 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import Link from "next/link";
+import Link from 'next/link';
 
-import { DATA } from "@/data";
-import { getBlogPosts, getReadingTime } from "@/lib/blog";
-import { PageHeader } from "@/components/page-header";
-import { createSeoMetadata } from "@/lib/seo";
+import { DATA } from '@/data';
+import { getBlogPosts, getReadingTime } from '@/lib/blog';
+import { PageHeader } from '@/components/page-header';
+import { createSeoMetadata } from '@/lib/seo';
 
 const { description: blogDescription, intro: blogIntro } = DATA.blog;
 
 export const metadata: Metadata = {
   ...createSeoMetadata({
-    title: "Blog",
+    title: 'Blog',
     description: blogDescription,
-    path: "/blog",
-    keywords: ["Web development blog", "Programming tutorials", "JavaScript"],
+    path: '/blog',
+    keywords: ['Web development blog', 'Programming tutorials', 'JavaScript'],
   }),
 };
 
-const archiveDateFormatter = new Intl.DateTimeFormat("en-US", {
-  day: "numeric",
-  month: "long",
+const archiveDateFormatter = new Intl.DateTimeFormat('en-US', {
+  day: 'numeric',
+  month: 'long',
 });
 
 export default function BlogPage() {
   const posts = getBlogPosts();
-  const postsByYear = posts.reduce<Record<number, typeof posts>>(
-    (groups, post) => {
-      const year = new Date(post.data.date).getFullYear();
+  const postsByYear = posts.reduce<Record<number, typeof posts>>((groups, post) => {
+    const year = new Date(post.data.date).getFullYear();
 
-      groups[year] ??= [];
-      groups[year].push(post);
+    groups[year] ??= [];
+    groups[year].push(post);
 
-      return groups;
-    },
-    {},
-  );
+    return groups;
+  }, {});
   const sortedYears = Object.keys(postsByYear)
     .map(Number)
     .sort((a, b) => b - a);
@@ -53,15 +50,11 @@ export default function BlogPage() {
           {sortedYears.map((year) => (
             <section key={year} aria-labelledby={`year-${year}`}>
               <div className="mb-4 flex items-baseline justify-between gap-4 border-b border-default-200 pb-3">
-                <h2
-                  className="text-3xl font-semibold text-foreground"
-                  id={`year-${year}`}
-                >
+                <h2 className="text-3xl font-semibold text-foreground" id={`year-${year}`}>
                   {year}
                 </h2>
                 <p className="text-sm text-foreground-500">
-                  {postsByYear[year].length}{" "}
-                  {postsByYear[year].length === 1 ? "post" : "posts"}
+                  {postsByYear[year].length} {postsByYear[year].length === 1 ? 'post' : 'posts'}
                 </p>
               </div>
 
