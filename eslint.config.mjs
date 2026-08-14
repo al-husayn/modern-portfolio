@@ -63,7 +63,18 @@ export default [
       ...prettierConfig.rules,
       ...reactHooks.configs.recommended.rules,
       ...jsxA11y.configs.recommended.rules,
-      "prettier/prettier": "error",
+      "prettier/prettier": [
+        "error",
+        {
+          endOfLine: "auto",
+          semi: true,
+          singleQuote: true,
+          printWidth: 100,
+          tabWidth: 2,
+          trailingComma: "all",
+        }
+
+      ],
 
       // Clean setup for unused imports setup
       "no-unused-vars": "off",
