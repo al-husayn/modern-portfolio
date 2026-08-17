@@ -12,7 +12,7 @@ type ShapeConfig = {
   id: string;
   className: string;
   delay: number;
-  gradient: string;
+  color: string;
   height: number;
   rotate: number;
   width: number;
@@ -27,7 +27,7 @@ const SHAPES: ShapeConfig[] = [
     id: 'primary-ribbon',
     className: 'left-[-32%] top-[12%] md:left-[-12%] md:top-[18%]',
     delay: 0.2,
-    gradient: 'from-primary-500/[0.18]',
+    color: 'bg-primary-500/15',
     height: 140,
     rotate: 12,
     width: 620,
@@ -36,7 +36,7 @@ const SHAPES: ShapeConfig[] = [
     id: 'secondary-ribbon',
     className: 'right-[-38%] top-[62%] md:right-[-10%] md:top-[66%]',
     delay: 0.4,
-    gradient: 'from-secondary-500/[0.18]',
+    color: 'bg-secondary-500/15',
     height: 120,
     rotate: -15,
     width: 520,
@@ -45,7 +45,7 @@ const SHAPES: ShapeConfig[] = [
     id: 'violet-accent',
     className: 'bottom-[8%] left-[4%] md:left-[12%]',
     delay: 0.3,
-    gradient: 'from-violet-500/[0.14]',
+    color: 'bg-violet-500/15',
     height: 82,
     rotate: -8,
     width: 320,
@@ -54,7 +54,7 @@ const SHAPES: ShapeConfig[] = [
     id: 'amber-accent',
     className: 'right-[8%] top-[12%] md:right-[18%]',
     delay: 0.5,
-    gradient: 'from-amber-500/[0.14]',
+    color: 'bg-amber-500/15',
     height: 64,
     rotate: 20,
     width: 220,
@@ -63,7 +63,7 @@ const SHAPES: ShapeConfig[] = [
     id: 'cyan-accent',
     className: 'left-[18%] top-[4%] md:left-[28%]',
     delay: 0.6,
-    gradient: 'from-cyan-500/[0.14]',
+    color: 'bg-cyan-500/15',
     height: 44,
     rotate: -24,
     width: 160,
@@ -85,7 +85,7 @@ const FLOAT_TRANSITION = {
 function FloatingShape({
   className,
   delay,
-  gradient,
+  color,
   height,
   reduceMotion,
   rotate,
@@ -119,11 +119,9 @@ function FloatingShape({
         <div
           className={cn(
             'absolute inset-0 rounded-full border-2 border-white/[0.14]',
-            'bg-gradient-to-r to-transparent backdrop-blur-[2px]',
+            'backdrop-blur-[2px]',
             'shadow-[0_8px_32px_rgba(255,255,255,0.1)]',
-            'after:absolute after:inset-0 after:rounded-full',
-            'after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.18),transparent_70%)]',
-            gradient,
+            color,
           )}
         />
       </motion.div>
@@ -144,13 +142,9 @@ function ShapeBackground({ className, ...props }: ShapeBackgroundProps) {
       data-slot="shape-background"
       {...props}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-500/[0.08] via-transparent to-secondary-500/[0.08] blur-3xl" />
-
       {SHAPES.map((shape) => (
         <FloatingShape key={shape.id} reduceMotion={reduceMotion} {...shape} />
       ))}
-
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/35 to-background/80" />
     </div>
   );
 }

@@ -43,18 +43,13 @@ const HighlightText = React.forwardRef<HTMLSpanElement, HighlightTextProps>(
     return (
       <motion.span
         ref={localRef}
-        animate={isInView ? { backgroundSize: '100% 100%' } : undefined}
-        className={cn(
-          'relative inline-block rounded-md bg-gradient-to-r from-primary-400 to-secondary-400 px-2 py-1',
-          className,
-        )}
+        animate={isInView ? { opacity: 1 } : undefined}
+        className={cn('relative inline-block rounded-md bg-primary-400 px-2 py-1', className)}
         data-slot="highlight-text"
         initial={{
-          backgroundSize: '0% 100%',
+          opacity: 0,
         }}
         style={{
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'left center',
           display: 'inline',
         }}
         transition={transition}

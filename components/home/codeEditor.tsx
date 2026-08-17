@@ -74,10 +74,7 @@ const CodeEditor = () => {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
       <Card className="app-card relative overflow-hidden rounded-lg">
-        <div className="flex flex-row">
-          <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-primary-500 to-secondary-500" />
-          <div className="h-[2px] w-full bg-gradient-to-r from-secondary-500 to-transparent" />
-        </div>
+        <div className="h-[2px] w-full bg-primary-500" />
 
         <div className="flex items-center justify-between bg-content2/80 px-4 py-5 lg:px-8">
           <div className="flex flex-row space-x-2">

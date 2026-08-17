@@ -23,7 +23,6 @@ const PortfolioHero = () => {
   return (
     <section className="relative isolate flex min-h-[calc(100vh-64px)] items-center justify-center overflow-hidden bg-background py-16 sm:py-20">
       <Shape />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
       <div className="site-container relative z-10 px-4 sm:px-6 lg:px-8">
         <motion.div
           animate={{ opacity: 1, y: 0 }}
