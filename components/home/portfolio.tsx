@@ -26,14 +26,11 @@ const PortfolioHero = () => {
       <div className="site-container relative z-10 px-4 sm:px-6 lg:px-8">
         <motion.div
           animate={{ opacity: 1, y: 0 }}
-          className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(380px,0.9fr)] lg:gap-14 xl:gap-16"
+          className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(380px,0.9fr)] lg:gap-14 xl:gap-16"
           initial={{ opacity: 0, y: 30 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="flex flex-col items-start gap-5 text-left sm:gap-6">
-            <p className="rounded-full border border-primary-500/20 bg-primary-500/10 px-3 py-1 text-sm font-medium text-primary-500">
-              {hero.role} in {hero.location}
-            </p>
             <h1 className="max-w-3xl text-4xl font-bold leading-tight text-foreground sm:text-5xl lg:text-6xl">
               Hello
               <br />
