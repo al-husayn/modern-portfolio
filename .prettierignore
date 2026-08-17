@@ -4,8 +4,9 @@ out
 dist
 coverage
 public
+.source
+next-env.d.ts
 *.lock
 *.mdx
 package-lock.json
 pnpm-lock.yaml
-yarn.lock

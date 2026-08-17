@@ -28,7 +28,7 @@ This is a **Next.js 15 + TypeScript + TailwindCSS + Framer Motion** animated por
 
 ```typescript
 // Always import data this way
-import { DATA } from "@/data";
+import { DATA } from '@/data';
 const { projects } = DATA;
 const workProjects = projects.work;
 ```
@@ -45,20 +45,20 @@ const workProjects = projects.work;
 
 ```typescript
 // ✅ Server utility (lib/blog-utils.ts)
-import fs from "fs";
+import fs from 'fs';
 export function getBlogPosts() {
   /* file operations */
 }
 
 // ✅ Server component (app/blog/page.tsx)
-import { getBlogPosts } from "@/lib/blog-utils";
+import { getBlogPosts } from '@/lib/blog-utils';
 export default function BlogPage() {
   const posts = getBlogPosts();
 }
 
 // ❌ Never use fs in client components
-("use client");
-import fs from "fs"; // ERROR!
+('use client');
+import fs from 'fs'; // ERROR!
 ```
 
 ### 3. Component Organization
@@ -172,10 +172,10 @@ npm run lint         # Run ESLint with --fix
 
    ```mdx
    ---
-   title: "Post Title"
-   publishedAt: "2025-01-01"
-   summary: "Brief summary"
-   category: "Tech"
+   title: 'Post Title'
+   publishedAt: '2025-01-01'
+   summary: 'Brief summary'
+   category: 'Tech'
    ---
 
    Post content here...

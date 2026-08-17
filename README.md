@@ -86,9 +86,9 @@ Example:
 
 ```mdx
 ---
-title: "Primitive Types"
+title: 'Primitive Types'
 description: "Learn JavaScript's 7 primitive types."
-date: "2026-05-22"
+date: '2026-05-22'
 author: Al-Hussein Abubakar
 readingTime: 23 min read
 tags:
@@ -144,9 +144,8 @@ This template uses [Email.js](https://www.emailjs.com/) for handling contact for
 ```jsx
 <div style="font-family: system-ui, sans-serif, Arial; font-size: 12px">
   <div>
-    A message by <strong>{{ sender_name }}</strong> ({{ sender_email }}) has
-    been received with the subject "<strong>{{ sender_subject }}</strong>".
-    Kindly respond at your earliest convenience.
+    A message by <strong>{{ sender_name }}</strong> ({{ sender_email }}) has been received with the
+    subject "<strong>{{ sender_subject }}</strong>". Kindly respond at your earliest convenience.
   </div>
 
   <div
