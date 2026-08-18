@@ -5,7 +5,7 @@ type GradientTextProps = React.ComponentProps<'span'> & {
   text: string;
 };
 
-function GradientText({ text, className, ...props }: GradientTextProps) {
+export function GradientText({ text, className, ...props }: GradientTextProps) {
   return (
     <span
       className={cn('inline-block text-primary-500', className)}
@@ -17,4 +17,4 @@ function GradientText({ text, className, ...props }: GradientTextProps) {
   );
 }
 
-export { GradientText, type GradientTextProps };
+export type { GradientTextProps };

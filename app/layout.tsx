@@ -13,6 +13,8 @@ import { Providers } from '@/app/providers';
 import { StarsBackground } from '@/components/backgrounds/stars';
 import { DEFAULT_OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/seo';
 
+const { home } = DATA;
+
 const geistSans = Geist({
   subsets: ['latin'],
   variable: '--font-geist-sans',
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
   publisher: SITE_NAME,
   category: 'technology',
   title: {
-    default: `${SITE_NAME} | ${DATA.home.hero.title}`,
+    default: `${SITE_NAME} | ${home.hero.title}`,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,

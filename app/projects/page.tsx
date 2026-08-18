@@ -4,11 +4,13 @@ import { ProjectsPageClient } from '@/components/projects/projects-page-client';
 import { DATA } from '@/data';
 import { createSeoMetadata } from '@/lib/seo';
 
+const { projects } = DATA;
+
 export const metadata: Metadata = createSeoMetadata({
   title: 'Projects',
-  description: DATA.projects.sectionDescription,
+  description: projects.sectionDescription,
   path: '/projects',
-  keywords: DATA.projects.work.map((project) => project.title),
+  keywords: projects.work.map((project) => project.title),
 });
 
 export default function ProjectsPage() {

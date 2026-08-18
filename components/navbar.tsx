@@ -19,11 +19,13 @@ import { motion } from '@/lib/motion';
 import { ThemeSwitcher } from '@/components/theme-switcher';
 import { DATA } from '@/data';
 
+const { navigation } = DATA;
+
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  const menuItems = DATA.navigation;
+  const menuItems = navigation;
   const isActiveItem = (href: string) =>
     href === '/' ? pathname === href : pathname === href || pathname.startsWith(`${href}/`);
 

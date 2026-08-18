@@ -7,8 +7,10 @@ import { ProjectsGrid } from '@/components/projects/projects-grid';
 import { ProjectsTabs } from '@/components/projects/projects-tabs';
 import { DATA } from '@/data';
 
+const { projects } = DATA;
+
 export function ProjectsPageClient() {
-  const allProjects = DATA.projects.work;
+  const allProjects = projects.work;
 
   const categories = useMemo(
     () => ['All', ...new Set(allProjects.map((project) => project.category))],

@@ -4,7 +4,8 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 
 import { DATA } from '@/data';
 
-const coderData = DATA.home.coderProfile;
+const { home } = DATA;
+const coderData = home.coderProfile;
 const TOTAL_LINE_COUNT = 9;
 const TYPING_INTERVAL_MS = 800;
 const TYPING_CURSOR_DURATION_MS = 500;
