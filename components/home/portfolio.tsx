@@ -26,26 +26,28 @@ const PortfolioHero = () => {
       <div className="site-container relative z-10 px-4 sm:px-6 lg:px-8">
         <motion.div
           animate={{ opacity: 1, y: 0 }}
-          className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(380px,0.9fr)] lg:gap-14 xl:gap-16"
+          className="grid grid-cols-1 gap-10 lg:items-stretch lg:grid-cols-[minmax(0,1fr)_minmax(380px,0.9fr)] lg:gap-14 xl:gap-16"
           initial={{ opacity: 0, y: 30 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="flex flex-col items-start gap-5 text-left sm:gap-6">
-            <h1 className="max-w-3xl text-4xl font-bold leading-tight text-foreground sm:text-5xl lg:text-6xl">
-              Hello
-              <br />
-              I&apos;m <GradientText text={hero.name} />
-            </h1>
+          <div className="flex flex-col items-start text-left lg:h-full lg:justify-between">
+            <div className="space-y-5 sm:space-y-6">
+              <h1 className="max-w-3xl text-4xl font-bold leading-tight text-foreground sm:text-5xl lg:text-6xl">
+                Hello
+                <br />
+                I&apos;m <GradientText text={hero.name} />
+              </h1>
 
-            <div className="max-w-xl text-base leading-relaxed text-foreground-600 sm:text-lg">
-              <p className="font-medium text-foreground">{hero.status}</p>
-              <p className="mt-4">
-                With {hero.experience} of experience {hero.description} using {hero.techStack}.{' '}
-                {hero.focus}
-              </p>
+              <div className="max-w-xl text-base leading-relaxed text-foreground-600 sm:text-lg">
+                <p className="font-medium text-foreground">{hero.status}</p>
+                <p className="mt-4">
+                  With {hero.experience} of experience {hero.description} using {hero.techStack}.{' '}
+                  {hero.focus}
+                </p>
+              </div>
             </div>
 
-            <div className="mt-4 flex w-full max-w-md flex-col gap-3 sm:flex-row md:w-auto md:max-w-none">
+            <div className="mt-8 flex w-full max-w-md flex-col gap-3 sm:flex-row md:w-auto md:max-w-none lg:mt-0">
               <Link
                 download
                 aria-label="Download CV in PDF format"
