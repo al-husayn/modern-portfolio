@@ -44,20 +44,20 @@ const workProjects = projects.work;
 **Example**:
 
 ```typescript
-// ✅ Server utility (lib/blog-utils.ts)
+// Server utility (lib/blog-utils.ts)
 import fs from 'fs';
 export function getBlogPosts() {
   /* file operations */
 }
 
-// ✅ Server component (app/blog/page.tsx)
+// Server component (app/blog/page.tsx)
 import { getBlogPosts } from '@/lib/blog-utils';
 export default function BlogPage() {
   const posts = getBlogPosts();
 }
 
 // ❌ Never use fs in client components
-('use client');
+'use client';
 import fs from 'fs'; // ERROR!
 ```
 
