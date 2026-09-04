@@ -1,18 +1,14 @@
 import type { MDXComponents } from 'mdx/types';
 
-import { readdirSync } from 'node:fs';
-import path from 'node:path';
-
 import Link from 'next/link';
 import React from 'react';
 import { Icon } from '@iconify/react';
 
 import { ImageViewer, MediaViewer, VideoViewer } from '@/components/media-viewer';
+import { BLOG_CARD_TARGETS } from '@/lib/blog-card-targets';
 import { cn } from '@/lib/utils';
 
 const BLOG_ROUTE_PREFIX = '/blog';
-const BLOG_CONTENT_DIRECTORY = path.join(process.cwd(), 'content', 'blog');
-const BLOG_FILE_EXTENSIONS = new Set(['.mdx', '.md']);
 const INTERNAL_CARD_ALLOWLIST = new Set(['/', '/about', '/rss.xml']);
 const SAFE_EXTERNAL_SCHEMES = new Set(['http', 'https', 'mailto', 'tel']);
 const CARD_ICON_MAP: Record<string, string> = {
@@ -111,46 +107,6 @@ const isSafeExternalHref = (href: string): boolean => {
 
   return scheme ? SAFE_EXTERNAL_SCHEMES.has(scheme) : false;
 };
-
-const collectBlogCardTargets = (directory: string, parentSegments: string[] = []): string[] => {
-  try {
-    return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
-      if (entry.name.startsWith('.')) {
-        return [];
-      }
-
-      if (entry.isDirectory()) {
-        return collectBlogCardTargets(path.join(directory, entry.name), [
-          ...parentSegments,
-          entry.name,
-        ]);
-      }
-
-      const extension = path.extname(entry.name).toLowerCase();
-
-      if (!BLOG_FILE_EXTENSIONS.has(extension)) {
-        return [];
-      }
-
-      const fileName = entry.name.slice(0, -extension.length);
-      const rawSegments = [...parentSegments, fileName];
-      const normalizedSegments =
-        rawSegments[rawSegments.length - 1] === 'index' ? rawSegments.slice(0, -1) : rawSegments;
-
-      if (normalizedSegments.length === 0) {
-        return [];
-      }
-
-      return [`${BLOG_ROUTE_PREFIX}/${normalizedSegments.join('/')}`];
-    });
-  } catch {
-    return [];
-  }
-};
-
-const BLOG_CARD_TARGETS = new Set(
-  collectBlogCardTargets(BLOG_CONTENT_DIRECTORY).map((href) => toNormalizedPathname(href)),
-);
 
 const resolveCardHref = (
   href: string | undefined,
