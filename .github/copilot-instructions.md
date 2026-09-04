@@ -57,7 +57,7 @@ export default function BlogPage() {
 }
 
 // ❌ Never use fs in client components
-'use client';
+('use client');
 import fs from 'fs'; // ERROR!
 ```
 
