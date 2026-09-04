@@ -10,6 +10,9 @@ const TOTAL_LINE_COUNT = 9;
 const TYPING_INTERVAL_MS = 800;
 const TYPING_CURSOR_DURATION_MS = 500;
 
+const getNextLine = (previousLine: number) =>
+  previousLine < TOTAL_LINE_COUNT - 1 ? previousLine + 1 : 0;
+
 type AnimatedLineProps = {
   active: boolean;
   children: ReactNode;
@@ -33,6 +36,7 @@ const CodeEditor = () => {
   const [currentLine, setCurrentLine] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const currentLineRef = useRef(currentLine);
   const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
@@ -43,19 +47,17 @@ const CodeEditor = () => {
     let typingTimeoutId: ReturnType<typeof setTimeout> | undefined;
 
     const intervalId = setInterval(() => {
-      setCurrentLine((previousLine) => {
-        const nextLine = previousLine < TOTAL_LINE_COUNT - 1 ? previousLine + 1 : 0;
+      const previousLine = currentLineRef.current;
 
-        setIsTyping(previousLine < TOTAL_LINE_COUNT - 1);
+      setIsTyping(previousLine < TOTAL_LINE_COUNT - 1);
 
-        if (typingTimeoutId) {
-          clearTimeout(typingTimeoutId);
-        }
+      if (typingTimeoutId) {
+        clearTimeout(typingTimeoutId);
+      }
 
-        typingTimeoutId = setTimeout(() => setIsTyping(false), TYPING_CURSOR_DURATION_MS);
-
-        return nextLine;
-      });
+      typingTimeoutId = setTimeout(() => setIsTyping(false), TYPING_CURSOR_DURATION_MS);
+      currentLineRef.current = getNextLine(previousLine);
+      setCurrentLine((previousLine) => getNextLine(previousLine));
     }, TYPING_INTERVAL_MS);
 
     return () => {
