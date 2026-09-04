@@ -1,44 +1,44 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import Portfolio from "@/components/home/portfolio";
-import { ServicesSection } from "@/components/home/skills-overview";
-import { WorkSection } from "@/components/home/work";
-import { TestimonialsSection } from "@/components/home/testimonials";
-import { DATA } from "@/data";
-import { absoluteUrl, createSeoMetadata, SITE_DESCRIPTION } from "@/lib/seo";
+import Portfolio from '@/components/home/portfolio';
+import { ServicesSection } from '@/components/home/skills-overview';
+import { WorkSection } from '@/components/home/work';
+import { TestimonialsSection } from '@/components/home/testimonials';
+import { DATA } from '@/data';
+import { absoluteUrl, createSeoMetadata, SITE_DESCRIPTION } from '@/lib/seo';
+
+const { home, hero, footer } = DATA;
 
 export const metadata: Metadata = createSeoMetadata({
   description: SITE_DESCRIPTION,
-  path: "/",
-  keywords: DATA.home.coderProfile.skills,
+  path: '/',
+  keywords: home.coderProfile.skills,
 });
 
 export default function HomePage() {
   const personJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: DATA.home.hero.name,
-    jobTitle: DATA.home.hero.title,
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: home.hero.name,
+    jobTitle: home.hero.title,
     description: SITE_DESCRIPTION,
-    url: absoluteUrl("/"),
-    image: absoluteUrl("/AL.jpg"),
+    url: absoluteUrl('/'),
+    image: absoluteUrl('/AL.jpg'),
     address: {
-      "@type": "PostalAddress",
-      addressLocality: DATA.hero.location,
-      addressCountry: "Ghana",
+      '@type': 'PostalAddress',
+      addressLocality: hero.location,
+      addressCountry: 'Ghana',
     },
-    email: DATA.footer.contact.email,
-    sameAs: DATA.footer.socialLinks
-      .filter((link) => link.platform !== "RSS")
-      .map((link) => link.url),
-    knowsAbout: DATA.home.coderProfile.skills,
+    email: footer.contact.email,
+    sameAs: footer.socialLinks.filter((link) => link.platform !== 'RSS').map((link) => link.url),
+    knowsAbout: home.coderProfile.skills,
   };
 
   const websiteJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: DATA.home.hero.name,
-    url: absoluteUrl("/"),
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: home.hero.name,
+    url: absoluteUrl('/'),
     description: SITE_DESCRIPTION,
   };
 

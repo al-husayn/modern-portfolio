@@ -1,8 +1,8 @@
-import { memo } from "react";
-import { Card, CardBody, Avatar } from "@heroui/react";
-import { Icon } from "@iconify/react";
+import { memo } from 'react';
+import { Card, CardBody, Avatar } from '@heroui/react';
+import { Icon } from '@iconify/react';
 
-import { TestimonialCardProps } from "@/types/testimonials";
+import { TestimonialCardProps } from '@/types/testimonials';
 
 export const TestimonialCard = memo(function TestimonialCard({
   name,
@@ -15,9 +15,7 @@ export const TestimonialCard = memo(function TestimonialCard({
       <CardBody className="flex flex-col p-6">
         <div>
           <Icon className="mb-4 h-8 w-8 text-primary-500" icon="lucide:quote" />
-          <p className="mb-6 italic text-foreground-600">
-            &ldquo;{content}&rdquo;
-          </p>
+          <p className="mb-6 italic text-foreground-600">&ldquo;{content}&rdquo;</p>
         </div>
         <div className="mt-auto flex items-center gap-4">
           <Avatar className="ring-2 ring-primary-200" size="lg" src={avatar} />

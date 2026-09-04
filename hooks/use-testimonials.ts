@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { Testimonial } from "@/types/testimonials";
+import { Testimonial } from '@/types/testimonials';
 
 export const useTestimonials = (items: readonly Testimonial[]) => {
   const [currentIndex, setCurrentIndex] = useState(0);

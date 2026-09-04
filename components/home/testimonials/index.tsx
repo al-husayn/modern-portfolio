@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { AnimatePresence, motion } from "@/lib/motion";
-import { Button } from "@heroui/react";
-import { Icon } from "@iconify/react";
+import { AnimatePresence, motion } from '@/lib/motion';
+import { Button } from '@heroui/react';
+import { Icon } from '@iconify/react';
 
-import { useIsMobile } from "@/hooks/use-mobile";
-import { GradientText } from "@/components/textAnimations/gradient-text";
-import { TestimonialCard } from "@/components/home/testimonials/testimonial-card";
-import { variants, dotVariants } from "@/components/home/testimonials/variants";
-import { useTestimonials } from "@/hooks/use-testimonials";
-import { DATA } from "@/data";
+import { useIsMobile } from '@/hooks/use-mobile';
+import { GradientText } from '@/components/textAnimations/gradient-text';
+import { TestimonialCard } from '@/components/home/testimonials/testimonial-card';
+import { variants, dotVariants } from '@/components/home/testimonials/variants';
+import { useTestimonials } from '@/hooks/use-testimonials';
+import { DATA } from '@/data';
 
 export const TestimonialsSection = () => {
   const { sectionTitle, sectionDescription, items } = DATA.home.testimonials;
@@ -50,10 +50,7 @@ export const TestimonialsSection = () => {
                 variant="flat"
                 onPress={() => handleNavigation(prevTestimonial)}
               >
-                <Icon
-                  className="w-5 h-5"
-                  icon="heroicons:chevron-left-20-solid"
-                />
+                <Icon className="w-5 h-5" icon="heroicons:chevron-left-20-solid" />
               </Button>
               <Button
                 isIconOnly
@@ -63,10 +60,7 @@ export const TestimonialsSection = () => {
                 variant="flat"
                 onPress={() => handleNavigation(nextTestimonial)}
               >
-                <Icon
-                  className="w-5 h-5"
-                  icon="heroicons:chevron-right-20-solid"
-                />
+                <Icon className="w-5 h-5" icon="heroicons:chevron-right-20-solid" />
               </Button>
             </>
           )}
@@ -80,7 +74,7 @@ export const TestimonialsSection = () => {
               exit="exit"
               initial="initial"
               transition={{
-                type: "spring",
+                type: 'spring',
                 stiffness: 200,
                 damping: 20,
                 duration: 0.5,
@@ -101,10 +95,7 @@ export const TestimonialsSection = () => {
                 variant="flat"
                 onPress={() => handleNavigation(prevTestimonial)}
               >
-                <Icon
-                  className="w-4 h-4"
-                  icon="heroicons:chevron-left-20-solid"
-                />
+                <Icon className="w-4 h-4" icon="heroicons:chevron-left-20-solid" />
               </Button>
             )}
 
@@ -112,7 +103,7 @@ export const TestimonialsSection = () => {
               {items.map((_, index) => (
                 <motion.button
                   key={index}
-                  animate={index === currentIndex ? "active" : "inactive"}
+                  animate={index === currentIndex ? 'active' : 'inactive'}
                   aria-label={`Go to testimonial ${index + 1}`}
                   className="mx-1 h-2 w-2 rounded-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500"
                   variants={dotVariants}
@@ -133,10 +124,7 @@ export const TestimonialsSection = () => {
                 variant="flat"
                 onPress={() => handleNavigation(nextTestimonial)}
               >
-                <Icon
-                  className="w-4 h-4"
-                  icon="heroicons:chevron-right-20-solid"
-                />
+                <Icon className="w-4 h-4" icon="heroicons:chevron-right-20-solid" />
               </Button>
             )}
           </div>

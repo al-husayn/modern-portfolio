@@ -1,13 +1,17 @@
-import { Card } from "@heroui/react";
-import { motion, useInView } from "@/lib/motion";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { Card } from '@heroui/react';
+import { motion, useInView } from '@/lib/motion';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 
-import { DATA } from "@/data";
+import { DATA } from '@/data';
 
-const coderData = DATA.home.coderProfile;
+const { home } = DATA;
+const coderData = home.coderProfile;
 const TOTAL_LINE_COUNT = 9;
 const TYPING_INTERVAL_MS = 800;
 const TYPING_CURSOR_DURATION_MS = 500;
+
+const getNextLine = (previousLine: number) =>
+  previousLine < TOTAL_LINE_COUNT - 1 ? previousLine + 1 : 0;
 
 type AnimatedLineProps = {
   active: boolean;
@@ -19,14 +23,10 @@ type AnimatedLineProps = {
 const AnimatedLine = ({
   active,
   children,
-  className = "",
+  className = '',
   showCursor = false,
 }: AnimatedLineProps) => (
-  <motion.div
-    animate={{ opacity: active ? 1 : 0 }}
-    className={className}
-    initial={{ opacity: 0 }}
-  >
+  <motion.div animate={{ opacity: active ? 1 : 0 }} className={className} initial={{ opacity: 0 }}>
     {children}
     {showCursor && <span className="ml-1 animate-pulse">|</span>}
   </motion.div>
@@ -36,6 +36,7 @@ const CodeEditor = () => {
   const [currentLine, setCurrentLine] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const currentLineRef = useRef(currentLine);
   const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
@@ -46,23 +47,17 @@ const CodeEditor = () => {
     let typingTimeoutId: ReturnType<typeof setTimeout> | undefined;
 
     const intervalId = setInterval(() => {
-      setCurrentLine((previousLine) => {
-        const nextLine =
-          previousLine < TOTAL_LINE_COUNT - 1 ? previousLine + 1 : 0;
+      const previousLine = currentLineRef.current;
 
-        setIsTyping(previousLine < TOTAL_LINE_COUNT - 1);
+      setIsTyping(previousLine < TOTAL_LINE_COUNT - 1);
 
-        if (typingTimeoutId) {
-          clearTimeout(typingTimeoutId);
-        }
+      if (typingTimeoutId) {
+        clearTimeout(typingTimeoutId);
+      }
 
-        typingTimeoutId = setTimeout(
-          () => setIsTyping(false),
-          TYPING_CURSOR_DURATION_MS,
-        );
-
-        return nextLine;
-      });
+      typingTimeoutId = setTimeout(() => setIsTyping(false), TYPING_CURSOR_DURATION_MS);
+      currentLineRef.current = getNextLine(previousLine);
+      setCurrentLine((previousLine) => getNextLine(previousLine));
     }, TYPING_INTERVAL_MS);
 
     return () => {
@@ -82,10 +77,7 @@ const CodeEditor = () => {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
       <Card className="app-card relative overflow-hidden rounded-lg">
-        <div className="flex flex-row">
-          <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-primary-500 to-secondary-500" />
-          <div className="h-[2px] w-full bg-gradient-to-r from-secondary-500 to-transparent" />
-        </div>
+        <div className="h-[2px] w-full bg-primary-500" />
 
         <div className="flex items-center justify-between bg-content2/80 px-4 py-5 lg:px-8">
           <div className="flex flex-row space-x-2">
@@ -107,9 +99,7 @@ const CodeEditor = () => {
                   key={index}
                   animate={{ opacity: index <= currentLine ? 1 : 0.3 }}
                   className={`leading-relaxed select-none transition-all duration-300 ${
-                    index <= currentLine
-                      ? "opacity-100 text-blue-500"
-                      : "opacity-30"
+                    index <= currentLine ? 'opacity-100 text-blue-500' : 'opacity-30'
                   }`}
                   initial={{ opacity: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -126,11 +116,9 @@ const CodeEditor = () => {
                 showCursor={isTyping && currentLine === 0}
               >
                 <span className="mr-2 text-pink-500">const</span>
-                <span className="mr-2 font-semibold text-secondary-500">
-                  coder
-                </span>
+                <span className="mr-2 font-semibold text-secondary-500">coder</span>
                 <span className="mr-2 text-pink-500">=</span>
-                <span className="text-foreground-500">{"{"}</span>
+                <span className="text-foreground-500">{'{'}</span>
               </AnimatedLine>
 
               <AnimatedLine
@@ -186,10 +174,7 @@ const CodeEditor = () => {
                 <span className="text-foreground-500">[</span>
               </AnimatedLine>
 
-              <AnimatedLine
-                active={currentLine >= 6}
-                className="flex flex-wrap pl-6"
-              >
+              <AnimatedLine active={currentLine >= 6} className="flex flex-wrap pl-6">
                 {coderData.skills.map((skill, index) => (
                   <motion.span
                     key={skill}
@@ -216,11 +201,8 @@ const CodeEditor = () => {
                 <span className="text-foreground-500">],</span>
               </AnimatedLine>
 
-              <AnimatedLine
-                active={currentLine >= 8}
-                showCursor={isTyping && currentLine === 8}
-              >
-                <span className="text-foreground-500">{"};"}</span>
+              <AnimatedLine active={currentLine >= 8} showCursor={isTyping && currentLine === 8}>
+                <span className="text-foreground-500">{'};'}</span>
               </AnimatedLine>
             </code>
           </div>

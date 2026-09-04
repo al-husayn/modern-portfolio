@@ -1,35 +1,28 @@
-"use client";
+'use client';
 
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo } from 'react';
 
 import {
   ContactFormData,
   ContactFormField,
   ContactFormErrors,
   UseContactFormReturn,
-} from "@/types/contact";
-import { validateField, validateForm, hasErrors } from "@/lib/utils";
+} from '@/types/contact';
+import { validateField, validateForm, hasErrors } from '@/lib/utils';
 
 const initialFormData: ContactFormData = {
-  name: "",
-  email: "",
-  subject: "",
-  message: "",
+  name: '',
+  email: '',
+  subject: '',
+  message: '',
 };
 
-const contactFormFields: readonly ContactFormField[] = [
-  "name",
-  "email",
-  "subject",
-  "message",
-];
+const contactFormFields: readonly ContactFormField[] = ['name', 'email', 'subject', 'message'];
 
 export const useContactForm = (): UseContactFormReturn => {
   const [formData, setFormData] = useState<ContactFormData>(initialFormData);
   const [errors, setErrors] = useState<ContactFormErrors>({});
-  const [touchedFields, setTouchedFields] = useState<Set<ContactFormField>>(
-    new Set(),
-  );
+  const [touchedFields, setTouchedFields] = useState<Set<ContactFormField>>(new Set());
 
   const handleInputChange = useCallback(
     (field: ContactFormField, value: string) => {
@@ -47,26 +40,21 @@ export const useContactForm = (): UseContactFormReturn => {
     [touchedFields],
   );
 
-  const validateTouched = useCallback(
-    (field: ContactFormField, value: string) => {
-      setTouchedFields((prev) => new Set(prev).add(field));
+  const validateTouched = useCallback((field: ContactFormField, value: string) => {
+    setTouchedFields((prev) => new Set(prev).add(field));
 
-      const fieldError = validateField(field, value);
+    const fieldError = validateField(field, value);
 
-      setErrors((prev) => ({
-        ...prev,
-        [field]: fieldError,
-      }));
+    setErrors((prev) => ({
+      ...prev,
+      [field]: fieldError,
+    }));
 
-      return fieldError;
-    },
-    [],
-  );
+    return fieldError;
+  }, []);
 
   const handleSubmit = useCallback(
-    async (
-      onSubmit: (data: ContactFormData) => Promise<void>,
-    ): Promise<void> => {
+    async (onSubmit: (data: ContactFormData) => Promise<void>): Promise<void> => {
       const formErrors = validateForm(formData);
 
       setErrors(formErrors);

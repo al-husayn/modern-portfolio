@@ -1,13 +1,10 @@
-import { memo } from "react";
-import { Card, CardBody, CardFooter, Button, Image } from "@heroui/react";
-import { Icon } from "@iconify/react";
+import { memo } from 'react';
+import { Card, CardBody, CardFooter, Button, Image } from '@heroui/react';
+import { Icon } from '@iconify/react';
 
-import { ProjectCardProps } from "@/types/projects";
+import { ProjectCardProps } from '@/types/projects';
 
-export const ProjectCard = memo(function ProjectCard({
-  project,
-  onViewDetails,
-}: ProjectCardProps) {
+export const ProjectCard = memo(function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
   return (
     <Card
       isFooterBlurred
@@ -33,9 +30,7 @@ export const ProjectCard = memo(function ProjectCard({
         </div>
 
         <div className="flex flex-col flex-grow p-6">
-          <h3 className="mb-2 text-xl font-semibold text-foreground">
-            {project.title}
-          </h3>
+          <h3 className="mb-2 text-xl font-semibold text-foreground">{project.title}</h3>
           <p className="flex-grow mb-4 text-sm leading-relaxed text-foreground-600">
             {project.description}
           </p>

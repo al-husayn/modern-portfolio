@@ -1,27 +1,27 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { cn } from "@/lib/utils";
-import { MediaViewerProps } from "@/types/media-viewer";
+import Image from 'next/image';
+import { cn } from '@/lib/utils';
+import { MediaViewerProps } from '@/types/media-viewer';
 
 export function MediaViewer({
   src,
-  alt = "",
-  type = "image",
+  alt = '',
+  type = 'image',
   className,
   width,
   height,
   captionsSrc,
-  captionsLang = "en",
-  captionsLabel = "English",
+  captionsLang = 'en',
+  captionsLabel = 'English',
 }: MediaViewerProps) {
   const commonClasses = cn(
-    "w-full h-full object-cover rounded-lg border overflow-hidden aspect-video",
+    'w-full h-full object-cover rounded-lg border overflow-hidden aspect-video',
     className,
   );
 
   const renderMedia = () => {
-    if (type === "video") {
+    if (type === 'video') {
       return (
         <video
           src={src}
@@ -34,7 +34,7 @@ export function MediaViewer({
             default
             kind="captions"
             label={captionsLabel}
-            src={captionsSrc ?? ""}
+            src={captionsSrc ?? ''}
             srcLang={captionsLang}
           />
           Your browser does not support the video tag.
@@ -46,13 +46,10 @@ export function MediaViewer({
       src,
       alt,
       className: commonClasses,
-      sizes: "100vw",
+      sizes: '100vw',
     };
 
-    return width &&
-      height &&
-      typeof width === "number" &&
-      typeof height === "number" ? (
+    return width && height && typeof width === 'number' && typeof height === 'number' ? (
       <Image {...imageProps} width={width} height={height} />
     ) : (
       <Image {...imageProps} fill />
@@ -66,10 +63,10 @@ export function MediaViewer({
   );
 }
 
-export function ImageViewer(props: Omit<MediaViewerProps, "type">) {
+export function ImageViewer(props: Omit<MediaViewerProps, 'type'>) {
   return <MediaViewer {...props} type="image" />;
 }
 
-export function VideoViewer(props: Omit<MediaViewerProps, "type">) {
+export function VideoViewer(props: Omit<MediaViewerProps, 'type'>) {
   return <MediaViewer {...props} type="video" />;
 }

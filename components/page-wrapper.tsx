@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { motion } from "@/lib/motion";
-import { usePathname } from "next/navigation";
-import { ReactNode } from "react";
+import { motion } from '@/lib/motion';
+import { usePathname } from 'next/navigation';
+import { ReactNode } from 'react';
 
 type PageWrapperProps = {
   children: ReactNode;

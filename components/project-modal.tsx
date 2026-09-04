@@ -9,17 +9,13 @@ import {
   AvatarGroup,
   Tooltip,
   ScrollShadow,
-} from "@heroui/react";
-import { Icon } from "@iconify/react";
+} from '@heroui/react';
+import { Icon } from '@iconify/react';
 
-import ImageGallery from "@/components/image-gallery";
-import { ProjectModalProps } from "@/types/projects";
+import ImageGallery from '@/components/image-gallery';
+import { ProjectModalProps } from '@/types/projects';
 
-export const ProjectModal = ({
-  isOpen,
-  onClose,
-  project,
-}: ProjectModalProps) => {
+export const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
   if (!project) return null;
 
   return (
@@ -50,9 +46,7 @@ export const ProjectModal = ({
             </div>
             {project.tech && (
               <div className="mb-6">
-                <h4 className="mb-4 font-semibold text-foreground">
-                  Technologies used
-                </h4>
+                <h4 className="mb-4 font-semibold text-foreground">Technologies used</h4>
                 <AvatarGroup>
                   {project.tech.map(({ name, icon }) => (
                     <Tooltip key={name} content={name} showArrow={true}>
@@ -60,8 +54,8 @@ export const ProjectModal = ({
                         key={name}
                         showFallback
                         classNames={{
-                          base: "bg-transparent",
-                          icon: "text-foreground dark:text-foreground-dark",
+                          base: 'bg-transparent',
+                          icon: 'text-foreground dark:text-foreground-dark',
                         }}
                         icon={<Icon icon={icon} width={25} />}
                       />
@@ -106,12 +100,7 @@ export const ProjectModal = ({
         )}
 
         <ModalFooter className="flex flex-wrap justify-end gap-3 border-t border-divider">
-          <Button
-            className="text-foreground-500"
-            color="danger"
-            variant="light"
-            onPress={onClose}
-          >
+          <Button className="text-foreground-500" color="danger" variant="light" onPress={onClose}>
             Close
           </Button>
         </ModalFooter>

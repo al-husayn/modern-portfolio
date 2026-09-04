@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useCallback, useEffect, useRef, type FC } from "react";
+import { useCallback, useEffect, useRef, type FC } from 'react';
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 const morphTime = 1.5;
 const cooldownTime = 0.5;
@@ -59,10 +59,10 @@ const useMorphingText = (texts: readonly string[]) => {
     const [current1, current2] = [text1Ref.current, text2Ref.current];
 
     if (current1 && current2) {
-      current2.style.filter = "none";
-      current2.style.opacity = "100%";
-      current1.style.filter = "none";
-      current1.style.opacity = "0%";
+      current2.style.filter = 'none';
+      current2.style.opacity = '100%';
+      current1.style.filter = 'none';
+      current1.style.opacity = '0%';
     }
   }, []);
 
@@ -98,19 +98,13 @@ interface MorphingTextProps {
   texts: readonly string[];
 }
 
-const Texts: FC<Pick<MorphingTextProps, "texts">> = ({ texts }) => {
+const Texts: FC<Pick<MorphingTextProps, 'texts'>> = ({ texts }) => {
   const { text1Ref, text2Ref } = useMorphingText(texts);
 
   return (
     <>
-      <span
-        ref={text1Ref}
-        className="absolute inset-x-0 top-0 m-auto inline-block w-full"
-      />
-      <span
-        ref={text2Ref}
-        className="absolute inset-x-0 top-0 m-auto inline-block w-full"
-      />
+      <span ref={text1Ref} className="absolute inset-x-0 top-0 m-auto inline-block w-full" />
+      <span ref={text2Ref} className="absolute inset-x-0 top-0 m-auto inline-block w-full" />
     </>
   );
 };
@@ -135,7 +129,7 @@ const SvgFilters: FC = () => (
 export const MorphingText: FC<MorphingTextProps> = ({ texts, className }) => (
   <div
     className={cn(
-      "relative mx-auto h-16 w-full max-w-screen-md text-center font-sans text-[40pt] font-bold leading-none [filter:url(#threshold)_blur(0.6px)] md:h-24 lg:text-[6rem]",
+      'relative mx-auto h-16 w-full max-w-screen-md text-center font-sans text-[40pt] font-bold leading-none [filter:url(#threshold)_blur(0.6px)] md:h-24 lg:text-[6rem]',
       className,
     )}
   >

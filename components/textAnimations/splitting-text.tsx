@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import * as React from "react";
+import * as React from 'react';
 import {
   motion,
   type Variants,
@@ -8,7 +8,7 @@ import {
   type HTMLMotionProps,
   useInView,
   type UseInViewOptions,
-} from "@/lib/motion";
+} from '@/lib/motion';
 
 type DefaultSplittingTextProps = {
   motionVariants?: {
@@ -18,45 +18,40 @@ type DefaultSplittingTextProps = {
     stagger?: number;
   };
   inView?: boolean;
-  inViewMargin?: UseInViewOptions["margin"];
+  inViewMargin?: UseInViewOptions['margin'];
   inViewOnce?: boolean;
   delay?: number;
-} & HTMLMotionProps<"div">;
+} & HTMLMotionProps<'div'>;
 
 type CharsOrWordsSplittingTextProps = DefaultSplittingTextProps & {
-  type?: "chars" | "words";
+  type?: 'chars' | 'words';
   text: string;
 };
 
 type LinesSplittingTextProps = DefaultSplittingTextProps & {
-  type: "lines";
+  type: 'lines';
   text: string[];
 };
 
-type SplittingTextProps =
-  | CharsOrWordsSplittingTextProps
-  | LinesSplittingTextProps;
+type SplittingTextProps = CharsOrWordsSplittingTextProps | LinesSplittingTextProps;
 
 const defaultItemVariant: Variants = {
   hidden: { x: 150, opacity: 0 },
   visible: {
     x: 0,
     opacity: 1,
-    transition: { duration: 0.7, ease: "easeOut" },
+    transition: { duration: 0.7, ease: 'easeOut' },
   },
 };
 
-export const SplittingText = React.forwardRef<
-  HTMLDivElement,
-  SplittingTextProps
->(
+export const SplittingText = React.forwardRef<HTMLDivElement, SplittingTextProps>(
   (
     {
       text,
-      type = "chars",
+      type = 'chars',
       motionVariants = {},
       inView = false,
-      inViewMargin = "0px",
+      inViewMargin = '0px',
       inViewOnce = true,
       delay = 0,
       ...props
@@ -71,17 +66,13 @@ export const SplittingText = React.forwardRef<
         ]);
       }
 
-      if (type === "words") {
+      if (type === 'words') {
         const tokens = text.match(/\S+\s*/g) || [];
 
-        return tokens.map((token, i) => (
-          <React.Fragment key={i}>{token}</React.Fragment>
-        ));
+        return tokens.map((token, i) => <React.Fragment key={i}>{token}</React.Fragment>);
       }
 
-      return text
-        .split("")
-        .map((char, i) => <React.Fragment key={i}>{char}</React.Fragment>);
+      return text.split('').map((char, i) => <React.Fragment key={i}>{char}</React.Fragment>);
     }, [text, type]);
 
     const containerVariants: Variants = {
@@ -90,8 +81,7 @@ export const SplittingText = React.forwardRef<
         transition: {
           delayChildren: delay / 1000,
           staggerChildren:
-            motionVariants.stagger ??
-            (type === "chars" ? 0.05 : type === "words" ? 0.2 : 0.3),
+            motionVariants.stagger ?? (type === 'chars' ? 0.05 : type === 'words' ? 0.2 : 0.3),
         },
       },
     };
@@ -105,8 +95,7 @@ export const SplittingText = React.forwardRef<
         ...defaultItemVariant.visible,
         ...(motionVariants.animate || {}),
         transition: {
-          ...((defaultItemVariant.visible as TargetAndTransition).transition ||
-            {}),
+          ...((defaultItemVariant.visible as TargetAndTransition).transition || {}),
           ...(motionVariants.transition || {}),
         },
       },
@@ -125,7 +114,7 @@ export const SplittingText = React.forwardRef<
     return (
       <motion.span
         ref={localRef}
-        animate={isInView ? "visible" : "hidden"}
+        animate={isInView ? 'visible' : 'hidden'}
         initial="hidden"
         variants={containerVariants}
         {...props}
@@ -137,19 +126,15 @@ export const SplittingText = React.forwardRef<
                 <motion.span
                   key={index}
                   style={{
-                    display: "inline-block",
+                    display: 'inline-block',
                     whiteSpace:
-                      type === "chars"
-                        ? "pre"
-                        : Array.isArray(text)
-                          ? "normal"
-                          : "normal",
+                      type === 'chars' ? 'pre' : Array.isArray(text) ? 'normal' : 'normal',
                   }}
                   variants={itemVariants}
                 >
                   {item}
                 </motion.span>
-                {type === "words" && " "}
+                {type === 'words' && ' '}
               </React.Fragment>
             ),
         )}
@@ -158,4 +143,4 @@ export const SplittingText = React.forwardRef<
   },
 );
 
-SplittingText.displayName = "SplittingText";
+SplittingText.displayName = 'SplittingText';

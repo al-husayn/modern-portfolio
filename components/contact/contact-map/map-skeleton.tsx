@@ -1,5 +1,5 @@
-import React from "react";
-import { Skeleton } from "@heroui/react";
+import React from 'react';
+import { Skeleton } from '@heroui/react';
 
 export const MapSkeleton: React.FC = () => (
   <div className="w-full h-full flex flex-col space-y-4 p-6">

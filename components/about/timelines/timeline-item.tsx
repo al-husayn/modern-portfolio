@@ -1,8 +1,8 @@
-"use client";
-import { motion } from "@/lib/motion";
+'use client';
+import { motion } from '@/lib/motion';
 
-import { SplittingText } from "@/components/textAnimations/splitting-text";
-import { TimelineItemProps } from "@/types/about";
+import { SplittingText } from '@/components/textAnimations/splitting-text';
+import { TimelineItemProps } from '@/types/about';
 
 export const TimelineItem = ({
   title,
@@ -37,7 +37,7 @@ export const TimelineItem = ({
           inViewOnce
           className="text-sm text-muted-foreground"
           delay={delay}
-          text={typeof description === "string" ? description : ""}
+          text={typeof description === 'string' ? description : ''}
           type="words"
         />
       )}

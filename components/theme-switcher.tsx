@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { Button } from "@heroui/react";
-import { Icon } from "@iconify/react";
-import { motion } from "@/lib/motion";
-import { useTheme } from "next-themes";
+import { useEffect, useState } from 'react';
+import { Button } from '@heroui/react';
+import { Icon } from '@iconify/react';
+import { motion } from '@/lib/motion';
+import { useTheme } from 'next-themes';
 
 export const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
   const isThemeReady = mounted && resolvedTheme !== undefined;
-  const isDark = isThemeReady && resolvedTheme === "dark";
+  const isDark = isThemeReady && resolvedTheme === 'dark';
 
   useEffect(() => {
     setMounted(true);
@@ -31,14 +31,12 @@ export const ThemeSwitcher = () => {
         variant="flat"
         onPress={() => {
           if (!isThemeReady) return;
-          setTheme(isDark ? "light" : "dark");
+          setTheme(isDark ? 'light' : 'dark');
         }}
       >
         <Icon
           className="w-5 h-5"
-          icon={
-            mounted ? (isDark ? "lucide:sun" : "lucide:moon") : "lucide:moon"
-          }
+          icon={mounted ? (isDark ? 'lucide:sun' : 'lucide:moon') : 'lucide:moon'}
         />
       </Button>
     </motion.div>

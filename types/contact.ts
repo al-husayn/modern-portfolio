@@ -1,4 +1,4 @@
-import { type ReactNode } from "react";
+import { type ReactNode } from 'react';
 
 export interface ContactCardProps {
   heading: string;
@@ -39,9 +39,7 @@ export interface UseContactFormReturn {
   errors: ContactFormErrors;
   isValid: boolean;
   handleInputChange: (field: ContactFormField, value: string) => void;
-  handleSubmit: (
-    onSubmit: (data: ContactFormData) => Promise<void>,
-  ) => Promise<void>;
+  handleSubmit: (onSubmit: (data: ContactFormData) => Promise<void>) => Promise<void>;
   resetForm: () => void;
   validateField: (field: ContactFormField, value: string) => string | undefined;
 }

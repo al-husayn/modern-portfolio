@@ -1,6 +1,6 @@
-import { Tabs, Tab } from "@heroui/react";
+import { Tabs, Tab } from '@heroui/react';
 
-import { ProjectsTabsProps } from "@/types/projects";
+import { ProjectsTabsProps } from '@/types/projects';
 
 export const ProjectsTabs = ({
   categories,

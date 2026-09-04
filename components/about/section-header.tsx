@@ -1,14 +1,10 @@
-"use client";
+'use client';
 
-import { Icon } from "@iconify/react";
+import { Icon } from '@iconify/react';
 
-import { SectionHeaderProps } from "@/types/about";
+import { SectionHeaderProps } from '@/types/about';
 
-export const SectionHeader = ({
-  icon,
-  title,
-  className = "",
-}: SectionHeaderProps) => (
+export const SectionHeader = ({ icon, title, className = '' }: SectionHeaderProps) => (
   <div className={`flex items-center gap-3 mb-6 ${className}`}>
     <div className="bg-primary-100 text-primary-500 p-2 rounded-full">
       <Icon className="text-xl" icon={icon} />

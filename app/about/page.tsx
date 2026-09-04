@@ -1,18 +1,18 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import { ProfileCard } from "@/components/about/profile-card";
-import { EducationTimeline } from "@/components/about/timelines/education-timeline";
-import { ExperienceTimeline } from "@/components/about/timelines/experience-timeline";
-import { Skills } from "@/components/about/skills";
-import { PageHeader } from "@/components/page-header";
-import { DATA } from "@/data";
-import { createSeoMetadata } from "@/lib/seo";
+import { ProfileCard } from '@/components/about/profile-card';
+import { EducationTimeline } from '@/components/about/timelines/education-timeline';
+import { ExperienceTimeline } from '@/components/about/timelines/experience-timeline';
+import { Skills } from '@/components/about/skills';
+import { PageHeader } from '@/components/page-header';
+import { DATA } from '@/data';
+import { createSeoMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = createSeoMetadata({
-  title: "About",
+  title: 'About',
   description: DATA.about.profile.description[0],
-  path: "/about",
-  image: "/AL.jpg",
+  path: '/about',
+  image: '/AL.jpg',
   keywords: [
     DATA.about.profile.title,
     ...DATA.about.technologies.frontend.tools.map((tool) => tool.name),

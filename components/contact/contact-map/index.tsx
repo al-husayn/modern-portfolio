@@ -1,15 +1,12 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "@/lib/motion";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from '@/lib/motion';
 
-import { ContactMapProps } from "@/types/contact";
-import { MapSkeleton } from "@/components/contact/contact-map/map-skeleton";
+import { ContactMapProps } from '@/types/contact';
+import { MapSkeleton } from '@/components/contact/contact-map/map-skeleton';
 
-export const ContactMap: React.FC<ContactMapProps> = ({
-  src,
-  className = "",
-}) => {
+export const ContactMap: React.FC<ContactMapProps> = ({ src, className = '' }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
@@ -67,10 +64,10 @@ export const ContactMap: React.FC<ContactMapProps> = ({
             loading="lazy"
             src={src}
             style={{
-              visibility: isLoaded ? "visible" : "hidden",
+              visibility: isLoaded ? 'visible' : 'hidden',
             }}
             title="Location Map"
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
             onError={handleError}
             onLoad={handleLoad}
           />

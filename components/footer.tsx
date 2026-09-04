@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@heroui/react";
-import { Icon } from "@iconify/react";
-import { motion } from "@/lib/motion";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '@heroui/react';
+import { Icon } from '@iconify/react';
+import { motion } from '@/lib/motion';
 
-import { DATA } from "@/data";
+import { DATA } from '@/data';
 
 export const Footer = () => {
   const { name, description, contact, socialLinks, services } = DATA.footer;
@@ -36,9 +36,7 @@ export const Footer = () => {
                 width={44}
                 height={44}
               />
-              <span className="text-lg font-semibold text-foreground">
-                {name}
-              </span>
+              <span className="text-lg font-semibold text-foreground">{name}</span>
             </Link>
 
             <h2 className="max-w-sm text-2xl font-semibold leading-tight text-foreground sm:text-3xl">
@@ -95,15 +93,15 @@ export const Footer = () => {
               </h3>
               <ul className="space-y-2">
                 {navigation.map((item) => {
-                  const isExternal = item.href.startsWith("http");
+                  const isExternal = item.href.startsWith('http');
 
                   return (
                     <li key={item.name}>
                       <Link
                         className="flex items-center gap-3 px-2 py-2 -ml-2 text-sm font-medium transition-colors rounded-md text-foreground-600 hover:bg-primary-500/10 hover:text-primary-500"
                         href={item.href}
-                        rel={isExternal ? "noopener noreferrer" : undefined}
-                        target={isExternal ? "_blank" : undefined}
+                        rel={isExternal ? 'noopener noreferrer' : undefined}
+                        target={isExternal ? '_blank' : undefined}
                       >
                         <Icon className="w-4 h-4" icon={item.icon} />
                         {item.name}
@@ -124,10 +122,7 @@ export const Footer = () => {
                     className="flex items-start gap-3 text-sm leading-relaxed transition-colors text-foreground-600 hover:text-primary-500"
                     href={`mailto:${contact.email}`}
                   >
-                    <Icon
-                      className="mt-0.5 h-4 w-4 shrink-0 text-primary-500"
-                      icon="lucide:mail"
-                    />
+                    <Icon className="mt-0.5 h-4 w-4 shrink-0 text-primary-500" icon="lucide:mail" />
                     <span className="break-all">{contact.email}</span>
                   </a>
                 </li>

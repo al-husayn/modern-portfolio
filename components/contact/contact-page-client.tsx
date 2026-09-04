@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import type { ContactFormData } from "@/types/contact";
+import type { ContactFormData } from '@/types/contact';
 
-import { useCallback, useState } from "react";
-import { addToast } from "@heroui/react";
+import { useCallback, useState } from 'react';
+import { addToast } from '@heroui/react';
 
-import { ContactCard } from "@/components/contact/contact-card";
-import { ContactForm } from "@/components/contact/contact-form";
-import { PageHeader } from "@/components/page-header";
-import { DATA } from "@/data";
-import { getMissingEmailVars, sendContactEmail } from "@/lib/emailjs";
+import { ContactCard } from '@/components/contact/contact-card';
+import { ContactForm } from '@/components/contact/contact-form';
+import { PageHeader } from '@/components/page-header';
+import { DATA } from '@/data';
+import { getMissingEmailVars, sendContactEmail } from '@/lib/emailjs';
 
-const CONTACT_ERROR_MESSAGE = "Failed to send message. Please try again later.";
+const CONTACT_ERROR_MESSAGE = 'Failed to send message. Please try again later.';
 const EMAIL_CONFIG_MESSAGE =
-  "Email configuration is incomplete. Please check environment variables.";
+  'Email configuration is incomplete. Please check environment variables.';
 
 const getErrorMessage = (error: unknown): string => {
   return error instanceof Error ? error.message : CONTACT_ERROR_MESSAGE;
@@ -24,53 +24,50 @@ export function ContactPageClient() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = useCallback(
-    async (formData: ContactFormData): Promise<void> => {
-      setIsSubmitting(true);
-      setIsSuccess(false);
-      setError(null);
+  const handleSubmit = useCallback(async (formData: ContactFormData): Promise<void> => {
+    setIsSubmitting(true);
+    setIsSuccess(false);
+    setError(null);
 
-      const missingVars = getMissingEmailVars();
+    const missingVars = getMissingEmailVars();
 
-      if (missingVars.length > 0) {
-        const missingVarsText = missingVars.join(", ");
-        const message = `${EMAIL_CONFIG_MESSAGE} Missing: ${missingVarsText}`;
+    if (missingVars.length > 0) {
+      const missingVarsText = missingVars.join(', ');
+      const message = `${EMAIL_CONFIG_MESSAGE} Missing: ${missingVarsText}`;
 
-        setError(message);
-        addToast({
-          title: "Failed to Send Message",
-          description: message,
-          color: "danger",
-        });
-        setIsSubmitting(false);
+      setError(message);
+      addToast({
+        title: 'Failed to Send Message',
+        description: message,
+        color: 'danger',
+      });
+      setIsSubmitting(false);
 
-        return;
-      }
+      return;
+    }
 
-      try {
-        await sendContactEmail(formData);
+    try {
+      await sendContactEmail(formData);
 
-        setIsSuccess(true);
-        addToast({
-          title: "Message Sent Successfully",
-          description: "Thank you for your message! I'll get back to you soon.",
-          color: "success",
-        });
-      } catch (error) {
-        const errorMessage = getErrorMessage(error);
+      setIsSuccess(true);
+      addToast({
+        title: 'Message Sent Successfully',
+        description: "Thank you for your message! I'll get back to you soon.",
+        color: 'success',
+      });
+    } catch (error) {
+      const errorMessage = getErrorMessage(error);
 
-        setError(errorMessage);
-        addToast({
-          title: "Failed to Send Message",
-          description: errorMessage,
-          color: "danger",
-        });
-      } finally {
-        setIsSubmitting(false);
-      }
-    },
-    [],
-  );
+      setError(errorMessage);
+      addToast({
+        title: 'Failed to Send Message',
+        description: errorMessage,
+        color: 'danger',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  }, []);
 
   const handleReset = useCallback(() => {
     setIsSubmitting(false);
@@ -82,10 +79,7 @@ export function ContactPageClient() {
     <section className="site-section">
       <PageHeader {...DATA.pageHeaders.contact} />
       <div className="mx-auto max-w-3xl">
-        <ContactCard
-          heading={DATA.contact.heading}
-          tagline={DATA.contact.tagline}
-        >
+        <ContactCard heading={DATA.contact.heading} tagline={DATA.contact.tagline}>
           <ContactForm
             isSubmitting={isSubmitting}
             isSuccess={isSuccess}

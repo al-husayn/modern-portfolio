@@ -1,8 +1,8 @@
-import emailjs from "@emailjs/browser";
+import emailjs from '@emailjs/browser';
 
-import { ContactFormData } from "@/types/contact";
+import { ContactFormData } from '@/types/contact';
 
-type EmailConfigKey = "serviceId" | "templateId" | "publicKey";
+type EmailConfigKey = 'serviceId' | 'templateId' | 'publicKey';
 
 type EmailFormData = {
   name: string;
@@ -18,9 +18,9 @@ const EMAIL_CONFIG: Readonly<Record<EmailConfigKey, string | undefined>> = {
 };
 
 const EMAIL_CONFIG_ENV_KEYS: Readonly<Record<EmailConfigKey, string>> = {
-  serviceId: "NEXT_PUBLIC_EMAILJS_SERVICE_ID",
-  templateId: "NEXT_PUBLIC_EMAILJS_TEMPLATE_ID",
-  publicKey: "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY",
+  serviceId: 'NEXT_PUBLIC_EMAILJS_SERVICE_ID',
+  templateId: 'NEXT_PUBLIC_EMAILJS_TEMPLATE_ID',
+  publicKey: 'NEXT_PUBLIC_EMAILJS_PUBLIC_KEY',
 };
 
 export const getMissingEmailVars = (): string[] => {
@@ -41,9 +41,9 @@ const buildMessage = (formData: EmailFormData): string => {
     `Name: ${formData.name}`,
     `Email: ${formData.email}`,
     `Subject: ${formData.subject}`,
-    "",
+    '',
     formData.message,
-  ].join("\n");
+  ].join('\n');
 };
 
 const toTemplateParams = (formData: ContactFormData) => {
@@ -72,9 +72,7 @@ const toTemplateParams = (formData: ContactFormData) => {
   };
 };
 
-export const sendContactEmail = async (
-  formData: ContactFormData,
-): Promise<void> => {
+export const sendContactEmail = async (formData: ContactFormData): Promise<void> => {
   await emailjs.send(
     EMAIL_CONFIG.serviceId!,
     EMAIL_CONFIG.templateId!,

@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { motion } from "@/lib/motion";
+import { motion } from '@/lib/motion';
 
-import { SectionHeader } from "../section-header";
-import { TimelineItem } from "../timelines/timeline-item";
-import { containerVariants, itemVariants } from "../variants";
+import { SectionHeader } from '../section-header';
+import { TimelineItem } from '../timelines/timeline-item';
+import { containerVariants, itemVariants } from '../variants';
 
-import { EducationItems } from "@/types/about";
+import { EducationItems } from '@/types/about';
 
 interface EducationTimelineProps {
   education: EducationItems;

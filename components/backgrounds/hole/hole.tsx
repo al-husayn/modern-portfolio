@@ -1,4 +1,4 @@
-import { HoleBackground } from "@/components/backgrounds/hole/hole-background";
+import { HoleBackground } from '@/components/backgrounds/hole/hole-background';
 
 export const Hole = () => {
   return (

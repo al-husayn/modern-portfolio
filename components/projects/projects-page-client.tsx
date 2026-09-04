@@ -1,29 +1,29 @@
-"use client";
+'use client';
 
-import { useMemo, useState } from "react";
+import { useMemo, useState } from 'react';
 
-import { PageHeader } from "@/components/page-header";
-import { ProjectsGrid } from "@/components/projects/projects-grid";
-import { ProjectsTabs } from "@/components/projects/projects-tabs";
-import { DATA } from "@/data";
+import { PageHeader } from '@/components/page-header';
+import { ProjectsGrid } from '@/components/projects/projects-grid';
+import { ProjectsTabs } from '@/components/projects/projects-tabs';
+import { DATA } from '@/data';
+
+const { projects } = DATA;
 
 export function ProjectsPageClient() {
-  const allProjects = DATA.projects.work;
+  const allProjects = projects.work;
 
   const categories = useMemo(
-    () => ["All", ...new Set(allProjects.map((project) => project.category))],
+    () => ['All', ...new Set(allProjects.map((project) => project.category))],
     [allProjects],
   );
 
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   const filteredProjects = useMemo(
     () =>
-      selectedCategory === "All"
+      selectedCategory === 'All'
         ? allProjects
-        : allProjects.filter(
-            (project) => project.category === selectedCategory,
-          ),
+        : allProjects.filter((project) => project.category === selectedCategory),
     [selectedCategory, allProjects],
   );
 
