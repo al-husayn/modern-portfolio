@@ -51,8 +51,12 @@ export const collectBlogCardTargets = (
 
       return [`${BLOG_ROUTE_PREFIX}/${normalizedSegments.join('/')}`];
     });
-  } catch {
-    return [];
+  } catch (error) {
+    if (typeof error === 'object' && error !== null && 'code' in error && error.code === 'ENOENT') {
+      return [];
+    }
+
+    throw error;
   }
 };
 
